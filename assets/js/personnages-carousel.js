@@ -15,7 +15,7 @@
       nom:     'Perturabo',
       titre:   'Primarque des Iron Warriors',
       faction: 'Iron Warriors · Primarque',
-      image:   'assets/img/personnages/angron.jpg',
+      image:   'assets/img/personnages/perturabo.jpg',
       lore:    'Perturabo est le Primarque de la IVe Légion, les Iron Warriors, génie froid de l\'ingénierie et des sièges. Calculateur et méthodique, il conçoit la guerre comme un problème à résoudre par la logique, l\'artillerie et la géométrie parfaite du massacre. Toute sa vie, il se sentit sous-estimé par l\'Empereur et méprisé par ses frères, relégué aux campagnes les plus ingrates alors qu\'il se pensait indispensable. Ce ressentiment rongea peu à peu son esprit, nourrissant amertume, jalousie et paranoïa, jusqu\'à le pousser vers la trahison. Lors de l\'Hérésie d\'Horus, Perturabo mit ses Iron Warriors au service du Maître de Guerre, brisant les forteresses de l\'Imperium avec une précision impitoyable. Devenu l\'incarnation de la destruction assiégeante, il laissa derrière lui des mondes réduits à des carcasses de béton et d\'acier, gravant à jamais son nom dans la légende la plus sombre de l\'Adeptus Astartes.'
     },
     {
@@ -29,7 +29,7 @@
       nom:     'Sanguinius',
       titre:   'Primarque des Blood Angels',
       faction: 'Blood Angels',
-      image:   'assets/img/personnages/kharak.jpg',
+      image:   'assets/img/personnages/sanguinius.jpg',
       lore:    'Sanguinius est le sublime Primarque de la IXe Légion, les Blood Angels, un être à l\'allure d\'ange dont la grâce masque une puissance guerrière terrifiante. Né sur Baal Secundus, il fut vénéré comme un sauveur par des survivants qui acceptèrent ses ailes plutôt que de le craindre. Lorsque l\'Empereur le retrouva, il lui confia la IXe Légion qui prit le nom de Blood Angels et devint un symbole d\'espoir pour l\'Imperium. Chef charismatique, stratège brillant et parangon de noblesse, Sanguinius portait pourtant une tare génétique : la Soif Rouge, pulsion sanguinaire qu\'il tenta de contenir pour préserver l\'honneur de ses fils. Durant l\'Hérésie d\'Horus, il combattit sans relâche jusqu\'au Siège de Terra, où il affronta Horus lui-même et mourut en martyr. Sa mort et son sacrifice hantent encore tous les descendants des Blood Angels.'
     }
   ];
