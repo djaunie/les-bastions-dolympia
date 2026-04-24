@@ -137,60 +137,6 @@
       "couleur": "red",
       "stats": [],
       "delai": 1
-    },
-    {
-      "faction": "Blood Angels • Chapelain",
-      "nom": "Varus",
-      "titre": "Gardien de la Mémoire de Sanguinius",
-      "lore": "« Le Chapelain Varus terrassa l'Invocatus en duel singulier — sa victoire personnelle ne fut qu'une note de clarté dans une symphonie de hurlements. Il lutte constamment contre la malédiction qui bouillonne dans ses veines. »",
-      "couleur": "blue",
-      "stats": [],
-      "delai": 2
-    },
-    {
-      "faction": "Black Templars • Reclusiarch",
-      "nom": "Grimaldus",
-      "titre": "Héros de Helsreach",
-      "lore": "« Grimaldus se dresse comme un pilier de granit noir face à la tempête. Il osa défier Angron en combat singulier. Un halo sacré se manifesta miraculeusement autour de lui et de sa garde d'honneur contre les coups terrifiants du Primarch Démon. »",
-      "couleur": "gold",
-      "stats": [],
-      "delai": 3
-    },
-    {
-      "faction": "World Eaters • Berserker d'élite",
-      "nom": "Kharak le Sanguinaire",
-      "titre": "L'Ancien Gladiateur",
-      "lore": "« Sur Jakku, à la Station 9, la mort de Morgath le Faucheur fit voler en éclats ses dernières brides mentales. Kharak continua de frapper en hurlant le nom de Khorne. Les premiers autels furent élevés sur un tas de cadavres Silver Templars marqués par ses coups. »",
-      "couleur": "red",
-      "stats": [],
-      "delai": 1
-    },
-    {
-      "faction": "World Eaters • Maître des Exécutions",
-      "nom": "Morgath le Faucheur",
-      "titre": "L'Introuvable",
-      "lore": "« À la Station 9 de Jakku, il éventra le Capitaine Essios des Silver Templars. Sa chute brisa un équilibre précaire. Nul n'a retrouvé son corps — seulement une traînée de sang séché. Certains Inquisiteurs affirment l'avoir vu sur d'autres mondes, hache au poing. »",
-      "couleur": "red",
-      "stats": [],
-      "delai": 2
-    },
-    {
-      "faction": "Orks — Waaagh! Dégotte",
-      "nom": "Bolg & Nawak",
-      "titre": "Le Nob Cavalier & le Mek Brikoleur",
-      "lore": "« Bolg mènerait lui-même les assauts depuis l'arrivée de la Waaagh! Il affronta le chef Astartes en duel et lui infligea une défaite humiliante. Nawak bidouilla un techno-crâne de zom et trouva les informations sur les dix stations que le Big Boss veut démanteler. »",
-      "couleur": "green",
-      "stats": [],
-      "delai": 0
-    },
-    {
-      "faction": "Le Conqueror • Âme du Vaisseau",
-      "nom": "Lotara Sarrin",
-      "titre": "La Rose Nourrie par le Sang",
-      "lore": "« Désormais liée au Conqueror, elle en est devenue l'âme indissociable, une volonté spectrale qui imprègne chaque coursive. Le vaisseau est sa chair, ses systèmes l'expression de son autorité absolue. Les vox tonnent parfois de sa voix impérieuse. »",
-      "couleur": "gold",
-      "stats": [],
-      "delai": 1
     }
   ],
   "mecaniques": {
@@ -198,71 +144,6 @@
       "nom": "Le Conqueror",
       "image": "assets/img/vaisseau_le_conqueror.png",
       "image_alt": "Le Conqueror, vaisseau Gloriana corrompu par Khorne avec Lotara Sarrin",
-      "bonus": [
-        {
-          "icone": "🌌",
-          "nom": "Bombardement Orbital",
-          "desc": "1/bataille : met un pion, et à la prochaine phase de tir, inflige 1D6 BM sur 6\" de rayon. Dégâts sur toute la carte."
-        },
-        {
-          "icone": "🔥",
-          "nom": "Arène de Combat",
-          "desc": "Permet des rituels avec les Crânes et le Sang. Voir recette et objectif du rituel."
-        },
-        {
-          "icone": "⚙️",
-          "nom": "Audaxia",
-          "desc": "Énorme avenue dans le vaisseau permettant le transport de Titans ! Le seul à pouvoir en transporter de monde en monde."
-        },
-        {
-          "icone": "👻",
-          "nom": "La Maîtresse (Lotara Sarrin)",
-          "desc": "Mission rituelle à réaliser. Permet une FeP Warp durant un abordage. Si abordé, donne un bonus en modifiant le décor."
-        },
-        {
-          "icone": "⚓",
-          "nom": "Griffes d'Ursus",
-          "desc": "Énormes crochets offrant un bonus en combat d'abordage. Bloque un vaisseau amiral adverse et force une mission spéciale."
-        },
-        {
-          "icone": "💥",
-          "nom": "Fureur du Gloriana",
-          "desc": "Macro-canons gigantesques. Si 5 Crânes ET 50 Sangs sacrifiés : terrible bombardement orbital ! Torpilles Cycloniques : Exterminatus d'un monde."
-        }
-      ]
-    },
-    "cranes": {
-      "icone": "💀",
-      "titre": "Des Crânes pour le Trône",
-      "desc": "Chaque officier tué (personnage & sergent) rapporte un Crâne trophée. Les Crânes s'accumulent et se dépensent lors de rituels. Hors bataille, ils renforcent les rituels avec des effets aléatoires.",
-      "paliers": [
-        { "seuil": "2☠", "effet": "+1A sur un personnage pour toute une bataille (hors Angron)" },
-        { "seuil": "4☠", "effet": "FnP 4+ sur un personnage pour toute une bataille (hors Angron)" },
-        { "seuil": "6☠", "effet": "Touche Soutenue 2 + Précision sur les armes de mêlée d'un personnage" },
-        { "seuil": "8☠", "effet": "Vision d'une mission de Khorne + 1A sur chacune de tes unités" },
-        { "seuil": "10☠", "effet": "Créer une arme relique — optimisation gratuite custom !" }
-      ]
-    },
-    "sang": {
-      "icone": "🩸",
-      "titre": "Du Sang pour le Dieu du Sang",
-      "desc": "Les PV tués s'accumulent. Selon le nombre obtenu, une bénédiction de Khorne est accordée au début d'un tour. Plus on accumule, plus c'est puissant.",
-      "paliers": [
-        { "seuil": "10🩸", "effet": "+2M pour toutes les unités !" },
-        { "seuil": "20🩸", "effet": "-1 à la SVG non Inv de toutes les unités ennemies" },
-        { "seuil": "30🩸", "effet": "-1 à la PA pour toutes les unités" },
-        { "seuil": "40🩸", "effet": "+1 à la CC pour toutes les unités" },
-        { "seuil": "50🩸", "effet": "+1 au jet de blesse pour toutes les unités" }
-      ]
-    },
-    "saint_carnage": {
-      "icone": "⚔️",
-      "titre": "Règle Saint Carnage",
-      "desc": "Les unités suivantes ne peuvent pas tirer ni utiliser le stratagème Grenade — mais gagnent des bonus massifs en mêlée :",
-      "unites": [
-        { "nom": "Berzerkers", "detail": "1 Champion par unité — 3PV, CC2+, Porte-Icône" },
-        { "nom": "Rhino", "detail": "Gagne une arme CAC spéciale : Pare-buffle empaleur (4A, CC4+, F6, PA-1, D2)" }
-      ]
     }
   }
 }
