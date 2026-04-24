@@ -63,6 +63,8 @@
       "nom": "Anvillus",
       "titre": "Anvillus — Monde en guerre civil",
       "description": "Guerre civile planétaire entre partisans d'Horus et loyalistes de Terra.",
+      "statut": "Guerre Civile",
+      "statut_classe": "status-civil_war",
       "image": "assets/img/anvillus.png",
       "image_alt": "Anvillus — Monde en guerre civile",
       "batailles": [
@@ -83,6 +85,8 @@
       "nom": "Incaladion",
       "titre": "Bastion",
       "description": "Monde fortifié / industriel lourd, verrou pour l'accès au noyau galactique.",
+      "statut": "Assiégé",
+      "statut_classe": "status-besieged",
       "image": "assets/img/incaladion.png",
       "image_alt": "Incaladion — Monde-bastion industriel lourd",
       "batailles": [
@@ -103,6 +107,8 @@
       "nom": "Utan Magna",
       "titre": "Monde-Forge",
       "description": "Monde-forge spécialisé dans l'armement lourd et la maintenance navale.",
+      "statut": "Contesté",
+      "statut_classe": "status-neutral",
       "image": "assets/img/utan_magna.png",
       "image_alt": "Utan Magna — Monde-Forge spécialisé en armement lourd",
       "batailles": [
@@ -130,8 +136,8 @@
       "delai": 0
     },
     {
-      "faction": "World Eaters • Champion de Khorne",
       "nom": "Khârn le Félon",
+      "faction": "World Eaters • Champion de Khorne",
       "titre": "Le Traître de Skalathrax",
       "lore": "« Khârn le Sanglant avance au cœur du fracas, là où les vox sont saturés de hurlements. On dit que son compteur de morts s'est arrêté depuis longtemps, incapable de suivre ses massacres, mais qu'il continue de cliquer dans le noir. »",
       "couleur": "red",
@@ -143,7 +149,7 @@
     "vaisseau": {
       "nom": "Le Conqueror",
       "image": "assets/img/vaisseau_le_conqueror.png",
-      "image_alt": "Le Conqueror, vaisseau Gloriana corrompu par Khorne avec Lotara Sarrin",
+      "image_alt": "Le Conqueror, vaisseau Gloriana corrompu par Khorne avec Lotara Sarrin"
     }
   }
 }
