@@ -1,45 +1,31 @@
 {
   "meta": {
-    "titre": "Sous-Secteur Fyrentis",
-    "systeme": "Warhammer 40 000",
+    "titre": "Sous-Secteur Bastions d'Olympia",
+    "systeme": "Horus Heresy",
     "type": "Campagne Narrative",
-    "millenaire": "41ème Millénaire"
+    "millenaire": "31ème Millénaire"
   },
   "joueurs": [
     {
-      "nom": "Freddy",
+      "nom": "Jean",
       "role": "Maître du jeu",
       "couleur": "gold",
       "delai": 2,
       "armees": ["Black Templars", "Silver Templars", "Death Guard", "Nécrons", "Adeptus Mechanicus", "Votann"]
     },
     {
-      "nom": "Jean",
+      "nom": "Alexis",
       "role": "Du sang pour le Dieu du sang",
       "couleur": "red",
       "delai": 1,
       "armees": ["World Eaters"]
     },
     {
-      "nom": "David",
+      "nom": "Elian",
       "role": "Une compagnie en péril",
       "couleur": "blue",
       "delai": 3,
       "armees": ["Blood Angels"]
-    },
-    {
-      "nom": "Jérémy",
-      "role": "Apporter la liberté dans les étoiles",
-      "couleur": "green",
-      "delai": 4,
-      "armees": ["Garde Impériale"]
-    },
-    {
-      "nom": "Vincent",
-      "role": "Cœur de fer, Main de fer",
-      "couleur": "purple",
-      "delai": 1,
-      "armees": ["Iron Warriors de Khorne"]
     }
   ],
   "lore": {
@@ -73,53 +59,12 @@
   },
   "fronts": [
     {
-      "id": "jakku",
-      "nom": "Jakku",
-      "titre": "Jakku — Agri-Monde Dévasté",
-      "description": "L'agri-monde organisé autour de 10 stations gérant les méga-récoltes. La Waaagh! Dégotte a débarqué, la Death Guard a corrompu des populations entières, et les World Eaters ont saigné le monde pour Khorne.",
-      "statut": "Front Actif",
-      "statut_classe": "front-status--active",
-      "image": "assets/img/jakku.png",
-      "image_alt": "Bataille sur Jakku - les agro-stations en flammes",
-      "stations": [
-        { "num": "02", "proprietaire": "Black Templars", "classe": "station-owner--bt" },
-        { "num": "04", "proprietaire": "Silver Templars", "classe": "station-owner--st" },
-        { "num": "06", "proprietaire": "Death Guard", "classe": "station-owner--dg" },
-        { "num": "08", "proprietaire": "Inconnue", "classe": "station-owner--ruine" }
-      ],
+      "id": "anvillus",
+      "nom": "Anvillus",
+      "titre": "Anvillus — Monde en guerre civil",
+      "description": "Guerre civile planétaire entre partisans d'Horus et loyalistes de Terra.",
+      "image": "assets/img/anvillus.png",
       "batailles": [
-        {
-          "label": "Station 1 • Waaagh!",
-          "titre": "La Légende de Bolg",
-          "texte": "Le Grand Nob Bolg, envoyé par le Big Boss Dégotte, reprend le Grand Bastion et la station 1 face aux Silver Templars. Un tir de Kanon démek détruit un Eradicator. Bolg affronte le capitaine Silver Templar en duel et lui inflige une défaite mémorable.",
-          "classe": "battle-entry--victory",
-          "factions": [
-            { "label": "Orks Victoire", "classe": "faction-tag--ork" },
-            { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
-          ]
-        },
-        {
-          "label": "Station 5 • Le Carnage",
-          "titre": "L'Agro-Station de l'Enfer",
-          "texte": "Quatre factions s'affrontent dans un carnage total. Le Chapelain Varus (Blood Angels) terrasse l'Invocatus en duel. Mais les World Eaters, galvanisés par la mort de leur champion, massacrent tout sur leur passage. L'Agro-Station est consacrée à Khorne.",
-          "classe": "battle-entry--contested",
-          "factions": [
-            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
-            { "label": "Blood Angels", "classe": "faction-tag--ba" },
-            { "label": "Orks", "classe": "faction-tag--ork" },
-            { "label": "Garde Impériale", "classe": "faction-tag--gi" }
-          ]
-        },
-        {
-          "label": "Station 7 • L'Écho Sanglant",
-          "titre": "La Chute de Thaddeus",
-          "texte": "Les Berzerkers de Khârn jaillissent de Rhinos sacrifiés comme des offrandes. Le Dreadnought Thaddeus tombe après un combat épique contre les Ferrocerberus. Le capitaine Cassius est forcé à la retraite. La station 7 devient un avant-poste de Khorne.",
-          "classe": "battle-entry--victory",
-          "factions": [
-            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
-            { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
-          ]
-        },
         {
           "label": "Station 6 • La Pestilence",
           "titre": "Le Jardin de Grand-Père Nurgle",
@@ -127,53 +72,18 @@
           "classe": "battle-entry--nurgle",
           "factions": [
             { "label": "Death Guard Victoire", "classe": "faction-tag--dg" },
-            { "label": "Blood Angels Défaite", "classe": "faction-tag--ba" },
             { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
           ]
         }
       ]
     },
     {
-      "id": "sanctum",
-      "nom": "Sanctum",
-      "titre": "Sanctum — Monde-Forge",
-      "description": "Principal fournisseur d'armes du sous-secteur depuis huit millénaires, lié à Metallica. Angron investit les villes-forge tandis que le Fabricator-Général Horgell Dyass tisse ses intrigues. Le Collegia Titanica est la cible ultime.",
-      "statut": "Contesté",
-      "statut_classe": "front-status--contested",
-      "image": "assets/img/sanctum.png",
-      "image_alt": "Vue panoramique du monde-forge Sanctum, avec cité-usine gothique et Titan en maintenance",
+      "id": "incaladion",
+      "nom": "Incaladion",
+      "titre": "Bastion",
+      "description": "Monde fortifié / industriel lourd, verrou pour l’accès au noyau galactique.",
+      "image": "assets/img/incaladion.png",
       "batailles": [
-        {
-          "label": "Brokha • Grande Bataille",
-          "titre": "La lune Brokha",
-          "texte": "Les Black Templars défendent la lune Brokha d'une invasion chaotique. <a href=\"rapport-bataille-brokha.html\">Plus d'info en cliquant sur ce rapport.</a>",
-          "classe": "battle-entry--victory",
-          "factions": [
-            { "label": "World Eaters", "classe": "faction-tag--we" },
-            { "label": "Iron Warriors de Khorne", "classe": "faction-tag--iw" },
-            { "label": "Black Templars", "classe": "faction-tag--bt" }
-          ]
-        },
-        {
-          "label": "Colchis • Grande Bataille",
-          "titre": "La Cité-Ruche Grimah",
-          "texte": "Grimaldus et les Black Templars défendent la cité-ruche contre Angron et ses Octoliés. Le Héros de Helsreach défie Angron en combat singulier — un halo sacré se manifeste autour de lui. Malgré l'héroïsme des Templiers, la Porte Est tombe. Le Seigneur Invocatus avec ses Ferrocerberus Scythak et Morthrex ravage la Porte Ouest.",
-          "classe": "battle-entry--victory",
-          "factions": [
-            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
-            { "label": "Black Templars Défaite Partielle", "classe": "faction-tag--bt" }
-          ]
-        },
-        {
-          "label": "Sanctum • Infiltration",
-          "titre": "Le Techno-Prêtre Corrompu",
-          "texte": "Angron libère un techno-prêtre corrompu de haut rang qui l'aide à percer les lignes DCA de Sanctum. En échange : les codes secrets du monde-forge au moment opportun. Une ville-forge mineure dédiée aux armes et munitions est infiltrée. L'usine d'équipement Astartes est sous surveillance.",
-          "classe": "battle-entry--contested",
-          "factions": [
-            { "label": "World Eaters Progression", "classe": "faction-tag--we" },
-            { "label": "Sanctum Alerte", "classe": "faction-tag--bt" }
-          ]
-        },
         {
           "label": "Sanctum • À Venir",
           "titre": "La Grande Cité-Forge du Sud",
@@ -187,25 +97,12 @@
       ]
     },
     {
-      "id": "secret",
-      "nom": "Système Secret",
-      "titre": "Système Secret — Centre de la Campagne",
-      "description": "Un système inconnu, apparu sur les auspex des forces impériales. Khârn et le Conqueror font face à une flotte Nécron encerclant une immense Forteresse Noire. Le centre narratif ultime de la campagne.",
-      "statut": "??? Mystère",
-      "statut_classe": "front-status--secret",
-      "image": "assets/img/system_secret.png",
-      "image_alt": "Forteresse Noire encerclée par une flotte nécron dans le Système Secret",
+      "id": "utan magna",
+      "nom": "Utan Magna",
+      "titre": "Monde-Forge",
+      "description": "Monde-forge spécialisé dans l’armement lourd et la maintenance navale.",
+      "image": "assets/img/utan_magna.png",
       "batailles": [
-        {
-          "label": "Système Inconnu",
-          "titre": "La Forteresse Noire des Nécrons",
-          "texte": "Khârn et le vaisseau amiral le Conqueror se retrouvent face à une flotte Nécron encerclant une immense Forteresse Noire. L'enjeu de cette confrontation dépasse la simple bataille — les secrets du système secret pourraient décider du destin de tout le sous-secteur Fyrentis.",
-          "classe": "",
-          "factions": [
-            { "label": "Khârn & Le Conqueror", "classe": "" },
-            { "label": "Nécrons", "classe": "" }
-          ]
-        },
         {
           "label": "Indice Narratif",
           "titre": "Qu'est-ce qui s'y cache ?",
