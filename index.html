@@ -9,66 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/personnages-carousel.css">
-  <style>
-    /* ── THÈME IRON WARRIORS — HORUS HERESY ───────────────────────────── */
-    /* Rayures chevrons IW sur le hero */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent 0px, transparent 18px,
-        rgba(240,208,80,0.04) 18px, rgba(240,208,80,0.04) 22px
-      );
-      pointer-events: none;
-      z-index: 1;
-    }
-    .section-title span { color: #8a9bac !important; }
-    .hero-title span    { color: #f0d060 !important; }
-
-    /* ── BOUTONS NAVIGATION ──────────────────────────────────────────── */
-    .nav-page-links { display:flex; gap:.5rem; align-items:center; }
-    .btn-nav-page {
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.4rem .85rem; font-family:'Cinzel',serif; font-size:.72rem;
-      font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-      text-decoration:none; border-radius:3px; border:1px solid;
-      transition:background 180ms ease,color 180ms ease,border-color 180ms ease,box-shadow 180ms ease;
-      cursor:pointer; white-space:nowrap;
-    }
-    .btn-nav-page--carte { color:#c8a028; border-color:rgba(200,160,40,.45); background:rgba(200,160,40,.07); }
-    .btn-nav-page--carte:hover { background:rgba(200,160,40,.18); border-color:#c8a028; box-shadow:0 0 10px rgba(200,160,40,.25); color:#e8c050; }
-    [data-theme="light"] .btn-nav-page--carte { color:#8a6800; border-color:rgba(138,104,0,.4); background:rgba(138,104,0,.06); }
-    [data-theme="light"] .btn-nav-page--carte:hover { background:rgba(138,104,0,.14); border-color:#8a6800; }
-    @media (max-width:600px) {
-      .nav-page-links { gap:.35rem; }
-      .btn-nav-page { font-size:.65rem; padding:.35rem .6rem; }
-    }
-
-    /* ── BOUTONS ARMÉES ────────────────────────────────────────────────── */
-    .btn-armee {
-      display:inline-flex; align-items:center; gap:.55rem;
-      padding:.85rem 2rem; font-family:'Cinzel',serif; font-size:.85rem;
-      font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-      text-decoration:none; border-radius:3px; border:1px solid;
-      transition:background 200ms ease,border-color 200ms ease,box-shadow 200ms ease,transform 120ms ease;
-    }
-    .btn-armee:hover  { transform:translateY(-1px); }
-    .btn-armee:active { transform:translateY(0); }
-    .btn-armee--iw { color:#c09878; border-color:rgba(160,120,80,.55); background:rgba(122,90,60,.10); }
-    .btn-armee--iw:hover { background:rgba(122,90,60,.22); border-color:#a07848; box-shadow:0 0 20px rgba(140,60,20,.30); color:#d8b898; }
-    .btn-armee--ba { color:#e06060; border-color:rgba(176,26,26,.55); background:rgba(176,26,26,.10); }
-    .btn-armee--ba:hover { background:rgba(176,26,26,.22); border-color:#b01a1a; box-shadow:0 0 22px rgba(176,26,26,.35); color:#ff9090; }
-    .btn-armee--dg { color:#90b848; border-color:rgba(100,140,40,.55); background:rgba(80,110,30,.10); }
-    .btn-armee--dg:hover { background:rgba(80,110,30,.22); border-color:#6a9030; box-shadow:0 0 22px rgba(100,140,40,.28); color:#b0d868; }
-    [data-theme="light"] .btn-armee--iw { color:#5a3a18; border-color:rgba(90,58,24,.5); background:rgba(90,58,24,.06); }
-    [data-theme="light"] .btn-armee--iw:hover { background:rgba(90,58,24,.14); border-color:#5a3a18; color:#3a2008; }
-    [data-theme="light"] .btn-armee--ba { color:#7a0c0c; border-color:rgba(122,12,12,.5); background:rgba(122,12,12,.06); }
-    [data-theme="light"] .btn-armee--ba:hover { background:rgba(122,12,12,.14); border-color:#7a0c0c; color:#4a0404; }
-    [data-theme="light"] .btn-armee--dg { color:#3a5a10; border-color:rgba(58,90,16,.5); background:rgba(58,90,16,.06); }
-    [data-theme="light"] .btn-armee--dg:hover { background:rgba(58,90,16,.14); border-color:#3a5a10; color:#1a3000; }
-  </style>
 </head>
 <body>
 
