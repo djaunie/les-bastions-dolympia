@@ -20,6 +20,17 @@
    * ─────────────────────────────────────────────────────────────────────*/
   var PERSONNAGES = [
     {
+      nom:     'Perturabo',
+      titre:   'Primarque des Iron Warriors',
+      faction: 'Iron Warriors · Primarque',
+      image:   'assets/img/personnages/angron.jpg',
+      lore:    'Perturabo est le Primarque de la IVe Légion, les Iron Warriors, génie froid de l’ingénierie et des sièges. Calculateur et méthodique, il conçoit la guerre comme un problème à résoudre par la logique, l’artillerie et la géométrie parfaite du massacre.
+
+Toute sa vie, il se sentit sous‑estimé par l’Empereur et méprisé par ses frères, relégué aux campagnes les plus ingrates alors qu’il se pensait indispensable. Ce ressentiment rongea peu à peu son esprit, nourrissant amertume, jalousie et paranoïa, jusqu’à le pousser vers la trahison.
+
+Lors de l’Hérésie d’Horus, Perturabo mit ses Iron Warriors au service du Maître de Guerre, brisant les forteresses de l’Imperium avec une précision impitoyable. Devenu l’incarnation de la destruction assiégeante, il laissa derrière lui des mondes réduits à des carcasses de béton et d’acier, gravant à jamais son nom dans la légende la plus sombre de l’Adeptus Astartes.'
+    },
+    {
       nom:     'Angron',
       titre:   'Primarque des World Eaters',
       faction: 'World Eaters · Primarque',
@@ -27,32 +38,13 @@
       lore:    'Angron naquit dans la boue rouge de Nuceria et ne connut jamais que la chaîne, le fouet et le cri des arènes. Les clous du boucher martelèrent son crâne jusqu’à ce que toute pensée devienne douleur, et que seule la guerre apaise le tumulte. Quand il mena ses gladiateurs vers une dernière révolte, l’Empereur le vola à son unique victoire, et la rancœur d’Angron hurle encore à travers les vox, noyée dans le rugissement des canons du Conqueror. Aujourd’hui, il est plus qu’un primarque : il est un ouragan de sang qui cherche, dans chaque massacre, un instant de silence intérieur. Dans ses rares moments de lucidité, il craint de ne plus se souvenir du visage de ses frères d’arène. Certains World Eaters jurent entendre Angron murmurer des noms de gladiateurs morts, comme s’il les cherchait encore dans le Warp.'
     },
     {
-      nom:     'Lotara Sarrin',
-      titre:   'Âme du Conqueror',
-      faction: 'World Eaters · le Conqueror',
-      image:   'assets/img/personnages/lotara.jpg',
-      lore:    'Lotara Sarrin, « la rose nourrie par le sang », règne sur le Conqueror. À trente ans à peine, elle commande l’un des plus vastes Gloriana de l’impérium. Simple mortelle au milieu des demi-dieux enragés, elle oppose à leur frénésie une volonté d’acier. Elle impose une discipline de fer sur le Conqueror, n’hésitant pas à abattre le capitaine World Eaters Delvarus sur le pont de commandement d’un tir de pistolet laser en pleine tête pour rappeler que la seule autorité sur le Conqueror, c’est elle. Elle ne supplie pas, ne flatte pas, ne fuit pas. Elle maintient le vaisseau prêt à la guerre, quitte à abattre ses propres alliés. On chuchote qu’elle garde, dans ses quartiers, la liste précise de tous les World Eaters qu’elle a menacé d’abattre… et que la plupart des noms y sont barrés. Mais Lotara Sarrin n’est plus une simple mortelle. Désormais liée au Conqueror, elle en est devenue l’âme indissociable, une volonté spectrale qui imprègne chaque coursive. Le vaisseau est sa chair, ses systèmes l’expression de son autorité absolue. Les vox tonnent parfois de sa voix impérieuse, les armes s’orientent comme guidées par un décret invisible, et même les World Eaters — pourtant esclaves de leur rage — vacillent un instant sous son regard que nul ne peut fuir.'
-    },
-    {
-      nom:     'Khârn le Sanglant',
-      titre:   'Le Félon — Champion de Khorne',
-      faction: 'World Eaters · 8ème capitaine',
-      image:   'assets/img/personnages/kharne.jpg',
-      lore:    'Khârn le sanglant avance au cœur du fracas, là où les vox sont saturés de hurlements, et où la chaleur des bolters déforme l’air. Les clous du boucher étouffent tout sauf le plaisir brut du carnage. Il est devenu le félon, celui qui, sur Skalathrax, brisa la XIIe Légion dans une nuit de givre, de feu et de sang, frappant amis et ennemis jusqu’à ce qu’il ne reste que le silence et l’odeur métallique de la vapeur rouge. Aujourd’hui, chaque crâne pris est un pas de plus sur une route qu’il ne contrôle plus vraiment. On dit que son compteur de morts s’est arrêté depuis longtemps, incapable de suivre ses massacres, mais qu’il continue de cliquer dans le noir.'
-    },
-	{
-      nom:     'Morgath le Faucheur',
-      titre:   'Maître des Exécutions',
-      faction: 'World Eaters',
-      image:   'assets/img/personnages/morgath.jpg',
-      lore:    'Croiser le Maître des Exécutions Morgath le Faucheur est une condamnation à mort, sa hache de démembrement tuant sans discontinuer. À la station 9 de Jakku, il éventra le capitaine Essios des Silver Templars « comme on ouvre une boîte de conserve rouillée », avant d’être apparemment fauché par un déluge de tirs croisés et l’appui-feu du dreadnought Thaddeus. Sa chute rompit l’équilibre précaire qu’il maintenait par la peur et le respect. Pourtant, parmi les survivants – loyalistes comme renégats – courent des rumeurs affirmant que nul n’a jamais retrouvé le corps de Morgath, seulement une traînée de sang séché. Certains Inquisiteurs parlent d’un Maître des Exécutions aperçu fugacement sur d’autres mondes du sous-secteur Fyrentis, hache au poing et armure cabossée, suggérant que le Morgath a peut-être offert sa mort à Khorne en échange du droit de revenir moissonner encore davantage de têtes.'
-    },
-    {
-      nom:     'Kharak le Sanguinaire',
-      titre:   'Berserker assoifé de Khorne',
-      faction: 'World Eaters',
+      nom:     'Sanguinius',
+      titre:   'Primarque des Blood Angels',
+      faction: 'Blood Angels',
       image:   'assets/img/personnages/kharak.jpg',
-      lore:    'Sur Jakku, Kharak le Sanguinaire suivit d’abord Morgath le Faucheur à la station 9, où la mort de son Maître des Exécutions fit voler en éclats ses dernières brides mentales et laissa son esprit dériver dans un voile écarlate dont il ne garda que des flashes de crânes explosés à mains nues. Lorsque les guerres pour les agro-stations s’étendirent, Kharak fut à nouveau lâché sur Jakku, cette fois contre les défenses disciplinées des Silver Templars autour de la station 7. Il se jeta hors des Rhinos, traversant le feu croisé des bolters pour atteindre le choc brutal des lames énergétiques et des tronçonneuses, face au capitaine Cassius et à son fer de lance d’Intercessors. Dans la mêlée confuse, alors que Thaddeus tombait, que les Ferrocerberus se brisaient et que les lignes loyalistes s’effritaient, Kharak continua de frapper en hurlant le nom de Khorne. On raconte que, lorsque la station 7 devint un avant-poste sanglant dédié au Dieu du Sang, c’est sur un tas de cadavres Silver Templars marqué par ses coups que les premiers autels improvisés furent élevés, liant à jamais le nom de Kharak au massacre de Jakku.'
+      lore:    'Sanguinius est le sublime Primarque de la IXe Légion, les Blood Angels, un être à l’allure d’ange dont la grâce masque une puissance guerrière terrifiante. Né sur Baal Secundus, il fut vénéré comme un sauveur par des survivants qui acceptèrent ses ailes plutôt que de le craindre. Lorsque l’Empereur le retrouva, il lui confia la IXe Légion, qui prit le nom de Blood Angels et devint un symbole d’espoir pour l’Imperium.
+
+Chef charismatique, stratège brillant et parangon de noblesse, Sanguinius portait pourtant une tare génétique : la Soif Rouge, pulsion sanguinaire qu’il tenta de contenir pour préserver l’honneur de ses fils. Durant la Grande Croisade puis l’Hérésie d’Horus, il combattit sans relâche jusqu’au Siège de Terra, où il affronta Horus lui‑même et mourut en martyr. Sa mort et son sacrifice hantent encore tous les descendants des Blood Angels.'
     }
   ];
 
