@@ -1,0 +1,368 @@
+{
+  "meta": {
+    "titre": "Sous-Secteur Fyrentis",
+    "systeme": "Warhammer 40 000",
+    "type": "Campagne Narrative",
+    "millenaire": "41ème Millénaire"
+  },
+  "joueurs": [
+    {
+      "nom": "Freddy",
+      "role": "Maître du jeu",
+      "couleur": "gold",
+      "delai": 2,
+      "armees": ["Black Templars", "Silver Templars", "Death Guard", "Nécrons", "Adeptus Mechanicus", "Votann"]
+    },
+    {
+      "nom": "Jean",
+      "role": "Du sang pour le Dieu du sang",
+      "couleur": "red",
+      "delai": 1,
+      "armees": ["World Eaters"]
+    },
+    {
+      "nom": "David",
+      "role": "Une compagnie en péril",
+      "couleur": "blue",
+      "delai": 3,
+      "armees": ["Blood Angels"]
+    },
+    {
+      "nom": "Jérémy",
+      "role": "Apporter la liberté dans les étoiles",
+      "couleur": "green",
+      "delai": 4,
+      "armees": ["Garde Impériale"]
+    },
+    {
+      "nom": "Vincent",
+      "role": "Cœur de fer, Main de fer",
+      "couleur": "purple",
+      "delai": 1,
+      "armees": ["Iron Warriors de Khorne"]
+    }
+  ],
+  "lore": {
+    "description": "Depuis huit millénaires sous la coupe de la dynastie Fyrentis, ce secteur fut dévasté par la Cicatrix Maledictum avant d'être stabilisé par les Black Templars du Haut Sénéchal Helbrecht. Vingt-cinq ans de paix relative s'achèvent.",
+    "blocs": [
+      {
+        "titre": "La Dynastie Fyrentis",
+        "paragraphes": [
+          "Fondée au M32 par un Libre-Marchand explorateur, la dynastie Fyrentis contrôla ce sous-secteur d'une poigne de fer pendant huit millénaires. L'ouverture de la Cicatrix Maledictum ravagea la région pendant soixante ans, les Chevaliers de Riga repoussant les démons au prix de pertes immenses.",
+          "L'arrivée du Haut Sénéchal Helbrecht avec ses 1 500 Astartes sauva le secteur et établit le \"Chemin du Dévot\", une route warp sécurisée vers l'Imperium Nihilus. Les Black Templars s'installèrent sur la lune du monde-forge Sanctum."
+        ],
+        "citation": {
+          "texte": "« Dans les tréfonds du cosmos, deux entités se jaugent. L'une possède un regard perçant et impérieux, l'autre arbore un sourire méprisant et une aura sinistre. Leurs voix résonnent à l'unisson : \"Que la partie commence !\" »",
+          "auteur": "— Archives de la Campagne",
+          "alerte": false
+        }
+      },
+      {
+        "titre": "La Situation Actuelle",
+        "paragraphes": [
+          "Vingt-cinq ans après la croisade victorieuse, une nouvelle route warp corrompue déstabilise le secteur. L'agri-monde de Jakku est tombé sous la Waaagh! du Big Boss Dégotte. Le Haut-Gouverneur Agastus Lionel Fyrentis supporte mal la présence des Black Templars.",
+          "Le Fabricator-Général Horgell Dyass de Sanctum tente de s'affranchir des accords avec la dynastie Fyrentis. Et dans l'espace, des flottes non identifiées approchent d'un système inconnu…"
+        ],
+        "citation": {
+          "texte": "« Perturbation des routes de saut warp détectée — plusieurs vaisseaux cargos appartenant aux forces du Mechanicus et à la dynastie Riga signalés disparus. »",
+          "auteur": "— Rapport de l'Inquisiteur Semius Hortis, Ordo Hereticus",
+          "alerte": true
+        }
+      }
+    ]
+  },
+  "fronts": [
+    {
+      "id": "jakku",
+      "nom": "Jakku",
+      "titre": "Jakku — Agri-Monde Dévasté",
+      "description": "L'agri-monde organisé autour de 10 stations gérant les méga-récoltes. La Waaagh! Dégotte a débarqué, la Death Guard a corrompu des populations entières, et les World Eaters ont saigné le monde pour Khorne.",
+      "statut": "Front Actif",
+      "statut_classe": "front-status--active",
+      "image": "assets/img/jakku.png",
+      "image_alt": "Bataille sur Jakku - les agro-stations en flammes",
+      "stations": [
+        { "num": "02", "proprietaire": "Black Templars", "classe": "station-owner--bt" },
+        { "num": "04", "proprietaire": "Silver Templars", "classe": "station-owner--st" },
+        { "num": "06", "proprietaire": "Death Guard", "classe": "station-owner--dg" },
+        { "num": "08", "proprietaire": "Inconnue", "classe": "station-owner--ruine" }
+      ],
+      "batailles": [
+        {
+          "label": "Station 1 • Waaagh!",
+          "titre": "La Légende de Bolg",
+          "texte": "Le Grand Nob Bolg, envoyé par le Big Boss Dégotte, reprend le Grand Bastion et la station 1 face aux Silver Templars. Un tir de Kanon démek détruit un Eradicator. Bolg affronte le capitaine Silver Templar en duel et lui inflige une défaite mémorable.",
+          "classe": "battle-entry--victory",
+          "factions": [
+            { "label": "Orks Victoire", "classe": "faction-tag--ork" },
+            { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
+          ]
+        },
+        {
+          "label": "Station 5 • Le Carnage",
+          "titre": "L'Agro-Station de l'Enfer",
+          "texte": "Quatre factions s'affrontent dans un carnage total. Le Chapelain Varus (Blood Angels) terrasse l'Invocatus en duel. Mais les World Eaters, galvanisés par la mort de leur champion, massacrent tout sur leur passage. L'Agro-Station est consacrée à Khorne.",
+          "classe": "battle-entry--contested",
+          "factions": [
+            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
+            { "label": "Blood Angels", "classe": "faction-tag--ba" },
+            { "label": "Orks", "classe": "faction-tag--ork" },
+            { "label": "Garde Impériale", "classe": "faction-tag--gi" }
+          ]
+        },
+        {
+          "label": "Station 7 • L'Écho Sanglant",
+          "titre": "La Chute de Thaddeus",
+          "texte": "Les Berzerkers de Khârn jaillissent de Rhinos sacrifiés comme des offrandes. Le Dreadnought Thaddeus tombe après un combat épique contre les Ferrocerberus. Le capitaine Cassius est forcé à la retraite. La station 7 devient un avant-poste de Khorne.",
+          "classe": "battle-entry--victory",
+          "factions": [
+            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
+            { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
+          ]
+        },
+        {
+          "label": "Station 6 • La Pestilence",
+          "titre": "Le Jardin de Grand-Père Nurgle",
+          "texte": "Les Death Guard, invisibles dans leur brume occulte, encerclent une force combinée Blood Angels / Silver Templars. L'Essaimeur \"Hérault des Charognes\" crée un jardin immonde. Les proglandes sont récupérées pour créer de futurs Space Marines corrompus.",
+          "classe": "battle-entry--nurgle",
+          "factions": [
+            { "label": "Death Guard Victoire", "classe": "faction-tag--dg" },
+            { "label": "Blood Angels Défaite", "classe": "faction-tag--ba" },
+            { "label": "Silver Templars Défaite", "classe": "faction-tag--bt" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanctum",
+      "nom": "Sanctum",
+      "titre": "Sanctum — Monde-Forge",
+      "description": "Principal fournisseur d'armes du sous-secteur depuis huit millénaires, lié à Metallica. Angron investit les villes-forge tandis que le Fabricator-Général Horgell Dyass tisse ses intrigues. Le Collegia Titanica est la cible ultime.",
+      "statut": "Contesté",
+      "statut_classe": "front-status--contested",
+      "image": "assets/img/sanctum.png",
+      "image_alt": "Vue panoramique du monde-forge Sanctum, avec cité-usine gothique et Titan en maintenance",
+      "batailles": [
+        {
+          "label": "Brokha • Grande Bataille",
+          "titre": "La lune Brokha",
+          "texte": "Les Black Templars défendent la lune Brokha d'une invasion chaotique. <a href=\"rapport-bataille-brokha.html\">Plus d'info en cliquant sur ce rapport.</a>",
+          "classe": "battle-entry--victory",
+          "factions": [
+            { "label": "World Eaters", "classe": "faction-tag--we" },
+            { "label": "Iron Warriors de Khorne", "classe": "faction-tag--iw" },
+            { "label": "Black Templars", "classe": "faction-tag--bt" }
+          ]
+        },
+        {
+          "label": "Colchis • Grande Bataille",
+          "titre": "La Cité-Ruche Grimah",
+          "texte": "Grimaldus et les Black Templars défendent la cité-ruche contre Angron et ses Octoliés. Le Héros de Helsreach défie Angron en combat singulier — un halo sacré se manifeste autour de lui. Malgré l'héroïsme des Templiers, la Porte Est tombe. Le Seigneur Invocatus avec ses Ferrocerberus Scythak et Morthrex ravage la Porte Ouest.",
+          "classe": "battle-entry--victory",
+          "factions": [
+            { "label": "World Eaters Victoire", "classe": "faction-tag--we" },
+            { "label": "Black Templars Défaite Partielle", "classe": "faction-tag--bt" }
+          ]
+        },
+        {
+          "label": "Sanctum • Infiltration",
+          "titre": "Le Techno-Prêtre Corrompu",
+          "texte": "Angron libère un techno-prêtre corrompu de haut rang qui l'aide à percer les lignes DCA de Sanctum. En échange : les codes secrets du monde-forge au moment opportun. Une ville-forge mineure dédiée aux armes et munitions est infiltrée. L'usine d'équipement Astartes est sous surveillance.",
+          "classe": "battle-entry--contested",
+          "factions": [
+            { "label": "World Eaters Progression", "classe": "faction-tag--we" },
+            { "label": "Sanctum Alerte", "classe": "faction-tag--bt" }
+          ]
+        },
+        {
+          "label": "Sanctum • À Venir",
+          "titre": "La Grande Cité-Forge du Sud",
+          "texte": "Prochaine mission : Angron investit la grande cité-forge du sud où se trouvent le Collegia Titanica, la légion de Titans et les usines de méga-armes. La mission face à Jérémy (Garde Impériale) déterminera le contrôle des Titans du secteur.",
+          "classe": "battle-entry--contested",
+          "factions": [
+            { "label": "World Eaters En Cours", "classe": "faction-tag--we" },
+            { "label": "Garde Impériale", "classe": "faction-tag--gi" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "secret",
+      "nom": "Système Secret",
+      "titre": "Système Secret — Centre de la Campagne",
+      "description": "Un système inconnu, apparu sur les auspex des forces impériales. Khârn et le Conqueror font face à une flotte Nécron encerclant une immense Forteresse Noire. Le centre narratif ultime de la campagne.",
+      "statut": "??? Mystère",
+      "statut_classe": "front-status--secret",
+      "image": "assets/img/system_secret.png",
+      "image_alt": "Forteresse Noire encerclée par une flotte nécron dans le Système Secret",
+      "batailles": [
+        {
+          "label": "Système Inconnu",
+          "titre": "La Forteresse Noire des Nécrons",
+          "texte": "Khârn et le vaisseau amiral le Conqueror se retrouvent face à une flotte Nécron encerclant une immense Forteresse Noire. L'enjeu de cette confrontation dépasse la simple bataille — les secrets du système secret pourraient décider du destin de tout le sous-secteur Fyrentis.",
+          "classe": "",
+          "factions": [
+            { "label": "Khârn & Le Conqueror", "classe": "" },
+            { "label": "Nécrons", "classe": "" }
+          ]
+        },
+        {
+          "label": "Indice Narratif",
+          "titre": "Qu'est-ce qui s'y cache ?",
+          "texte": "Les trajets warp destabilisés entre Balvarum–Jakku–Kuvak signalent l'apparition d'un système inconnu sur les auspex. La nouvelle route warp corrompue y mène directement. L'Inquisiteur Hortis enquête sur l'origine de la perturbation et sa connexion avec les activités du Haut-Gouverneur.",
+          "classe": "",
+          "factions": [
+            { "label": "Inquisition", "classe": "" },
+            { "label": "Mystère Warp", "classe": "" }
+          ]
+        }
+      ]
+    }
+  ],
+  "personnages": [
+    {
+      "faction": "World Eaters • Primarch Démon",
+      "nom": "Angron",
+      "titre": "Le Seigneur Rouge de Nuceria",
+      "lore": "« Angron naquit dans la boue rouge de Nuceria et ne connut jamais que la chaîne, le fouet et le cri des arènes. Les Clous du Boucher martelèrent son crâne jusqu'à ce que toute pensée devienne douleur, et que seule la guerre apaise le tumulte. »",
+      "couleur": "red",
+      "stats": [],
+      "delai": 0
+    },
+    {
+      "faction": "World Eaters • Champion de Khorne",
+      "nom": "Khârn le Félon",
+      "titre": "Le Traître de Skalathrax",
+      "lore": "« Khârn le Sanglant avance au cœur du fracas, là où les vox sont saturés de hurlements. On dit que son compteur de morts s'est arrêté depuis longtemps, incapable de suivre ses massacres, mais qu'il continue de cliquer dans le noir. »",
+      "couleur": "red",
+      "stats": [],
+      "delai": 1
+    },
+    {
+      "faction": "Blood Angels • Chapelain",
+      "nom": "Varus",
+      "titre": "Gardien de la Mémoire de Sanguinius",
+      "lore": "« Le Chapelain Varus terrassa l'Invocatus en duel singulier — sa victoire personnelle ne fut qu'une note de clarté dans une symphonie de hurlements. Il lutte constamment contre la malédiction qui bouillonne dans ses veines. »",
+      "couleur": "blue",
+      "stats": [],
+      "delai": 2
+    },
+    {
+      "faction": "Black Templars • Reclusiarch",
+      "nom": "Grimaldus",
+      "titre": "Héros de Helsreach",
+      "lore": "« Grimaldus se dresse comme un pilier de granit noir face à la tempête. Il osa défier Angron en combat singulier. Un halo sacré se manifesta miraculeusement autour de lui et de sa garde d'honneur contre les coups terrifiants du Primarch Démon. »",
+      "couleur": "gold",
+      "stats": [],
+      "delai": 3
+    },
+    {
+      "faction": "World Eaters • Berserker d'élite",
+      "nom": "Kharak le Sanguinaire",
+      "titre": "L'Ancien Gladiateur",
+      "lore": "« Sur Jakku, à la Station 9, la mort de Morgath le Faucheur fit voler en éclats ses dernières brides mentales. Kharak continua de frapper en hurlant le nom de Khorne. Les premiers autels furent élevés sur un tas de cadavres Silver Templars marqués par ses coups. »",
+      "couleur": "red",
+      "stats": [],
+      "delai": 1
+    },
+    {
+      "faction": "World Eaters • Maître des Exécutions",
+      "nom": "Morgath le Faucheur",
+      "titre": "L'Introuvable",
+      "lore": "« À la Station 9 de Jakku, il éventra le Capitaine Essios des Silver Templars. Sa chute brisa un équilibre précaire. Nul n'a retrouvé son corps — seulement une traînée de sang séché. Certains Inquisiteurs affirment l'avoir vu sur d'autres mondes, hache au poing. »",
+      "couleur": "red",
+      "stats": [],
+      "delai": 2
+    },
+    {
+      "faction": "Orks — Waaagh! Dégotte",
+      "nom": "Bolg & Nawak",
+      "titre": "Le Nob Cavalier & le Mek Brikoleur",
+      "lore": "« Bolg mènerait lui-même les assauts depuis l'arrivée de la Waaagh! Il affronta le chef Astartes en duel et lui infligea une défaite humiliante. Nawak bidouilla un techno-crâne de zom et trouva les informations sur les dix stations que le Big Boss veut démanteler. »",
+      "couleur": "green",
+      "stats": [],
+      "delai": 0
+    },
+    {
+      "faction": "Le Conqueror • Âme du Vaisseau",
+      "nom": "Lotara Sarrin",
+      "titre": "La Rose Nourrie par le Sang",
+      "lore": "« Désormais liée au Conqueror, elle en est devenue l'âme indissociable, une volonté spectrale qui imprègne chaque coursive. Le vaisseau est sa chair, ses systèmes l'expression de son autorité absolue. Les vox tonnent parfois de sa voix impérieuse. »",
+      "couleur": "gold",
+      "stats": [],
+      "delai": 1
+    }
+  ],
+  "mecaniques": {
+    "vaisseau": {
+      "nom": "Le Conqueror",
+      "image": "assets/img/vaisseau_le_conqueror.png",
+      "image_alt": "Le Conqueror, vaisseau Gloriana corrompu par Khorne avec Lotara Sarrin",
+      "bonus": [
+        {
+          "icone": "🌌",
+          "nom": "Bombardement Orbital",
+          "desc": "1/bataille : met un pion, et à la prochaine phase de tir, inflige 1D6 BM sur 6\" de rayon. Dégâts sur toute la carte."
+        },
+        {
+          "icone": "🔥",
+          "nom": "Arène de Combat",
+          "desc": "Permet des rituels avec les Crânes et le Sang. Voir recette et objectif du rituel."
+        },
+        {
+          "icone": "⚙️",
+          "nom": "Audaxia",
+          "desc": "Énorme avenue dans le vaisseau permettant le transport de Titans ! Le seul à pouvoir en transporter de monde en monde."
+        },
+        {
+          "icone": "👻",
+          "nom": "La Maîtresse (Lotara Sarrin)",
+          "desc": "Mission rituelle à réaliser. Permet une FeP Warp durant un abordage. Si abordé, donne un bonus en modifiant le décor."
+        },
+        {
+          "icone": "⚓",
+          "nom": "Griffes d'Ursus",
+          "desc": "Énormes crochets offrant un bonus en combat d'abordage. Bloque un vaisseau amiral adverse et force une mission spéciale."
+        },
+        {
+          "icone": "💥",
+          "nom": "Fureur du Gloriana",
+          "desc": "Macro-canons gigantesques. Si 5 Crânes ET 50 Sangs sacrifiés : terrible bombardement orbital ! Torpilles Cycloniques : Exterminatus d'un monde."
+        }
+      ]
+    },
+    "cranes": {
+      "icone": "💀",
+      "titre": "Des Crânes pour le Trône",
+      "desc": "Chaque officier tué (personnage & sergent) rapporte un Crâne trophée. Les Crânes s'accumulent et se dépensent lors de rituels. Hors bataille, ils renforcent les rituels avec des effets aléatoires.",
+      "paliers": [
+        { "seuil": "2☠", "effet": "+1A sur un personnage pour toute une bataille (hors Angron)" },
+        { "seuil": "4☠", "effet": "FnP 4+ sur un personnage pour toute une bataille (hors Angron)" },
+        { "seuil": "6☠", "effet": "Touche Soutenue 2 + Précision sur les armes de mêlée d'un personnage" },
+        { "seuil": "8☠", "effet": "Vision d'une mission de Khorne + 1A sur chacune de tes unités" },
+        { "seuil": "10☠", "effet": "Créer une arme relique — optimisation gratuite custom !" }
+      ]
+    },
+    "sang": {
+      "icone": "🩸",
+      "titre": "Du Sang pour le Dieu du Sang",
+      "desc": "Les PV tués s'accumulent. Selon le nombre obtenu, une bénédiction de Khorne est accordée au début d'un tour. Plus on accumule, plus c'est puissant.",
+      "paliers": [
+        { "seuil": "10🩸", "effet": "+2M pour toutes les unités !" },
+        { "seuil": "20🩸", "effet": "-1 à la SVG non Inv de toutes les unités ennemies" },
+        { "seuil": "30🩸", "effet": "-1 à la PA pour toutes les unités" },
+        { "seuil": "40🩸", "effet": "+1 à la CC pour toutes les unités" },
+        { "seuil": "50🩸", "effet": "+1 au jet de blesse pour toutes les unités" }
+      ]
+    },
+    "saint_carnage": {
+      "icone": "⚔️",
+      "titre": "Règle Saint Carnage",
+      "desc": "Les unités suivantes ne peuvent pas tirer ni utiliser le stratagème Grenade — mais gagnent des bonus massifs en mêlée :",
+      "unites": [
+        { "nom": "Berzerkers", "detail": "1 Champion par unité — 3PV, CC2+, Porte-Icône" },
+        { "nom": "Rhino", "detail": "Gagne une arme CAC spéciale : Pare-buffle empaleur (4A, CC4+, F6, PA-1, D2)" }
+      ]
+    }
+  }
+}
