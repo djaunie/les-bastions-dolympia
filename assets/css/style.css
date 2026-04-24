@@ -613,12 +613,7 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.front-visual--sanctum {
-  border-color: rgba(200, 160, 40, 0.28);
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.42),
-    0 0 0 1px rgba(200, 160, 40, 0.08) inset;
-}
+
 .front-status::before {
   content: ''; width: 6px; height: 6px; border-radius: 50%;
   background: currentColor;
@@ -1020,15 +1015,6 @@ footer .footer-players { display: none; }
 }
 .back-top.visible { opacity: 1; pointer-events: auto; }
 .back-top:hover { color: var(--color-gold); border-color: var(--color-gold-muted); }
-
-/* =========================
-   Carte et légende
-========================= */
-.map-dot--sanctum { background:#c8a028; }
-.map-dot--jakku { background:#6aaa3c; }
-.map-dot--colchis { background:#7a9aaa; }
-.map-dot--secret { background:#cc2929; }
-.map-dot--warp-route { background:#ff4444; }
 
 /* =========================
    Citations et ornements
