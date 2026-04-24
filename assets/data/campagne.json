@@ -64,6 +64,7 @@
       "titre": "Anvillus — Monde en guerre civil",
       "description": "Guerre civile planétaire entre partisans d'Horus et loyalistes de Terra.",
       "image": "assets/img/anvillus.png",
+      "image_alt": "Anvillus — Monde en guerre civile",
       "batailles": [
         {
           "label": "Station 6 • La Pestilence",
@@ -81,8 +82,9 @@
       "id": "incaladion",
       "nom": "Incaladion",
       "titre": "Bastion",
-      "description": "Monde fortifié / industriel lourd, verrou pour l’accès au noyau galactique.",
+      "description": "Monde fortifié / industriel lourd, verrou pour l'accès au noyau galactique.",
       "image": "assets/img/incaladion.png",
+      "image_alt": "Incaladion — Monde-bastion industriel lourd",
       "batailles": [
         {
           "label": "Sanctum • À Venir",
@@ -97,11 +99,12 @@
       ]
     },
     {
-      "id": "utan magna",
+      "id": "utan_magna",
       "nom": "Utan Magna",
       "titre": "Monde-Forge",
-      "description": "Monde-forge spécialisé dans l’armement lourd et la maintenance navale.",
+      "description": "Monde-forge spécialisé dans l'armement lourd et la maintenance navale.",
       "image": "assets/img/utan_magna.png",
+      "image_alt": "Utan Magna — Monde-Forge spécialisé en armement lourd",
       "batailles": [
         {
           "label": "Indice Narratif",
