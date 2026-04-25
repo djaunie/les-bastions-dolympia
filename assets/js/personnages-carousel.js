@@ -19,11 +19,11 @@
       lore:    'Perturabo est le Primarque de la IVe Légion, les Iron Warriors, génie froid de l\'ingénierie et des sièges. Calculateur et méthodique, il conçoit la guerre comme un problème à résoudre par la logique, l\'artillerie et la géométrie parfaite du massacre. Toute sa vie, il se sentit sous-estimé par l\'Empereur et méprisé par ses frères, relégué aux campagnes les plus ingrates alors qu\'il se pensait indispensable. Ce ressentiment rongea peu à peu son esprit, nourrissant amertume, jalousie et paranoïa, jusqu\'à le pousser vers la trahison. Lors de l\'Hérésie d\'Horus, Perturabo mit ses Iron Warriors au service du Maître de Guerre, brisant les forteresses de l\'Imperium avec une précision impitoyable. Devenu l\'incarnation de la destruction assiégeante, il laissa derrière lui des mondes réduits à des carcasses de béton et d\'acier, gravant à jamais son nom dans la légende la plus sombre de l\'Adeptus Astartes.'
     },
     {
-      nom:     'Angron',
-      titre:   'Primarque des World Eaters',
-      faction: 'World Eaters · Primarque',
-      image:   'assets/img/personnages/angron.jpg',
-      lore:    'Angron naquit dans la boue rouge de Nuceria et ne connut jamais que la chaîne, le fouet et le cri des arènes. Les clous du boucher martelèrent son crâne jusqu\'à ce que toute pensée devienne douleur, et que seule la guerre apaise le tumulte. Quand il mena ses gladiateurs vers une dernière révolte, l\'Empereur le vola à son unique victoire, et la rancœur d\'Angron hurle encore à travers les vox. Aujourd\'hui, il est plus qu\'un primarque : il est un ouragan de sang qui cherche, dans chaque massacre, un instant de silence intérieur. Dans ses rares moments de lucidité, il craint de ne plus se souvenir du visage de ses frères d\'arène. Certains World Eaters jurent entendre Angron murmurer des noms de gladiateurs morts, comme s\'il les cherchait encore dans le Warp.'
+      nom:     'Conrad Kurze',
+      titre:   'Primarque des Night Lords',
+      faction: 'Night Lords · Primarque',
+      image:   'assets/img/personnages/konrad-curze.jpg',
+      lore:    'Konrad Curze, le Night Haunter, est le primarque tourmenté de la VIIIe Légion durant l\'Hérésie d\'Horus. Élevé dans les bas-fonds de Nostramo, il instaura un ordre brutal par la terreur et la violence extrême. Affligé de visions prophétiques constantes annonçant sa mort et la corruption galactique, il sombra progressivement dans la folie. Durant l\'Hérésie, Curze rejoignit Horus par nihilisme et désillusion totale envers l\'Empereur, dont il dénonçait l\'hypocrisie. Il transforma ses Night Lords en bourreaux sadiques massacrant des populations entières pour prouver que seule la peur gouverne l\'humanité. Contrairement aux autres traîtres assoiffés de pouvoir, Curze cherchait à démontrer que justice et moralité étaient des illusions. Il accepta finalement sa mort prophétisée aux mains d\'un assassin impérial, refusant toute rédemption et assumant pleinement sa nature monstrueuse.'
     },
     {
       nom:     'Sanguinius',
