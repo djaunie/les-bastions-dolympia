@@ -9,6 +9,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/personnages-carousel.css">
+  <style>
+    /* ── Night Lords button override — couleurs bleues NL ── */
+    :root {
+      --nl-blue-bright:   #5577ee;
+      --nl-blue-dim:      rgba(26, 46, 110, 0.55);
+      --nl-blue-bg:       rgba(26, 46, 110, 0.10);
+      --nl-blue-hover-bg: rgba(58, 90, 204, 0.20);
+      --nl-blue-glow:     rgba(85, 119, 238, 0.45);
+    }
+    [data-theme="light"] {
+      --nl-blue-bright:   #2244bb;
+      --nl-blue-dim:      rgba(26, 46, 110, 0.40);
+      --nl-blue-bg:       rgba(26, 46, 110, 0.06);
+      --nl-blue-hover-bg: rgba(26, 46, 110, 0.14);
+      --nl-blue-glow:     rgba(34, 68, 187, 0.30);
+    }
+
+    .btn-armee--nl {
+      color:            var(--nl-blue-bright);
+      border-color:     var(--nl-blue-dim);
+      background:       var(--nl-blue-bg);
+    }
+    .btn-armee--nl:hover {
+      background:       var(--nl-blue-hover-bg);
+      border-color:     var(--nl-blue-bright);
+      box-shadow:       0 0 12px var(--nl-blue-glow);
+    }
+  </style>
 </head>
 <body>
 
