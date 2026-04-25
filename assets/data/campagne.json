@@ -29,29 +29,29 @@
     }
   ],
   "lore": {
-    "description": "Depuis huit millénaires sous la coupe de la dynastie Fyrentis, ce secteur fut dévasté par la Cicatrix Maledictum avant d'être stabilisé par les Black Templars du Haut Sénéchal Helbrecht. Vingt-cinq ans de paix relative s'achèvent.",
+    "description": "Forgé dans l'acier et le sang des IVe Iron Warriors, le sous-secteur Olympia fut pendant deux siècles le pilier de la Grande Croisade en bordure du Segmentum Solar. Depuis la trahison d'Horus, ses mondes brûlent — déchirés entre la loyauté à l'Imperium et la soif de pouvoir des traîtres.",
     "blocs": [
       {
-        "titre": "La Dynastie Fyrentis",
+        "titre": "L'Héritage d'Olympia",
         "paragraphes": [
-          "Fondée au M32 par un Libre-Marchand explorateur, la dynastie Fyrentis contrôla ce sous-secteur d'une poigne de fer pendant huit millénaires. L'ouverture de la Cicatrix Maledictum ravagea la région pendant soixante ans, les Chevaliers de Riga repoussant les démons au prix de pertes immenses.",
-          "L'arrivée du Haut Sénéchal Helbrecht avec ses 1 500 Astartes sauva le secteur et établit le \"Chemin du Dévot\", une route warp sécurisée vers l'Imperium Nihilus. Les Black Templars s'installèrent sur la lune du monde-forge Sanctum."
+          "Avant l'arrivée de l'Empereur, Olympia était une mosaïque de cités-forteresses inexpugnables, chacune gouvernée par un tyran-guerrier jaloux de sa souveraineté. C'est là que grandit Perturabo, Primarque des Iron Warriors, sous la tutelle impitoyable du Tyran de Lochos — apprenant dans les pierres grises de ce monde l'art absolu de la fortification, du siège et de la domination. Lorsque l'Imperium intégra Olympia dans son giron, les Iron Warriors érigèrent le sous-secteur en bastion imprenable, reliant par des routes warp sécurisées Saiph, Incaladion et les forges d'Utan Magna.",
+          "Pendant deux siècles, ces planètes formèrent l'épine dorsale logistique de la Grande Croisade dans cette région du cosmos. Saiph fournissait ses fils au IXe Legion — les Blood Angels —, guerriers forgés dans l'aridité de ses plaines rocheuses. Incaladion verrouillait les accès au noyau galactique, tandis qu'Utan Magna forgeait dans ses entrailles métalliques les armes lourdes et les vaisseaux qui portaient la lumière de Terra aux confins de la galaxie. Ce sous-secteur était une promesse de grandeur — jusqu'au jour où Horus Lupercal détourna son regard vers Terra."
         ],
         "citation": {
-          "texte": "« Dans les tréfonds du cosmos, deux entités se jaugent. L'une possède un regard perçant et impérieux, l'autre arbore un sourire méprisant et une aura sinistre. Leurs voix résonnent à l'unisson : \"Que la partie commence !\" »",
-          "auteur": "— Archives de la Campagne",
+          "texte": "« Nous avons forgé ces mondes dans la certitude que l'acier dure éternellement. Nous avions tort. Rien ne dure. Pas même la loyauté d'un Primarque. »",
+          "auteur": "— Légat Cassivus Vorl, Iron Warriors, journal de siège d'Olympia, ~006.M31",
           "alerte": false
         }
       },
       {
         "titre": "La Situation Actuelle",
         "paragraphes": [
-          "Vingt-cinq ans après la croisade victorieuse, une nouvelle route warp corrompue déstabilise le secteur. L'agri-monde de Jakku est tombé sous la Waaagh! du Big Boss Dégotte. Le Haut-Gouverneur Agastus Lionel Fyrentis supporte mal la présence des Black Templars.",
-          "Le Fabricator-Général Horgell Dyass de Sanctum tente de s'affranchir des accords avec la dynastie Fyrentis. Et dans l'espace, des flottes non identifiées approchent d'un système inconnu…"
+          "Tout a basculé avec la trahison d'Isstvan V. Quand Perturabo retourna ses légions contre Terra aux côtés des armées d'Horus, le sous-secteur qui portait son nom fut fracturé en une nuit. Sur Anvillus, les sympathisants hérétiques — longtemps infiltrés dans les nœuds industriels du monde-ruche — déclenchèrent une insurrection armée. Les combats de rue entre loyalistes de Terra et partisans du Warmaster font rage dans chaque district, chaque forgerie, chaque sas pressurisé. Nul ne contrôle plus la planète entière. Sur Utan Magna, le Mechanicum lui-même s'est scindé : les Forges Dominantes ont proclamé leur allégeance à l'Omnissiah d'Horus, tandis que le Conseil des Arcanes Loyaux résiste depuis les profondeurs de la cité-forge Sud — refusant de livrer leurs arsenaux aux hérétiques.",
+          "Sur Saiph, la forteresse-monde des Blood Angels tient bon — ses défenses bâties au fil des siècles repoussant les premières vagues d'assaut — mais la suspicion ronge les esprits : les méthodes employées par ses fils pour survivre aux champs de bataille ont éveillé des murmures que même les rouages loyalistes osent à peine formuler. Incaladion, verrou du noyau galactique, est en état de siège permanent. Des flottes renégates sondent ses défenses, cherchant la faille qui livrerait le couloir vers le cœur de la galaxie. Le destin du sous-secteur tout entier se joue désormais sur ces quatre fronts simultanés — et le temps presse."
         ],
         "citation": {
-          "texte": "« Perturbation des routes de saut warp détectée — plusieurs vaisseaux cargos appartenant aux forces du Mechanicus et à la dynastie Riga signalés disparus. »",
-          "auteur": "— Rapport de l'Inquisiteur Semius Hortis, Ordo Hereticus",
+          "texte": "« Transmission astropathique cryptée, Incaladion vers Saiph — Priorité : SANG NOIR. Les routes warp du secteur sont compromises. Présence confirmée d'éléments Iron Warriors en orbite haute d'Utan Magna. Incaladion tient. Pour combien de temps encore, l'Omnissiah seul le sait. »",
+          "auteur": "— Rapport du Fabricator-Locum Sevran Thess, Incaladion, ~010.M31",
           "alerte": true
         }
       }
