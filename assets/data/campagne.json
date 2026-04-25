@@ -29,29 +29,29 @@
     }
   ],
   "lore": {
-    "description": "Depuis huit millénaires sous la coupe de la dynastie Fyrentis, ce secteur fut dévasté par la Cicatrix Maledictum avant d'être stabilisé par les Black Templars du Haut Sénéchal Helbrecht. Vingt-cinq ans de paix relative s'achèvent.",
+    "description": "Aux confins du Segmentum Solar, le sous-secteur Olympia fut forgé dans le fracas de la Grande Croisade. Là où l'ambition de Perturabo sculpta des forteresses inexpugnables, la trahison de l'Hérésie d'Horus a désormais transformé ces mêmes remparts en prisons — et leurs défenseurs en ennemis jurés de Terra.",
     "blocs": [
       {
-        "titre": "La Dynastie Fyrentis",
+        "titre": "La Forêt d'Acier — Histoire du Sous-Secteur",
         "paragraphes": [
-          "Fondée au M32 par un Libre-Marchand explorateur, la dynastie Fyrentis contrôla ce sous-secteur d'une poigne de fer pendant huit millénaires. L'ouverture de la Cicatrix Maledictum ravagea la région pendant soixante ans, les Chevaliers de Riga repoussant les démons au prix de pertes immenses.",
-          "L'arrivée du Haut Sénéchal Helbrecht avec ses 1 500 Astartes sauva le secteur et établit le \"Chemin du Dévot\", une route warp sécurisée vers l'Imperium Nihilus. Les Black Templars s'installèrent sur la lune du monde-forge Sanctum."
+          "Au crépuscule de la Grande Croisade, le sous-secteur Olympia constituait l'un des bastions les plus stratégiques du Segmentum Solar. Olympia elle-même, monde natal de Perturabo, Primarque de la IVe Légion Astartes, servait d'épicentre politique et militaire à l'ensemble de la région. Ses cités-forteresses taillées dans la roche millénaire, héritage d'une culture vouée à la guerre perpétuelle bien avant l'arrivée de l'Imperium, impressionnaient même les ingénieurs du Mechanicum. Les planètes voisines — Anvillus le monde-ruche industriel, Saiph le monde de recrutement des Blood Angels, Utan Magna le monde-forge, et Incaladion le verrou galactique — gravitaient autour d'Olympia comme des pièces d'une machine de guerre parfaitement huilée.",
+          "La loyauté de ce sous-secteur envers Terra semblait alors indéfectible. Les Iron Warriors patrouillaient ses routes astrales, la IXe Légion y recrutait ses fils aux rituels sanglants, et le Mechanicum d'Utan Magna forgeait sans relâche les canons lourds qui alimentaient les croisades impériales. Mais les graines de la discorde germaient en silence : les cicatrices que Perturabo portait dans son âme depuis le massacre d'Olympia — ordonné par lui-même pour mater une révolte — n'avaient jamais cicatrisé. Quand Horus tendit la main, le Primarque des Iron Warriors la saisit, et tout le secteur se fendit en deux."
         ],
         "citation": {
-          "texte": "« Dans les tréfonds du cosmos, deux entités se jaugent. L'une possède un regard perçant et impérieux, l'autre arbore un sourire méprisant et une aura sinistre. Leurs voix résonnent à l'unisson : \"Que la partie commence !\" »",
-          "auteur": "— Archives de la Campagne",
+          "texte": "« Olympia fut la première et la plus douloureuse des trahisons. Non pas parce que Perturabo choisit Horus — mais parce qu'il nous avait laissé croire, jusqu'à la fin, qu'il choisirait l'Empereur. ",
+          "auteur": "— Légat Theodric Vanaugh, IVe Légion Loyaliste, Fragments d'Archive — Circa 006.M31",
           "alerte": false
         }
       },
       {
-        "titre": "La Situation Actuelle",
+        "titre": "La Situation Actuelle — Feux Croisés",
         "paragraphes": [
-          "Vingt-cinq ans après la croisade victorieuse, une nouvelle route warp corrompue déstabilise le secteur. L'agri-monde de Jakku est tombé sous la Waaagh! du Big Boss Dégotte. Le Haut-Gouverneur Agastus Lionel Fyrentis supporte mal la présence des Black Templars.",
-          "Le Fabricator-Général Horgell Dyass de Sanctum tente de s'affranchir des accords avec la dynastie Fyrentis. Et dans l'espace, des flottes non identifiées approchent d'un système inconnu…"
+          "Depuis la trahison de Perturabo, le sous-secteur Olympia est devenu un théâtre de guerre multifrontal où chaque système stellaire brûle d'une flamme différente. Anvillus, le monde-ruche industriel à la bordure du Maelstrom of Storms, est déchiré par une guerre civile totale : ses manufactures colossales sont disputées rue par rue entre les partisans d'Horus et les loyalistes de Terra, chaque district représentant une victoire ou une défaite aux conséquences industrielles considérables. Plus à l'est, Utan Magna, le monde-forge spécialisé en armement lourd, connaît une fracture identique au sein de ses propres Congrégations Mechanicum — des factions renégates ayant rallié le camp du Warmaster contre des Fabricators restés fidèles à l'Omnissiah de Mars.",
+          "Face à ce déferlement chaotique, les positions loyalistes s'accrochent désespérément. Saiph, monde de recrutement de la IXe Légion, tient bon sous la bannière des Blood Angels, malgré les soupçons croissants que leurs pratiques secrètes font peser sur leur loyauté. Incaladion, verrou stratégique entre le cœur galactique et les espaces contrôlés par l'Imperium, résiste sous une coalition fragile d'Astartes et d'unités Mechanicum loyalistes, mais les tentatives de subversion interne se multiplient. L'issue de ce sous-secteur reste suspendue à l'acier des légions et à la volonté de ceux qui refusent encore de plier le genou."
         ],
         "citation": {
-          "texte": "« Perturbation des routes de saut warp détectée — plusieurs vaisseaux cargos appartenant aux forces du Mechanicus et à la dynastie Riga signalés disparus. »",
-          "auteur": "— Rapport de l'Inquisiteur Semius Hortis, Ordo Hereticus",
+          "texte": " Transmission astropathique chiffée, priorité Absolon — \"Les forges d'Utan Magna sont muettes depuis soixante-douze heures. Les signaux des balises de navigation d'Anvillus sont brouillés. Incaladion demande des renforts. Répète : Incaladion demande des renforts. Que l'Omnissiah nous garde.\" »",
+          "auteur": "— Rapport de transit, Cohorte Astrotélépathe Γ-7, Transmis depuis le Croiseur Implacable Volonté — 014.M31",
           "alerte": true
         }
       }
