@@ -10,43 +10,59 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/personnages-carousel.css">
   <style>
-    /* ── Night Lords button — couleurs bleues NL (forcées) ── */
+    /* ── Night Lords — variables exactes depuis night-lords.html ── */
     :root {
-      --nl-blue-bright:   #5577ee;
-      --nl-blue-dim:      rgba(26, 46, 110, 0.55);
-      --nl-blue-bg:       rgba(26, 46, 110, 0.10);
-      --nl-blue-hover-bg: rgba(58, 90, 204, 0.20);
-      --nl-blue-glow:     rgba(85, 119, 238, 0.45);
+      --nl-blue:          #1a3a6e;
+      --nl-blue-light:    #2a5aaa;
+      --nl-blue-bright:   #4a7fd4;
+      --nl-blue-dim:      rgba(26, 58, 110, 0.55);
+      --nl-blue-bg:       rgba(26, 58, 110, 0.09);
+      --nl-blue-hover-bg: rgba(26, 58, 110, 0.20);
+      --nl-blue-glow:     rgba(74, 127, 212, 0.40);
+      --nl-lightning:     #88bfff;
     }
     [data-theme="light"] {
-      --nl-blue-bright:   #2244bb;
-      --nl-blue-dim:      rgba(26, 46, 110, 0.40);
-      --nl-blue-bg:       rgba(26, 46, 110, 0.06);
-      --nl-blue-hover-bg: rgba(26, 46, 110, 0.14);
-      --nl-blue-glow:     rgba(34, 68, 187, 0.30);
+      --nl-blue:          #1a3a6e;
+      --nl-blue-light:    #1a2e5c;
+      --nl-blue-bright:   #2a5aaa;
+      --nl-blue-dim:      rgba(26, 58, 110, 0.45);
+      --nl-blue-bg:       rgba(26, 58, 110, 0.07);
+      --nl-blue-hover-bg: rgba(26, 58, 110, 0.16);
+      --nl-blue-glow:     rgba(26, 58, 110, 0.22);
+      --nl-lightning:     #2a5aaa;
     }
 
+    /* ── Bouton Night Lords ── */
     .btn-armee--nl {
-      color:        #5577ee !important;
-      border-color: rgba(26, 46, 110, 0.55) !important;
-      background:   rgba(26, 46, 110, 0.10) !important;
+      color:        var(--nl-blue-bright) !important;
+      border-color: var(--nl-blue-dim)    !important;
+      background:   var(--nl-blue-bg)     !important;
     }
     .btn-armee--nl:hover {
-      background:   rgba(58, 90, 204, 0.20) !important;
-      border-color: #5577ee !important;
-      box-shadow:   0 0 12px rgba(85, 119, 238, 0.45) !important;
-      color:        #99bbff !important;
+      background:   var(--nl-blue-hover-bg) !important;
+      border-color: var(--nl-blue-bright)   !important;
+      box-shadow:   0 0 14px var(--nl-blue-glow) !important;
+      color:        var(--nl-lightning)     !important;
     }
     [data-theme="light"] .btn-armee--nl {
-      color:        #2244bb !important;
-      border-color: rgba(26, 46, 110, 0.40) !important;
-      background:   rgba(26, 46, 110, 0.06) !important;
+      color:        var(--nl-blue-bright) !important;
+      border-color: var(--nl-blue-dim)    !important;
+      background:   var(--nl-blue-bg)     !important;
     }
     [data-theme="light"] .btn-armee--nl:hover {
-      background:   rgba(26, 46, 110, 0.14) !important;
-      border-color: #2244bb !important;
-      box-shadow:   0 0 12px rgba(34, 68, 187, 0.30) !important;
-      color:        #1a2e6e !important;
+      background:   var(--nl-blue-hover-bg) !important;
+      border-color: var(--nl-blue-bright)   !important;
+      box-shadow:   0 0 12px var(--nl-blue-glow) !important;
+      color:        var(--nl-lightning)     !important;
+    }
+
+    /* ── Icône SVG Night Lords dans le bouton ── */
+    .btn-armee--nl .nl-btn-icon {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      color: currentColor;
+      filter: drop-shadow(0 0 4px var(--nl-blue-glow));
     }
   </style>
 </head>
@@ -100,7 +116,18 @@
     <div class="hero-badges">
       <a href="iron-warriors.html"  class="btn-armee btn-armee--iw">&#x2692; Iron Warriors</a>
       <a href="blood-angels.html"   class="btn-armee btn-armee--ba">&#x1F578; Blood Angels</a>
-      <a href="night-lords.html"    class="btn-armee btn-armee--nl">&#x2623; Night Lords</a>
+      <a href="night-lords.html"    class="btn-armee btn-armee--nl">
+        <!-- Logo Night Lords — sceau VIII légion (identique à night-lords.html) -->
+        <svg class="nl-btn-icon" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+          <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="1" stroke-dasharray="3 4" opacity="0.5"/>
+          <circle cx="36" cy="36" r="24" stroke="currentColor" stroke-width="0.7" opacity="0.35"/>
+          <circle cx="36" cy="36" r="5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M18 42 Q8 30 14 20 Q18 28 24 30 Q36 24 36 16 Q36 24 48 30 Q54 28 58 20 Q64 30 54 42 Q48 34 42 33 Q36 46 36 52 Q36 46 30 33 Q24 34 18 42Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.8"/>
+          <circle cx="32" cy="35" r="1.5" fill="currentColor" opacity="0.9"/>
+          <circle cx="40" cy="35" r="1.5" fill="currentColor" opacity="0.9"/>
+        </svg>
+        Night Lords
+      </a>
     </div>
   </div>
   <span class="hero-scroll" aria-hidden="true">D&#xe9;filer</span>
