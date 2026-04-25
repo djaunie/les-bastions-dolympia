@@ -3,49 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Lords</title>
+  <title>Night Lords — Les Bastions d'Olympia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ── BOUTONS DE NAVIGATION PAGES ───────────────────────────── */
-    .nav-page-links {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .btn-nav-page {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.85rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 3px;
-      border: 1px solid;
-      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .btn-nav-page--carte {
-      color: #c8a028;
-      border-color: rgba(200, 160, 40, 0.45);
-      background: rgba(200, 160, 40, 0.07);
-    }
-    .btn-nav-page--carte:hover {
-      background: rgba(200, 160, 40, 0.18);
-      border-color: #c8a028;
-      box-shadow: 0 0 10px rgba(200, 160, 40, 0.25);
-      color: #e8c050;
-    }
-    [data-theme="light"] .btn-nav-page--carte { color: #8a6800; border-color: rgba(138, 104, 0, 0.4); background: rgba(138, 104, 0, 0.06); }
-    [data-theme="light"] .btn-nav-page--carte:hover { background: rgba(138, 104, 0, 0.14); border-color: #8a6800; }
-
     /* ── COULEURS THÉMATIQUES NIGHT LORDS ── */
     :root {
       --nl-blue: #1a2e6e;
@@ -58,8 +21,6 @@
       --nl-silver: #8a9bac;
       --nl-silver-dim: rgba(138, 155, 172, 0.35);
       --nl-silver-bg: rgba(138, 155, 172, 0.07);
-      --nl-silver-hover-bg: rgba(138, 155, 172, 0.18);
-      --nl-silver-glow: rgba(138, 155, 172, 0.25);
       --nl-lightning: #6699ff;
       --nl-lightning-dim: rgba(102, 153, 255, 0.4);
     }
@@ -74,542 +35,302 @@
       --nl-silver: #5a6a7a;
       --nl-silver-dim: rgba(90, 106, 122, 0.3);
       --nl-silver-bg: rgba(90, 106, 122, 0.06);
-      --nl-silver-hover-bg: rgba(90, 106, 122, 0.14);
-      --nl-silver-glow: rgba(90, 106, 122, 0.2);
       --nl-lightning: #2244bb;
       --nl-lightning-dim: rgba(34, 68, 187, 0.4);
     }
 
+    /* ── BOUTONS DE NAVIGATION ── */
+    .nav-page-links { display: flex; gap: 0.5rem; align-items: center; }
+    .btn-nav-page {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.4rem 0.85rem; font-family: 'Cinzel', serif;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      border-radius: 3px; border: 1px solid;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      cursor: pointer; white-space: nowrap;
+    }
+    .btn-nav-page--carte { color: #c8a028; border-color: rgba(200,160,40,0.45); background: rgba(200,160,40,0.07); }
+    .btn-nav-page--carte:hover { background: rgba(200,160,40,0.18); border-color: #c8a028; box-shadow: 0 0 10px rgba(200,160,40,0.25); color: #e8c050; }
+    [data-theme="light"] .btn-nav-page--carte { color: #8a6800; border-color: rgba(138,104,0,0.4); background: rgba(138,104,0,0.06); }
+    [data-theme="light"] .btn-nav-page--carte:hover { background: rgba(138,104,0,0.14); border-color: #8a6800; }
+
     /* ── HERO ── */
     .page-hero {
-      padding: 5rem 0 3rem;
-      text-align: center;
-      background: radial-gradient(ellipse at center top, rgba(26,46,110,0.32) 0%, transparent 65%);
+      padding: 5.5rem 0 3.5rem; text-align: center;
+      background:
+        radial-gradient(ellipse at center top, rgba(26,46,110,0.38) 0%, transparent 65%),
+        radial-gradient(ellipse at 30% 80%, rgba(85,119,238,0.08) 0%, transparent 50%);
       border-bottom: 1px solid rgba(85,119,238,0.2);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .page-hero::before {
       content: '';
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        -45deg,
-        rgba(85,119,238,0.015) 0px,
-        rgba(85,119,238,0.015) 1px,
-        transparent 1px,
-        transparent 10px
+        -55deg,
+        rgba(85,119,238,0.012) 0px, rgba(85,119,238,0.012) 1px,
+        transparent 1px, transparent 12px
       );
       pointer-events: none;
     }
-    /* Éclair décoratif dans le hero */
+    /* Éclair vertical */
     .page-hero::after {
       content: '';
-      position: absolute;
-      top: 0; left: 50%;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(102,153,255,0.3), transparent 60%);
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, rgba(102,153,255,0.35), transparent 60%);
       pointer-events: none;
     }
-    .page-hero .section-eyebrow { margin-bottom: 0.5rem; }
-    .page-hero .section-title   { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 0.75rem; }
-    .page-hero .section-desc    { max-width: 60ch; margin: 0 auto; }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.2rem;
-      padding: 0.3rem 1rem;
-      border: 1px solid var(--nl-blue-dim);
-      border-radius: 2px;
-      background: var(--nl-blue-bg);
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--nl-blue-bright);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1.2rem; padding: 0.3rem 1rem;
+      border: 1px solid var(--nl-blue-dim); border-radius: 2px;
+      background: var(--nl-blue-bg); font-family: 'Cinzel', serif;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--nl-blue-bright);
     }
+    .page-hero .section-title { font-size: clamp(1.8rem, 4.5vw, 3.5rem); margin-bottom: 0.75rem; }
+    .page-hero .section-desc { max-width: 62ch; margin: 0 auto; }
     .hero-lore {
-      font-family: 'Crimson Text', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--color-text-muted, #797876);
-      max-width: 58ch;
-      margin: 0.75rem auto 0;
-      line-height: 1.7;
+      font-family: 'Crimson Text', serif; font-size: 1.08rem;
+      font-style: italic; color: var(--color-text-muted, #797876);
+      max-width: 56ch; margin: 0.9rem auto 0; line-height: 1.75;
     }
-
-    /* ── LIEN RETOUR ── */
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin: 1.5rem 0 0;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--nl-blue-bright);
-      border: 1px solid var(--nl-blue-dim);
-      background: var(--nl-blue-bg);
-      padding: 0.45rem 1rem;
-      border-radius: 3px;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin: 1.5rem 0 0; font-family: 'Cinzel', serif;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--nl-blue-bright); border: 1px solid var(--nl-blue-dim);
+      background: var(--nl-blue-bg); padding: 0.45rem 1rem; border-radius: 3px;
       transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
-    .back-link:hover {
-      background: var(--nl-blue-hover-bg);
-      border-color: var(--nl-blue-bright);
-      box-shadow: 0 0 12px var(--nl-blue-glow);
-      color: #99bbff;
-    }
+    .back-link:hover { background: var(--nl-blue-hover-bg); border-color: var(--nl-blue-bright); box-shadow: 0 0 12px var(--nl-blue-glow); color: #99bbff; }
 
-    /* ── SECTIONS PRINCIPALES ── */
-    .roster-section {
-      padding: clamp(3rem, 7vw, 5rem) 0;
+    /* ── SECTIONS NARRATIVES ── */
+    .lore-section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+    .lore-inner { max-width: 860px; margin: 0 auto; }
+
+    /* Séparateur de section */
+    .lore-section + .lore-section { border-top: 1px solid rgba(85,119,238,0.1); }
+
+    /* En-tête de section */
+    .lore-header { margin-bottom: 2rem; }
+    .lore-eyebrow {
+      font-family: 'Cinzel', serif; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--nl-blue-bright); display: flex; align-items: center;
+      gap: 0.6rem; margin-bottom: 0.55rem;
     }
-    .roster-inner {
-      max-width: 900px;
-      margin: 0 auto;
+    .lore-eyebrow::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--nl-blue-dim), transparent); max-width: 200px; }
+    .lore-title {
+      font-family: 'Cinzel', serif; font-weight: 900;
+      font-size: clamp(1.2rem, 3vw, 1.75rem);
+      letter-spacing: 0.04em; line-height: 1.2;
+      color: var(--color-text, #cdccca);
+      margin: 0 0 0.3rem;
     }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
+    [data-theme="dark"] .lore-title { text-shadow: 0 0 40px rgba(85,119,238,0.18); }
+
+    /* Paragraphes narratifs */
+    .lore-prose {
+      font-family: 'Crimson Text', serif; font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.82; color: var(--color-text, #cdccca);
     }
-    .section-header-icon {
-      width: 18px;
-      height: 18px;
+    .lore-prose p { margin-bottom: 1.2em; max-width: 72ch; }
+    .lore-prose p:last-child { margin-bottom: 0; }
+    .lore-prose strong {
+      font-family: 'Cinzel', serif; font-size: 0.88em;
+      font-style: normal; font-weight: 700; letter-spacing: 0.04em;
       color: var(--nl-blue-bright);
-      flex-shrink: 0;
-    }
-    .section-header-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.75rem, 2vw, 0.95rem);
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--nl-blue-bright);
-    }
-    .section-header-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--nl-blue-dim), transparent);
     }
 
-    /* ── CARTES ── */
-    .roster-grid {
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    /* Carte PERSONNAGE NOMMÉ */
-    .unit-card {
-      border: 1px solid rgba(85,119,238,0.2);
-      border-radius: 3px;
-      background: rgba(4,8,20,0.55);
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+    /* Blockquote exergue */
+    .lore-quote {
+      border-left: 3px solid var(--nl-blue-bright);
+      margin: 2rem 0; padding: 1rem 1.5rem;
+      background: rgba(26,46,110,0.08);
+      border-radius: 0 3px 3px 0;
       position: relative;
+    }
+    [data-theme="light"] .lore-quote { background: rgba(26,46,110,0.05); }
+    .lore-quote::before {
+      content: '\201C';
+      position: absolute; top: -0.4rem; left: 1rem;
+      font-family: 'Cinzel', serif; font-size: 3rem;
+      color: var(--nl-blue-bright); opacity: 0.3; line-height: 1;
+    }
+    .lore-quote blockquote {
+      font-family: 'Crimson Text', serif; font-size: 1.05rem;
+      font-style: italic; line-height: 1.7;
+      color: var(--color-text-muted, #9a9997);
+      margin: 0 0 0.6rem;
+    }
+    .lore-quote cite {
+      font-family: 'Cinzel', serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--nl-blue-bright); font-style: normal;
+    }
+
+    /* Encart personnage */
+    .lore-character {
+      display: grid; grid-template-columns: 3px 1fr;
+      gap: 0 1.25rem; margin: 1.5rem 0;
+      border: 1px solid rgba(85,119,238,0.18);
+      border-radius: 3px; background: rgba(4,8,20,0.45);
       overflow: hidden;
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
-    .unit-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--nl-blue-bright);
-      opacity: 0.75;
+    .lore-character:hover { border-color: rgba(85,119,238,0.4); box-shadow: 0 0 18px rgba(85,119,238,0.1); }
+    .lore-character--silver { border-color: rgba(138,155,172,0.18); }
+    .lore-character--silver:hover { border-color: rgba(138,155,172,0.38); box-shadow: 0 0 18px rgba(138,155,172,0.08); }
+    [data-theme="light"] .lore-character { background: rgba(228,232,248,0.45); }
+    [data-theme="light"] .lore-character--silver { background: rgba(234,237,242,0.45); }
+    .lore-character-bar { background: var(--nl-blue-bright); align-self: stretch; }
+    .lore-character-bar--silver { background: var(--nl-silver); }
+    .lore-character-bar--primarch { background: linear-gradient(to bottom, var(--nl-blue-bright), rgba(85,119,238,0.5)); box-shadow: 0 0 12px var(--nl-blue-glow); }
+    .lore-character-body { padding: 1rem 1.25rem 1rem 0; }
+    .lore-character-name {
+      font-family: 'Cinzel', serif; font-weight: 900;
+      font-size: clamp(0.85rem, 2vw, 1rem); letter-spacing: 0.08em;
+      color: var(--nl-blue-bright); margin-bottom: 0.15rem;
     }
-    .unit-card:hover {
-      border-color: rgba(85,119,238,0.45);
-      box-shadow: 0 0 16px rgba(85,119,238,0.12);
+    .lore-character-name--primarch { font-size: clamp(1rem, 2.5vw, 1.25rem); letter-spacing: 0.12em; }
+    .lore-character-name--silver { color: var(--nl-silver); }
+    .lore-character-role {
+      font-family: 'Crimson Text', serif; font-size: 0.82rem;
+      font-style: italic; color: var(--color-text-muted, #797876);
+      margin-bottom: 0.65rem;
     }
-    .unit-card--silver::before { background: var(--nl-silver); }
-    .unit-card--silver { border-color: rgba(138,155,172,0.2); }
-    .unit-card--silver:hover { border-color: rgba(138,155,172,0.4); box-shadow: 0 0 16px rgba(138,155,172,0.1); }
-
-    [data-theme="light"] .unit-card {
-      background: rgba(230,235,248,0.55);
-      border-color: rgba(26,46,110,0.18);
+    .lore-character-text {
+      font-family: 'Crimson Text', serif; font-size: 0.97rem;
+      line-height: 1.72; color: var(--color-text, #cdccca);
     }
-    [data-theme="light"] .unit-card--silver {
-      background: rgba(235,238,242,0.55);
-      border-color: rgba(90,106,122,0.18);
-    }
-
-    .unit-badge {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      font-weight: 900;
-      background: rgba(85,119,238,0.12);
-      border: 1px solid var(--nl-blue-dim);
-      color: var(--nl-blue-bright);
-    }
-    .unit-badge--silver {
-      background: rgba(138,155,172,0.1);
-      border-color: var(--nl-silver-dim);
-      color: var(--nl-silver);
-    }
-    .unit-badge--primarch {
-      width: 44px;
-      height: 44px;
-      font-size: 1.25rem;
-      background: rgba(26,46,110,0.25);
-      border: 1.5px solid var(--nl-blue-bright);
-      box-shadow: 0 0 14px var(--nl-blue-glow);
-    }
-
-    .unit-info { flex: 1; min-width: 0; }
-    .unit-name {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.82rem, 2vw, 0.98rem);
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      color: var(--color-text, #cdccca);
-      margin-bottom: 0.15rem;
-    }
-    .unit-name--primarch { color: var(--nl-blue-bright); font-size: clamp(1rem, 2.5vw, 1.2rem); letter-spacing: 0.1em; }
-    .unit-name--silver { color: var(--nl-silver); }
-    .unit-role {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--color-text-muted, #797876);
-    }
-    .unit-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.45rem;
-    }
+    .lore-character-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
     .tag {
-      font-family: 'Cinzel', serif;
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-      border: 1px solid;
+      font-family: 'Cinzel', serif; font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.15rem 0.5rem; border-radius: 2px; border: 1px solid;
     }
     .tag--blue { color: var(--nl-blue-bright); border-color: var(--nl-blue-dim); background: var(--nl-blue-bg); }
     .tag--silver { color: var(--nl-silver); border-color: var(--nl-silver-dim); background: var(--nl-silver-bg); }
     .tag--grey { color: var(--color-text-muted, #797876); border-color: rgba(120,120,120,0.3); background: rgba(120,120,120,0.06); }
-    .tag--unknown {
-      color: #bb4444;
-      border-color: rgba(187,68,68,0.35);
-      background: rgba(187,68,68,0.06);
-      font-style: italic;
-      letter-spacing: 0.1em;
+    .tag--unknown { color: #bb4444; border-color: rgba(187,68,68,0.35); background: rgba(187,68,68,0.06); font-style: italic; letter-spacing: 0.1em; }
+
+    /* Séparateur ornemental */
+    .lore-divider {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin: 2.5rem 0;
+    }
+    .lore-divider::before, .lore-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(85,119,238,0.28), transparent);
+    }
+    .lore-divider-symbol {
+      font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em;
+      color: var(--nl-blue-bright); opacity: 0.7;
     }
 
-    /* Carte UNITÉ */
-    .squad-card {
+    /* Bloc unité narrative */
+    .lore-unit {
       border: 1px solid rgba(85,119,238,0.15);
-      border-radius: 3px;
-      background: rgba(4,6,18,0.45);
-      padding: 0.9rem 1.25rem 0.9rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 0.75rem;
-      position: relative;
-      overflow: hidden;
+      border-radius: 3px; background: rgba(4,6,18,0.4);
+      padding: 1.25rem 1.5rem 1.25rem 1.75rem;
+      margin-bottom: 1rem; position: relative; overflow: hidden;
       transition: border-color 200ms ease, background 200ms ease;
     }
-    .squad-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: rgba(85,119,238,0.5);
+    .lore-unit::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px; background: rgba(85,119,238,0.5);
     }
-    .squad-card:hover {
-      border-color: rgba(85,119,238,0.35);
-      background: rgba(85,119,238,0.04);
+    .lore-unit:hover { border-color: rgba(85,119,238,0.35); background: rgba(85,119,238,0.04); }
+    .lore-unit--vehicle { border-color: rgba(138,155,172,0.15); }
+    .lore-unit--vehicle::before { background: rgba(138,155,172,0.5); }
+    .lore-unit--vehicle:hover { border-color: rgba(138,155,172,0.35); }
+    .lore-unit--unknown { border-color: rgba(187,68,68,0.18); opacity: 0.85; }
+    .lore-unit--unknown::before { background: rgba(187,68,68,0.5); }
+    [data-theme="light"] .lore-unit { background: rgba(228,232,248,0.35); }
+    [data-theme="light"] .lore-unit--vehicle { background: rgba(234,237,242,0.35); }
+    .lore-unit-title {
+      font-family: 'Cinzel', serif; font-size: 0.88rem; font-weight: 700;
+      letter-spacing: 0.06em; color: var(--color-text, #cdccca);
+      margin-bottom: 0.5rem;
     }
-    [data-theme="light"] .squad-card {
-      background: rgba(232,235,248,0.4);
-      border-color: rgba(26,46,110,0.12);
-    }
-
-    .squad-name {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.78rem, 1.8vw, 0.9rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--color-text, #cdccca);
-    }
-    .squad-sub {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.82rem;
-      font-style: italic;
-      color: var(--color-text-muted, #797876);
-      margin-top: 0.1rem;
-    }
-    .squad-count {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      font-weight: 900;
-      color: var(--nl-blue-bright);
-      white-space: nowrap;
-      min-width: 2.5rem;
-      text-align: right;
-    }
-    .squad-count small {
-      font-size: 0.6rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--color-text-muted, #797876);
-      display: block;
-      text-align: right;
-    }
-    /* Carte VÉHICULE */
-    .vehicle-card {
-      border: 1px solid rgba(138,155,172,0.18);
-      border-radius: 3px;
-      background: rgba(8,10,22,0.4);
-      padding: 0.9rem 1.25rem 0.9rem 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 0.75rem;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 200ms ease, background 200ms ease;
-    }
-    .vehicle-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: rgba(138,155,172,0.5);
-    }
-    .vehicle-card:hover {
-      border-color: rgba(138,155,172,0.4);
-      background: rgba(138,155,172,0.04);
-    }
-    [data-theme="light"] .vehicle-card {
-      background: rgba(234,236,242,0.4);
-      border-color: rgba(90,106,122,0.14);
-    }
-    .vehicle-name {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(0.78rem, 1.8vw, 0.9rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--color-text, #cdccca);
-    }
-    .vehicle-sub {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.82rem;
-      font-style: italic;
-      color: var(--color-text-muted, #797876);
-      margin-top: 0.1rem;
-    }
-    .vehicle-icon {
-      width: 28px;
-      height: 28px;
-      color: var(--nl-silver);
-      opacity: 0.75;
-      flex-shrink: 0;
+    .lore-unit-title--blue { color: var(--nl-blue-bright); }
+    .lore-unit-title--silver { color: var(--nl-silver); }
+    .lore-unit-title--unknown { color: var(--color-text-muted, #797876); font-style: italic; }
+    .lore-unit-text {
+      font-family: 'Crimson Text', serif; font-size: 0.97rem;
+      line-height: 1.72; color: var(--color-text, #cdccca); margin-bottom: 0.65rem;
     }
 
-    /* ── BLOC INTEL (MENACE INCONNUE) ── */
-    .intel-block {
-      border: 1px solid rgba(85,119,238,0.25);
-      border-radius: 3px;
-      background: rgba(4,8,24,0.7);
-      padding: 1.25rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 2.5rem;
+    /* Bloc alerte / menace inconnue */
+    .lore-intel {
+      border: 1px solid rgba(85,119,238,0.28);
+      border-radius: 3px; background: rgba(4,8,24,0.72);
+      padding: 1.25rem 1.5rem; position: relative;
+      overflow: hidden; margin-bottom: 2.5rem;
     }
-    .intel-block::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: rgba(85,119,238,0.7);
+    .lore-intel::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: rgba(85,119,238,0.75);
     }
-    /* Effet d'éclair discret en arrière-plan */
-    .intel-block::after {
-      content: '';
-      position: absolute;
-      right: 1.5rem; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(102,153,255,0.2) 30%, rgba(102,153,255,0.2) 70%, transparent);
-      pointer-events: none;
-    }
-    [data-theme="light"] .intel-block {
-      background: rgba(228,232,248,0.6);
-      border-color: rgba(26,46,110,0.22);
-    }
+    [data-theme="light"] .lore-intel { background: rgba(224,228,248,0.65); border-color: rgba(26,46,110,0.25); }
     .intel-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--nl-blue-bright);
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-family: 'Cinzel', serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--nl-blue-bright); display: flex; align-items: center;
+      gap: 0.5rem; margin-bottom: 0.65rem;
     }
-    .intel-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--nl-blue-dim), transparent);
-    }
-    .intel-text {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.95rem;
-      font-style: italic;
-      line-height: 1.7;
-      color: var(--color-text-muted, #797876);
-    }
-    .intel-text strong {
-      color: var(--nl-blue-bright);
-      font-style: normal;
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
-    }
+    .intel-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--nl-blue-dim), transparent); }
 
-    /* ── BLOC INCONNU / NEBULA ── */
-    .unknown-block {
-      border: 1px dashed rgba(187,68,68,0.3);
-      border-radius: 3px;
-      background: rgba(15,4,4,0.35);
-      padding: 1rem 1.25rem;
+    /* Bloc inconnu / alerte rouge */
+    .lore-unknown {
+      border: 1px dashed rgba(187,68,68,0.32); border-radius: 3px;
+      background: rgba(15,4,4,0.38); padding: 1rem 1.25rem;
       margin-top: 0.75rem;
-      position: relative;
     }
-    [data-theme="light"] .unknown-block {
-      background: rgba(248,232,232,0.4);
-      border-color: rgba(187,68,68,0.25);
-    }
+    [data-theme="light"] .lore-unknown { background: rgba(248,232,232,0.42); border-color: rgba(187,68,68,0.28); }
     .unknown-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #bb6655;
+      font-family: 'Cinzel', serif; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #bb6655;
       margin-bottom: 0.4rem;
     }
-    .unknown-text {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.88rem;
-      font-style: italic;
-      color: var(--color-text-muted, #797876);
-      line-height: 1.6;
-    }
 
-    /* ── SÉPARATEUR ── */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin: 2rem 0 1.5rem;
+    /* Barre de statut */
+    .lore-status {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.9rem 1.25rem;
+      border: 1px solid rgba(187,68,68,0.38); border-radius: 3px;
+      background: rgba(30,8,8,0.42); margin-top: 1.5rem;
     }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(85,119,238,0.25), transparent);
-    }
-    .divider-icon { color: var(--nl-blue-bright); font-size: 0.75rem; opacity: 0.6; }
+    [data-theme="light"] .lore-status { background: rgba(248,232,232,0.52); border-color: rgba(187,68,68,0.32); }
+    .status-label { font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #bb6655; }
+    .status-value { font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700; color: #bb6655; letter-spacing: 0.06em; text-align: right; }
 
-    /* ── NOTA BENE ── */
-    .nota-bene {
-      width: 100%;
-      border: 1px solid var(--nl-blue-dim);
-      border-left: 3px solid var(--nl-blue-bright);
-      padding: 1rem 1.25rem;
-      border-radius: 2px;
-      background: rgba(26,46,110,0.06);
-      margin-top: 2rem;
+    /* Nota bene */
+    .lore-nota {
+      border: 1px solid var(--nl-blue-dim); border-left: 3px solid var(--nl-blue-bright);
+      padding: 1rem 1.25rem; border-radius: 2px;
+      background: rgba(26,46,110,0.06); margin-top: 2rem;
     }
-    [data-theme="light"] .nota-bene {
-      background: rgba(26,46,110,0.04);
-      border-color: rgba(26,46,110,0.22);
-      border-left-color: var(--nl-blue-bright);
+    [data-theme="light"] .lore-nota { background: rgba(26,46,110,0.04); border-color: rgba(26,46,110,0.22); border-left-color: var(--nl-blue-bright); }
+    .nota-label {
+      font-family: 'Cinzel', serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--nl-blue-bright); margin-bottom: 0.45rem;
     }
-    .nota-bene-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--nl-blue-bright);
-      margin-bottom: 0.45rem;
-    }
-    .nota-bene p {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: var(--color-text-muted, #797876);
-      font-style: italic;
-      max-width: 65ch;
-    }
-
-    /* ── BARRE DE STATUT INCONNU ── */
-    .status-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.9rem 1.25rem;
-      border: 1px solid rgba(187,68,68,0.35);
-      border-radius: 3px;
-      background: rgba(30,8,8,0.4);
-      margin-top: 1.5rem;
-    }
-    [data-theme="light"] .status-bar {
-      background: rgba(248,232,232,0.5);
-      border-color: rgba(187,68,68,0.3);
-    }
-    .status-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #bb6655;
-    }
-    .status-value {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #bb6655;
-      letter-spacing: 0.06em;
-      text-align: right;
+    .lore-nota p {
+      font-family: 'Crimson Text', serif; font-size: 0.92rem;
+      line-height: 1.65; color: var(--color-text-muted, #797876);
+      font-style: italic; max-width: 65ch;
     }
 
     @media (max-width: 600px) {
       .nav-page-links { gap: 0.35rem; }
-      .btn-nav-page   { font-size: 0.65rem; padding: 0.35rem 0.6rem; }
-      .squad-card, .vehicle-card { grid-template-columns: 1fr; }
-      .squad-count, .vehicle-icon { text-align: left; }
+      .btn-nav-page { font-size: 0.65rem; padding: 0.35rem 0.6rem; }
+      .lore-character { grid-template-columns: 3px 1fr; }
     }
   </style>
 </head>
@@ -650,14 +371,14 @@
   </div>
 </nav>
 
-<!-- HERO MINI -->
+<!-- HERO -->
 <header class="page-hero" id="top">
   <div class="container">
     <div class="hero-badge">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      VIIIe Légion — Night Lords
+      VIIIe Légion &mdash; Night Lords
     </div>
-    <h1 class="section-title"><span>NIGHT LORDS</span></h1>
+    <h1 class="section-title">NIGHT LORDS</h1>
     <p class="section-desc">Fils de Konrad Curze, Primarch de la VIIIe Légion. Seigneurs des ténèbres et de la terreur, chasseurs dans l'obscurité.</p>
     <p class="hero-lore">« Ils viennent dans la nuit, sans bruit, sans merci. Avant que vous les voyiez, il est déjà trop tard — la peur est leur première arme, et la mort n'est que la conclusion. »</p>
     <a href="index.html" class="back-link">
@@ -667,179 +388,342 @@
   </div>
 </header>
 
-<!-- CONTENU PRINCIPAL -->
-<section class="roster-section">
+<!-- ═══════════════════════════════════════════════════
+     SECTION I — L'OMBRE QUI PRÉCÈDE LA MORT
+═══════════════════════════════════════════════════ -->
+<section class="lore-section">
   <div class="container">
-    <div class="roster-inner">
+    <div class="lore-inner">
 
-      <!-- Bloc Intel — Menace inconnue -->
-      <div class="intel-block reveal">
+      <!-- Bloc alerte intel -->
+      <div class="lore-intel reveal">
         <p class="intel-label">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           Alerte — Menace en Approche
         </p>
-        <p class="intel-text">
-          Les informations disponibles sur la <strong>VIIIe Légion — Night Lords</strong> sont 
-          <strong>Extrêmement Limitées</strong>. Des signaux intermittents et des transmissions fragmentées 
-          indiquent qu'une force de Night Lords, commandée par le <strong>Primarch Konrad Curze</strong> 
-          lui-même, fait route vers le <strong>Sous-Secteur Olympia</strong>. 
-          La composition exacte de leur armée, leur nombre total, leurs capacités et leur 
-          itinéraire précis demeurent <strong>Inconnus</strong>. 
-          Aucune estimation d'effectif fiable n'est possible. Toute intelligence supplémentaire 
-          doit être traitée avec la plus grande prudence.
+        <div class="lore-prose">
+          <p>
+            Les transmissions interceptées sont fragmentées, brûlées aux bords comme si leur émetteur avait péri avant d'achever le message.
+            Ce que les veilleurs des Bastions d'Olympia peuvent affirmer tient en peu de mots :
+            la <strong>VIIIe Légion</strong> approche. Ses bannières, teintes du bleu nuit des ruelles de Nostramo,
+            ont été aperçues aux confins du sous-secteur. Son chef marche à leur tête.
+          </p>
+          <p>
+            La composition exacte de leur force demeure <strong>inconnue</strong>.
+            Le nombre total, l'équipement, l'itinéraire précis — tout cela appartient à l'ombre.
+            Ce que l'on sait suffit déjà à glacer le sang : <strong>Konrad Curze</strong> lui-même est venu,
+            et là où le Prince de la Nuit pose ses griffes, la peur précède toujours la mort.
+          </p>
+        </div>
+      </div>
+
+      <div class="lore-header reveal">
+        <p class="lore-eyebrow">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Chapitre I
+        </p>
+        <h2 class="lore-title">L'Ombre Qui Précède la Mort</h2>
+      </div>
+
+      <div class="lore-prose reveal">
+        <p>
+          Avant que Horus ne lève l'étendard de la rébellion, la <strong>VIIIe Légion Astartes</strong> était déjà
+          une force qui faisait frémir les mondes récalcitrants. Née dans les venelles crasseuses et perpétuellement obscures
+          de <strong>Nostramo Quintus</strong>, planète souterraine où la lumière du soleil n'atteignait jamais les bas quartiers,
+          la Légion portait en elle l'empreinte indélébile de son berceau. Ses guerriers avaient grandi parmi les assassins,
+          les extorqueurs et les meurtriers — les pires que l'humanité fût capable de produire.
+          L'Astartes les avait rendus plus forts, plus rapides, plus terribles. Il n'avait pas effacé ce qu'ils étaient.
+        </p>
+        <p>
+          Leur Primarch, <strong>Konrad Curze</strong>, avait régné sur Nostramo par la terreur absolue.
+          Il avait compris avant tout autre chose que la peur est la chaîne la plus solide qui soit —
+          plus résistante que le durasteel, plus tranchante que la lame de force.
+          Un homme qui croit que la nuit recèle des monstres ne s'aventure pas dans la nuit.
+          Et si les monstres portent les couleurs de l'Empereur, alors peut-être que l'Empereur lui-même
+          est le plus grand monstre de tous.
+        </p>
+        <p>
+          Ce raisonnement, tordu et lucide à la fois, conduisit la VIIIe Légion tout droit dans les bras de l'Hérésie.
+          Quand Horus tomba à Davin et que la galaxie commença de se déchirer, les <strong>Night Lords</strong>
+          ne rejoignirent pas les rangs des Légions Traîtresses par idéologie.
+          Ils le firent parce que le chaos et la terreur sont leur élément naturel,
+          et que la Grande Croisade n'avait été, pour eux, qu'un intermède trop ordonné.
         </p>
       </div>
 
-      <!-- SECTION : COMMANDEMENT CONFIRMÉ -->
-      <div class="section-header reveal">
-        <svg class="section-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <span class="section-header-title">Commandement — Confirmé</span>
-        <span class="section-header-line"></span>
+      <div class="lore-quote reveal">
+        <blockquote>« Il ne fait pas régner la justice. Il fait régner la peur de la justice. Ce n'est pas la même chose — et c'est précisément là que réside toute la différence entre un pacificateur et un monstre. »</blockquote>
+        <cite>— Sevatar, Premier Capitaine de la VIIIe Légion, à ses officiers, avant l'assaut de Nostramo</cite>
       </div>
 
-      <div class="roster-grid">
+    </div>
+  </div>
+</section>
 
-        <!-- Konrad Curze -->
-        <div class="unit-card reveal">
-          <div class="unit-badge unit-badge--primarch">⚡</div>
-          <div class="unit-info">
-            <div class="unit-name unit-name--primarch">KONRAD CURZE</div>
-            <div class="unit-role">Primarch de la VIIIe Légion — Le Seigneur de la Nuit, le Prince des Ténèbres</div>
-            <div class="unit-tags">
-              <span class="tag tag--blue">Primarch</span>
-              <span class="tag tag--blue">Seigneur de Guerre</span>
-              <span class="tag tag--grey">Confirmé</span>
-            </div>
-          </div>
-        </div>
+<!-- ═══════════════════════════════════════════════════
+     SECTION II — LES FILS DE LA NUIT NOSTRAMO
+═══════════════════════════════════════════════════ -->
+<section class="lore-section">
+  <div class="container">
+    <div class="lore-inner">
 
-        <!-- Sevatar -->
-        <div class="unit-card unit-card--silver reveal">
-          <div class="unit-badge unit-badge--silver">S</div>
-          <div class="unit-info">
-            <div class="unit-name unit-name--silver">SEVATAR</div>
-            <div class="unit-role">Premier Capitaine — Surnommé « le Prince des Cravens », commandant des Atramentar</div>
-            <div class="unit-tags">
-              <span class="tag tag--silver">Premier Capitaine</span>
-              <span class="tag tag--grey">HQ</span>
-              <span class="tag tag--grey">Confirmé</span>
-            </div>
-          </div>
-        </div>
-
+      <div class="lore-header reveal">
+        <p class="lore-eyebrow">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Chapitre II
+        </p>
+        <h2 class="lore-title">Les Fils de la Nuit Nostramo</h2>
       </div>
 
-      <div class="divider reveal"><span class="divider-icon">⚡</span></div>
-
-      <!-- SECTION : ÉLITE CONFIRMÉE -->
-      <div class="section-header reveal">
-        <svg class="section-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="section-header-title">Élite — Confirmée</span>
-        <span class="section-header-line"></span>
+      <div class="lore-prose reveal">
+        <p>
+          Le groupe de combat qui approche du <strong>Sous-Secteur Olympia</strong> est placé sous commandement
+          direct du Primarch en personne. Ce seul fait suffit à distinguer cette opération d'une simple razzia de représailles.
+          Konrad Curze ne se déplace pas pour des batailles mineures. Quand le Prince de la Nuit descend en personne
+          sur un monde, c'est que ce monde doit servir d'exemple — ou doit cesser d'exister.
+        </p>
+        <p>
+          À ses côtés marche celui que l'on surnomme le <strong>Prince des Couards</strong> — non pas par mépris,
+          mais parce que ceux qui l'affrontent finissent toujours par fuir, et que fuir face à Sevatar est un luxe
+          que la mort ne permet pas. Son Premier Capitaine est son bras droit autant que son instrument de discipline,
+          le gardien des <strong>Atramentar</strong>, l'élite parmi l'élite de la Légion.
+        </p>
       </div>
 
-      <div class="roster-grid">
-
-        <!-- Dreadnought -->
-        <div class="squad-card reveal">
-          <div>
-            <div class="squad-name">Dreadnought</div>
-            <div class="squad-sub">Guerrier d'élite entomé dans un sarcophage de guerre — présence confirmée dans le groupe de combat</div>
-            <div class="unit-tags" style="margin-top:0.4rem;">
-              <span class="tag tag--blue">Dreadnought</span>
-              <span class="tag tag--grey">Élite / Véhicule</span>
-              <span class="tag tag--grey">Confirmé</span>
-            </div>
+      <!-- Konrad Curze -->
+      <div class="lore-character reveal">
+        <div class="lore-character-bar lore-character-bar--primarch"></div>
+        <div class="lore-character-body">
+          <div class="lore-character-name lore-character-name--primarch">KONRAD CURZE</div>
+          <div class="lore-character-role">Primarch de la VIIIe Légion — Le Seigneur de la Nuit, le Prince des Ténèbres</div>
+          <p class="lore-character-text">
+            Il vint au monde sur Nostramo sans mémoire de sa chute, sans conscience de ce qu'il était.
+            Il n'y avait pas d'Astartes pour l'accueillir, pas de mentor pour lui enseigner la guerre —
+            seulement les ruelles obscures, les cris des victimes et les silhouettes des criminels
+            qui disparaissaient dès qu'il s'approchait. Il apprit seul. Il régna seul.
+            Puis l'Empereur vint le chercher, et le Prince de la Nuit découvrit qu'il n'était pas le seul monstre
+            dans un univers plein de monstres. Cette révélation ne l'apaise pas. Elle l'a consumé.
+          </p>
+          <p class="lore-character-text">
+            Ses visions prophétiques sont sa malédiction la plus intime : il voit sa propre mort, inévitable,
+            gravée dans les lignes du futur comme une cicatrice dans de la pierre. Et sachant que tout finit
+            dans le sang, il a décidé que le sang coulerait d'abord.
+          </p>
+          <div class="lore-character-tags">
+            <span class="tag tag--blue">Primarch</span>
+            <span class="tag tag--blue">Seigneur de Guerre</span>
+            <span class="tag tag--blue">La Nuit Hante</span>
+            <span class="tag tag--grey">Confirmé</span>
           </div>
-          <div class="squad-count">1<small>unité</small></div>
         </div>
-
-        <!-- Escouade Contekar -->
-        <div class="squad-card reveal">
-          <div>
-            <div class="squad-name">Escouade Terminator — Contekar</div>
-            <div class="squad-sub">Élite des Atramentar en armure Terminator — garde rapprochée de Sevatar et des hauts officiers de la VIIIe Légion</div>
-            <div class="unit-tags" style="margin-top:0.4rem;">
-              <span class="tag tag--blue">Terminator</span>
-              <span class="tag tag--blue">Contekar</span>
-              <span class="tag tag--grey">Élite</span>
-              <span class="tag tag--grey">Confirmé</span>
-            </div>
-          </div>
-          <div class="squad-count">?<small>figurines</small></div>
-        </div>
-
       </div>
 
-      <div class="divider reveal"><span class="divider-icon">⚡</span></div>
-
-      <!-- SECTION : FORCES INCONNUES -->
-      <div class="section-header reveal">
-        <svg class="section-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span class="section-header-title">Reste des Forces — Inconnu</span>
-        <span class="section-header-line"></span>
+      <!-- Sevatar -->
+      <div class="lore-character lore-character--silver reveal">
+        <div class="lore-character-bar lore-character-bar--silver"></div>
+        <div class="lore-character-body">
+          <div class="lore-character-name lore-character-name--silver">SEVATAR</div>
+          <div class="lore-character-role">Premier Capitaine — Commandant des Atramentar, « le Prince des Couards »</div>
+          <p class="lore-character-text">
+            Il y a deux types d'hommes parmi les Night Lords : ceux qui font régner la terreur parce qu'ils y
+            trouvent du plaisir, et ceux qui s'en servent comme d'un outil. Sevatar appartient à la seconde catégorie,
+            ce qui le rend infiniment plus dangereux que les premiers. Il tue avec méthode, planifie avec précision,
+            et obéit à Curze non par peur mais par conviction sincère que la légion ne peut fonctionner
+            qu'avec une main de fer à sa tête.
+          </p>
+          <p class="lore-character-text">
+            Ses <strong>Atramentar</strong> — les Terminators d'élite de la VIIIe Légion — ne quittent jamais
+            son flanc en opération. Là où Sevatar entre, ils entrent. Et là où les Atramentar entrent,
+            les portes ne s'ouvrent plus depuis l'intérieur.
+          </p>
+          <div class="lore-character-tags">
+            <span class="tag tag--silver">Premier Capitaine</span>
+            <span class="tag tag--silver">Atramentar</span>
+            <span class="tag tag--grey">HQ</span>
+            <span class="tag tag--grey">Confirmé</span>
+          </div>
+        </div>
       </div>
 
-      <div class="roster-grid">
-
-        <!-- Forces inconnues -->
-        <div class="squad-card reveal" style="border-color:rgba(187,68,68,0.2); opacity:0.85;">
-          <div>
-            <div class="squad-name" style="color:var(--color-text-muted,#797876); font-style:italic;">Troupes d'infanterie — Composition inconnue</div>
-            <div class="squad-sub">Escouades d'Astartes de la VIIIe Légion : types, nombre et équipement non déterminés</div>
-            <div class="unit-tags" style="margin-top:0.4rem;">
-              <span class="tag tag--unknown">Non identifié</span>
-              <span class="tag tag--grey">Renseignement insuffisant</span>
-            </div>
-          </div>
-          <div class="squad-count" style="color:#bb6655;">?<small>inconnu</small></div>
-        </div>
-
-        <div class="squad-card reveal" style="border-color:rgba(187,68,68,0.2); opacity:0.85;">
-          <div>
-            <div class="squad-name" style="color:var(--color-text-muted,#797876); font-style:italic;">Support lourd — Composition inconnue</div>
-            <div class="squad-sub">Véhicules, soutien blindé et artillerie éventuels : données non disponibles</div>
-            <div class="unit-tags" style="margin-top:0.4rem;">
-              <span class="tag tag--unknown">Non identifié</span>
-              <span class="tag tag--grey">Renseignement insuffisant</span>
-            </div>
-          </div>
-          <div class="squad-count" style="color:#bb6655;">?<small>inconnu</small></div>
-        </div>
-
+      <div class="lore-quote reveal">
+        <blockquote>« On me demande souvent si j'aime ce que je fais. La réponse correcte serait : je n'aime rien ni personne. La réponse honnête serait : je suis très bon dans ce que je fais, et c'est suffisant. »</blockquote>
+        <cite>— Sevatar, Premier Capitaine, lors de l'interrogatoire d'un officier Loyaliste</cite>
       </div>
 
-      <!-- Bloc Inconnu -->
-      <div class="unknown-block reveal">
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION III — LES ATRAMENTAR, GARDIENS DES TÉNÈBRES
+═══════════════════════════════════════════════════ -->
+<section class="lore-section">
+  <div class="container">
+    <div class="lore-inner">
+
+      <div class="lore-header reveal">
+        <p class="lore-eyebrow">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Chapitre III
+        </p>
+        <h2 class="lore-title">Les Atramentar, Gardiens des Ténèbres</h2>
+      </div>
+
+      <div class="lore-prose reveal">
+        <p>
+          Parmi toutes les formations d'élite de la VIIIe Légion, les <strong>Atramentar</strong> occupent
+          une place à part. Ce ne sont pas simplement des guerriers revêtus d'armures Cataphractii —
+          ce sont des instruments de terreur institutionnalisée, des soldats entraînés à faire de chaque
+          entrée une scène de théâtre macabre. Leurs armures portent des motifs d'os, de griffes, de membres
+          arrachés, peints ou gravés dans le métal noir. Leur seule présence sur un champ de bataille
+          suffit à faire vaciller des garnisons entières.
+        </p>
+        <p>
+          L'escouade <strong>Contekar</strong> qui accompagne Sevatar est la plus redoutée de toutes.
+          Elle a traversé des dizaines de sièges, de purges, de massacres — et jamais un membre n'est tombé
+          au combat. Cela tient peut-être à leur maîtrise tactique, peut-être à la chance du diable,
+          peut-être à quelque chose de plus sombre encore. Personne ne leur pose la question.
+        </p>
+      </div>
+
+      <div class="lore-unit reveal">
+        <div class="lore-unit-title lore-unit-title--blue">Escouade Terminator — Contekar</div>
+        <p class="lore-unit-text">
+          Revêtus d'armures Cataphractii aux ornements mortuaires caractéristiques de la VIIIe Légion,
+          les Contekar sont les ombres de Sevatar. Ils ouvrent les portes que l'on a barricadées,
+          ils traversent les couloirs que l'on a minés, ils finissent les engagements que leur seigneur
+          a commencés. Leur nombre exact dans ce groupe de combat demeure inconnu — les renseignements
+          disponibles confirment leur présence, mais pas leur effectif précis.
+        </p>
+        <div class="lore-character-tags">
+          <span class="tag tag--blue">Terminator</span>
+          <span class="tag tag--blue">Atramentar</span>
+          <span class="tag tag--blue">Contekar</span>
+          <span class="tag tag--grey">Élite</span>
+          <span class="tag tag--unknown">Effectif inconnu</span>
+        </div>
+      </div>
+
+      <div class="lore-unit lore-unit--vehicle reveal">
+        <div class="lore-unit-title lore-unit-title--silver">Le Témoin Immortel — Dreadnought de la VIIIe Légion</div>
+        <p class="lore-unit-text">
+          Son nom de guerre est perdu dans les archives fragmentées. Ce que l'on sait, c'est qu'il combat
+          pour la VIIIe Légion depuis assez longtemps pour que les jeunes Astartes de la légion le considèrent
+          comme une figure quasi-mythologique. Entomé dans son sarcophage de Dreadnought après une blessure
+          dont les détails restent classifiés, il continue de marcher, de tuer, de se souvenir.
+          Les Night Lords prétendent qu'il rit dans l'obscurité de son armure. Ils disent cela avec admiration.
+        </p>
+        <div class="lore-character-tags">
+          <span class="tag tag--silver">Dreadnought</span>
+          <span class="tag tag--grey">Élite / Véhicule</span>
+          <span class="tag tag--grey">1 unité — Confirmé</span>
+        </div>
+      </div>
+
+      <div class="lore-quote reveal">
+        <blockquote>« Ils ne combattent pas pour conquérir. Ils combattent pour que vous vous souveniez d'avoir eu peur. La victoire n'est que la signature au bas du message. »</blockquote>
+        <cite>— Extrait d'un rapport d'évaluation des Légions Traîtresses, source inconnue, date inconnue</cite>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SECTION IV — CE QUE L'OBSCURITÉ DISSIMULE
+═══════════════════════════════════════════════════ -->
+<section class="lore-section">
+  <div class="container">
+    <div class="lore-inner">
+
+      <div class="lore-header reveal">
+        <p class="lore-eyebrow">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Chapitre IV
+        </p>
+        <h2 class="lore-title">Ce Que l'Obscurité Dissimule</h2>
+      </div>
+
+      <div class="lore-prose reveal">
+        <p>
+          Au-delà des éléments confirmés, la force Night Lords qui converge sur le sous-secteur
+          demeure une équation à inconnues multiples. Les guetteurs des Bastions d'Olympia ont tenté
+          d'établir une estimation d'effectif à partir des signatures de warp captées et des débris
+          laissés dans les systèmes traversés par la flotte traîtresse. Les conclusions sont à la fois
+          fragmentaires et alarmantes.
+        </p>
+        <p>
+          Des escouades d'infanterie sont confirmées en nombre — mais lequel ? Des signaux concordent
+          avec la présence de véhicules de soutien lourd, peut-être des chars, peut-être des Spartan
+          ou des Rhino adaptés aux opérations nocturnes de la VIIIe Légion. Rien ne peut être établi
+          avec certitude. L'ennemi marche dans une obscurité qu'il façonne lui-même.
+        </p>
+      </div>
+
+      <div class="lore-unit lore-unit--unknown reveal">
+        <div class="lore-unit-title lore-unit-title--unknown">Troupes d'infanterie — Composition inconnue</div>
+        <p class="lore-unit-text" style="color:var(--color-text-muted,#797876); font-style:italic;">
+          Escouades d'Astartes de la VIIIe Légion confirmées en approche. Types tactiques, équipements,
+          effectifs totaux — toutes données indisponibles. Les Night Lords ne marchent pas en formation visible.
+          Ils se répandent comme une tache d'encre dans l'eau.
+        </p>
+        <div class="lore-character-tags">
+          <span class="tag tag--unknown">Non identifié</span>
+          <span class="tag tag--grey">Renseignement insuffisant</span>
+        </div>
+      </div>
+
+      <div class="lore-unit lore-unit--unknown reveal">
+        <div class="lore-unit-title lore-unit-title--unknown">Support lourd — Composition inconnue</div>
+        <p class="lore-unit-text" style="color:var(--color-text-muted,#797876); font-style:italic;">
+          Des signatures thermiques et des données séismiques interceptées suggèrent la présence de
+          véhicules blindés et d'artillerie. Leur nombre, leur configuration et leur rôle tactique
+          dans la force de frappe restent à déterminer.
+        </p>
+        <div class="lore-character-tags">
+          <span class="tag tag--unknown">Non identifié</span>
+          <span class="tag tag--grey">Renseignement insuffisant</span>
+        </div>
+      </div>
+
+      <!-- Bloc inconnu -->
+      <div class="lore-unknown reveal">
         <p class="unknown-label">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:0.35rem;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           Renseignement — Données manquantes
         </p>
-        <p class="unknown-text">
-          Aucun renseignement fiable ne permet d'établir la composition complète de la force Night Lords. 
-          Le groupe de combat fait route vers le Sous-Secteur Olympia, quelque part dans les espaces inter-stellaires. 
-          Toute estimation d'effectif total est spéculative. Les défenseurs du sous-secteur doivent se préparer 
-          à affronter une force de taille et de nature indéterminées, possiblement bien supérieure aux éléments confirmés.
-        </p>
+        <div class="lore-prose">
+          <p style="font-style:italic; color:var(--color-text-muted,#797876); font-size:0.92rem; margin:0;">
+            Aucun renseignement fiable ne permet d'établir la composition complète de la force Night Lords.
+            Le groupe de combat fait route vers le Sous-Secteur Olympia, quelque part dans les espaces interstellaires.
+            Toute estimation d'effectif total reste spéculative. Les défenseurs du sous-secteur doivent se préparer
+            à affronter une force de taille et de nature indéterminées, possiblement bien supérieure aux seuls
+            éléments confirmés. Les Night Lords ont toujours déployé plus de soldats qu'ils n'en montrent.
+            L'ombre est leur alliée la plus fidèle.
+          </p>
+        </div>
       </div>
 
       <!-- Barre de statut -->
-      <div class="status-bar reveal">
+      <div class="lore-status reveal">
         <span class="status-label">Statut de la Menace</span>
         <span class="status-value">En approche — Localisation : Inconnue<br><span style="font-size:0.72rem;letter-spacing:0.08em;font-weight:400;">Destination confirmée : Sous-Secteur Olympia</span></span>
       </div>
 
+      <div class="lore-divider reveal"><span class="lore-divider-symbol">⚡</span></div>
+
       <!-- Note de campagne -->
-      <div class="nota-bene reveal">
-        <p class="nota-bene-label">Note de Campagne</p>
+      <div class="lore-nota reveal">
+        <p class="nota-label">Note de Campagne</p>
         <p>
-          Les <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">Night Lords</strong> 
-          de la <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">VIIIe Légion</strong> 
-          convergent vers le Sous-Secteur Olympia sous le commandement du Primarch 
-          <em>Konrad Curze</em> en personne, accompagné de son Premier Capitaine <em>Sevatar</em>, 
-          d'un Dreadnought et d'une escouade de Terminators Contekar. 
-          La composition totale de leur force reste dans l'ombre. 
+          Les <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">Night Lords</strong>
+          de la <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">VIIIe Légion</strong>
+          convergent vers le Sous-Secteur Olympia sous le commandement du Primarch
+          <em>Konrad Curze</em> lui-même, accompagné de son Premier Capitaine <em>Sevatar</em>,
+          d'un Dreadnought vétéran et de l'escouade Terminator Contekar.
+          La composition totale de leur force reste dans l'ombre.
           Nul ne sait quand — ni par où — ils frapperont. Seule certitude : ils arrivent.
+          Et ils n'ont pas besoin que leurs ennemis les voient pour avoir déjà gagné.
         </p>
       </div>
 
@@ -851,7 +735,7 @@
   <div class="container">
     <div class="footer-logo">Les Bastions d'Olympia</div>
     <p class="footer-line">« Dans le futur sombre de l'humanité, il n'y a que la guerre. »</p>
-    <p class="footer-line">Horus Heresy • Campagne Narrative • 30ème Millénaire</p>
+    <p class="footer-line">Horus Heresy &bull; Campagne Narrative &bull; 30ème Millénaire</p>
   </div>
 </footer>
 
@@ -896,7 +780,7 @@
   // ── REVEAL ON SCROLL
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 })();
