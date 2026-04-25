@@ -3,13 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Warriors</title>
+  <title>Iron Warriors — Les Fils du Fer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* ── BOUTONS DE NAVIGATION PAGES ─────────────────────── */
+
+    /* ══════════════════════════════════════════════════════════
+       VARIABLES THÉMATIQUES IRON WARRIORS
+    ══════════════════════════════════════════════════════════ */
+    :root {
+      --iw-metal:         #7a8a9a;
+      --iw-metal-light:   #a0b0c0;
+      --iw-metal-bright:  #c4d4e4;
+      --iw-metal-dim:     rgba(120, 138, 154, 0.42);
+      --iw-metal-bg:      rgba(120, 138, 154, 0.06);
+      --iw-metal-hover:   rgba(120, 138, 154, 0.16);
+      --iw-metal-glow:    rgba(120, 138, 154, 0.30);
+      --iw-gold:          #c8a028;
+      --iw-gold-light:    #e0b840;
+      --iw-gold-dim:      rgba(200, 160, 40, 0.32);
+      --iw-gold-bg:       rgba(200, 160, 40, 0.05);
+      --iw-rust:          #8b3a2a;
+      --iw-rust-dim:      rgba(139, 58, 42, 0.30);
+      --iw-deep:          #0a090d;
+      --iw-stripe-dark:   #111113;
+      --iw-stripe-warn:   rgba(200,160,40,0.08);
+    }
+    [data-theme="light"] {
+      --iw-metal:         #4a5a6a;
+      --iw-metal-light:   #2c3c4c;
+      --iw-metal-bright:  #1c2c3c;
+      --iw-metal-dim:     rgba(74, 90, 106, 0.38);
+      --iw-metal-bg:      rgba(74, 90, 106, 0.05);
+      --iw-metal-hover:   rgba(74, 90, 106, 0.12);
+      --iw-metal-glow:    rgba(74, 90, 106, 0.20);
+      --iw-gold:          #8a6800;
+      --iw-gold-light:    #b08400;
+      --iw-gold-dim:      rgba(138, 104, 0, 0.28);
+      --iw-gold-bg:       rgba(138, 104, 0, 0.04);
+      --iw-rust:          #7a2e1e;
+      --iw-rust-dim:      rgba(122, 46, 30, 0.25);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       NAV OVERRIDES
+    ══════════════════════════════════════════════════════════ */
     .nav-page-links {
       display: flex;
       gap: 0.5rem;
@@ -46,87 +86,93 @@
     [data-theme="light"] .btn-nav-page--carte { color: #8a6800; border-color: rgba(138, 104, 0, 0.4); background: rgba(138, 104, 0, 0.06); }
     [data-theme="light"] .btn-nav-page--carte:hover { background: rgba(138, 104, 0, 0.14); border-color: #8a6800; }
 
-    /* ── COULEUR THÉMATIQUE IRON WARRIORS : MÉTAL ACIER & JAUNE/OR ── */
-    :root {
-      --iw-metal: #7a8a9a;
-      --iw-metal-light: #a0b0c0;
-      --iw-metal-dim: rgba(120, 138, 154, 0.45);
-      --iw-metal-bg: rgba(120, 138, 154, 0.07);
-      --iw-metal-hover-bg: rgba(120, 138, 154, 0.18);
-      --iw-metal-glow: rgba(120, 138, 154, 0.32);
-      --iw-gold: #c8a028;
-      --iw-gold-dim: rgba(200, 160, 40, 0.35);
-      --iw-stripe: #1a1a1a;
-      --iw-stripe-alt: #f2c84a;
-    }
-    [data-theme="light"] {
-      --iw-metal: #4a5a6a;
-      --iw-metal-light: #2c3c4c;
-      --iw-metal-dim: rgba(74, 90, 106, 0.4);
-      --iw-metal-bg: rgba(74, 90, 106, 0.06);
-      --iw-metal-hover-bg: rgba(74, 90, 106, 0.14);
-      --iw-metal-glow: rgba(74, 90, 106, 0.22);
-      --iw-gold: #8a6800;
-      --iw-gold-dim: rgba(138, 104, 0, 0.30);
-    }
-
-    /* ── HERO ──────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       HERO — SECTION TITRE
+    ══════════════════════════════════════════════════════════ */
     .page-hero {
-      padding: 5rem 0 3rem;
-      text-align: center;
-      background: radial-gradient(ellipse at center top, rgba(120,138,154,0.16) 0%, rgba(200,160,40,0.07) 45%, transparent 70%);
-      border-bottom: 1px solid rgba(120,138,154,0.28);
       position: relative;
+      padding: 6rem 0 4rem;
+      text-align: center;
       overflow: hidden;
+      border-bottom: 1px solid var(--iw-metal-dim);
     }
+    /* Fond : lignes de chevrons stylisées */
     .page-hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        rgba(200,160,40,0.03) 0px, rgba(200,160,40,0.03) 1px,
-        transparent 1px, transparent 40px
-      );
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(120,138,154,0.14) 0%, rgba(200,160,40,0.06) 40%, transparent 70%),
+        repeating-linear-gradient(
+          90deg,
+          rgba(200,160,40,0.025) 0px, rgba(200,160,40,0.025) 1px,
+          transparent 1px, transparent 48px
+        );
       pointer-events: none;
     }
-    .page-hero .section-eyebrow { margin-bottom: 0.5rem; }
-    .page-hero .section-title   { font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 0.75rem; }
-    .page-hero .section-desc    { max-width: 60ch; margin: 0 auto; }
-    .page-hero .heresy-tag {
+    /* Bande danger en bas du héro */
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--iw-stripe-dark) 0px, var(--iw-stripe-dark) 10px,
+        var(--iw-gold) 10px, var(--iw-gold) 20px
+      );
+      opacity: 0.5;
+    }
+    .hero-iv-tag {
       display: inline-block;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       font-family: 'Cinzel', serif;
       font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.30em;
       text-transform: uppercase;
       color: var(--iw-gold);
       border: 1px solid var(--iw-gold-dim);
-      padding: 0.25rem 0.85rem;
+      padding: 0.3rem 1rem;
       border-radius: 2px;
-      background: rgba(200,160,40,0.05);
+      background: var(--iw-gold-bg);
     }
-    .iv-legion-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      color: var(--iw-metal);
+    .page-hero h1 {
+      font-family: 'Cinzel Decorative', 'Cinzel', serif;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      color: var(--iw-metal-bright);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 60px var(--iw-metal-glow);
+      line-height: 1.1;
     }
-
-    /* ── LIEN RETOUR ───────────────────────────────────────── */
+    [data-theme="light"] .page-hero h1 { color: var(--iw-metal-light); text-shadow: none; }
+    .page-hero .hero-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+      font-weight: 400;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--iw-metal);
+      margin-bottom: 1.5rem;
+    }
+    .page-hero .hero-desc {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--color-text-muted, #999);
+      max-width: 58ch;
+      margin: 0 auto 2rem;
+    }
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin: 1.5rem 0 0;
       font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -139,340 +185,421 @@
       transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
     .back-link:hover {
-      background: var(--iw-metal-hover-bg);
+      background: var(--iw-metal-hover);
       border-color: var(--iw-metal);
       box-shadow: 0 0 12px var(--iw-metal-glow);
       color: var(--iw-metal-light);
     }
 
-    /* ── SECTION PRINCIPALE ─────────────────────────────── */
-    .iw-section {
+    /* ══════════════════════════════════════════════════════════
+       LAYOUT CONTENU NARRATIF
+    ══════════════════════════════════════════════════════════ */
+    .narrative-main {
       padding: clamp(3rem, 7vw, 6rem) 0;
     }
-    .iw-wrapper {
-      max-width: 860px;
+    .narrative-wrapper {
+      max-width: 820px;
       margin: 0 auto;
     }
 
-    /* ── BLOC DE SITUATION ───────────────────────────────── */
-    .situation-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: rgba(8, 8, 10, 0.55);
-      border: 1px solid rgba(120,138,154,0.20);
-      border-radius: 2px;
-      position: relative;
-      overflow: hidden;
-    }
-    .situation-header::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(120,138,154,0.03) 0px, rgba(120,138,154,0.03) 1px,
-        transparent 1px, transparent 7px
-      );
-      pointer-events: none;
-    }
-    [data-theme="light"] .situation-header {
-      background: rgba(238,236,232,0.65);
-      border-color: rgba(74,90,106,0.18);
-    }
-    .situation-sigil {
-      flex-shrink: 0;
-      width: 80px;
-      height: 80px;
-      color: var(--iw-metal);
-      filter: drop-shadow(0 0 14px var(--iw-metal-glow));
-    }
-    .situation-body { flex: 1; }
-    .situation-title {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--iw-metal-light);
-      margin-bottom: 0.6rem;
-    }
-    .situation-sub {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--iw-gold);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+    /* ── Séparateur ornemental ─────────────────────────────── */
+    .ornament {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1rem;
+      margin: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem);
     }
-    .situation-sub::after {
+    .ornament::before,
+    .ornament::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: linear-gradient(to right, var(--iw-gold-dim), transparent);
+      background: linear-gradient(to right, transparent, var(--iw-metal-dim), transparent);
     }
-    .situation-text {
-      font-family: 'Crimson Text', serif;
-      font-size: 1.05rem;
-      line-height: 1.72;
-      color: var(--color-text-muted, #999);
-      font-style: italic;
-    }
-    .situation-text strong {
-      color: var(--iw-metal-light);
-      font-style: normal;
-    }
-
-    /* ── ALERTE RENSEIGNEMENT LIMITÉ ─────────────────────── */
-    .intel-alert {
+    .ornament-center {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      border: 1px solid var(--iw-gold-dim);
-      border-left: 3px solid var(--iw-gold);
-      border-radius: 2px;
-      background: rgba(200,160,40,0.04);
-      margin-bottom: 2.5rem;
-    }
-    [data-theme="light"] .intel-alert {
-      background: rgba(138,104,0,0.04);
-    }
-    .intel-alert-icon {
+      align-items: center;
+      gap: 0.6rem;
       flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      color: var(--iw-gold);
-      margin-top: 0.1rem;
     }
-    .intel-alert-label {
+    .ornament-glyph {
       font-family: 'Cinzel', serif;
-      font-size: 0.66rem;
+      font-size: clamp(0.65rem, 1.5vw, 0.8rem);
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--iw-gold);
-      margin-bottom: 0.3rem;
     }
-    .intel-alert p {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: var(--color-text-muted, #999);
-      font-style: italic;
-      max-width: 65ch;
+    .ornament-star {
+      color: var(--iw-gold);
+      font-size: 0.55rem;
+      opacity: 0.7;
     }
 
-    /* ── CARTE D'ORDRE DE BATAILLE ───────────────────────── */
-    .oob-section-title {
+    /* ── Titre de chapitre narratif ────────────────────────── */
+    .chapter-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.75rem, 2vw, 0.95rem);
+      font-size: clamp(1.05rem, 2.5vw, 1.45rem);
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--iw-metal);
+      color: var(--iw-metal-light);
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.8rem;
     }
-    .oob-section-title::after {
+    .chapter-title::after {
       content: '';
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, var(--iw-metal-dim), transparent);
     }
-
-    .oob-grid {
-      display: grid;
-      gap: 0.85rem;
-      margin-bottom: 2.5rem;
+    .chapter-title .ct-number {
+      font-size: 0.62rem;
+      color: var(--iw-gold);
+      border: 1px solid var(--iw-gold-dim);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      flex-shrink: 0;
     }
-    .oob-card {
+
+    /* ── Paragraphes narratifs ─────────────────────────────── */
+    .prose {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.82;
+      color: var(--color-text, #ccc);
+      margin-bottom: 1.4rem;
+      max-width: 72ch;
+    }
+    .prose strong {
+      color: var(--iw-metal-bright);
+      font-weight: 600;
+      font-style: normal;
+    }
+    [data-theme="light"] .prose { color: var(--color-text, #2a2a2a); }
+    [data-theme="light"] .prose strong { color: var(--iw-metal-light); }
+
+    /* Lettre capitale ornementale pour début de chapitre */
+    .drop-cap::first-letter {
+      float: left;
+      font-family: 'Cinzel Decorative', 'Cinzel', serif;
+      font-size: 3.8rem;
+      line-height: 0.78;
+      font-weight: 700;
+      color: var(--iw-metal-light);
+      margin-right: 0.1em;
+      margin-top: 0.1em;
+      text-shadow: 0 0 30px var(--iw-metal-glow);
+    }
+    [data-theme="light"] .drop-cap::first-letter { text-shadow: none; }
+
+    /* ── Citation en exergue ───────────────────────────────── */
+    .war-quote {
+      position: relative;
+      margin: clamp(2rem, 4vw, 3rem) 0;
+      padding: 1.75rem 2rem 1.75rem 2.5rem;
+      background: rgba(8, 8, 12, 0.55);
+      border-left: 3px solid var(--iw-gold);
+      border-top: 1px solid var(--iw-gold-dim);
+      border-bottom: 1px solid var(--iw-gold-dim);
+      border-right: 1px solid rgba(120,138,154,0.12);
+      border-radius: 0 2px 2px 0;
+      overflow: hidden;
+    }
+    .war-quote::before {
+      content: '"'  ;
+      position: absolute;
+      top: -0.2rem;
+      left: 0.75rem;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 4rem;
+      color: var(--iw-gold);
+      opacity: 0.18;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    [data-theme="light"] .war-quote {
+      background: rgba(232, 230, 226, 0.60);
+      border-left-color: var(--iw-gold);
+    }
+    .war-quote p {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-style: italic;
+      line-height: 1.72;
+      color: var(--color-text, #ccc);
+      margin-bottom: 0.8rem;
+      max-width: 65ch;
+    }
+    [data-theme="light"] .war-quote p { color: var(--color-text, #2a2a2a); }
+    .war-quote cite {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--iw-gold);
+      font-style: normal;
+    }
+
+    /* ── Médaillon de personnage ───────────────────────────── */
+    .character-medallion {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem 1.25rem;
-      background: rgba(8,8,10,0.45);
-      border: 1px solid rgba(120,138,154,0.14);
+      gap: 1.75rem;
+      padding: 1.75rem 2rem;
+      background: rgba(8, 8, 12, 0.50);
+      border: 1px solid rgba(120,138,154,0.16);
       border-radius: 2px;
+      margin-bottom: 1.5rem;
       position: relative;
       overflow: hidden;
-      transition: border-color 180ms ease, background 180ms ease;
+      transition: border-color 200ms ease;
     }
-    .oob-card::before {
+    .character-medallion:hover { border-color: rgba(120,138,154,0.32); }
+    .character-medallion::before {
       content: '';
       position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: var(--iw-metal-dim);
-      transition: background 180ms ease;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(120,138,154,0.02) 0px, rgba(120,138,154,0.02) 1px,
+        transparent 1px, transparent 8px
+      );
+      pointer-events: none;
     }
-    .oob-card:hover { border-color: rgba(120,138,154,0.30); background: rgba(120,138,154,0.05); }
-    .oob-card:hover::before { background: var(--iw-metal); }
-    [data-theme="light"] .oob-card {
-      background: rgba(232,234,238,0.6);
+    /* Médaillon Primarch — traitement spécial */
+    .character-medallion--primarch {
+      border-color: rgba(200,160,40,0.24);
+      background: rgba(6, 6, 10, 0.60);
+    }
+    .character-medallion--primarch:hover { border-color: rgba(200,160,40,0.50); }
+    [data-theme="light"] .character-medallion {
+      background: rgba(232,234,238,0.55);
       border-color: rgba(74,90,106,0.14);
     }
-    [data-theme="light"] .oob-card:hover { background: rgba(74,90,106,0.07); }
-
-    /* Carte PRIMARQUE — spéciale */
-    .oob-card--primarch::before { background: linear-gradient(to bottom, var(--iw-gold), var(--iw-metal)); }
-    .oob-card--primarch { border-color: rgba(200,160,40,0.22); }
-    .oob-card--primarch:hover { border-color: rgba(200,160,40,0.45); background: rgba(200,160,40,0.04); }
-
-    .oob-icon {
+    [data-theme="light"] .character-medallion--primarch {
+      background: rgba(248,246,240,0.70);
+      border-color: rgba(138,104,0,0.22);
+    }
+    .medallion-sigil {
       flex-shrink: 0;
-      width: 36px;
-      height: 36px;
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 2px;
-      background: rgba(120,138,154,0.10);
-      border: 1px solid rgba(120,138,154,0.18);
+      border: 1px solid var(--iw-metal-dim);
+      background: var(--iw-metal-bg);
       color: var(--iw-metal);
     }
-    .oob-card--primarch .oob-icon {
-      background: rgba(200,160,40,0.10);
-      border-color: rgba(200,160,40,0.25);
+    .character-medallion--primarch .medallion-sigil {
+      width: 64px;
+      height: 64px;
+      border-color: var(--iw-gold-dim);
+      background: var(--iw-gold-bg);
       color: var(--iw-gold);
     }
-    .oob-body { flex: 1; min-width: 0; }
-    .oob-name {
+    .medallion-body { flex: 1; min-width: 0; }
+    .medallion-name {
       font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
+      font-size: clamp(0.82rem, 2vw, 1rem);
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       color: var(--iw-metal-light);
       margin-bottom: 0.2rem;
-      line-height: 1.3;
+      line-height: 1.25;
     }
-    .oob-card--primarch .oob-name { color: var(--iw-gold); }
-    .oob-desc {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.9rem;
-      line-height: 1.55;
-      color: var(--color-text-muted, #888);
-      font-style: italic;
+    .character-medallion--primarch .medallion-name {
+      font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+      color: var(--iw-gold);
     }
-    .oob-qty {
-      flex-shrink: 0;
+    .medallion-title {
       font-family: 'Cinzel', serif;
       font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--iw-metal-dim);
-      text-transform: uppercase;
-      white-space: nowrap;
-      padding: 0.2rem 0.5rem;
-      border: 1px solid rgba(120,138,154,0.15);
-      border-radius: 2px;
-      margin-top: 0.1rem;
-    }
-    .oob-card--primarch .oob-qty { color: var(--iw-gold-dim); border-color: rgba(200,160,40,0.18); }
-
-    /* ── NOTE TACTIQUE ────────────────────────────────────── */
-    .nota-bene {
-      width: 100%;
-      border: 1px solid rgba(120,138,154,0.22);
-      border-left: 3px solid var(--iw-metal);
-      padding: 1rem 1.25rem;
-      border-radius: 2px;
-      background: rgba(120,138,154,0.04);
-      margin-bottom: 2rem;
-    }
-    [data-theme="light"] .nota-bene {
-      background: rgba(74,90,106,0.04);
-      border-color: rgba(74,90,106,0.20);
-      border-left-color: var(--iw-metal);
-    }
-    .nota-bene-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--iw-metal);
-      margin-bottom: 0.45rem;
-    }
-    .nota-bene p {
-      font-family: 'Crimson Text', serif;
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: var(--color-text-muted, #888);
-      font-style: italic;
-      max-width: 65ch;
-    }
-
-    /* ── BANDE DÉCO OLYMPIA ──────────────────────────────── */
-    .olympia-banner {
-      width: 100%;
-      padding: 1.25rem 2rem;
-      background: rgba(8,8,10,0.55);
-      border-top: 1px solid rgba(120,138,154,0.15);
-      border-bottom: 1px solid rgba(120,138,154,0.15);
+      color: var(--iw-gold);
+      margin-bottom: 0.75rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      gap: 0.5rem;
+    }
+    .medallion-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--iw-gold-dim), transparent);
+    }
+    .character-medallion--primarch .medallion-title { color: var(--iw-metal); }
+    .medallion-prose {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.98rem;
+      line-height: 1.68;
+      color: var(--color-text-muted, #999);
+      font-style: italic;
+    }
+    .medallion-prose strong {
+      color: var(--iw-metal-light);
+      font-style: normal;
+    }
+    .character-medallion--primarch .medallion-prose strong {
+      color: var(--iw-gold-light);
+    }
+
+    /* ── Encart "Doctrine" / panneau forge ─────────────────── */
+    .forge-panel {
+      margin: clamp(2rem, 4vw, 3rem) 0;
+      padding: 2rem 2.25rem;
+      background: rgba(6, 6, 10, 0.60);
+      border: 1px solid var(--iw-metal-dim);
+      border-radius: 2px;
       position: relative;
       overflow: hidden;
     }
-    .olympia-banner::before {
+    .forge-panel::before {
       content: '';
       position: absolute;
       inset: 0;
       background: repeating-linear-gradient(
         90deg,
-        rgba(200,160,40,0.04) 0px, rgba(200,160,40,0.04) 8px,
-        rgba(20,20,20,0.04) 8px, rgba(20,20,20,0.04) 16px
+        rgba(200,160,40,0.025) 0px, rgba(200,160,40,0.025) 8px,
+        rgba(10,10,14,0.025) 8px, rgba(10,10,14,0.025) 16px
       );
       pointer-events: none;
     }
-    [data-theme="light"] .olympia-banner { background: rgba(230,232,236,0.6); }
-    .olympia-banner-text {
+    [data-theme="light"] .forge-panel {
+      background: rgba(236,238,242,0.60);
+      border-color: rgba(74,90,106,0.18);
+    }
+    .forge-panel-label {
       font-family: 'Cinzel', serif;
-      font-size: clamp(0.8rem, 2vw, 1.1rem);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--iw-gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .forge-panel-label::before {
+      content: '❖';
+      font-size: 0.55rem;
+      opacity: 0.7;
+    }
+    .forge-panel-text {
+      font-family: 'Crimson Text', serif;
+      font-size: 1rem;
+      line-height: 1.78;
+      color: var(--color-text-muted, #999);
+      font-style: italic;
+      max-width: 65ch;
+    }
+    .forge-panel-text strong {
+      color: var(--iw-metal-light);
+      font-style: normal;
+    }
+
+    /* ── Sceau de trahison — bandeau final ─────────────────── */
+    .iron-banner {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      margin: clamp(2rem, 4vw, 3rem) 0;
+      background: rgba(6, 6, 10, 0.65);
+      border-top: 1px solid var(--iw-metal-dim);
+      border-bottom: 1px solid var(--iw-metal-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .iron-banner::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--iw-stripe-dark) 0px, var(--iw-stripe-dark) 8px,
+        rgba(200,160,40,0.55) 8px, rgba(200,160,40,0.55) 16px
+      );
+    }
+    [data-theme="light"] .iron-banner { background: rgba(230,232,236,0.55); }
+    .iron-banner-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(0.78rem, 2vw, 1rem);
       font-weight: 900;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--iw-metal);
       text-shadow: 0 0 20px var(--iw-metal-glow);
       text-align: center;
     }
-    .olympia-banner::before,
-    .olympia-banner-deco {
-      content: '✦';
-      font-size: 0.8rem;
-      color: var(--iw-gold);
-      opacity: 0.6;
-      flex-shrink: 0;
+    .iron-banner-glyph { color: var(--iw-gold); opacity: 0.65; font-size: 0.7rem; flex-shrink: 0; }
+
+    /* ── Encart "Renseignement" d'alerte ───────────────────── */
+    .intel-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--iw-metal-dim);
+      border-left: 3px solid var(--iw-metal);
+      border-radius: 0 2px 2px 0;
+      background: var(--iw-metal-bg);
+      margin: clamp(2rem, 4vw, 3rem) 0;
+    }
+    [data-theme="light"] .intel-note { background: rgba(74,90,106,0.04); }
+    .intel-note-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--iw-metal);
+      margin-bottom: 0.35rem;
+    }
+    .intel-note p {
+      font-family: 'Crimson Text', serif;
+      font-size: 0.96rem;
+      line-height: 1.68;
+      color: var(--color-text-muted, #888);
+      font-style: italic;
+      max-width: 65ch;
     }
 
-    @media (max-width: 600px) {
-      .nav-page-links { gap: 0.35rem; }
-      .btn-nav-page   { font-size: 0.65rem; padding: 0.35rem 0.6rem; }
-      .situation-header { flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
-      .situation-sub::after { display: none; }
-      .oob-card { padding: 0.85rem 1rem; }
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .nav-page-links { gap: 0.3rem; }
+      .btn-nav-page   { font-size: 0.64rem; padding: 0.32rem 0.6rem; }
+      .character-medallion { flex-direction: column; gap: 1rem; }
+      .medallion-sigil { width: 44px !important; height: 44px !important; }
+      .war-quote { padding: 1.25rem 1.25rem 1.25rem 1.75rem; }
+      .forge-panel { padding: 1.5rem 1.25rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Iron Warriors — Les Bastions d'Olympia">
-      <!-- Logo IW : engrenage + chevrons -->
+    <a href="index.html" class="nav-logo" aria-label="Les Bastions d'Olympia — IV° Légion">
       <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
         <circle cx="18" cy="18" r="8" fill="none" stroke="#8a9bac" stroke-width="1.5"/>
         <circle cx="18" cy="18" r="3.5" fill="none" stroke="#c8a028" stroke-width="1.2"/>
@@ -505,16 +632,16 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════ HERO ═══════════════ -->
 <header class="page-hero" id="top">
   <div class="container">
-    <div class="heresy-tag">IV<sup>e</sup> Légion — Horus Heresy</div>
-    <h1 class="section-title"><span>IRON WARRIORS</span></h1>
-    <p class="section-desc">Maîtres du siège, ingénieurs de la destruction. La IVe Légion tient Olympia, et ce qu'elle y prépare demeure, pour l'heure, un mystère.</p>
-    <div class="iv-legion-badge">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Renseignement partiel — Sources limitées
-    </div>
+    <div class="hero-iv-tag">IV<sup>e</sup> Légion &#x2022; Horus Heresy &#x2022; Monde-Forteresse d'Olympia</div>
+    <h1>Iron Warriors</h1>
+    <p class="hero-subtitle">Μηδὲν ἄγαν — Rien de trop. Tout par le Fer.</p>
+    <p class="hero-desc">
+      Au seuil de la Grande Trahison, la IVe Légion se dresse sur les remparts d'Olympia, froide et implacable
+      comme les aciers qu'elle forge. Ce qui suit n'est pas un rapport de bataille. C'est une chronique de sang.
+    </p>
     <a href="index.html" class="back-link">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
       Retour à l'accueil
@@ -522,245 +649,376 @@
   </div>
 </header>
 
-<!-- CONTENU PRINCIPAL -->
-<section class="iw-section">
+<!-- ═══════════════ CONTENU NARRATIF ═══════════════ -->
+<main class="narrative-main">
   <div class="container">
-    <div class="iw-wrapper">
+    <div class="narrative-wrapper">
 
-      <!-- Situation générale -->
-      <div class="situation-header reveal">
-        <!-- Sigil IW custom -->
-        <svg class="situation-sigil" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-          <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
-          <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
-          <circle cx="40" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <!-- chevrons IW -->
-          <polyline points="22,34 30,40 22,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
-          <polyline points="58,34 50,40 58,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
-          <!-- dents d'engrenage stylisées -->
-          <rect x="38" y="2"  width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
-          <rect x="38" y="72" width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
-          <rect x="2"  y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
-          <rect x="72" y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
-          <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.6"/>
-        </svg>
-        <div class="situation-body">
-          <div class="situation-sub">Situation sur Olympia</div>
-          <h2 class="situation-title">La Forteresse-Monde</h2>
-          <p class="situation-text">
-            Les <strong>Iron Warriors</strong> tiennent <strong>Olympia</strong>, monde natal du Primarque Perturabo.
-            La IVe Légion y a établi des positions défensives et prépare ses opérations dans le sous-secteur.
-            Leurs intentions précises, leurs effectifs complets et leurs fortifications restent <strong>inconnus</strong> de nos éclaireurs.
-            Ce qui suit représente l'intégralité du renseignement disponible à ce jour.
-          </p>
+
+      <!-- ═══════════ I. LES FILS DU FER ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">I</span>
+          <span class="ornament-star">✦</span>
         </div>
       </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">I</span>Les Fils du Fer</h2>
 
-      <!-- Alerte renseignement -->
-      <div class="intel-alert reveal">
-        <svg class="intel-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-        <div>
-          <div class="intel-alert-label">Alerte Renseignement</div>
-          <p>
-            Les informations en notre possession sur cette force sont <strong>extrêmement lacunaires</strong>.
-            Nos sources de terrain sur Olympia sont quasiment inexistantes. Seuls les éléments suivants
-            ont pu être confirmés par recoupement. Toute estimation de puissance est à prendre avec la plus grande prudence.
-          </p>
-        </div>
-      </div>
-
-      <!-- Bandeau Olympia -->
-      <div class="olympia-banner reveal">
-        <span class="olympia-banner-deco">✦</span>
-        <span class="olympia-banner-text">Ordre de Bataille — Confirmé partiel</span>
-        <span class="olympia-banner-deco">✦</span>
-      </div>
-
-      <!-- OOB : Commandement -->
-      <p class="oob-section-title reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Commandement
+      <p class="prose drop-cap reveal">
+        On les appelle les <strong>Fils du Fer</strong>, et nul épithète ne sied mieux à ces légionnaires façonnés dans
+        la douleur et la discipline. Là où d'autres légions se parent de titres glorieux — Anges Sanguinaires,
+        Loups Espace, Enfants de l'Empereur —, les guerriers de la <strong>IVe Légion</strong> portent leur nom comme
+        un serment grave, sans ornement, sans mensonge. Le fer ne se vante pas. Le fer tranche.
       </p>
-      <div class="oob-grid reveal">
 
-        <!-- Primarque -->
-        <div class="oob-card oob-card--primarch">
-          <div class="oob-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Perturabo — Le Seigneur du Fer</div>
-            <div class="oob-desc">Primarque de la IVe Légion. Maître ingénieur et stratège du siège. Sa présence sur Olympia est confirmée. Ses intentions : inconnues.</div>
-          </div>
-          <div class="oob-qty">Primarque</div>
-        </div>
-
-        <!-- Praetor -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Praetor en Armure Saturnine</div>
-            <div class="oob-desc">Officier de commandement suprême de la force. Revêtu de l'antique Armure Saturnine — relique de la Conquête de Saturne — il incarne l'autorité légionnaire sur Olympia.</div>
-          </div>
-          <div class="oob-qty">1 individu</div>
-        </div>
-
-        <!-- Centurion -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Centurion</div>
-            <div class="oob-desc">Officier de rang intermédiaire, coordonnateur de section. Vétéran des guerres de siège, probablement en charge des unités spécialisées ou du génie.</div>
-          </div>
-          <div class="oob-qty">1 individu</div>
-        </div>
-
-      </div>
-
-      <!-- OOB : Cercle de Fer -->
-      <p class="oob-section-title reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        Conseil de Guerre — Le Cercle de Fer
+      <p class="prose reveal">
+        Nés des forges du monde-capitale qu'est <strong>Olympia</strong>, dans les montagnes métal-grises de l'hémisphère
+        Nord, ils furent forgés avant même de naître à la légende. Chaque candidat qui survivait aux Épreuves
+        d'Acier sortait des cachots de sélection avec quelque chose d'irrémédiablement brisé en lui — et quelque chose
+        d'infiniment plus dur à sa place. Leur <strong>Primarque, Perturabo</strong>, veillait à ce que ses légionnaires
+        ne connaissent ni la gloire des charges héroïques, ni les couronnes de laurier que l'Imperium jetait volontiers
+        aux pieds des Anges Sanguinaires ou des Ultramarines. Les Iron Warriors étaient envoyés sur les fronts les plus
+        ingrats, les sièges les plus longs, les murs les plus épais.
       </p>
-      <div class="oob-grid reveal">
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Le Cercle de Fer</div>
-            <div class="oob-desc">Conseil de guerre intime de Perturabo, composé de ses guerriers les plus loyaux et les plus anciens. Leur composition exacte et leur rôle dans la campagne demeurent <em>inconnus</em>. Présence confirmée sur Olympia.</div>
-          </div>
-          <div class="oob-qty">Effectifs inconnus</div>
-        </div>
-      </div>
 
-      <!-- OOB : Élites -->
-      <p class="oob-section-title reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
-        Unités d'Élite
-      </p>
-      <div class="oob-grid reveal">
-
-        <!-- Terminators Saturnins -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="11" x2="12" y2="15"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Terminators en Armure Saturnine</div>
-            <div class="oob-desc">Escouade de terminators bardés de l'armure Saturnine — protection ultime, héritage des Guerres de Saturne. Frappe d'élite et résistance exceptionnelle.</div>
-          </div>
-          <div class="oob-qty">6 guerriers</div>
-        </div>
-
-        <!-- Dreadnought Saturnin -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="3" width="14" height="14" rx="1"/><path d="M8 17v4M16 17v4M5 10H3M21 10h-2"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Dreadnought Saturnin</div>
-            <div class="oob-desc">Marcheur de guerre antique en configuration Saturnine — l'un des modèles les plus anciens encore en service actif. Puissance de feu et protection colossales.</div>
-          </div>
-          <div class="oob-qty">1 machine</div>
-        </div>
-
-        <!-- Forgeguerre -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Forgeguerre (Warsmith)</div>
-            <div class="oob-desc">Ingénieur-légionnaire de haut rang, spécialiste des fortifications et de l'artillerie de siège. Maître de l'armement lourd et des installations défensives sur Olympia.</div>
-          </div>
-          <div class="oob-qty">1 individu</div>
-        </div>
-
-      </div>
-
-      <!-- OOB : Infanterie -->
-      <p class="oob-section-title reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-        Infanterie Légionnaire
-      </p>
-      <div class="oob-grid reveal">
-
-        <!-- Escouades tactiques -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Escouades Tactiques</div>
-            <div class="oob-desc">Infanterie de ligne de la IVe Légion. Polyvalentes et aguerries aux doctrines de siège. Nombre exact d'escouades non déterminé.</div>
-          </div>
-          <div class="oob-qty">Nombre inconnu</div>
-        </div>
-
-        <!-- Escouades vétérans -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Escouades Vétérans</div>
-            <div class="oob-desc">Marines aguerris aux campagnes de siège les plus dures. Équipement supérieur, expérience de combat irremplaçable. Unités d'assaut prioritaire.</div>
-          </div>
-          <div class="oob-qty">Nombre inconnu</div>
-        </div>
-
-      </div>
-
-      <!-- OOB : Soutien lourd -->
-      <p class="oob-section-title reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Soutien Lourd
-      </p>
-      <div class="oob-grid reveal">
-        <!-- Plateforme Arakane -->
-        <div class="oob-card">
-          <div class="oob-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          <div class="oob-body">
-            <div class="oob-name">Plateforme d'Accélérateur Quadritube Arakane</div>
-            <div class="oob-desc">Batterie d'artillerie électromagnétique à quatre tubes — arme de siège redoutable capable de saturer des positions fortifiées à longue portée. Signature caractéristique des Iron Warriors.</div>
-          </div>
-          <div class="oob-qty">1 plateforme</div>
-        </div>
-      </div>
-
-      <!-- Note tactique -->
-      <div class="nota-bene reveal">
-        <p class="nota-bene-label">Note Tactique — État-Major</p>
+      <div class="war-quote reveal">
         <p>
-          « Les effectifs complets de la IVe Légion sur Olympia restent indéterminés. Ce rapport ne reflète que ce qui a pu
-          être confirmé par nos agents — la réalité de leur force est vraisemblablement bien supérieure.
-          Toute confrontation directe avec les Iron Warriors doit être planifiée en tenant compte de cet angle mort majeur. »
+          « Chaque légion a ses poètes, ses héros de lumière qui chantent leurs propres exploits. Mes guerriers
+          n'ont pas le temps de chanter. Ils ont des tranchées à creuser, des remparts à réduire, des villes
+          récalcitrantes à plier. Toute gloire qui ne s'achète pas dans la boue et le sang n'est que peinture
+          sur de la rouille. »
         </p>
-        <p style="margin-top:0.5rem;">
-          — <em>Commandement de campagne, sous-secteur Fyrentis</em>
+        <cite>— Perturabo, Seigneur du Fer, d'après les Annales de la Campagne de Thramas</cite>
+      </div>
+
+      <p class="prose reveal">
+        Pendant les deux siècles de la Grande Croisade, la IVe Légion fut déployée sur plus de <strong>quatre
+        cent soixante campagnes de siège</strong> recensées par les chroniqueurs de Terra — davantage que toute
+        autre légion. Si les Fists Impériaux rivalisaient parfois en matière de doctrine défensive, aucune autre
+        force astartes ne pouvait se targuer d'avoir réduit autant de bastions, brisé autant de lignes ennemies,
+        sans jamais que l'Imperium daignât en remercier ceux qui avaient payé cet effort en vies et en chairs.
+        Siège après siège, monde après monde, les Iron Warriors regardèrent leurs effectifs fondre pendant que
+        d'autres récoltaient les lauriers.
+      </p>
+
+
+      <!-- ═══════════ II. LA DOCTRINE DU SIÈGE ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">II</span>
+          <span class="ornament-star">✦</span>
+        </div>
+      </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">II</span>La Doctrine du Siège</h2>
+
+      <p class="prose drop-cap reveal">
+        Là où les autres légions étudiaient l'art de la guerre dans ses nuances les plus glorieuses — la charge
+        de cavalerie, l'assaut orbital, l'escarmouche de reconnaissance —, les Iron Warriors perfectionnaient
+        une science que l'Imperium jugeait trop prosaïque pour mériter ses hymnes : la <strong>poliorcétique</strong>,
+        l'art d'assiéger et d'être assiégé.
+      </p>
+
+      <div class="forge-panel reveal">
+        <div class="forge-panel-label">Doctrine Légionnaire — Archives de la Forgemaîtrise</div>
+        <p class="forge-panel-text">
+          Chaque Iron Warrior apprend dès son initiation à lire une fortification comme un médecin lit un corps :
+          identifier les artères, les points faibles, les zones mortifiées. Un mur n'est jamais qu'un mur —
+          c'est une <strong>équation</strong>, et l'équation a toujours une solution. La solution porte parfois un
+          nom : sape, mine, bombardement saturant. Parfois elle s'appelle simplement <strong>patience</strong>.
+          Les Iron Warriors ont appris, à leurs dépens et à ceux de leurs ennemis, que la patience est la plus
+          redoutable des armes.
         </p>
+      </div>
+
+      <p class="prose reveal">
+        Leur armement reflète cette philosophie. Là où d'autres légions déploient des unités d'assault rapide
+        et de frappe chirurgicale, les Iron Warriors amènent des <strong>plates-formes d'artillerie</strong>,
+        des obusiers à trajectoire courbe capables de saturer des kilomètres carrés de terrain fortifié,
+        des dreadnoughts lourds chenillés conçus pour avancer sous des délugues de feu, des compagnies entières
+        de sapeurs armés de foreuses thermiques et de charges de brisement. La <strong>Plateforme d'Accélérateur
+        Quadritube Arakane</strong> qui tonne sur les hauteurs d'Olympia n'est pas un outil de terreur —
+        c'est la signature d'une légion qui considère la guerre comme une ingénierie, et l'ennemi comme
+        un problème structurel à résoudre.
+      </p>
+
+      <div class="war-quote reveal">
+        <p>
+          « Ils ont des armes qui font des trous dans le sol, des armes qui font des trous dans les murs, et
+          des armes qui font des trous dans les hommes. La différence entre les trois, pour eux, est
+          purement technique. »
+        </p>
+        <cite>— Renseignement de campagne, Commandement du Sous-Secteur Fyrentis, classification Epsilon</cite>
+      </div>
+
+
+      <!-- ═══════════ III. LE SEIGNEUR DU FER ET SES PROCHES ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">III</span>
+          <span class="ornament-star">✦</span>
+        </div>
+      </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">III</span>Le Seigneur du Fer et ses Proches</h2>
+
+      <p class="prose reveal">
+        Au sommet de la hiérarchie des Iron Warriors sur Olympia se dresse une figure que même les chroniqueurs
+        impériaux les plus sobres évoquent avec un mélange de respect et d'effroi. Le Seigneur du Fer est présent.
+        Sa présence sur le monde natal de la IVe Légion n'est pas une retraite : c'est une préparation.
+      </p>
+
+      <!-- Perturabo -->
+      <div class="character-medallion character-medallion--primarch reveal">
+        <div class="medallion-sigil">
+          <svg width="36" height="36" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
+            <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+            <circle cx="40" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <polyline points="22,34 30,40 22,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <polyline points="58,34 50,40 58,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <rect x="38" y="2"  width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
+            <rect x="38" y="72" width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
+            <rect x="2"  y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
+            <rect x="72" y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
+            <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="medallion-body">
+          <div class="medallion-name">Perturabo — Le Seigneur du Fer</div>
+          <div class="medallion-title">Primarque de la IVe Légion &#x2022; Maître du Siège &#x2022; Forgeant le Destin</div>
+          <p class="medallion-prose">
+            Nul chroniqueur n'a vu <strong>Perturabo</strong> sourire depuis les jours de la Croisade. Ceux qui
+            l'ont approché de près décrivent un être consumé par une colère froide, méthodique, que les décennies
+            n'ont fait qu'aiguiser. Génie mathématique d'une acuité terrifiante, il conçoit ses fortifications et
+            ses plans de siège avec la même précision qu'un horloger dispose ses rouages — et avec la même
+            <strong>indifférence à la souffrance</strong> de ceux qui meuvent dans ce mécanisme. Sur Olympia,
+            il prépare quelque chose. L'ombre de cette préparation s'étend sur tout le sous-secteur comme un
+            nuage d'acier.
+          </p>
+        </div>
+      </div>
+
+      <!-- Praetor en Armure Saturnine -->
+      <div class="character-medallion reveal">
+        <div class="medallion-sigil">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="medallion-body">
+          <div class="medallion-name">Le Praetor en Armure Saturnine</div>
+          <div class="medallion-title">Commandant en Second &#x2022; Héritier des Guerres de Saturne</div>
+          <p class="medallion-prose">
+            Revêtu de l'<strong>Armure Saturnine</strong> — relique des premières guerres orbitales de l'Imperium,
+            quand les anneaux de Saturne étaient encore un champ de bataille —, cet officier est l'ombre portée
+            de Perturabo sur Olympia. Il ne parle pas souvent. Quand il parle, c'est pour donner des ordres qui ne
+            souffrent pas de discussion. Sa présence à la tête des opérations de terrain signifie que le Seigneur
+            du Fer lui-même réserve ses attentions à des desseins <strong>plus vastes, et plus sombres</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Centurion -->
+      <div class="character-medallion reveal">
+        <div class="medallion-sigil">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+        </div>
+        <div class="medallion-body">
+          <div class="medallion-name">Le Centurion</div>
+          <div class="medallion-title">Officier de Section &#x2022; Vétéran de Soixante-Dix Campagnes</div>
+          <p class="medallion-prose">
+            Chaque section des Iron Warriors est placée sous l'autorité d'un <strong>centurion</strong> qui porte
+            les cicatrices de décennies de guerres de siège. Celui qui commande en sous-main à Olympia est
+            de ces hommes qui ne dorment jamais complètement — toujours à moitié éveillés, à moitié dans
+            les tranchées de leur mémoire. Vétéran de soixante-dix campagnes répertoriées, il a vu assez de murs
+            s'effondrer pour ne jamais douter que <strong>tout s'effondre, en fin de compte</strong>, si l'on sait
+            comment appuyer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Forgeguerre -->
+      <div class="character-medallion reveal">
+        <div class="medallion-sigil">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="medallion-body">
+          <div class="medallion-name">Le Forgeguerre — Warsmith</div>
+          <div class="medallion-title">Ingénieur de Légion &#x2022; Maître des Fortifications</div>
+          <p class="medallion-prose">
+            Le <strong>Forgeguerre</strong> est à mi-chemin entre l'officier et le technoprêtre. Là où les autres
+            commandants voient un terrain, lui voit une <strong>équation de résistance</strong>. Il est l'architecte
+            des fortifications d'Olympia, celui qui a fait calculer l'angle d'incidence des batteries Arakane pour
+            maximiser la dispersion des débris dans les couloirs d'accès ennemis. S'il a un nom, nos agents ne l'ont
+            jamais obtenu. Il est simplement le Forgeguerre — et c'est suffisant pour craindre ce qu'il a construit.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- ═══════════ IV. LE CERCLE DE FER ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">IV</span>
+          <span class="ornament-star">✦</span>
+        </div>
+      </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">IV</span>Le Cercle de Fer</h2>
+
+      <p class="prose drop-cap reveal">
+        Il existe, au sein de la IVe Légion, un conseil dont l'existence est à peine susurrée dans les dispatches
+        que nos agents ont pu intercepter. On l'appelle le <strong>Cercle de Fer</strong> — le conseil intime de
+        Perturabo, composé de ses guerriers les plus anciens, les plus loyaux, les plus redoutables. Ils ne portent
+        pas de titre que l'Imperium reconnaîtrait. Ils ne se réunissent pas dans des salles de commandement
+        éclairées par la lumière blanche des terminaux cogitateurs. On dit qu'ils se réunissent dans les forges
+        souterraines d'Olympia, là où le bruit du marteau sur l'enclume couvre toute conversation, là où
+        même les mots deviennent du métal.
+      </p>
+
+      <div class="forge-panel reveal">
+        <div class="forge-panel-label">Fragment intercepté — Authenticité non confirmée</div>
+        <p class="forge-panel-text">
+          « Le Cercle n'est pas un conseil. C'est une volonté unique fragmentée en plusieurs corps. Chacun d'eux
+          est une extension de Perturabo — ses yeux dans les tranchées, ses mains sur les leviers, sa colère
+          dans les ruelles quand il faut faire peur. Ils parlent rarement entre eux. Ils n'en ont pas besoin.
+          Ils pensent <strong>déjà de la même façon</strong>. »
+        </p>
+      </div>
+
+      <div class="intel-note reveal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--iw-metal);margin-top:0.1rem;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>
+          <div class="intel-note-label">Renseignement Partiel — Commandement de Campagne</div>
+          <p>
+            La composition exacte du Cercle de Fer et ses attributions opérationnelles sur Olympia demeurent
+            <strong>inconnues</strong> de nos services. Toute tentative d'infiltration de la forteresse-monde s'est
+            soldée par la disparition de nos agents. Nous savons qu'ils existent. Nous ne savons pas ce qu'ils
+            préparent. Ce silence est peut-être la pire des informations.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- ═══════════ V. LES HÉRITIERS DE L'ARMURE SATURNINE ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">V</span>
+          <span class="ornament-star">✦</span>
+        </div>
+      </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">V</span>Les Héritiers de l'Armure Saturnine</h2>
+
+      <p class="prose drop-cap reveal">
+        Si les Iron Warriors dans leur ensemble inspirent un respect teinté d'effroi, leurs unités d'élite en
+        armure <strong>Saturnine</strong> transcendent cette crainte pour atteindre quelque chose de plus profond :
+        une terreur tranquille, presque philosophique. L'Armure Saturnine est une relique des guerres orbitales
+        autour de Saturne, bien avant que l'Imperium fût ce qu'il est devenu. Ces plastrons et épaulières forgés
+        dans des alliages disparus portent une histoire que les Iron Warriors n'ont jamais voulu laisser mourir.
+      </p>
+
+      <p class="prose reveal">
+        Les <strong>Terminators en Armure Saturnine</strong> sont six. Six silhouettes massives qui avancent là
+        où les autres légionnaires s'arrêtent, sous les tirs croisés, dans les couloirs effondrés, à travers
+        les brèches de murs dont personne ne ressort ordinairement vivant. Ils n'ont pas les gestes héroïques
+        des légionnaires de première ligne — ils ont des gestes <strong>méthodiques</strong>, comme des machines
+        qui ont appris à marcher dans la peau d'hommes. Et marchant à leur côté, aussi antique que leur armure,
+        le <strong>Dreadnought Saturnin</strong> — une machine de guerre dans laquelle sommeille un héros brisé
+        du passé — tonne avec ses armes millénaires que les forges modernes ne savent plus reproduire.
+      </p>
+
+      <div class="war-quote reveal">
+        <p>
+          « Ils ne chargent pas. Ils avancent. La différence peut sembler sémantique jusqu'à ce que vous les
+          voyiez faire les deux choses en même temps, sans courir, sans crier, sans vaciller. C'est ce moment-là,
+          quand vous réalisez qu'ils ne se pressent pas parce qu'ils savent que vous n'irez nulle part,
+          que la vraie terreur commence. »
+        </p>
+        <cite>— Déposition de Frère-Sergent Adaias Vel, IXe Légion, après Olympia, M31</cite>
+      </div>
+
+
+      <!-- ═══════════ VI. L'HEURE DE LA TRAHISON ═══════════ -->
+      <div class="ornament reveal">
+        <div class="ornament-center">
+          <span class="ornament-star">✦</span>
+          <span class="ornament-glyph">VI</span>
+          <span class="ornament-star">✦</span>
+        </div>
+      </div>
+      <h2 class="chapter-title reveal"><span class="ct-number">VI</span>L'Heure de la Trahison</h2>
+
+      <p class="prose drop-cap reveal">
+        Les chroniqueurs de la Grande Croisade qui avaient suivi les Iron Warriors pendant des décennies auraient
+        pu vous dire, si on les avait interrogés avec assez d'insistance et assez de vin, qu'ils avaient vu venir
+        quelque chose. Non pas la forme précise de la trahison — nul ne peut voir la forme exacte d'un événement
+        avant qu'il se produise —, mais la texture de ce qui couvait. Une légion que l'on envoie sur les fronts
+        les plus ingrats depuis deux siècles sans jamais lui rendre ses dettes.
+      </p>
+
+      <p class="prose reveal">
+        Quand <strong>Horus</strong> a tendu la main à Perturabo, l'histoire veut que le Seigneur du Fer ait
+        hésité exactement le temps nécessaire pour que l'hésitation ressemblât à une décision mûrement réfléchie.
+        Peut-être était-ce précisément cela. Peut-être Perturabo avait-il calculé, avec la précision mathématique
+        qui lui est propre, que l'Imperium lui devait plus que ce qu'il ne lui avait donné, et que la balance
+        penchait irrévocablement d'un côté. La <strong>trahison d'Olympia</strong> — le massacre des cités
+        rebelles de son propre monde natal — fut l'acte qui scella son passage dans le camp de l'Archenaître.
+        Un acte dont les Iron Warriors portent encore, dit-on, le poids dans leurs rêves de métal.
+      </p>
+
+      <div class="war-quote reveal">
+        <p>
+          « Je ne suis pas un traître. Les traîtres renient leurs serments. Moi, je n'ai jamais obtenu ce que
+          mes serments méritaient en retour. Ce n'est pas de la trahison. C'est de la <em>comptabilité</em>. »
+        </p>
+        <cite>— Perturabo, attribué, lors du Conclave de Ullanor, source non vérifiée</cite>
+      </div>
+
+      <p class="prose reveal">
+        Aujourd'hui, sur Olympia, la IVe Légion prépare ce que ses éclaireurs voient comme les prémices d'une
+        campagne dont l'ampleur reste inconnue. Les forges tournent sans interruption. Les plates-formes Arakane
+        pointent vers des coordonnées que nos cartographes n'ont pas encore identifiées. <strong>Les murs
+        d'Olympia ne sont pas des murs de défense — ce sont des murs de lancement.</strong> Le siège n'est pas
+        encore là. Mais le Seigneur du Fer l'a déjà calculé.
+      </p>
+
+
+      <!-- Bandeau final -->
+      <div class="iron-banner reveal">
+        <span class="iron-banner-glyph">✦</span>
+        <span class="iron-banner-text">Per ferrum, per patientiam — Par le fer, par la patience</span>
+        <span class="iron-banner-glyph">✦</span>
+      </div>
+
+      <!-- Note finale de commandement -->
+      <div class="intel-note reveal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--iw-gold);margin-top:0.1rem;" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div>
+          <div class="intel-note-label" style="color:var(--iw-gold)">Avertissement Stratégique — État-Major, Sous-Secteur Fyrentis</div>
+          <p>
+            « Les effectifs complets de la IVe Légion sur Olympia demeurent indéterminés. Ce récit ne reflète
+            que ce que nos archives et nos agents survivants ont pu confirmer. La réalité de leur force —
+            humaine, mécanique, doctrinale — est <strong>vraisemblablement bien supérieure</strong> à ce qui
+            est consigné ici. Toute confrontation directe avec les Iron Warriors doit être planifiée en tenant
+            compte de cet angle mort majeur. Leur patience est leur arme la plus létale. »
+          </p>
+          <p style="margin-top:0.5rem;">
+            — <em>Commandement de campagne, classification Thêta, 31e millénaire</em>
+          </p>
+        </div>
       </div>
 
     </div>
   </div>
-</section>
+</main>
 
+<!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
   <div class="container">
     <div class="footer-logo">Sous-Secteur Fyrentis</div>
-    <p class="footer-line">« Dans le futur sombre de l'humanité, il n'y a que la guerre. »</p>
-    <p class="footer-line">Warhammer 40 000 • Campagne Narrative • Horus Heresy</p>
+    <p class="footer-line">« Le siège est notre art. L'acier est notre foi. » — Perturabo, Primarque des Iron Warriors</p>
+    <p class="footer-line">Warhammer 40 000 &#x2022; Campagne Narrative &#x2022; Horus Heresy &#x2022; IV<sup>e</sup> Légion</p>
   </div>
 </footer>
 
@@ -784,7 +1042,11 @@
     themeBtn.setAttribute('aria-label', 'Basculer vers le mode ' + (theme === 'dark' ? 'clair' : 'sombre'));
   }
   updateThemeBtn();
-  if (themeBtn) themeBtn.addEventListener('click', () => { theme = theme === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', theme); updateThemeBtn(); });
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', theme);
+    updateThemeBtn();
+  });
 
   // ── MOBILE NAV ────────────────────────────────────────────────
   const navToggle = document.getElementById('nav-toggle');
@@ -797,15 +1059,21 @@
 
   // ── NAV SCROLL + BACK-TO-TOP ──────────────────────────────────
   const nav = document.getElementById('nav');
+  const backTop = document.getElementById('back-top');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('nav--scrolled', window.scrollY > 60);
-    document.getElementById('back-top').classList.toggle('visible', window.scrollY > 300);
+    if (nav) nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+    if (backTop) backTop.classList.toggle('visible', window.scrollY > 300);
   }, { passive: true });
 
-  // ── REVEAL ON SCROLL ────────────────────────────────────────
+  // ── REVEAL ON SCROLL ──────────────────────────────────────────
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 })();
