@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campagne Olympia — Horus Heresy / Iron Warriors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/personnages-carousel.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Campagne Olympia — Iron Warriors">
+      <!-- Logo IW : engrenage + chevrons -->
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <circle cx="18" cy="18" r="8" fill="none" stroke="#8a9bac" stroke-width="1.5"/>
+        <circle cx="18" cy="18" r="3.5" fill="none" stroke="#c8a028" stroke-width="1.2"/>
+        <rect x="16.5" y="7"  width="3" height="3" rx="0.5" fill="#8a9bac"/>
+        <rect x="16.5" y="26" width="3" height="3" rx="0.5" fill="#8a9bac"/>
+        <rect x="7"  y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
+        <rect x="26" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
+        <line x1="14" y1="4" x2="10" y2="10" stroke="#c8a028" stroke-width="1.2"/>
+        <line x1="22" y1="4" x2="18" y2="10" stroke="#c8a028" stroke-width="1.2"/>
+      </svg>
+      <div>
+        <span class="nav-logo-text">Olympia</span>
+        <span class="nav-logo-sub">Horus Heresy &#x2022; IV<sup>e</sup> L&#xe9;gion</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <div class="nav-page-links">
+        <a href="carte.html" class="btn-nav-page btn-nav-page--carte" aria-label="Accéder à la carte">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Carte
+        </a>
+      </div>
+      <button class="btn-theme" data-theme-toggle aria-label="Basculer le thème">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg">
+    <img class="hero-img" src="assets/img/iron-warriors.png" alt="Les Iron Warriors assiègent les forges d'Olympia durant l'Horus Heresy" width="1920" height="1080" loading="eager">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Horus Heresy &#x2022;</p>
+    <h1 class="hero-title">Sous-Secteur<br><span>Olympia</span></h1>
+    <p class="hero-subtitle">Dans les forges ensanglant&#xe9;es du 31&#xe8;me mill&#xe9;naire, la IV<sup>e</sup> L&#xe9;gion forge son destin dans l'acier et la trahison. Des remparts d'Olympia aux tranch&#xe9;es de Terra, la guerre de si&#xe8;ge n'a pas de fin.</p>
+    <div class="hero-badges">
+      <a href="iron-warriors.html"  class="btn-armee btn-armee--iw">&#x2692; Iron Warriors</a>
+      <a href="blood-angels.html"   class="btn-armee btn-armee--ba">&#x1F578; Blood Angels</a>
+      <a href="night-lords.html"    class="btn-armee btn-armee--nl">&#x2623; Night Lords</a>
+    </div>
+  </div>
+  <span class="hero-scroll" aria-hidden="true">D&#xe9;filer</span>
+</header>
+
+<!-- CARROUSEL -->
+<section class="carousel-section" aria-label="Galerie de la campagne Olympia" role="region">
+  <div class="carousel" id="main-carousel">
+    <ul class="carousel__track-wrapper" role="list">
+      <li class="carousel__slide is-active" role="listitem"><img src="assets/img/carroussel/1.jpg"  loading="eager"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/2.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/3.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/4.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/5.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/6.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/7.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/8.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/9.jpg"  loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/10.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/11.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/12.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/13.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/14.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/15.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/16.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/17.jpg" loading="lazy"></li>
+      <li class="carousel__slide" role="listitem"><img src="assets/img/carroussel/18.jpg" loading="lazy"></li>
+    </ul>
+    <button class="carousel__btn carousel__btn--prev" aria-label="Image pr&#xe9;c&#xe9;dente">&#10094;</button>
+    <button class="carousel__btn carousel__btn--next" aria-label="Image suivante">&#10095;</button>
+    <div class="carousel__dots" role="tablist" aria-label="S&#xe9;lection de slide"></div>
+  </div>
+</section>
+
+<!-- CONTEXTE -->
+<section id="contexte" class="bg-surface">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Histoire &amp; Lore</p>
+      <h2 class="section-title">Le Sous-Secteur <span>Olympia</span></h2>
+      <p class="section-desc" id="lore-desc"></p>
+    </div>
+    <div class="lore-grid" id="lore-grid"></div>
+  </div>
+</section>
+
+<!-- FRONTS -->
+<section id="fronts">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Th&#xe9;&#xe2;tres d'Op&#xe9;rations</p>
+      <h2 class="section-title">Les <span>Fronts</span> de Bataille</h2>
+    </div>
+    <div class="fronts-tabs" id="fronts-tabs" role="tablist"></div>
+    <div id="fronts-panels"></div>
+  </div>
+</section>
+
+<!-- PERSONNAGES -->
+<section id="personnages" class="bg-surface perso-carousel-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">L&#xe9;gendes du Secteur</p>
+      <h2 class="section-title">Personnages <span>Cl&#xe9;s</span></h2>
+      <p class="section-desc">Des h&#xe9;ros et des monstres dont les actes r&#xe9;sonneront &#xe0; travers les &#xe2;ges.</p>
+    </div>
+  </div>
+  <div id="perso-carousel-container" class="container"></div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-logo">Sous-Secteur Olympia</div>
+    <p class="footer-line">&#xab; Le si&#xe8;ge est notre art. L'acier est notre foi. &#xbb; &#x2014; Perturabo, Primarque des Iron Warriors</p>
+    <p class="footer-line">Horus Heresy &#x2022; IV<sup>e</sup> L&#xe9;gion &#x2014; Iron Warriors &#x2022; 31&#xe8;me Mill&#xe9;naire</p>
+  </div>
+</footer>
+
+<a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+</a>
+
+<script src="assets/js/campagne.js" defer></script>
+<script src="assets/js/personnages-carousel.js" defer></script>
+</body>
+</html>
