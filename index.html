@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/personnages-carousel.css">
   <style>
-    /* ── Night Lords button override — couleurs bleues NL ── */
+    /* ── Night Lords button — couleurs bleues NL (forcées) ── */
     :root {
       --nl-blue-bright:   #5577ee;
       --nl-blue-dim:      rgba(26, 46, 110, 0.55);
@@ -27,14 +27,26 @@
     }
 
     .btn-armee--nl {
-      color:            var(--nl-blue-bright);
-      border-color:     var(--nl-blue-dim);
-      background:       var(--nl-blue-bg);
+      color:        #5577ee !important;
+      border-color: rgba(26, 46, 110, 0.55) !important;
+      background:   rgba(26, 46, 110, 0.10) !important;
     }
     .btn-armee--nl:hover {
-      background:       var(--nl-blue-hover-bg);
-      border-color:     var(--nl-blue-bright);
-      box-shadow:       0 0 12px var(--nl-blue-glow);
+      background:   rgba(58, 90, 204, 0.20) !important;
+      border-color: #5577ee !important;
+      box-shadow:   0 0 12px rgba(85, 119, 238, 0.45) !important;
+      color:        #99bbff !important;
+    }
+      [data-theme="light"] .btn-armee--nl {
+      color:        #2244bb !important;
+      border-color: rgba(26, 46, 110, 0.40) !important;
+      background:   rgba(26, 46, 110, 0.06) !important;
+    }
+    [data-theme="light"] .btn-armee--nl:hover {
+      background:   rgba(26, 46, 110, 0.14) !important;
+      border-color: #2244bb !important;
+      box-shadow:   0 0 12px rgba(34, 68, 187, 0.30) !important;
+      color:        #1a2e6e !important;
     }
   </style>
 </head>
