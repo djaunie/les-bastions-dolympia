@@ -29,29 +29,29 @@
     }
   ],
   "lore": {
-    "description": "Forgé dans l'acier et le sang des IVe Iron Warriors, le sous-secteur Olympia fut pendant deux siècles le pilier de la Grande Croisade en bordure du Segmentum Solar. Depuis la trahison d'Horus, ses mondes brûlent — déchirés entre la loyauté à l'Imperium et la soif de pouvoir des traîtres.",
+    "description": "Aux confins du Segmentum Solar, le sous-secteur Olympia fut forgé dans le fracas de la Grande Croisade. Là où l'ambition de Perturabo sculpta des forteresses inexpugnables, la trahison de l'Hérésie d'Horus a désormais transformé ces mêmes remparts en prisons — et leurs défenseurs en ennemis jurés de Terra.",
     "blocs": [
       {
-        "titre": "L'Héritage d'Olympia",
+        "titre": "La Forêt d'Acier — Histoire du Sous-Secteur",
         "paragraphes": [
-          "Avant l'arrivée de l'Empereur, Olympia était une mosaïque de cités-forteresses inexpugnables, chacune gouvernée par un tyran-guerrier jaloux de sa souveraineté. C'est là que grandit Perturabo, Primarque des Iron Warriors, sous la tutelle impitoyable du Tyran de Lochos — apprenant dans les pierres grises de ce monde l'art absolu de la fortification, du siège et de la domination. Lorsque l'Imperium intégra Olympia dans son giron, les Iron Warriors érigèrent le sous-secteur en bastion imprenable, reliant par des routes warp sécurisées Saiph, Incaladion et les forges d'Utan Magna.",
-          "Pendant deux siècles, ces planètes formèrent l'épine dorsale logistique de la Grande Croisade dans cette région du cosmos. Saiph fournissait ses fils au IXe Legion — les Blood Angels —, guerriers forgés dans l'aridité de ses plaines rocheuses. Incaladion verrouillait les accès au noyau galactique, tandis qu'Utan Magna forgeait dans ses entrailles métalliques les armes lourdes et les vaisseaux qui portaient la lumière de Terra aux confins de la galaxie. Ce sous-secteur était une promesse de grandeur — jusqu'au jour où Horus Lupercal détourna son regard vers Terra."
+          "Au crépuscule de la Grande Croisade, le sous-secteur Olympia constituait l'un des bastions les plus stratégiques du Segmentum Solar. Olympia elle-même, monde natal de Perturabo, Primarque de la IVe Légion Astartes, servait d'épicentre politique et militaire à l'ensemble de la région. Ses cités-forteresses taillées dans la roche millénaire, héritage d'une culture vouée à la guerre perpétuelle bien avant l'arrivée de l'Imperium, impressionnaient même les ingénieurs du Mechanicum. Les planètes voisines — Anvillus le monde-ruche industriel, Saiph le monde de recrutement des Blood Angels, Utan Magna le monde-forge, et Incaladion le verrou galactique — gravitaient autour d'Olympia comme des pièces d'une machine de guerre parfaitement huilée.",
+          "La loyauté de ce sous-secteur envers Terra semblait alors indéfectible. Les Iron Warriors patrouillaient ses routes astrales, la IXe Légion y recrutait ses fils aux rituels sanglants, et le Mechanicum d'Utan Magna forgeait sans relâche les canons lourds qui alimentaient les croisades impériales. Mais les graines de la discorde germaient en silence : les cicatrices que Perturabo portait dans son âme depuis le massacre d'Olympia — ordonné par lui-même pour mater une révolte — n'avaient jamais cicatrisé. Quand Horus tendit la main, le Primarque des Iron Warriors la saisit, et tout le secteur se fendit en deux."
         ],
         "citation": {
-          "texte": "« Nous avons forgé ces mondes dans la certitude que l'acier dure éternellement. Nous avions tort. Rien ne dure. Pas même la loyauté d'un Primarque. »",
-          "auteur": "— Légat Cassivus Vorl, Iron Warriors, journal de siège d'Olympia, ~006.M31",
+          "texte": "« Olympia fut la première et la plus douloureuse des trahisons. Non pas parce que Perturabo choisit Horus — mais parce qu'il nous avait laissé croire, jusqu'à la fin, qu'il choisirait l'Empereur. »",
+          "auteur": "— Légat Theodric Vanaugh, IVe Légion Loyaliste, Fragments d'Archive — Circa 006.M31",
           "alerte": false
         }
       },
       {
-        "titre": "La Situation Actuelle",
+        "titre": "La Situation Actuelle — Feux Croisés",
         "paragraphes": [
-          "Tout a basculé avec la trahison d'Isstvan V. Quand Perturabo retourna ses légions contre Terra aux côtés des armées d'Horus, le sous-secteur qui portait son nom fut fracturé en une nuit. Sur Anvillus, les sympathisants hérétiques — longtemps infiltrés dans les nœuds industriels du monde-ruche — déclenchèrent une insurrection armée. Les combats de rue entre loyalistes de Terra et partisans du Warmaster font rage dans chaque district, chaque forgerie, chaque sas pressurisé. Nul ne contrôle plus la planète entière. Sur Utan Magna, le Mechanicum lui-même s'est scindé : les Forges Dominantes ont proclamé leur allégeance à l'Omnissiah d'Horus, tandis que le Conseil des Arcanes Loyaux résiste depuis les profondeurs de la cité-forge Sud — refusant de livrer leurs arsenaux aux hérétiques.",
-          "Sur Saiph, la forteresse-monde des Blood Angels tient bon — ses défenses bâties au fil des siècles repoussant les premières vagues d'assaut — mais la suspicion ronge les esprits : les méthodes employées par ses fils pour survivre aux champs de bataille ont éveillé des murmures que même les rouages loyalistes osent à peine formuler. Incaladion, verrou du noyau galactique, est en état de siège permanent. Des flottes renégates sondent ses défenses, cherchant la faille qui livrerait le couloir vers le cœur de la galaxie. Le destin du sous-secteur tout entier se joue désormais sur ces quatre fronts simultanés — et le temps presse."
+          "Depuis la trahison de Perturabo, le sous-secteur Olympia est devenu un théâtre de guerre multifrontal où chaque système stellaire brûle d'une flamme différente. Anvillus, le monde-ruche industriel à la bordure du Maelstrom of Storms, est déchiré par une guerre civile totale : ses manufactures colossales sont disputées rue par rue entre les partisans d'Horus et les loyalistes de Terra, chaque district représentant une victoire ou une défaite aux conséquences industrielles considérables. Plus à l'est, Utan Magna, le monde-forge spécialisé en armement lourd, connaît une fracture identique au sein de ses propres Congrégations Mechanicum — des factions renégates ayant rallié le camp du Warmaster contre des Fabricators restés fidèles à l'Omnissiah de Mars.",
+          "Face à ce déferlement chaotique, les positions loyalistes s'accrochent désespérément. Saiph, monde de recrutement de la IXe Légion, tient bon sous la bannière des Blood Angels, malgré les soupçons croissants que leurs pratiques secrètes font peser sur leur loyauté. Incaladion, verrou stratégique entre le cœur galactique et les espaces contrôlés par l'Imperium, résiste sous une coalition fragile d'Astartes et d'unités Mechanicum loyalistes, mais les tentatives de subversion interne se multiplient. L'issue de ce sous-secteur reste suspendue à l'acier des légions et à la volonté de ceux qui refusent encore de plier le genou."
         ],
         "citation": {
-          "texte": "« Transmission astropathique cryptée, Incaladion vers Saiph — Priorité : SANG NOIR. Les routes warp du secteur sont compromises. Présence confirmée d'éléments Iron Warriors en orbite haute d'Utan Magna. Incaladion tient. Pour combien de temps encore, l'Omnissiah seul le sait. »",
-          "auteur": "— Rapport du Fabricator-Locum Sevran Thess, Incaladion, ~010.M31",
+          "texte": "« Transmission astropathique chiffée, priorité Absolon — \"Les forges d'Utan Magna sont muettes depuis soixante-douze heures. Les signaux des balises de navigation d'Anvillus sont brouillés. Incaladion demande des renforts. Répète : Incaladion demande des renforts. Que l'Omnissiah nous garde.\" »",
+          "auteur": "— Rapport de transit, Cohorte Astrotélépathe Γ-7, Transmis depuis le Croiseur Implacable Volonté — 014.M31",
           "alerte": true
         }
       }
