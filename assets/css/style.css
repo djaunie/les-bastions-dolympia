@@ -127,6 +127,12 @@
   --army-ba-bg:     rgba(204, 68, 68, 0.10);
   --army-ba-bar:    #cc4444;
 
+  /* Night Lords — bleu nuit électrique */
+  --army-nl-fg:     #5577ee;
+  --army-nl-border: rgba(26, 46, 110, 0.55);
+  --army-nl-bg:     rgba(26, 46, 110, 0.10);
+  --army-nl-bar:    #5577ee;
+
   /* Death Guard — vert putride */
   --army-dg-fg:     #8ab848;
   --army-dg-border: rgba(138, 184, 72, 0.45);
@@ -144,12 +150,6 @@
   --army-nc-border: rgba(64, 221, 136, 0.45);
   --army-nc-bg:     rgba(64, 221, 136, 0.10);
   --army-nc-bar:    #40dd88;
-
-  /* Night Lords — bleu nuit électrique */
-  --army-nl-fg:     #5577ee;
-  --army-nl-border: rgba(26, 46, 110, 0.55);
-  --army-nl-bg:     rgba(26, 46, 110, 0.12);
-  --army-nl-bar:    #5577ee;
 }
 
 [data-theme="light"] {
@@ -199,6 +199,12 @@
   --army-ba-bg:     rgba(138, 26, 26, 0.08);
   --army-ba-bar:    #8a1a1a;
 
+  /* Night Lords — bleu nuit (mode clair) */
+  --army-nl-fg:     #2244bb;
+  --army-nl-border: rgba(26, 46, 110, 0.40);
+  --army-nl-bg:     rgba(26, 46, 110, 0.06);
+  --army-nl-bar:    #2244bb;
+
   --army-dg-fg:     #3a6a08;
   --army-dg-border: rgba(58, 106, 8, 0.4);
   --army-dg-bg:     rgba(58, 106, 8, 0.08);
@@ -213,12 +219,6 @@
   --army-nc-border: rgba(0, 104, 64, 0.4);
   --army-nc-bg:     rgba(0, 104, 64, 0.08);
   --army-nc-bar:    #006840;
-
-  /* Night Lords — bleu nuit (mode clair) */
-  --army-nl-fg:     #2244bb;
-  --army-nl-border: rgba(26, 46, 110, 0.40);
-  --army-nl-bg:     rgba(26, 46, 110, 0.06);
-  --army-nl-bar:    #2244bb;
 }
 
 /* BASE */
@@ -303,7 +303,7 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
       .btn-nav-page { font-size:.65rem; padding:.35rem .6rem; }
     }
 
-    /* ── BOUTONS ARMÉES (hero index.html) ──────────────────────────────── */
+    /* ── BOUTONS ARMÉES ────────────────────────────────────────────────── */
     .btn-armee {
       display:inline-flex; align-items:center; gap:.55rem;
       padding:.85rem 2rem; font-family:'Cinzel',serif; font-size:.85rem;
@@ -313,32 +313,22 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
     }
     .btn-armee:hover  { transform:translateY(-1px); }
     .btn-armee:active { transform:translateY(0); }
-
-    /* Iron Warriors — bronze */
     .btn-armee--iw { color:#c09878; border-color:rgba(160,120,80,.55); background:rgba(122,90,60,.10); }
     .btn-armee--iw:hover { background:rgba(122,90,60,.22); border-color:#a07848; box-shadow:0 0 20px rgba(140,60,20,.30); color:#d8b898; }
-
-    /* Blood Angels — rouge */
     .btn-armee--ba { color:#e06060; border-color:rgba(176,26,26,.55); background:rgba(176,26,26,.10); }
     .btn-armee--ba:hover { background:rgba(176,26,26,.22); border-color:#b01a1a; box-shadow:0 0 22px rgba(176,26,26,.35); color:#ff9090; }
-
-    /* Death Guard — vert */
+    .btn-armee--nl { color:#5577ee; border-color:rgba(26,46,110,.55); background:rgba(26,46,110,.10); }
+    .btn-armee--nl:hover { background:rgba(58,90,204,.20); border-color:#5577ee; box-shadow:0 0 22px rgba(85,119,238,.35); color:#99bbff; }
     .btn-armee--dg { color:#90b848; border-color:rgba(100,140,40,.55); background:rgba(80,110,30,.10); }
     .btn-armee--dg:hover { background:rgba(80,110,30,.22); border-color:#6a9030; box-shadow:0 0 22px rgba(100,140,40,.28); color:#b0d868; }
-
-    /* Night Lords — bleu nuit */
-    .btn-armee--nl { color:#5577ee; border-color:rgba(26,46,110,.55); background:rgba(26,46,110,.12); }
-    .btn-armee--nl:hover { background:rgba(58,90,204,.22); border-color:#5577ee; box-shadow:0 0 22px rgba(85,119,238,.35); color:#99bbff; }
-
-    /* Light mode overrides */
     [data-theme="light"] .btn-armee--iw { color:#5a3a18; border-color:rgba(90,58,24,.5); background:rgba(90,58,24,.06); }
     [data-theme="light"] .btn-armee--iw:hover { background:rgba(90,58,24,.14); border-color:#5a3a18; color:#3a2008; }
     [data-theme="light"] .btn-armee--ba { color:#7a0c0c; border-color:rgba(122,12,12,.5); background:rgba(122,12,12,.06); }
     [data-theme="light"] .btn-armee--ba:hover { background:rgba(122,12,12,.14); border-color:#7a0c0c; color:#4a0404; }
-    [data-theme="light"] .btn-armee--dg { color:#3a5a10; border-color:rgba(58,90,16,.5); background:rgba(58,90,16,.06); }
-    [data-theme="light"] .btn-armee--dg:hover { background:rgba(58,90,16,.14); border-color:#3a5a10; color:#1a3000; }
     [data-theme="light"] .btn-armee--nl { color:#2244bb; border-color:rgba(26,46,110,.4); background:rgba(26,46,110,.06); }
     [data-theme="light"] .btn-armee--nl:hover { background:rgba(26,46,110,.14); border-color:#2244bb; color:#1a2e6e; }
+    [data-theme="light"] .btn-armee--dg { color:#3a5a10; border-color:rgba(58,90,16,.5); background:rgba(58,90,16,.06); }
+    [data-theme="light"] .btn-armee--dg:hover { background:rgba(58,90,16,.14); border-color:#3a5a10; color:#1a3000; }
 
 /* ============================================================
    NAVIGATION
@@ -760,10 +750,10 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .faction-tag--we { border-color: var(--army-we-border); color: var(--army-we-fg); background: var(--army-we-bg); }
 .faction-tag--bt { border-color: var(--army-bt-border); color: var(--army-bt-fg); background: var(--army-bt-bg); }
 .faction-tag--ba { border-color: var(--army-ba-border); color: var(--army-ba-fg); background: var(--army-ba-bg); }
+.faction-tag--nl { border-color: var(--army-nl-border); color: var(--army-nl-fg); background: var(--army-nl-bg); }
 .faction-tag--dg { border-color: var(--army-dg-border); color: var(--army-dg-fg); background: var(--army-dg-bg); }
 .faction-tag--gi { border-color: var(--army-gi-border); color: var(--army-gi-fg); background: var(--army-gi-bg); }
 .faction-tag--nc { border-color: var(--army-nc-border); color: var(--army-nc-fg); background: var(--army-nc-bg); }
-.faction-tag--nl { border-color: var(--army-nl-border); color: var(--army-nl-fg); background: var(--army-nl-bg); }
 /* Ork — conserver les couleurs précédentes */
 .faction-tag--ork { border-color: #3a6a1c; color: #6aaa3c; }
 
@@ -798,10 +788,10 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .station-owner--we { background: var(--army-we-bg); color: var(--army-we-fg); border: 1px solid var(--army-we-border); }
 .station-owner--bt { background: var(--army-bt-bg); color: var(--army-bt-fg); border: 1px solid var(--army-bt-border); }
 .station-owner--ba { background: var(--army-ba-bg); color: var(--army-ba-fg); border: 1px solid var(--army-ba-border); }
+.station-owner--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border: 1px solid var(--army-nl-border); }
 .station-owner--dg { background: var(--army-dg-bg); color: var(--army-dg-fg); border: 1px solid var(--army-dg-border); }
 .station-owner--gi { background: var(--army-gi-bg); color: var(--army-gi-fg); border: 1px solid var(--army-gi-border); }
 .station-owner--nc { background: var(--army-nc-bg); color: var(--army-nc-fg); border: 1px solid var(--army-nc-border); }
-.station-owner--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border: 1px solid var(--army-nl-border); }
 /* Ork / ruine — inchangés */
 .station-owner--ork { background: oklch(12% 0.06 140 / 0.3); color: #6aaa3c; border: 1px solid rgba(58,106,28,0.3); }
 .station-owner--ruine { background: oklch(10% 0 0 / 0.3); color: var(--color-text-faint); border: 1px solid var(--color-divider); }
@@ -855,11 +845,11 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .char-lore.gold { border-left-color: var(--army-bt-bar); }
 .char-lore.ba,
 .char-lore.red  { border-left-color: var(--army-ba-bar); }
+.char-lore.nl   { border-left-color: var(--army-nl-bar); }
 .char-lore.dg,
 .char-lore.green { border-left-color: var(--army-dg-bar); }
 .char-lore.gi   { border-left-color: var(--army-gi-bar); }
 .char-lore.nc   { border-left-color: var(--army-nc-bar); }
-.char-lore.nl   { border-left-color: var(--army-nl-bar); }
 .char-lore.blue { border-left-color: #1c2a4a; }
 
 .char-stats {
@@ -899,10 +889,10 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .warlord-army--we { background: var(--army-we-bg); color: var(--army-we-fg); border-color: var(--army-we-border); }
 .warlord-army--bt { background: var(--army-bt-bg); color: var(--army-bt-fg); border-color: var(--army-bt-border); }
 .warlord-army--ba { background: var(--army-ba-bg); color: var(--army-ba-fg); border-color: var(--army-ba-border); }
+.warlord-army--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border-color: var(--army-nl-border); }
 .warlord-army--dg { background: var(--army-dg-bg); color: var(--army-dg-fg); border-color: var(--army-dg-border); }
 .warlord-army--gi { background: var(--army-gi-bg); color: var(--army-gi-fg); border-color: var(--army-gi-border); }
 .warlord-army--nc { background: var(--army-nc-bg); color: var(--army-nc-fg); border-color: var(--army-nc-border); }
-.warlord-army--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border-color: var(--army-nl-border); }
 
 /* ============================================================
    BOUTONS CTA PAR ARMÉE — .btn-armee--[xx]
@@ -935,6 +925,9 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 .btn-armee--ba { background: var(--army-ba-bg); color: var(--army-ba-fg); border-color: var(--army-ba-border); }
 .btn-armee--ba:hover { background: rgba(204,68,68,0.18); border-color: var(--army-ba-fg); }
 
+.btn-armee--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border-color: var(--army-nl-border); }
+.btn-armee--nl:hover { background: rgba(58,90,204,0.20); border-color: var(--army-nl-fg); box-shadow: 0 0 22px rgba(85,119,238,0.35); }
+
 .btn-armee--dg { background: var(--army-dg-bg); color: var(--army-dg-fg); border-color: var(--army-dg-border); }
 .btn-armee--dg:hover { background: rgba(138,184,72,0.18); border-color: var(--army-dg-fg); }
 
@@ -943,9 +936,6 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 .btn-armee--nc { background: var(--army-nc-bg); color: var(--army-nc-fg); border-color: var(--army-nc-border); }
 .btn-armee--nc:hover { background: rgba(64,221,136,0.18); border-color: var(--army-nc-fg); }
-
-.btn-armee--nl { background: var(--army-nl-bg); color: var(--army-nl-fg); border-color: var(--army-nl-border); }
-.btn-armee--nl:hover { background: rgba(58,90,204,0.22); border-color: var(--army-nl-fg); box-shadow: 0 0 22px rgba(85,119,238,0.35); }
 
 /* ============================================================
    VAISSEAU — LE CONQUEROR
