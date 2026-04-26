@@ -96,24 +96,17 @@
      PALETTE ARMÉES — variables centralisées (mode dark)
      Référence : .btn-armee--[xx] du header
   ============================================================ */
-
   /* Iron Warriors — bronze rouillé */
   --army-iw-fg:     #c8a878;
   --army-iw-border: rgba(200, 168, 120, 0.45);
   --army-iw-bg:     rgba(200, 168, 120, 0.10);
   --army-iw-bar:    #c8a878;
 
-
-
-
   /* Blood Angels — rouge profond */
   --army-ba-fg:     #cc4444;
   --army-ba-border: rgba(204, 68, 68, 0.45);
   --army-ba-bg:     rgba(204, 68, 68, 0.10);
   --army-ba-bar:    #cc4444;
-
-
-
 }
 
 [data-theme="light"] {
@@ -143,16 +136,10 @@
   --army-iw-bg:     rgba(138, 106, 48, 0.08);
   --army-iw-bar:    #8a6a30;
 
-
-
-
   --army-ba-fg:     #8a1a1a;
   --army-ba-border: rgba(138, 26, 26, 0.4);
   --army-ba-bg:     rgba(138, 26, 26, 0.08);
   --army-ba-bar:    #8a1a1a;
-
-
-
 }
 
 /* BASE */
@@ -810,92 +797,9 @@ section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
 
 .btn-armee--iw { background: var(--army-iw-bg); color: var(--army-iw-fg); border-color: var(--army-iw-border); }
 .btn-armee--iw:hover { background: rgba(200,168,120,0.18); border-color: var(--army-iw-fg); }
-
-
-
-
 .btn-armee--ba { background: var(--army-ba-bg); color: var(--army-ba-fg); border-color: var(--army-ba-border); }
 .btn-armee--ba:hover { background: rgba(204,68,68,0.18); border-color: var(--army-ba-fg); }
 
-
-
-
-/* ============================================================
-   VAISSEAU — LE CONQUEROR
-============================================================ */
-.ship-section {
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-.ship-layout {
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-10); align-items: center;
-}
-@media (max-width: 700px) { .ship-layout { grid-template-columns: 1fr; } }
-
-.ship-img-wrap {
-  border-radius: var(--radius-xl); overflow: hidden;
-  border: 1px solid var(--color-border); box-shadow: var(--shadow-red);
-}
-.ship-img-wrap img { width: 100%; height: 360px; object-fit: cover; }
-
-.ship-bonus-list { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-6); }
-.ship-bonus {
-  display: flex; gap: var(--space-3); align-items: flex-start;
-  padding: var(--space-3); background: var(--color-surface-offset);
-  border-radius: var(--radius-sm); border: 1px solid var(--color-divider);
-}
-.ship-bonus-icon {
-  font-size: var(--text-lg); flex-shrink: 0; margin-top: 2px;
-}
-.ship-bonus-name {
-  font-family: var(--font-display); font-size: var(--text-sm);
-  letter-spacing: 0.05em; color: var(--color-gold);
-  margin-bottom: var(--space-1);
-}
-.ship-bonus-desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
-
-/* ============================================================
-   MÉCANIQUES DE JEU
-============================================================ */
-.mechanics-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6);
-}
-@media (max-width: 700px) { .mechanics-grid { grid-template-columns: 1fr; } }
-
-.mechanic-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg); padding: var(--space-6);
-}
-.mechanic-icon {
-  font-size: 2.5rem; margin-bottom: var(--space-4);
-  display: block;
-}
-.mechanic-title {
-  font-family: var(--font-display); font-size: var(--text-lg);
-  letter-spacing: 0.05em; text-transform: uppercase;
-  color: var(--color-text); margin-bottom: var(--space-3);
-}
-.mechanic-title span.red { color: var(--color-primary-bright); }
-.mechanic-title span.gold { color: var(--color-gold); }
-.mechanic-desc {
-  font-size: var(--text-sm); line-height: 1.75;
-  color: var(--color-text-muted); margin-bottom: var(--space-4);
-}
-.mechanic-tiers { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); }
-.mechanic-tiers li {
-  display: flex; gap: var(--space-3); align-items: flex-start;
-  font-size: var(--text-sm); color: var(--color-text-muted);
-  padding: var(--space-2); background: var(--color-surface-offset);
-  border-radius: var(--radius-sm);
-}
-.tier-num {
-  font-family: var(--font-display); font-size: var(--text-xs);
-  color: var(--color-primary-bright); flex-shrink: 0; width: 28px;
-  text-align: center; font-weight: 700;
-}
-.tier-num.gold { color: var(--color-gold); }
 
 /* ============================================================
    FOOTER
