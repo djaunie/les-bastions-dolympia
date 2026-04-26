@@ -1,19 +1,24 @@
 /**
- * ui.js — Fonctions UI communes à toutes les pages
- * Les Bastions d'Olympia — Horus Heresy
+ * ui.js — Comportements UI génériques mutualisables
+ * Les Bastions d'Olympia — Horus Heresy Campaign
  *
- * Contient :
- *  - Theme Toggle (clair / sombre)
- *  - Mobile Nav toggle
- *  - Nav scroll + Back-to-Top
- *  - Reveal on Scroll (IntersectionObserver)
+ * Fonctions incluses :
+ *   1. Bascule thème clair/sombre  [data-theme-toggle]
+ *   2. Menu mobile                 #nav-toggle
+ *   3. Effet navbar scrollée       #nav
+ *   4. Bouton retour en haut       #back-top
+ *   5. Reveal on scroll            .reveal  (IntersectionObserver)
+ *
+ * Usage : <script src="assets/js/ui.js" defer></script>
  */
 
 (function () {
 
-  // ── THEME TOGGLE ────────────────────────────────────────────────────────────
+  // ── 1. THEME TOGGLE ──────────────────────────────────────────────────────
   const themeBtn = document.querySelector('[data-theme-toggle]');
   const root = document.documentElement;
+
+  // Lire le thème initial : attribut HTML > préférence système
   let theme = root.getAttribute('data-theme') ||
     (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   root.setAttribute('data-theme', theme);
@@ -39,8 +44,9 @@
     });
   }
 
-  // ── MOBILE NAV ──────────────────────────────────────────────────────────────
+  // ── 2. MENU MOBILE ───────────────────────────────────────────────────────
   const navToggle = document.getElementById('nav-toggle');
+
   if (navToggle) {
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
@@ -48,20 +54,23 @@
     });
   }
 
-  // ── NAV SCROLL + BACK-TO-TOP ────────────────────────────────────────────────
+  // ── 3. NAVBAR SCROLLÉE + 4. BOUTON RETOUR EN HAUT ───────────────────────
   const nav = document.getElementById('nav');
   const backTop = document.getElementById('back-top');
 
-  if (nav || backTop) {
-    window.addEventListener('scroll', () => {
-      if (nav) nav.classList.toggle('nav--scrolled', window.scrollY > 60);
-      if (backTop) backTop.classList.toggle('visible', window.scrollY > 300);
-    }, { passive: true });
-  }
+  window.addEventListener('scroll', () => {
+    if (nav) {
+      nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+    }
+    if (backTop) {
+      backTop.classList.toggle('visible', window.scrollY > 300);
+    }
+  }, { passive: true });
 
-  // ── REVEAL ON SCROLL ────────────────────────────────────────────────────────
-  const revealElements = document.querySelectorAll('.reveal');
-  if (revealElements.length > 0) {
+  // ── 5. REVEAL ON SCROLL (IntersectionObserver) ───────────────────────────
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if (revealEls.length > 0 && 'IntersectionObserver' in window) {
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -71,7 +80,7 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    revealElements.forEach(el => obs.observe(el));
+    revealEls.forEach(el => obs.observe(el));
   }
 
 })();
