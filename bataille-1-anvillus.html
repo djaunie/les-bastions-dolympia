@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partie I — Cendres sur Anvillus | Les Bastions d'Olympia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       VARIABLES & THÈME — identique au site principal
+    ============================================================ */
+    :root, [data-theme="dark"] {
+      --color-bg:              #0a0807;
+      --color-surface:         #0f0d0b;
+      --color-surface-2:       #141210;
+      --color-surface-offset:  #1a1713;
+      --color-surface-offset-2:#201d18;
+      --color-surface-dynamic: #2a2520;
+      --color-divider:         #2e2820;
+      --color-border:          oklch(from #8b1c1c l c h / 0.3);
+      --color-text:            #e8e0d4;
+      --color-text-muted:      #9a9080;
+      --color-text-faint:      #5a5248;
+      --color-text-inverse:    #0a0807;
+      --color-primary:         #8b1c1c;
+      --color-primary-bright:  #cc2929;
+      --color-primary-hover:   #a82222;
+      --color-primary-highlight: #2a1010;
+      --color-gold:            #c8a028;
+      --color-gold-muted:      #8a6e1a;
+      --color-gold-highlight:  #1e1a08;
+      --army-iw-fg:     #c8a878;
+      --army-iw-border: rgba(200,168,120,0.45);
+      --army-iw-bg:     rgba(200,168,120,0.10);
+      --army-ba-fg:     #cc4444;
+      --army-ba-border: rgba(204,68,68,0.45);
+      --army-ba-bg:     rgba(204,68,68,0.10);
+      --radius-sm: 0.25rem;
+      --radius-md: 0.375rem;
+      --radius-lg: 0.5rem;
+      --radius-xl: 0.75rem;
+      --radius-full: 9999px;
+      --transition: 200ms cubic-bezier(0.16,1,0.3,1);
+      --shadow-sm: 0 1px 3px oklch(0 0 0/0.4);
+      --shadow-md: 0 4px 16px oklch(0 0 0/0.5);
+      --shadow-lg: 0 12px 40px oklch(0 0 0/0.6);
+      --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;
+      --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
+      --space-12:3rem;--space-16:4rem;
+      --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+      --text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+      --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --font-display:'Cinzel','Times New Roman',serif;
+      --font-body:'Crimson Text','Georgia',serif;
+    }
+    [data-theme="light"] {
+      --color-bg:              #f0ebe3;
+      --color-surface:         #f5f0e8;
+      --color-surface-2:       #faf7f2;
+      --color-surface-offset:  #e8e0d4;
+      --color-surface-offset-2:#ddd4c8;
+      --color-surface-dynamic: #d4c8ba;
+      --color-divider:         #c8bfb0;
+      --color-border:          oklch(from #8b1c1c l c h / 0.25);
+      --color-text:            #1a1208;
+      --color-text-muted:      #4a3e30;
+      --color-text-faint:      #8a7a68;
+      --color-primary:         #7a1515;
+      --color-primary-bright:  #b01e1e;
+      --color-gold:            #8a6e1a;
+      --color-gold-muted:      #a08020;
+      --army-iw-fg:     #8a6a30;
+      --army-iw-border: rgba(138,106,48,0.4);
+      --army-iw-bg:     rgba(138,106,48,0.08);
+      --army-ba-fg:     #8a1a1a;
+      --army-ba-border: rgba(138,26,26,0.4);
+      --army-ba-bg:     rgba(138,26,26,0.08);
+    }
+
+    /* BASE */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { min-height:100dvh; font-family:var(--font-body); font-size:var(--text-base); color:var(--color-text); background:var(--color-bg); line-height:1.75; }
+    h1,h2,h3,h4,h5 { font-family:var(--font-display); line-height:1.1; letter-spacing:0.03em; text-wrap:balance; }
+    p { text-wrap:pretty; max-width:72ch; }
+    img { display:block; max-width:100%; height:auto; }
+    a,button { transition:color var(--transition),background var(--transition),box-shadow var(--transition),opacity var(--transition); }
+    button { cursor:pointer; background:none; border:none; font:inherit; color:inherit; }
+    ::-webkit-scrollbar { width:6px; }
+    ::-webkit-scrollbar-track { background:var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background:var(--color-primary); border-radius:3px; }
+    ::selection { background:oklch(from var(--color-primary) l c h / 0.3); }
+    :focus-visible { outline:2px solid var(--color-gold); outline-offset:3px; border-radius:var(--radius-sm); }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; } }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    .nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:oklch(from var(--color-bg) l c h / 0.93);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--color-border);
+      padding-block:var(--space-3);
+    }
+    .nav-inner {
+      display:flex; align-items:center; justify-content:space-between;
+      max-width:1200px; margin-inline:auto; padding-inline:var(--space-6); gap:var(--space-4);
+    }
+    .nav-logo {
+      display:flex; align-items:center; gap:var(--space-3);
+      text-decoration:none; color:var(--color-text);
+    }
+    .nav-logo-icon { width:32px; height:32px; flex-shrink:0; }
+    .nav-logo-text { font-family:var(--font-display); font-size:var(--text-sm); font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--color-gold); }
+    .nav-logo-sub { display:block; font-family:var(--font-body); font-size:var(--text-xs); color:var(--color-text-muted); letter-spacing:0.1em; text-transform:uppercase; margin-top:-2px; }
+    .nav-actions { display:flex; gap:var(--space-2); align-items:center; }
+    .btn-theme {
+      width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+      border-radius:var(--radius-full); border:1px solid var(--color-border);
+      color:var(--color-text-muted); background:var(--color-surface);
+    }
+    .btn-theme:hover { color:var(--color-gold); border-color:var(--color-gold-muted); }
+    .back-link {
+      display:inline-flex; align-items:center; gap:var(--space-2);
+      font-family:var(--font-display); font-size:var(--text-xs);
+      letter-spacing:0.08em; text-transform:uppercase; text-decoration:none;
+      color:var(--color-text-muted); border:1px solid var(--color-border);
+      background:var(--color-surface); padding:var(--space-2) var(--space-3); border-radius:var(--radius-sm);
+    }
+    .back-link:hover { color:var(--color-gold); border-color:var(--color-gold-muted); background:var(--color-surface-offset); }
+
+    /* ============================================================
+       HERO SCENAR
+    ============================================================ */
+    .scenar-hero {
+      position:relative; padding-top:96px; padding-bottom:0; overflow:hidden;
+    }
+    /* Chevrons IW en fond */
+    .scenar-hero::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:
+        repeating-linear-gradient(-45deg,transparent 0px,transparent 18px,rgba(200,168,120,0.035) 18px,rgba(200,168,120,0.035) 22px),
+        radial-gradient(ellipse at 50% 0%, rgba(204,68,68,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(200,168,120,0.05) 0%, transparent 50%);
+      pointer-events:none;
+    }
+    .hero-band {
+      position:relative; z-index:1;
+      max-width:1200px; margin-inline:auto; padding:var(--space-12) var(--space-6) var(--space-8);
+      display:grid; grid-template-columns:1fr auto; gap:var(--space-8); align-items:end;
+    }
+    @media (max-width:700px) { .hero-band { grid-template-columns:1fr; } }
+    .hero-eyebrow {
+      font-family:var(--font-display); font-size:var(--text-xs);
+      letter-spacing:0.22em; text-transform:uppercase; color:var(--color-gold);
+      display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);
+    }
+    .hero-eyebrow::before { content:''; display:inline-block; width:30px; height:1px; background:var(--color-gold); }
+    .scenar-num {
+      font-family:var(--font-display); font-size:var(--text-xs);
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--color-text-faint); margin-bottom:var(--space-2);
+    }
+    .scenar-title {
+      font-family:'Cinzel Decorative','Cinzel',serif;
+      font-size:clamp(1.8rem,5vw,3.8rem); font-weight:700;
+      text-transform:uppercase; letter-spacing:0.04em; line-height:1;
+      color:var(--color-text);
+      text-shadow:0 0 60px rgba(204,68,68,0.35), 0 2px 20px rgba(0,0,0,0.8);
+      margin-bottom:var(--space-3);
+    }
+    .scenar-title span { color:var(--color-primary-bright); }
+    .scenar-subtitle {
+      font-size:var(--text-lg); font-style:italic;
+      color:var(--color-text-muted); max-width:52ch; line-height:1.6;
+    }
+    .hero-meta-bloc {
+      display:flex; flex-direction:column; gap:var(--space-3); align-items:flex-end;
+      padding:var(--space-5); background:var(--color-surface);
+      border:1px solid var(--color-border); border-radius:var(--radius-lg);
+      min-width:220px;
+    }
+    @media (max-width:700px) { .hero-meta-bloc { align-items:flex-start; } }
+    .meta-item { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
+    @media (max-width:700px) { .meta-item { align-items:flex-start; } }
+    .meta-label { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.15em; text-transform:uppercase; color:var(--color-text-faint); }
+    .meta-value { font-family:var(--font-display); font-size:var(--text-sm); color:var(--color-gold); font-weight:600; }
+
+    /* BANDES IW bas du hero */
+    .hero-stripes {
+      height:4px;
+      background:repeating-linear-gradient(90deg,#0a0807 0px,#0a0807 10px,rgba(200,168,120,0.6) 10px,rgba(200,168,120,0.6) 20px);
+    }
+
+    /* BADGES */
+    .badge-row { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-top:var(--space-6); }
+    .badge {
+      display:inline-flex; align-items:center; gap:var(--space-2);
+      padding:var(--space-1) var(--space-3); border:1px solid;
+      border-radius:var(--radius-sm); font-family:var(--font-display);
+      font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase;
+    }
+    .badge--iw { color:var(--army-iw-fg); border-color:var(--army-iw-border); background:var(--army-iw-bg); }
+    .badge--ba { color:var(--army-ba-fg); border-color:var(--army-ba-border); background:var(--army-ba-bg); }
+    .badge--gold { color:var(--color-gold); border-color:rgba(200,160,40,0.35); background:rgba(200,160,40,0.08); }
+    .badge--muted { color:var(--color-text-muted); border-color:var(--color-border); background:var(--color-surface); }
+
+    /* ============================================================
+       LAYOUT PRINCIPAL
+    ============================================================ */
+    .page-body { max-width:1200px; margin-inline:auto; padding:var(--space-12) var(--space-6); display:grid; grid-template-columns:1fr 320px; gap:var(--space-10); align-items:start; }
+    @media (max-width:900px) { .page-body { grid-template-columns:1fr; } }
+
+    /* ============================================================
+       ORNAMENT
+    ============================================================ */
+    .ornament {
+      display:flex; align-items:center; gap:var(--space-4);
+      color:var(--color-gold-muted); margin-block:var(--space-8);
+    }
+    .ornament::before,.ornament::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,var(--color-gold-muted)); }
+    .ornament::after { background:linear-gradient(to left,transparent,var(--color-gold-muted)); }
+    .ornament span { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.15em; text-transform:uppercase; white-space:nowrap; }
+
+    /* ============================================================
+       SECTION
+    ============================================================ */
+    .section-eyebrow {
+      font-family:var(--font-display); font-size:var(--text-xs);
+      letter-spacing:0.22em; text-transform:uppercase; color:var(--color-gold);
+      display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4);
+    }
+    .section-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--color-gold); }
+    .section-h2 {
+      font-size:var(--text-xl); text-transform:uppercase; letter-spacing:0.04em;
+      color:var(--color-text); margin-bottom:var(--space-6);
+    }
+
+    /* ============================================================
+       NARRATION
+    ============================================================ */
+    .lore-block { margin-bottom:var(--space-10); }
+    .lore-block p {
+      font-size:var(--text-base); line-height:1.85; color:var(--color-text-muted);
+      margin-bottom:var(--space-5); max-width:70ch;
+    }
+    .lore-block p:last-child { margin-bottom:0; }
+    .lore-block strong { color:var(--color-text); font-weight:600; font-style:normal; }
+
+    .quote-block {
+      border-left:3px solid var(--color-primary);
+      padding:var(--space-5) var(--space-6);
+      background:var(--color-surface);
+      border-radius:0 var(--radius-md) var(--radius-md) 0;
+      margin-block:var(--space-6);
+    }
+    .quote-text { font-size:var(--text-base); font-style:italic; color:var(--color-text-muted); line-height:1.8; margin-bottom:var(--space-3); }
+    .quote-author { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.15em; text-transform:uppercase; color:var(--color-gold); }
+
+    /* ============================================================
+       OBJECTIFS
+    ============================================================ */
+    .obj-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));
+      gap:var(--space-5); margin-bottom:var(--space-10);
+    }
+    .obj-card {
+      background:var(--color-surface); border:1px solid var(--color-border);
+      border-radius:var(--radius-lg); padding:var(--space-5); position:relative; overflow:hidden;
+      transition:box-shadow var(--transition),transform var(--transition);
+    }
+    .obj-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+    .obj-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:var(--radius-lg) var(--radius-lg) 0 0; }
+    .obj-card--center::before { background:var(--color-gold); }
+    .obj-card--iw::before { background:var(--army-iw-fg); }
+    .obj-card--ba::before { background:var(--army-ba-fg); }
+    .obj-num { font-family:var(--font-display); font-size:var(--text-2xl); color:var(--color-text-faint); line-height:1; margin-bottom:var(--space-3); }
+    .obj-name { font-family:var(--font-display); font-size:var(--text-lg); color:var(--color-text); margin-bottom:var(--space-2); letter-spacing:0.03em; }
+    .obj-owner { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:var(--space-3); }
+    .obj-owner--iw { color:var(--army-iw-fg); }
+    .obj-owner--ba { color:var(--army-ba-fg); }
+    .obj-owner--center { color:var(--color-gold); }
+    .obj-desc { font-size:var(--text-sm); line-height:1.75; color:var(--color-text-muted); font-style:italic; }
+
+    /* ============================================================
+       RÈGLES SPÉCIALES
+    ============================================================ */
+    .rules-list { display:flex; flex-direction:column; gap:var(--space-4); margin-bottom:var(--space-10); }
+    .rule-card {
+      background:var(--color-surface); border:1px solid var(--color-border);
+      border-radius:var(--radius-lg); padding:var(--space-5); display:grid; grid-template-columns:auto 1fr; gap:var(--space-5); align-items:start;
+    }
+    .rule-icon {
+      width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+      border-radius:var(--radius-md); background:var(--color-surface-offset); font-size:1.4rem;
+      flex-shrink:0; border:1px solid var(--color-divider);
+    }
+    .rule-name { font-family:var(--font-display); font-size:var(--text-base); color:var(--color-text); margin-bottom:var(--space-2); letter-spacing:0.03em; }
+    .rule-text { font-size:var(--text-sm); line-height:1.75; color:var(--color-text-muted); }
+    .rule-text strong { color:var(--color-gold); font-weight:600; }
+
+    /* ============================================================
+       DÉPLOIEMENT - CARTE TACTIQUE ASCII-STYLE
+    ============================================================ */
+    .deploy-map {
+      background:var(--color-surface); border:1px solid var(--color-border);
+      border-radius:var(--radius-lg); padding:var(--space-6); margin-bottom:var(--space-10);
+      position:relative; overflow:hidden;
+    }
+    .deploy-map::before {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 28px,var(--color-divider) 28px,var(--color-divider) 29px),
+                 repeating-linear-gradient(90deg,transparent,transparent 28px,var(--color-divider) 28px,var(--color-divider) 29px);
+      opacity:0.25;
+    }
+    .deploy-inner { position:relative; z-index:1; }
+    .deploy-field {
+      display:grid; grid-template-columns:1fr 80px 1fr; gap:0;
+      background:var(--color-surface-offset); border:1px solid var(--color-border);
+      border-radius:var(--radius-md); overflow:hidden; margin-bottom:var(--space-4);
+    }
+    .deploy-zone {
+      padding:var(--space-5); text-align:center;
+    }
+    .deploy-zone--iw { background:var(--army-iw-bg); border-right:1px solid var(--color-border); }
+    .deploy-zone--center { background:rgba(200,160,40,0.05); }
+    .deploy-zone--ba { background:var(--army-ba-bg); border-left:1px solid var(--color-border); }
+    .deploy-zone-label { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:var(--space-2); }
+    .deploy-zone--iw .deploy-zone-label { color:var(--army-iw-fg); }
+    .deploy-zone--ba .deploy-zone-label { color:var(--army-ba-fg); }
+    .deploy-zone--center .deploy-zone-label { color:var(--color-gold); }
+    .deploy-zone-dist { font-family:var(--font-display); font-size:var(--text-xs); color:var(--color-text-faint); margin-top:var(--space-1); }
+    /* Objectifs dans la carte */
+    .obj-marker {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:28px; height:28px; border-radius:50%; font-family:var(--font-display); font-size:var(--text-xs); font-weight:700;
+      margin:var(--space-2) auto; border:2px solid;
+    }
+    .obj-marker--iw { background:var(--army-iw-bg); color:var(--army-iw-fg); border-color:var(--army-iw-fg); }
+    .obj-marker--ba { background:var(--army-ba-bg); color:var(--army-ba-fg); border-color:var(--army-ba-fg); }
+    .obj-marker--c  { background:rgba(200,160,40,0.12); color:var(--color-gold); border-color:var(--color-gold); }
+
+    /* ============================================================
+       CONSÉQUENCES NARRATIVES
+    ============================================================ */
+    .consequences-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:var(--space-4); margin-bottom:var(--space-10);
+    }
+    @media (max-width:600px) { .consequences-grid { grid-template-columns:1fr; } }
+    .conseq-card {
+      background:var(--color-surface); border:1px solid var(--color-border);
+      border-radius:var(--radius-lg); padding:var(--space-5); position:relative; overflow:hidden;
+    }
+    .conseq-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; }
+    .conseq-card--iw::before { background:var(--army-iw-fg); }
+    .conseq-card--ba::before { background:var(--army-ba-fg); }
+    .conseq-card--nul::before { background:var(--color-gold); }
+    .conseq-card--nul { grid-column:span 2; }
+    @media (max-width:600px) { .conseq-card--nul { grid-column:span 1; } }
+    .conseq-header { display:flex; align-items:center; gap:var(--space-3); margin-bottom:var(--space-4); }
+    .conseq-badge { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.15em; text-transform:uppercase; padding:var(--space-1) var(--space-3); border-radius:var(--radius-sm); border:1px solid; }
+    .conseq-badge--iw { color:var(--army-iw-fg); border-color:var(--army-iw-border); background:var(--army-iw-bg); }
+    .conseq-badge--ba { color:var(--army-ba-fg); border-color:var(--army-ba-border); background:var(--army-ba-bg); }
+    .conseq-badge--nul { color:var(--color-gold); border-color:rgba(200,160,40,0.35); background:rgba(200,160,40,0.08); }
+    .conseq-title { font-family:var(--font-display); font-size:var(--text-base); color:var(--color-text); letter-spacing:0.03em; }
+    .conseq-text { font-size:var(--text-sm); line-height:1.8; color:var(--color-text-muted); }
+    .conseq-text ul { list-style:none; padding:0; margin-top:var(--space-3); display:flex; flex-direction:column; gap:var(--space-2); }
+    .conseq-text ul li { display:flex; align-items:flex-start; gap:var(--space-2); }
+    .conseq-text ul li::before { content:'›'; color:var(--color-gold); flex-shrink:0; margin-top:1px; }
+
+    /* ============================================================
+       SIDEBAR
+    ============================================================ */
+    .sidebar { display:flex; flex-direction:column; gap:var(--space-5); }
+    .sidebar-card {
+      background:var(--color-surface); border:1px solid var(--color-border);
+      border-radius:var(--radius-lg); overflow:hidden;
+    }
+    .sidebar-card-header {
+      background:var(--color-surface-2); padding:var(--space-4) var(--space-5);
+      border-bottom:1px solid var(--color-divider);
+    }
+    .sidebar-card-title { font-family:var(--font-display); font-size:var(--text-sm); text-transform:uppercase; letter-spacing:0.1em; color:var(--color-gold); }
+    .sidebar-card-body { padding:var(--space-4) var(--space-5); }
+    .info-row { display:flex; justify-content:space-between; align-items:baseline; padding-block:var(--space-2); border-bottom:1px solid var(--color-divider); gap:var(--space-3); }
+    .info-row:last-child { border-bottom:none; }
+    .info-key { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.1em; text-transform:uppercase; color:var(--color-text-faint); flex-shrink:0; }
+    .info-val { font-size:var(--text-sm); color:var(--color-text-muted); text-align:right; }
+    .info-val strong { color:var(--color-text); font-weight:600; }
+    .info-val.iw { color:var(--army-iw-fg); }
+    .info-val.ba { color:var(--army-ba-fg); }
+    .info-val.gold { color:var(--color-gold); }
+
+    /* Conditions de victoire sidebar */
+    .vp-table { width:100%; border-collapse:collapse; font-size:var(--text-xs); }
+    .vp-table th { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.08em; text-transform:uppercase; color:var(--color-text-faint); padding:var(--space-2) var(--space-3); text-align:left; border-bottom:1px solid var(--color-divider); }
+    .vp-table td { padding:var(--space-2) var(--space-3); color:var(--color-text-muted); border-bottom:1px solid var(--color-divider); font-family:var(--font-display); letter-spacing:0.03em; }
+    .vp-table tr:last-child td { border-bottom:none; }
+    .vp-table td:last-child { text-align:right; font-weight:600; color:var(--color-gold); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer { background:var(--color-surface); border-top:1px solid var(--color-border); padding-block:var(--space-12); text-align:center; }
+    footer .footer-logo { font-family:var(--font-display); font-size:var(--text-lg); letter-spacing:0.15em; text-transform:uppercase; color:var(--color-gold); display:block; margin-bottom:var(--space-4); }
+    footer .footer-line { font-size:var(--text-sm); color:var(--color-text-muted); font-style:italic; margin-bottom:var(--space-2); display:block; }
+    footer .footer-sub { font-family:var(--font-display); font-size:var(--text-xs); letter-spacing:0.12em; text-transform:uppercase; color:var(--color-text-faint); display:block; }
+
+    /* ============================================================
+       ANIMATIONS SCROLL
+    ============================================================ */
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity 0.55s ease,transform 0.55s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .reveal-delay-1 { transition-delay:0.1s; }
+    .reveal-delay-2 { transition-delay:0.2s; }
+    .reveal-delay-3 { transition-delay:0.3s; }
+
+    /* BACK TO TOP */
+    .back-top { position:fixed; bottom:var(--space-6); right:var(--space-6); z-index:50; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-full); color:var(--color-text-muted); box-shadow:var(--shadow-md); opacity:0; pointer-events:none; transition:opacity var(--transition),color var(--transition); }
+    .back-top.visible { opacity:1; pointer-events:auto; }
+    .back-top:hover { color:var(--color-gold); border-color:var(--color-gold-muted); }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-label="Les Bastions d'Olympia">
+        <polygon points="18,2 34,10 34,26 18,34 2,26 2,10" stroke="#c8a028" stroke-width="1.5" fill="none"/>
+        <polygon points="18,7 29,13 29,23 18,29 7,23 7,13" stroke="#8b1c1c" stroke-width="1" fill="none"/>
+        <line x1="18" y1="2" x2="18" y2="34" stroke="#c8a028" stroke-width="0.5" opacity="0.4"/>
+        <line x1="2" y1="18" x2="34" y2="18" stroke="#c8a028" stroke-width="0.5" opacity="0.4"/>
+        <circle cx="18" cy="18" r="3" fill="#8b1c1c"/>
+      </svg>
+      <div>
+        <span class="nav-logo-text">Les Bastions d'Olympia</span>
+        <span class="nav-logo-sub">Campagne Narrative</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <a href="index.html" class="back-link">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Accueil
+      </a>
+      <button class="btn-theme" data-theme-toggle aria-label="Basculer le thème">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="scenar-hero">
+  <div class="hero-band">
+    <div>
+      <p class="hero-eyebrow">Campagne des Bastions d'Olympia — Première Bataille</p>
+      <p class="scenar-num">M30 — Cycle de Conflagration I</p>
+      <h1 class="scenar-title">Cendres sur <span>Anvillus</span></h1>
+      <p class="scenar-subtitle">Dans les forge-cités agonisantes d'Anvillus, deux légions autrefois frères d'armes s'affrontent pour le contrôle d'une vérité que l'Imperium ne peut plus ignorer.</p>
+      <div class="badge-row">
+        <span class="badge badge--iw">⚙ Iron Warriors</span>
+        <span class="badge badge--ba">✦ Blood Angels</span>
+        <span class="badge badge--gold">⚔ 1000–1250 pts</span>
+        <span class="badge badge--muted">4 tours</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stripes"></div>
+</header>
+
+<!-- CORPS -->
+<div class="page-body">
+  <!-- COLONNE PRINCIPALE -->
+  <main>
+
+    <!-- CONTEXTE NARRATIF -->
+    <section class="lore-block reveal">
+      <div class="section-eyebrow">Contexte narratif</div>
+      <h2 class="section-h2">Le Crépuscule de la Forge</h2>
+
+      <p>
+        Monde-forge de la ceinture intérieure du sous-secteur Olympia, Anvillus a alimenté durant trois siècles de Reconquête les arsenaux de deux légions. Ses cheminées titanesques ont forgé les boucliers des <strong>Iron Warriors</strong> et les canisters de plasma des <strong>Blood Angels</strong>.
+      </p>
+      <p>
+        Mais les outils vieillissent. Les soulèvements populaires qui ont secoué Olympia ont envoyé des ondes de choc bien au-delà de la forteresse-monde de Perturabo. Sur Anvillus, les syndicats de fondeurs ont refusé les derniers quotas de production imposés par les commissaires de la IV<sup>e</sup> légion. Les brigades d'enforcement ont réprimé les premiers rassemblements — trop brutalement. Les quartiers ouvriers sont devenus des forges d'un autre métal : la rébellion.
+      </p>
+      <p>
+        <strong>Perturabo</strong> a envoyé une demi-compagnie comme signal. Pas pour pacifier — pour rappeler qui détient l'autorité sur ce secteur. Les Iron Warriors sont les architectes de l'Olympia : ils en construisent les murs, ils en revendiquent les ressources. Anvillus fait partie du domaine d'Olympia.
+      </p>
+      <p>
+        <strong>Sanguinius</strong>, lui, a appris les nouvelles depuis le système d'Héroï par les rapports du Consul Maéstris Vhalanthor. Les Blood Angels patrouillaient déjà le sous-secteur à la demande du Conseil de Terra, surveiller les flux logistiques à destination de la Croisade d'Ultima. Quand les échos de la répression sont remontés jusqu'au Grand Ange, l'ordre est tombé simplement : <em>« Assurez-vous que les civils d'Anvillus ne souffrent pas. »</em>
+      </p>
+
+      <div class="quote-block">
+        <p class="quote-text">« Nous ne combattons pas des ennemis ce jour, frère. Nous combattons ce que nous pourrions devenir si nous laissons les premiers pas se faire dans la mauvaise direction. »</p>
+        <p class="quote-author">— Vhalanthor, Consul des Blood Angels, avant le débarquement sur Anvillus</p>
+      </div>
+
+      <p>
+        Les deux détachements se sont déployés à moins de douze heures d'intervalle sur le complexe industriel de <strong>Karathos IV</strong> — l'un des derniers nœuds de commandement encore opérationnels d'Anvillus. Aucune déclaration d'hostilité. Aucun ultimatum. Juste deux légions en armes dans les décombres d'une ville qui brûle, et une question suspendue dans la fumée des hauts fourneaux : <em>Qui est venu ici pour quoi ?</em>
+      </p>
+      <p>
+        Les Iron Warriors contrôlent le relais vox du Secteur Nord — une infrastructure cruciale pour coordonner leurs opérations de pacification. Les Blood Angels ont sécurisé les docks de chargement au sud, où des milliers de civils attendent des transports d'évacuation que Perturabo juge superflus. Entre les deux, le Terminal de Commandement de Karathos IV pulse encore d'une activité désespérée : les codes d'accès aux silos d'armement de tout le sous-secteur s'y trouvent, et les deux légions le savent.
+      </p>
+      <p>
+        Les premiers coups de feu ne seront peut-être pas volontaires. Dans une ville en émeute, sous des cieux chargés de cendres et de particules métalliques qui brouillent les vox-casters, il suffit d'un moment de confusion. D'un ordre mal interprété. D'une escouade qui arrive trop tôt ou trop vite. <strong>L'étincelle n'attend que le combustible.</strong>
+      </p>
+    </section>
+
+    <div class="ornament reveal"><span>⚙ Dispositif de bataille ⚙</span></div>
+
+    <!-- OBJECTIFS -->
+    <section class="reveal">
+      <div class="section-eyebrow">Objectifs</div>
+      <h2 class="section-h2">Points de Contrôle — Karathos IV</h2>
+      <div class="obj-grid">
+
+        <div class="obj-card obj-card--iw">
+          <div class="obj-num">01</div>
+          <div class="obj-name">Relais Vox Sector Nord</div>
+          <div class="obj-owner obj-owner--iw">⚙ Zone de déploiement Iron Warriors</div>
+          <p class="obj-desc">Tour d'émission industrielle reconvertie en nœud de commandement tactique. Les Iron Warriors y ont installé leurs codes de fréquence dans les premières heures. Contrôler ce point permet de brouiller les communications ennemies : l'adversaire subit un malus de –1 à ses jets de commandement en son absence.</p>
+        </div>
+
+        <div class="obj-card obj-card--center">
+          <div class="obj-num">02</div>
+          <div class="obj-name">Terminal de Commandement</div>
+          <div class="obj-owner obj-owner--center">✦ Centre — Objectif Primaire</div>
+          <p class="obj-desc">Cœur administratif du complexe Karathos IV. Les terminaux actifs donnent accès aux codes d'armement de tout le sous-secteur Olympia. Vaut <strong>2 Points de Victoire</strong> au lieu d'1 pour le camp qui le contrôle à la fin de la partie. L'objectif suprême de cette engagement.</p>
+        </div>
+
+        <div class="obj-card obj-card--ba">
+          <div class="obj-num">03</div>
+          <div class="obj-name">Docks de Chargement Sud</div>
+          <div class="obj-owner obj-owner--ba">✦ Zone de déploiement Blood Angels</div>
+          <p class="obj-desc">Plateforme logistique où s'entassent les convois civils bloqués depuis le début des émeutes. Contrôler ce point permet aux Blood Angels de justifier leur présence au regard de Terra. Si seuls les IX<sup>e</sup> le tiennent en fin de partie, ils gagnent un bonus narratif : la population d'Anvillus est évacuée.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DÉPLOIEMENT -->
+    <section class="reveal">
+      <div class="section-eyebrow">Déploiement</div>
+      <h2 class="section-h2">Dispositif Tactique</h2>
+      <div class="deploy-map">
+        <div class="deploy-inner">
+          <div class="deploy-field">
+            <div class="deploy-zone deploy-zone--iw">
+              <div class="deploy-zone-label">Iron Warriors</div>
+              <div style="display:flex;justify-content:center;">
+                <div class="obj-marker obj-marker--iw">01</div>
+              </div>
+              <div class="deploy-zone-dist">Zone 12″ × bord nord</div>
+            </div>
+            <div class="deploy-zone deploy-zone--center">
+              <div class="deploy-zone-label">No Man's Land</div>
+              <div style="display:flex;justify-content:center;">
+                <div class="obj-marker obj-marker--c">02</div>
+              </div>
+              <div class="deploy-zone-dist">Centre table</div>
+            </div>
+            <div class="deploy-zone deploy-zone--ba">
+              <div class="deploy-zone-label">Blood Angels</div>
+              <div style="display:flex;justify-content:center;">
+                <div class="obj-marker obj-marker--ba">03</div>
+              </div>
+              <div class="deploy-zone-dist">Zone 12″ × bord sud</div>
+            </div>
+          </div>
+          <p style="font-family:var(--font-display);font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-faint);text-align:center;">Table 4×4 — Terrain urbain ruiné · Décombres de fonderies · Cheminées comme couverts lourds</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÈGLES SPÉCIALES -->
+    <section class="reveal">
+      <div class="section-eyebrow">Règles Spéciales</div>
+      <h2 class="section-h2">Conditions Particulières du Théâtre</h2>
+      <div class="rules-list">
+
+        <div class="rule-card">
+          <div class="rule-icon">📋</div>
+          <div>
+            <div class="rule-name">Mandat Contradictoire</div>
+            <p class="rule-text">
+              Aucune des deux légions n'a officiellement déclaré de guerre à l'autre. Chaque unité engageant pour la première fois une unité ennemie doit réussir un jet de <strong>Commandement (Ld)</strong> — en cas d'échec, elle ne peut que se déplacer et adopter une position défensive ce tour-ci. À partir du Tour 2, ce jet n'est plus requis : la confusion initiale se dissipe dans la poudre.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-icon">🔥</div>
+          <div>
+            <div class="rule-name">Zone en Émeute</div>
+            <p class="rule-text">
+              Les faubourgs de Karathos IV sont en proie à des foules en colère armées d'outils de fonderie. À chaque début de tour (à partir du Tour 2), lancez <strong>1D6 par zone d'objectif</strong>. Sur un résultat de <strong>5+</strong>, toutes les unités dans un rayon de 6″ de cet objectif subissent <strong>D3 touches de Force 3, PA —</strong>. Les colosses de métal et les serviteurs blindés y sont immunisés.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-icon">🌫️</div>
+          <div>
+            <div class="rule-name">Cendres de Karathos</div>
+            <p class="rule-text">
+              Les cheminées d'Anvillus crachent sans relâche. La visibilité est réduite : toute attaque à portée supérieure à <strong>24″</strong> subit un malus de <strong>–1 pour toucher</strong>. Les unités dotées de viseurs thermiques ou de cogitateurs balistiques ignorent cet effet. Cette règle reflète l'atmosphère toxique et la fumée des fonderies en fusion.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <div class="rule-icon">⚡</div>
+          <div>
+            <div class="rule-name">Surcharge des Générateurs</div>
+            <p class="rule-text">
+              Le Terminal de Commandement (Objectif 02) est alimenté par des réacteurs instables. Si au début d'un tour ce point n'est contrôlé par aucun camp, lancez <strong>1D6</strong>. Sur un résultat de <strong>6</strong>, une surcharge se produit : toutes les unités à 6″ ou moins subissent <strong>D3 touches de Force 5, PA2</strong> — une explosion de plasma industriel. L'objectif reste accessible mais il faut oser s'en approcher.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="ornament reveal"><span>✦ Fin de partie ✦</span></div>
+
+    <!-- CONSÉQUENCES NARRATIVES -->
+    <section class="reveal">
+      <div class="section-eyebrow">Conséquences narratives</div>
+      <h2 class="section-h2">Le Lendemain des Cendres</h2>
+      <p style="font-size:var(--text-base);color:var(--color-text-muted);max-width:65ch;margin-bottom:var(--space-6);line-height:1.85;font-style:italic;">
+        L'issue de cette première bataille déterminera l'état d'Anvillus sur la carte de campagne et l'avantage stratégique du vainqueur pour les engagements suivants.
+      </p>
+      <div class="consequences-grid">
+
+        <div class="conseq-card conseq-card--iw">
+          <div class="conseq-header">
+            <span class="conseq-badge conseq-badge--iw">⚙ Victoire Iron Warriors</span>
+          </div>
+          <div class="conseq-title" style="margin-bottom:var(--space-3);">Anvillus sous la Botte d'Acier</div>
+          <div class="conseq-text">
+            <p>Les IV<sup>e</sup> ont démontré leur autorité sur le sous-secteur. La population se tait — par peur. Perturabo obtient les codes d'armement de Karathos IV.</p>
+            <ul>
+              <li>Anvillus passe sous contrôle Iron Warriors sur la carte</li>
+              <li>Les IW gagnent un <strong>bonus de 100 pts</strong> pour la prochaine bataille (renforts supplémentaires)</li>
+              <li>La planète produit : les IW bénéficient d'un accès prioritaire à l'artillerie lourde</li>
+              <li>Narratif : la résistance civile se radicalise dans la clandestinité</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="conseq-card conseq-card--ba">
+          <div class="conseq-header">
+            <span class="conseq-badge conseq-badge--ba">✦ Victoire Blood Angels</span>
+          </div>
+          <div class="conseq-title" style="margin-bottom:var(--space-3);">La Grâce dans les Ruines</div>
+          <div class="conseq-text">
+            <p>Les IX<sup>e</sup> ont maintenu les civils hors du conflit. Leur réputation dans le sous-secteur s'améliore, mais Perturabo ne pardonne pas cette ingérence.</p>
+            <ul>
+              <li>Anvillus passe sous protection Blood Angels sur la carte</li>
+              <li>Les BA gagnent un bonus narratif : <em>soutien populaire</em> — 1 unité d'infanterie locale alliée disponible dans les deux prochaines batailles</li>
+              <li>Narratif : les IW se retirent mais laissent des agents dans les fonderies</li>
+              <li>La prochaine bataille se joue en territoire IW (désavantage tactique pour les BA)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="conseq-card conseq-card--nul">
+          <div class="conseq-header">
+            <span class="conseq-badge conseq-badge--nul">⚖ Match Nul — L'Impasse des Forges</span>
+          </div>
+          <div class="conseq-title" style="margin-bottom:var(--space-3);">Deux Prédateurs, une Proie Trop Lourde</div>
+          <div class="conseq-text">
+            <ul>
+              <li>Anvillus reste en état de <em>conflit ouvert</em> sur la carte — aucune légion ne contrôle la planète</li>
+              <li>Les deux camps subissent un malus de –50 pts disponibles pour la prochaine bataille (pertes importantes)</li>
+              <li>Le Terminal de Commandement est neutralisé : aucun camp ne peut utiliser les codes d'armement avant de le reprendre dans une future bataille</li>
+              <li>Narratif : un troisième acteur — agent du Chaos ou faction locale armée — s'installe dans le vide laissé, compliquant les plans des deux légions</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- /main -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card reveal reveal-delay-1">
+      <div class="sidebar-card-header"><div class="sidebar-card-title">⚔ Points de Victoire</div></div>
+      <div class="sidebar-card-body" style="padding:0;">
+        <table class="vp-table">
+          <thead><tr><th>Condition</th><th>PV</th></tr></thead>
+          <tbody>
+            <tr><td>Obj. 01 — Relais Vox</td><td>1</td></tr>
+            <tr><td>Obj. 02 — Terminal de Cmd</td><td>2</td></tr>
+            <tr><td>Obj. 03 — Docks de Chargement</td><td>1</td></tr>
+            <tr><td>Seigneur de Guerre ennemi tué</td><td>1</td></tr>
+            <tr><td>Bonus Docks (BA seuls)</td><td>+1 narratif</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sidebar-card reveal reveal-delay-2">
+      <div class="sidebar-card-header"><div class="sidebar-card-title">📜 Règles Actives</div></div>
+      <div class="sidebar-card-body">
+        <div class="info-row"><span class="info-key">Tour 1</span><span class="info-val">Mandat Contradictoire (Ld)</span></div>
+        <div class="info-row"><span class="info-key">Tours 2+</span><span class="info-val">Zone en Émeute (5+)</span></div>
+        <div class="info-row"><span class="info-key">Permanente</span><span class="info-val">Cendres (24″ –1 touche)</span></div>
+        <div class="info-row"><span class="info-key">Obj. 02 libre</span><span class="info-val">Surcharge (6 = D3 F5 PA2)</span></div>
+      </div>
+    </div>
+
+    <div class="sidebar-card reveal reveal-delay-3">
+      <div class="sidebar-card-header"><div class="sidebar-card-title">🗺 Lien Campagne</div></div>
+      <div class="sidebar-card-body">
+        <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.75;margin-bottom:var(--space-4);">
+          L'issue de cette bataille modifie directement l'état d'Anvillus sur la carte interactive de campagne.
+        </p>
+        <a href="carte.html" style="display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-display);font-size:var(--text-xs);letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--color-gold);border:1px solid rgba(200,160,40,0.4);background:rgba(200,160,40,0.07);padding:var(--space-2) var(--space-4);border-radius:var(--radius-sm);width:100%;justify-content:center;">
+          🗺 Voir la Carte
+        </a>
+      </div>
+    </div>
+
+    <div class="sidebar-card reveal reveal-delay-3">
+      <div class="sidebar-card-header"><div class="sidebar-card-title">📖 À propos d'Anvillus</div></div>
+      <div class="sidebar-card-body">
+        <p style="font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.75;font-style:italic;">
+          Monde-forge du sous-secteur Olympia. Ses complexes industriels ont approvisionné les légions depuis la Grande Croisade. Aujourd'hui, les émeutes des fondeurs menacent la chaîne logistique de tout le sous-secteur.
+        </p>
+        <div style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2);">
+          <a href="iron-warriors.html" style="display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-display);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:var(--army-iw-fg);border:1px solid var(--army-iw-border);background:var(--army-iw-bg);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);">⚙ Iron Warriors</a>
+          <a href="blood-angels.html" style="display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-display);font-size:var(--text-xs);letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:var(--army-ba-fg);border:1px solid var(--army-ba-border);background:var(--army-ba-bg);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);">✦ Blood Angels</a>
+        </div>
+      </div>
+    </div>
+
+  </aside><!-- /sidebar -->
+</div><!-- /page-body -->
+
+<footer>
+  <span class="footer-logo">Les Bastions d'Olympia</span>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="Retour en haut">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+  // Thème toggle
+  (function(){
+    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+    let d=r.getAttribute('data-theme')||'dark';
+    t&&t.addEventListener('click',()=>{
+      d=d==='dark'?'light':'dark';
+      r.setAttribute('data-theme',d);
+    });
+  })();
+
+  // Back to top
+  const bt=document.getElementById('backTop');
+  window.addEventListener('scroll',()=>{
+    bt.classList.toggle('visible',window.scrollY>400);
+  });
+  bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // Reveal on scroll
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
