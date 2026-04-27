@@ -5,7 +5,7 @@
       "nom": "Baal",
       "x_pct": 58,
       "y_pct": 12,
-      "statut": "besieged",
+      "statut": "loyalist",
       "faction": "Blood Angels",
       "description": "Monde natal des Blood Angels, Baal est encerclé par les forces traîtresses. La IXe Légion défend farouchement son berceau ancestral contre l'assaut dévastateur des armées d'Horus."
     },
@@ -14,7 +14,7 @@
       "nom": "Olympia",
       "x_pct": 88,
       "y_pct": 52,
-      "statut": "civil_war",
+      "statut": "traitor",
       "faction": "Iron Warriors",
       "description": "Monde natal de Perturabo et berceau des Iron Warriors. La planète est déchirée par une rébellion brutalement écrasée par la IVe Légion, laissant derrière elle des cicatrices indélébiles."
     },
@@ -26,24 +26,6 @@
       "statut": "civil_war",
       "faction": "Iron Warriors",
       "description": "Forteresse industrielle stratégique, Anvillus est un nœud de production militaire vital. Les factions loyalistes et traîtresses s'affrontent pour le contrôle de ses immenses complexes de forge."
-    },
-    {
-      "id": "lastrati",
-      "nom": "Lastrati",
-      "x_pct": 44,
-      "y_pct": 56,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système stellaire isolé aux confins du secteur, Lastrati n'a pas encore choisi son camp dans la grande guerre civile qui déchire l'Imperium. Sa position stratégique en fait un enjeu disputé."
-    },
-    {
-      "id": "sarum",
-      "nom": "Sarum",
-      "x_pct": 36,
-      "y_pct": 64,
-      "statut": "loyalist",
-      "faction": "Mechanicum Loyaliste",
-      "description": "Monde forge loyaliste, Sarum produit des machines de guerre pour la cause de l'Empereur. Ses tech-prêtres résistent à la corruption du Mechanicum traître malgré la pression croissante."
     },
     {
       "id": "golgotha",
@@ -64,15 +46,6 @@
       "description": "Monde souillé par la présence de la XIVe Légion, Ultan Magna est enveloppé d'un voile de pestilence. Les Death Guard y ont établi une tête de pont imprenable pour leurs opérations dans le secteur."
     },
     {
-      "id": "stalinvast",
-      "nom": "Stalinvast",
-      "x_pct": 60,
-      "y_pct": 25,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Cité-ruche surpeuplée, Stalinvast est une poudrière sociale. Ses milliards d'habitants ignorent encore tout du conflit qui approche, tandis que des agents des deux camps fomentent troubles et soulèvements."
-    },
-    {
       "id": "saiph",
       "nom": "Saiph",
       "x_pct": 76,
@@ -91,15 +64,6 @@
       "description": "Monde maudit où Horus lui-même reçut la blessure empoisonnée qui précipita sa chute. Davin est le berceau spirituel de la trahison, un monde de marécages corrompus par les pouvoirs du Warp."
     },
     {
-      "id": "ryza",
-      "nom": "Ryza",
-      "x_pct": 16,
-      "y_pct": 76,
-      "statut": "loyalist",
-      "faction": "Mechanicum Loyaliste",
-      "description": "Monde forge réputé pour ses plasma-réacteurs, Ryza maintient sa loyauté envers l'Omni-Messie. Ses forges travaillent nuit et jour pour équiper les armées de l'Empereur en guerre."
-    },
-    {
       "id": "prospero",
       "nom": "Prospero",
       "x_pct": 10,
@@ -109,49 +73,13 @@
       "description": "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch."
     },
     {
-      "id": "alexandria-iv",
-      "nom": "Alexandria IV",
-      "x_pct": 12,
-      "y_pct": 80,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Colonie impériale reculée, Alexandria IV se retrouve coupée des lignes de communication principales. Ses habitants ne savent que peu de choses du conflit titanesque qui secoue le reste de l'Imperium."
-    },
-    {
       "id": "incaladion",
       "nom": "Incaladion",
       "x_pct": 90,
       "y_pct": 48,
-      "statut": "civil_war",
+      "statut": "traitor",
       "faction": "Iron Warriors",
       "description": "Citadelle-monde proche d'Olympia, Incaladion est le théâtre d'affrontements fratricides. Ses forteresses, jadis imprenables, sont aujourd'hui disputées palier par palier dans un siège sans merci."
-    },
-    {
-      "id": "gildens-star",
-      "nom": "Gilden's Star",
-      "x_pct": 34,
-      "y_pct": 44,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système binaire aux étoiles jumelles, Gilden's Star est connu pour ses routes commerciales millénaires. La guerre civile a interrompu tout trafic, laissant le système dans une attente anxieuse."
-    },
-    {
-      "id": "hambro-cuth",
-      "nom": "Hambro Cuth",
-      "x_pct": 30,
-      "y_pct": 37,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Avant-poste minier exploitant les ressources d'une ceinture d'astéroïdes dense. Hambro Cuth fournissait autrefois minerais et métaux rares aux mondes forges voisins, désormais à l'arrêt."
-    },
-    {
-      "id": "cabella",
-      "nom": "Cabella",
-      "x_pct": 22,
-      "y_pct": 23,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde agricole tranquille, Cabella alimentait en vivres une dizaine de systèmes alentour. La guerre a asséché ses exports et ses habitants craignent l'arrivée des armées traîtresses."
     },
     {
       "id": "chondax",
@@ -170,69 +98,6 @@
       "statut": "neutral",
       "faction": "Inconnu",
       "description": "Système périphérique au nord du secteur, Bodt est une planète froide aux ressources limitées. Sa faible valeur stratégique lui a jusqu'ici épargné les affres de la guerre."
-    },
-    {
-      "id": "kayvas-belt",
-      "nom": "Kayvas Belt",
-      "x_pct": 14,
-      "y_pct": 30,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Vaste ceinture d'astéroïdes parsemée de stations orbitales. Les pirates et les contrebandiers prospèrent dans ce labyrinthe rocheux, tirant profit du chaos ambiant."
-    },
-    {
-      "id": "orns-folly",
-      "nom": "Orn's Folly",
-      "x_pct": 8,
-      "y_pct": 15,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Colonie fondée par le légendaire Explorateur Orn, abandonnée depuis des siècles selon les archives impériales. Des rumeurs persistent quant à des survivants vivant en autarcie complète."
-    },
-    {
-      "id": "alvena",
-      "nom": "Alvena",
-      "x_pct": 18,
-      "y_pct": 37,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde de transit entre plusieurs sous-secteurs, Alvena possède de grandes stations de ravitaillement. Désormais désertée par les convois commerciaux, elle attend dans un silence inquiétant."
-    },
-    {
-      "id": "gusa",
-      "nom": "Gusa",
-      "x_pct": 80,
-      "y_pct": 5,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système frontalier aux confins nord-est du secteur. Gusa n'a reçu aucune communication impériale depuis plusieurs mois, son statut exact demeurant inconnu des commandements des deux camps."
-    },
-    {
-      "id": "honourum",
-      "nom": "Honourum",
-      "x_pct": 90,
-      "y_pct": 5,
-      "statut": "loyalist",
-      "faction": "Armée Solaire",
-      "description": "Monde honorable dont les habitants ont prêté serment éternel à l'Empereur lors de la Grande Croisade. Honourum lève des régiments entiers pour défendre la cause loyaliste."
-    },
-    {
-      "id": "gulis",
-      "nom": "Gulis",
-      "x_pct": 76,
-      "y_pct": 88,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système isolé au sud du Galactic Core, Gulis est difficile d'accès en raison des perturbations du Warp environnantes. Les deux factions peinent à y maintenir une présence stable."
-    },
-    {
-      "id": "lamtys",
-      "nom": "Lamtys",
-      "x_pct": 42,
-      "y_pct": 3,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde glaciaire au nord du secteur, Lamtys est recouvert de toundras éternelles. Ses habitants vivent dans des cités souterraines géothermiques, loin des conflits de surface."
     }
   ],
   "zones": [
