@@ -2615,3 +2615,302 @@ footer .footer-players { display: none; }
 @media (max-width: 600px) {
   .lore-character { grid-template-columns: 3px 1fr; }
 }
+
+    /* ─── RESET & VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --gold:        #c9a84c;
+      --gold-dim:    #8a6a28;
+      --blood:       #8b1a1a;
+      --blood-light: #c84040;
+      --steel:       #4a4a4a;
+      --steel-light: #8a9bac;
+      --parchment:   #1a160e;
+      --ink:         #0a0806;
+      --text-main:   #d4c9a8;
+      --text-muted:  #8a7a5a;
+      --panel-bg:    rgba(10,8,6,0.97);
+      --border:      rgba(201,168,76,0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--ink);
+      color: var(--text-main);
+      font-family: 'Crimson Text', Georgia, serif;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ────────────────────────────────────────────────── */
+    .map-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,8,6,0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      padding: 0.6rem 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .map-nav-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'Cinzel', serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      color: var(--gold); border: 1px solid rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.07); border-radius: 3px;
+      padding: 0.35rem 0.8rem;
+      transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .map-nav-back:hover {
+      background: rgba(201,168,76,0.18); border-color: var(--gold);
+      box-shadow: 0 0 12px rgba(201,168,76,0.3);
+    }
+    .map-nav-title {
+      font-family: 'UnifrakturMaguntia', serif;
+      font-size: 1.3rem; color: var(--gold); letter-spacing: 0.05em;
+      text-shadow: 0 0 20px rgba(201,168,76,0.4);
+    }
+    .map-nav-sub {
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-left: auto;
+    }
+    .btn-theme-map {
+      margin-left: 0.5rem;
+      background: none; border: 1px solid var(--border); border-radius: 3px;
+      color: var(--gold); padding: 0.35rem 0.5rem; cursor: pointer;
+      transition: background 180ms ease;
+    }
+    .btn-theme-map:hover { background: rgba(201,168,76,0.1); }
+
+    /* ─── LEGEND ────────────────────────────────────────────────────── */
+    .map-legend {
+      position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 90;
+      background: rgba(10,8,6,0.92); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.75rem 1rem;
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      backdrop-filter: blur(6px);
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .map-legend-title {
+      color: var(--gold); font-size: 0.6rem; letter-spacing: 0.12em;
+      border-bottom: 1px solid var(--border); padding-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); }
+    .legend-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid rgba(0,0,0,0.5);
+    }
+    .dot-neutral    { background: #8a9bac; }
+    .dot-loyalist   { background: #4a90d9; }
+    .dot-traitor    { background: #c84040; }
+    .dot-civil_war  { background: #c9a84c; }
+    .dot-besieged   { background: #e0e0e0; border: 1.5px dashed #c9a84c; }
+
+    /* ─── MAP CONTAINER ─────────────────────────────────────────────── */
+    .map-wrapper {
+      padding-top: 52px;
+      min-height: 100dvh;
+      position: relative;
+    }
+    .map-container {
+      position: relative;
+      width: 100%; max-width: 1400px;
+      margin: 0 auto;
+      aspect-ratio: 1280 / 900;
+    }
+
+    /* ─── SVG MAP ───────────────────────────────────────────────────── */
+    .map-svg {
+      width: 100%; height: 100%;
+      display: block;
+    }
+
+    /* Étoiles de fond */
+    .star { fill: white; opacity: 0; animation: twinkle var(--d, 3s) var(--delay, 0s) infinite alternate ease-in-out; }
+    @keyframes twinkle { 0% { opacity: 0.1; } 100% { opacity: var(--max-op, 0.7); } }
+
+    /* Nébuleuse centrale */
+    .nebula-core { animation: breathe 6s infinite alternate ease-in-out; }
+    @keyframes breathe { 0% { opacity: 0.55; } 100% { opacity: 0.75; } }
+
+    /* Zones de secteur */
+    .sector-zone { pointer-events: none; }
+    .besieged-zone {
+      pointer-events: none;
+      stroke-dasharray: 6 4;
+      animation: dash-move 2s linear infinite;
+    }
+    @keyframes dash-move { to { stroke-dashoffset: -20; } }
+
+    /* Nœuds système */
+    .system-node { cursor: pointer; }
+    .system-node:hover .node-ring { opacity: 1; transform-origin: center; animation: pulse-ring 1s ease-out infinite; }
+    @keyframes pulse-ring { 0% { r: 6; opacity: 0.8; } 100% { r: 12; opacity: 0; } }
+    .system-node:hover .node-label { font-weight: 700; fill: #fff; }
+
+    .node-dot { transition: r 0.2s ease; }
+    .system-node:hover .node-dot { r: 6; }
+
+    /* Couleurs par statut */
+    .status-neutral   .node-dot { fill: #8a9bac; }
+    .status-loyalist  .node-dot { fill: #4a90d9; }
+    .status-traitor   .node-dot { fill: #c84040; }
+    .status-civil_war .node-dot { fill: #c9a84c; }
+    .status-besieged  .node-dot { fill: #e8e8e8; stroke: #c9a84c; stroke-width: 1.5; stroke-dasharray: 3 2; }
+
+    .status-neutral   .node-glow { fill: rgba(138,155,172,0.15); }
+    .status-loyalist  .node-glow { fill: rgba(74,144,217,0.15); }
+    .status-traitor   .node-glow { fill: rgba(200,64,64,0.15); }
+    .status-civil_war .node-glow { fill: rgba(201,168,76,0.15); }
+    .status-besieged  .node-glow { fill: rgba(232,232,232,0.1); }
+
+    .node-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      fill: #c4b48a;
+      text-anchor: middle;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+    }
+    .status-civil_war .node-label { fill: #c9a84c; }
+    .status-traitor   .node-label { fill: #e08080; }
+    .status-loyalist  .node-label { fill: #90b8e8; }
+    .status-besieged  .node-label { fill: #ffffff; }
+
+    .node-icon {
+      font-size: 8px;
+      fill: rgba(201,168,76,0.7);
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+
+    /* Labels de zones */
+    .zone-label {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      fill: rgba(201,168,76,0.5);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    /* ─── SIDE PANEL ────────────────────────────────────────────────── */
+    .side-panel {
+      position: fixed; top: 52px; right: 0;
+      width: min(380px, 100vw);
+      height: calc(100dvh - 52px);
+      background: var(--panel-bg);
+      border-left: 1px solid var(--border);
+      transform: translateX(100%);
+      transition: transform 380ms cubic-bezier(0.16,1,0.3,1);
+      z-index: 80; overflow-y: auto;
+      display: flex; flex-direction: column;
+    }
+    .side-panel.open { transform: translateX(0); }
+
+    .panel-header {
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: var(--panel-bg); z-index: 1;
+    }
+    .panel-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: 1px solid var(--border);
+      color: var(--text-muted); border-radius: 3px;
+      width: 28px; height: 28px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: border-color 180ms ease, color 180ms ease;
+    }
+    .panel-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    .panel-eyebrow {
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.4rem;
+    }
+    .panel-title {
+      font-family: 'UnifrakturMaguntia', serif;
+      font-size: 1.8rem; color: var(--gold);
+      text-shadow: 0 0 20px rgba(201,168,76,0.4);
+      line-height: 1.1; margin-bottom: 0.5rem;
+    }
+    .panel-status-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'Cinzel', serif; font-size: 0.65rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 3px; border: 1px solid;
+    }
+    .badge-neutral   { color: #8a9bac; border-color: rgba(138,155,172,0.4); background: rgba(138,155,172,0.08); }
+    .badge-loyalist  { color: #4a90d9; border-color: rgba(74,144,217,0.4);  background: rgba(74,144,217,0.08); }
+    .badge-traitor   { color: #c84040; border-color: rgba(200,64,64,0.4);   background: rgba(200,64,64,0.08); }
+    .badge-civil_war { color: #c9a84c; border-color: rgba(201,168,76,0.4);  background: rgba(201,168,76,0.08); }
+    .badge-besieged  { color: #e0e0e0; border-color: rgba(232,232,232,0.4); background: rgba(232,232,232,0.06); }
+
+    .panel-body { padding: 1.25rem 1.5rem; flex: 1; }
+
+    .panel-faction {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: 'Cinzel', serif; font-size: 0.72rem;
+      color: var(--steel-light); letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    .panel-faction svg { color: var(--gold); }
+
+    .panel-desc {
+      font-size: 1rem; line-height: 1.75;
+      color: var(--text-muted); text-align: justify;
+      border-left: 2px solid var(--border);
+      padding-left: 1rem;
+    }
+
+    .panel-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 1.25rem 0;
+    }
+
+    .panel-coords {
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      color: rgba(138,155,172,0.4); letter-spacing: 0.1em;
+      text-transform: uppercase; text-align: right;
+    }
+
+    /* Ornement */
+    .panel-ornament {
+      text-align: center; padding: 0.75rem;
+      color: var(--gold); opacity: 0.3; font-size: 0.8rem;
+      letter-spacing: 0.3em;
+    }
+
+    /* Overlay mobile */
+    .map-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 70;
+      background: rgba(0,0,0,0.5);
+    }
+    .map-overlay.active { display: block; }
+
+    /* ─── LIGHT MODE ─────────────────────────────────────────────────── */
+    [data-theme="light"] {
+      --ink: #e8e0cc;
+      --parchment: #d4c8a8;
+      --text-main: #2a1e08;
+      --text-muted: #5a4a2a;
+      --panel-bg: rgba(240,232,210,0.97);
+      --border: rgba(139,90,20,0.3);
+    }
+    [data-theme="light"] .node-label { fill: #5a4a2a; }
+    [data-theme="light"] .status-civil_war .node-label { fill: #7a5a10; }
+    [data-theme="light"] .zone-label { fill: rgba(139,90,20,0.5); }
+    [data-theme="light"] .map-nav { background: rgba(240,232,210,0.95); }
+    [data-theme="light"] .panel-desc { color: #5a4a2a; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .map-legend { display: none; }
+      .side-panel { width: 100vw; }
+      .map-nav-sub { display: none; }
+    }
