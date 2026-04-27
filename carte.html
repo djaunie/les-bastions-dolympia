@@ -286,6 +286,40 @@
     }
     .map-overlay.active { display: block; }
 
+    /* ─── LOADING STATE ──────────────────────────────────────────────── */
+    .map-loading {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      font-family: 'Cinzel', serif; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--ink);
+      z-index: 50;
+      transition: opacity 400ms ease;
+    }
+    .map-loading.hidden { opacity: 0; pointer-events: none; }
+    .map-loading-spinner {
+      width: 28px; height: 28px;
+      border: 2px solid rgba(201,168,76,0.2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .map-error {
+      position: absolute; inset: 0;
+      display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.75rem;
+      font-family: 'Cinzel', serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; color: #c84040;
+      background: var(--ink);
+      z-index: 50;
+    }
+    .map-error.visible { display: flex; }
+
     /* ─── LIGHT MODE ─────────────────────────────────────────────────── */
     [data-theme="light"] {
       --ink: #e8e0cc;
@@ -300,6 +334,8 @@
     [data-theme="light"] .zone-label { fill: rgba(139,90,20,0.5); }
     [data-theme="light"] .map-nav { background: rgba(240,232,210,0.95); }
     [data-theme="light"] .panel-desc { color: #5a4a2a; }
+    [data-theme="light"] .map-loading { background: var(--ink); }
+    [data-theme="light"] .map-error   { background: var(--ink); }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
     @media (max-width: 768px) {
@@ -337,6 +373,17 @@
 <!-- CARTE SVG -->
 <main class="map-wrapper">
   <div class="map-container">
+    <!-- État de chargement -->
+    <div class="map-loading" id="map-loading" aria-live="polite" aria-label="Chargement de la carte">
+      <div class="map-loading-spinner"></div>
+      <span>Chargement des données…</span>
+    </div>
+    <!-- État d'erreur -->
+    <div class="map-error" id="map-error" role="alert">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span id="map-error-msg">Impossible de charger carte.json</span>
+    </div>
+
     <svg id="map-svg" class="map-svg" viewBox="0 0 1000 700"
          xmlns="http://www.w3.org/2000/svg"
          role="img" aria-label="Carte interactive du secteur galactique Olympia">
@@ -391,36 +438,11 @@
       <rect width="1000" height="700" fill="url(#bg-grad)"/>
       <rect width="1000" height="700" fill="url(#hex-grid)"/>
 
-      <!-- ÉTOILES (générées) -->
+      <!-- ÉTOILES (générées par JS) -->
       <g id="stars-layer"></g>
 
-      <!-- ZONE : The Dominion of Storms -->
-      <rect x="820" y="0" width="180" height="700" fill="url(#dominion-grad)" class="sector-zone"/>
-      <line x1="820" y1="0" x2="820" y2="700" stroke="rgba(139,26,26,0.25)" stroke-width="1" stroke-dasharray="4 6" class="sector-zone"/>
-      <text x="970" y="350" class="zone-label" transform="rotate(-90, 970, 350)" text-anchor="middle"
-            fill="rgba(139,26,26,0.45)">The Dominion of Storms</text>
-
-      <!-- ZONE : Quantum Obscurus -->
-      <polygon points="0,0 350,0 350,315 180,385 0,385" fill="url(#quantum-grad)" class="sector-zone"/>
-      <polyline points="350,0 350,315 180,385 0,385" fill="none"
-                stroke="rgba(74,42,106,0.25)" stroke-width="1" stroke-dasharray="4 6" class="sector-zone"/>
-      <text x="120" y="80" class="zone-label" fill="rgba(74,42,106,0.5)"
-            font-style="italic">Quantum Obscurus</text>
-
-      <!-- ZONE ASSIÉGÉE : Baal -->
-      <rect x="460" y="14" width="200" height="130" rx="8"
-            fill="rgba(201,168,76,0.06)"
-            stroke="rgba(201,168,76,0.5)" stroke-width="1.5"
-            stroke-dasharray="6 4" class="besieged-zone"/>
-      <text x="560" y="10" class="zone-label" text-anchor="middle"
-            fill="rgba(201,168,76,0.7)" font-size="9" letter-spacing="0.2em">⚔ ASSIÉGÉ ⚔</text>
-
-      <!-- NÉBULEUSE CENTRALE -->
-      <ellipse cx="480" cy="406" rx="280" ry="154" fill="url(#nebula-grad)" class="nebula-core"/>
-      <ellipse cx="480" cy="406" rx="200" ry="110" fill="rgba(20,12,4,0.5)" class="nebula-core"/>
-      <text x="480" y="650" class="zone-label" text-anchor="middle"
-            font-family="UnifrakturMaguntia, serif" font-size="22"
-            fill="rgba(201,168,76,0.35)" letter-spacing="0.1em">The Galactic Core</text>
+      <!-- ZONES (injectées par JS depuis carte.json) -->
+      <g id="zones-layer"></g>
 
       <!-- LIGNE ORNEMENTALE BORDURE -->
       <rect x="8" y="8" width="984" height="684" rx="2"
@@ -428,7 +450,7 @@
       <rect x="14" y="14" width="972" height="672" rx="1"
             fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
 
-      <!-- SYSTÈMES STELLAIRES (injectés par JS) -->
+      <!-- SYSTÈMES STELLAIRES (injectés par JS depuis carte.json) -->
       <g id="systems-layer"></g>
     </svg>
   </div>
@@ -491,8 +513,7 @@
       const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
       const dur = (Math.random() * 3 + 2).toFixed(1);
       const delay = (Math.random() * 4).toFixed(1);
-      svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
-        style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
+      svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
     }
     layer.innerHTML = svg;
   }
@@ -517,18 +538,24 @@
   const panel   = document.getElementById('side-panel');
   const overlay = document.getElementById('map-overlay');
 
-  function openPanel(sys) {
-    document.getElementById('panel-eyebrow').textContent = 'Système Stellaire';
-    document.getElementById('panel-title').textContent   = sys.nom;
-    document.getElementById('panel-faction').textContent = sys.faction;
-    document.getElementById('panel-desc').textContent    = sys.description;
-    document.getElementById('panel-coords').textContent  =
-      `Coordonnées : ${sys.x_pct.toFixed(1)}% × ${sys.y_pct.toFixed(1)}%`;
-
-    const badge = document.getElementById('panel-badge');
-    badge.textContent  = (ICONS[sys.statut] || '◎') + ' ' + (STATUS_FR[sys.statut] || sys.statut);
-    badge.className    = 'panel-status-badge badge-' + sys.statut;
-
+  function openPanel(item, type) {
+    const eyebrow = type === 'zone' ? 'Zone Galactique' : 'Système Stellaire';
+    document.getElementById('panel-eyebrow').textContent = eyebrow;
+    document.getElementById('panel-title').textContent   = item.nom;
+    document.getElementById('panel-faction').textContent = item.faction || item.type || '—';
+    document.getElementById('panel-desc').textContent    = item.description || '—';
+    if (type === 'zone') {
+      document.getElementById('panel-coords').textContent = `Type : ${item.type || '—'}`;
+      const badge = document.getElementById('panel-badge');
+      badge.textContent = item.type || '—';
+      badge.className   = 'panel-status-badge badge-neutral';
+    } else {
+      document.getElementById('panel-coords').textContent =
+        `Coordonnées : ${item.x_pct.toFixed(1)}% × ${item.y_pct.toFixed(1)}%`;
+      const badge = document.getElementById('panel-badge');
+      badge.textContent = (ICONS[item.statut] || '◎') + ' ' + (STATUS_FR[item.statut] || item.statut);
+      badge.className   = 'panel-status-badge badge-' + item.statut;
+    }
     panel.classList.add('open');
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden', 'false');
@@ -544,15 +571,88 @@
   overlay.addEventListener('click', closePanel);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
 
+  // ── RENDER ZONES ─────────────────────────────────────────────────
+  function renderZones(zones) {
+    const layer = document.getElementById('zones-layer');
+    let svg = '';
+    zones.forEach(zone => {
+      const couleur = zone.couleur || '#888888';
+      const opacite = zone.opacite || 0.1;
+
+      if (zone.type === 'nebula') {
+        // Ellipse nébuleuse
+        const cx = (zone.cx_pct / 100) * 1000;
+        const cy = (zone.cy_pct / 100) * 700;
+        const rx = (zone.rx_pct / 100) * 1000;
+        const ry = (zone.ry_pct / 100) * 700;
+        svg += `
+          <ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"
+                   fill="${couleur}" opacity="${opacite}" class="nebula-core"
+                   data-zone-id="${zone.id}" style="cursor:pointer;"/>
+          <ellipse cx="${cx}" cy="${cy}" rx="${rx * 0.71}" ry="${ry * 0.71}"
+                   fill="rgba(20,12,4,0.5)" class="nebula-core" pointer-events="none"/>
+          <text x="${cx}" y="${cy + ry * 0.95}"
+                class="zone-label" text-anchor="middle"
+                font-family="UnifrakturMaguntia, serif" font-size="22"
+                fill="rgba(201,168,76,0.35)" letter-spacing="0.1em"
+                pointer-events="none">${zone.nom}</text>`;
+      } else if (zone.type === 'besieged') {
+        // Zone assiégée : rectangle délimité par les points
+        const pts = zone.points.split(' ').map(p => p.split(',').map(Number));
+        const xs = pts.map(p => (p[0] / 100) * 1000);
+        const ys = pts.map(p => (p[1] / 100) * 700);
+        const x  = Math.min(...xs);
+        const y  = Math.min(...ys);
+        const w  = Math.max(...xs) - x;
+        const h  = Math.max(...ys) - y;
+        svg += `
+          <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8"
+                fill="rgba(201,168,76,0.06)"
+                stroke="rgba(201,168,76,0.5)" stroke-width="1.5"
+                stroke-dasharray="6 4" class="besieged-zone"
+                data-zone-id="${zone.id}" style="cursor:pointer;"/>
+          <text x="${x + w/2}" y="${y - 4}"
+                class="zone-label" text-anchor="middle"
+                fill="rgba(201,168,76,0.7)" font-size="9" letter-spacing="0.2em"
+                pointer-events="none">⚔ ASSIÉGÉ ⚔</text>`;
+      } else {
+        // Zones secteur : polygone avec points en %
+        const svgPoints = zone.points.split(' ')
+          .map(p => { const [px, py] = p.split(',').map(Number); return `${(px/100)*1000},${(py/100)*700}`; })
+          .join(' ');
+        svg += `
+          <polygon points="${svgPoints}"
+                   fill="${couleur}" opacity="${opacite}" class="sector-zone"
+                   data-zone-id="${zone.id}" style="cursor:pointer;"/>`;
+        // Label positionné à partir du premier point
+        const firstPt = zone.points.split(' ')[0].split(',').map(Number);
+        const lx = (firstPt[0] / 100) * 1000 + 20;
+        const ly = (firstPt[1] / 100) * 700 + 60;
+        svg += `
+          <text x="${lx}" y="${ly}" class="zone-label"
+                fill="${couleur.replace(')', ', 0.5)').replace('rgb', 'rgba').replace('#', 'rgba(').replace(')', '') || 'rgba(201,168,76,0.5)'}"
+                font-style="italic" pointer-events="none">${zone.nom}</text>`;
+      }
+    });
+    layer.innerHTML = svg;
+
+    // Événements click sur les zones
+    layer.querySelectorAll('[data-zone-id]').forEach(el => {
+      const id   = el.getAttribute('data-zone-id');
+      const zone = zones.find(z => z.id === id);
+      if (!zone) return;
+      el.addEventListener('click', () => openPanel(zone, 'zone'));
+    });
+  }
+
   // ── RENDER SYSTÈMES ───────────────────────────────────────────────
   function renderSystems(systemes) {
     const layer = document.getElementById('systems-layer');
     let svg = '';
     systemes.forEach(sys => {
-      const x = (sys.x_pct / 100) * 1000;
-      const y = (sys.y_pct / 100) * 700;
+      const x    = (sys.x_pct / 100) * 1000;
+      const y    = (sys.y_pct / 100) * 700;
       const icon = ICONS[sys.statut] || '◎';
-      const labelY = y + 16;
       svg += `
         <g class="system-node status-${sys.statut}"
            data-id="${sys.id}"
@@ -569,307 +669,48 @@
     });
     layer.innerHTML = svg;
 
-    // Events
     layer.querySelectorAll('.system-node').forEach(node => {
-      const id = node.dataset.id;
+      const id  = node.dataset.id;
       const sys = systemes.find(s => s.id === id);
       if (!sys) return;
-      node.addEventListener('click', () => openPanel(sys));
-      node.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(sys); } });
+      node.addEventListener('click',   () => openPanel(sys, 'system'));
+      node.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(sys, 'system'); } });
     });
   }
 
-  // ── FETCH & INIT ─────────────────────────────────────────────────
+  // ── FETCH & INIT ──────────────────────────────────────────────────
+  const loadingEl = document.getElementById('map-loading');
+  const errorEl   = document.getElementById('map-error');
+  const errorMsg  = document.getElementById('map-error-msg');
 
-  // Données inline (pas de fetch nécessaire)
-  const CARTE_DATA = {
-  "systemes": [
-    {
-      "id": "baal",
-      "nom": "Baal",
-      "x_pct": 58,
-      "y_pct": 12,
-      "statut": "besieged",
-      "faction": "Blood Angels",
-      "description": "Monde natal des Blood Angels, Baal est encerclé par les forces traîtresses. La IXe Légion défend farouchement son berceau ancestral contre l'assaut dévastateur des armées d'Horus."
-    },
-    {
-      "id": "olympia",
-      "nom": "Olympia",
-      "x_pct": 88,
-      "y_pct": 52,
-      "statut": "civil_war",
-      "faction": "Iron Warriors",
-      "description": "Monde natal de Perturabo et berceau des Iron Warriors. La planète est déchirée par une rébellion brutalement écrasée par la IVe Légion, laissant derrière elle des cicatrices indélébiles."
-    },
-    {
-      "id": "anvillus",
-      "nom": "Anvillus",
-      "x_pct": 68,
-      "y_pct": 47,
-      "statut": "civil_war",
-      "faction": "Iron Warriors",
-      "description": "Forteresse industrielle stratégique, Anvillus est un nœud de production militaire vital. Les factions loyalistes et traîtresses s'affrontent pour le contrôle de ses immenses complexes de forge."
-    },
-    {
-      "id": "lastrati",
-      "nom": "Lastrati",
-      "x_pct": 44,
-      "y_pct": 56,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système stellaire isolé aux confins du secteur, Lastrati n'a pas encore choisi son camp dans la grande guerre civile qui déchire l'Imperium. Sa position stratégique en fait un enjeu disputé."
-    },
-    {
-      "id": "sarum",
-      "nom": "Sarum",
-      "x_pct": 36,
-      "y_pct": 64,
-      "statut": "loyalist",
-      "faction": "Mechanicum Loyaliste",
-      "description": "Monde forge loyaliste, Sarum produit des machines de guerre pour la cause de l'Empereur. Ses tech-prêtres résistent à la corruption du Mechanicum traître malgré la pression croissante."
-    },
-    {
-      "id": "golgotha",
-      "nom": "Golgotha",
-      "x_pct": 28,
-      "y_pct": 55,
-      "statut": "traitor",
-      "faction": "Forces Rebelles",
-      "description": "Tombé aux mains des traîtres, Golgotha est désormais un bastion des armées d'Horus. Ses ressources sont pillées pour alimenter la grande croisade vers Terra."
-    },
-    {
-      "id": "ultan-magna",
-      "nom": "Ultan Magna",
-      "x_pct": 72,
-      "y_pct": 58,
-      "statut": "traitor",
-      "faction": "Death Guard",
-      "description": "Monde souillé par la présence de la XIVe Légion, Ultan Magna est enveloppé d'un voile de pestilence. Les Death Guard y ont établi une tête de pont imprenable pour leurs opérations dans le secteur."
-    },
-    {
-      "id": "stalinvast",
-      "nom": "Stalinvast",
-      "x_pct": 60,
-      "y_pct": 25,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Cité-ruche surpeuplée, Stalinvast est une poudrière sociale. Ses milliards d'habitants ignorent encore tout du conflit qui approche, tandis que des agents des deux camps fomentent troubles et soulèvements."
-    },
-    {
-      "id": "saiph",
-      "nom": "Saiph",
-      "x_pct": 76,
-      "y_pct": 30,
-      "statut": "loyalist",
-      "faction": "Armée Solaire",
-      "description": "Système défensif loyaliste tenant le couloir nord du secteur. Les garnisons de Saiph reçoivent des renforts impériaux et préparent une ligne de résistance contre l'avancée traîtresse."
-    },
-    {
-      "id": "davin",
-      "nom": "Davin",
-      "x_pct": 30,
-      "y_pct": 74,
-      "statut": "traitor",
-      "faction": "Cultes du Chaos",
-      "description": "Monde maudit où Horus lui-même reçut la blessure empoisonnée qui précipita sa chute. Davin est le berceau spirituel de la trahison, un monde de marécages corrompus par les pouvoirs du Warp."
-    },
-    {
-      "id": "ryza",
-      "nom": "Ryza",
-      "x_pct": 16,
-      "y_pct": 76,
-      "statut": "loyalist",
-      "faction": "Mechanicum Loyaliste",
-      "description": "Monde forge réputé pour ses plasma-réacteurs, Ryza maintient sa loyauté envers l'Omni-Messie. Ses forges travaillent nuit et jour pour équiper les armées de l'Empereur en guerre."
-    },
-    {
-      "id": "prospero",
-      "nom": "Prospero",
-      "x_pct": 10,
-      "y_pct": 62,
-      "statut": "neutral",
-      "faction": "Thousand Sons",
-      "description": "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch."
-    },
-    {
-      "id": "alexandria-iv",
-      "nom": "Alexandria IV",
-      "x_pct": 12,
-      "y_pct": 80,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Colonie impériale reculée, Alexandria IV se retrouve coupée des lignes de communication principales. Ses habitants ne savent que peu de choses du conflit titanesque qui secoue le reste de l'Imperium."
-    },
-    {
-      "id": "incaladion",
-      "nom": "Incaladion",
-      "x_pct": 90,
-      "y_pct": 48,
-      "statut": "civil_war",
-      "faction": "Iron Warriors",
-      "description": "Citadelle-monde proche d'Olympia, Incaladion est le théâtre d'affrontements fratricides. Ses forteresses, jadis imprenables, sont aujourd'hui disputées palier par palier dans un siège sans merci."
-    },
-    {
-      "id": "gildens-star",
-      "nom": "Gilden's Star",
-      "x_pct": 34,
-      "y_pct": 44,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système binaire aux étoiles jumelles, Gilden's Star est connu pour ses routes commerciales millénaires. La guerre civile a interrompu tout trafic, laissant le système dans une attente anxieuse."
-    },
-    {
-      "id": "hambro-cuth",
-      "nom": "Hambro Cuth",
-      "x_pct": 30,
-      "y_pct": 37,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Avant-poste minier exploitant les ressources d'une ceinture d'astéroïdes dense. Hambro Cuth fournissait autrefois minerais et métaux rares aux mondes forges voisins, désormais à l'arrêt."
-    },
-    {
-      "id": "cabella",
-      "nom": "Cabella",
-      "x_pct": 22,
-      "y_pct": 23,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde agricole tranquille, Cabella alimentait en vivres une dizaine de systèmes alentour. La guerre a asséché ses exports et ses habitants craignent l'arrivée des armées traîtresses."
-    },
-    {
-      "id": "chondax",
-      "nom": "Chondax",
-      "x_pct": 16,
-      "y_pct": 48,
-      "statut": "loyalist",
-      "faction": "White Scars",
-      "description": "Lointain monde steppique où les White Scars ont mené une longue campagne de pacification. La Ve Légion y a forgé sa légende de cavaliers cosmiques, rapides comme l'éclair."
-    },
-    {
-      "id": "bodt",
-      "nom": "Bodt",
-      "x_pct": 28,
-      "y_pct": 10,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système périphérique au nord du secteur, Bodt est une planète froide aux ressources limitées. Sa faible valeur stratégique lui a jusqu'ici épargné les affres de la guerre."
-    },
-    {
-      "id": "kayvas-belt",
-      "nom": "Kayvas Belt",
-      "x_pct": 14,
-      "y_pct": 30,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Vaste ceinture d'astéroïdes parsemée de stations orbitales. Les pirates et les contrebandiers prospèrent dans ce labyrinthe rocheux, tirant profit du chaos ambiant."
-    },
-    {
-      "id": "orns-folly",
-      "nom": "Orn's Folly",
-      "x_pct": 8,
-      "y_pct": 15,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Colonie fondée par le légendaire Explorateur Orn, abandonnée depuis des siècles selon les archives impériales. Des rumeurs persistent quant à des survivants vivant en autarcie complète."
-    },
-    {
-      "id": "alvena",
-      "nom": "Alvena",
-      "x_pct": 18,
-      "y_pct": 37,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde de transit entre plusieurs sous-secteurs, Alvena possède de grandes stations de ravitaillement. Désormais désertée par les convois commerciaux, elle attend dans un silence inquiétant."
-    },
-    {
-      "id": "gusa",
-      "nom": "Gusa",
-      "x_pct": 80,
-      "y_pct": 5,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système frontalier aux confins nord-est du secteur. Gusa n'a reçu aucune communication impériale depuis plusieurs mois, son statut exact demeurant inconnu des commandements des deux camps."
-    },
-    {
-      "id": "honourum",
-      "nom": "Honourum",
-      "x_pct": 90,
-      "y_pct": 5,
-      "statut": "loyalist",
-      "faction": "Armée Solaire",
-      "description": "Monde honorable dont les habitants ont prêté serment éternel à l'Empereur lors de la Grande Croisade. Honourum lève des régiments entiers pour défendre la cause loyaliste."
-    },
-    {
-      "id": "gulis",
-      "nom": "Gulis",
-      "x_pct": 76,
-      "y_pct": 88,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Système isolé au sud du Galactic Core, Gulis est difficile d'accès en raison des perturbations du Warp environnantes. Les deux factions peinent à y maintenir une présence stable."
-    },
-    {
-      "id": "lamtys",
-      "nom": "Lamtys",
-      "x_pct": 42,
-      "y_pct": 3,
-      "statut": "neutral",
-      "faction": "Inconnu",
-      "description": "Monde glaciaire au nord du secteur, Lamtys est recouvert de toundras éternelles. Ses habitants vivent dans des cités souterraines géothermiques, loin des conflits de surface."
-    }
-  ],
-  "zones": [
-    {
-      "id": "dominion-of-storms",
-      "nom": "The Dominion of Storms",
-      "couleur": "#8b1a1a",
-      "opacite": 0.12,
-      "type": "sector",
-      "points": "82,2 100,2 100,95 82,95",
-      "description": "Région orientale du secteur, balayée par des tempêtes warp permanentes. Les communications y sont aléatoires et les voyages en vaisseaux particulièrement périlleux."
-    },
-    {
-      "id": "quantum-obscurus",
-      "nom": "Quantum Obscurus",
-      "couleur": "#4a2a6a",
-      "opacite": 0.12,
-      "type": "sector",
-      "points": "0,0 35,0 35,45 18,55 0,55",
-      "description": "Région nord-ouest enveloppée d'un voile psychique opaque. Les psykers y perdent leurs facultés et les augures impériaux y sont totalement aveugles."
-    },
-    {
-      "id": "baal-siege",
-      "nom": "Siège de Baal",
-      "couleur": "#c9a84c",
-      "opacite": 0.15,
-      "type": "besieged",
-      "points": "48,3 72,3 72,22 48,22",
-      "description": "Zone d'encerclement autour du système de Baal, verrouillée par les forces traîtresses."
-    },
-    {
-      "id": "galactic-core",
-      "nom": "The Galactic Core",
-      "couleur": "#2a1a0a",
-      "opacite": 0.6,
-      "type": "nebula",
-      "cx_pct": 48,
-      "cy_pct": 58,
-      "rx_pct": 28,
-      "ry_pct": 22,
-      "description": "Nébuleuse centrale du secteur, région de densité stellaire extrême où les lois de la physique se plient sous l'influence du Warp primordial."
-    }
-  ],
-  "meta": {
-    "titre": "Secteur Olympia",
-    "sous_titre": "Carte du Sous-Secteur — Horus Heresy",
-    "epoque": "31e Millénaire — L'Horus Heresy",
-    "version": "1.0"
-  }
-};
   generateStars();
-  renderSystems(CARTE_DATA.systemes);
 
+  fetch('assets/data/carte.json')
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status} — ${res.statusText}`);
+      return res.json();
+    })
+    .then(data => {
+      // Mise à jour du titre depuis les métadonnées
+      if (data.meta) {
+        const titleEl = document.querySelector('.map-nav-title');
+        if (titleEl && data.meta.titre) titleEl.textContent = data.meta.titre;
+        const subEl = document.querySelector('.map-nav-sub');
+        if (subEl && data.meta.epoque) subEl.innerHTML = data.meta.epoque;
+      }
+      // Rendu des zones puis des systèmes
+      if (Array.isArray(data.zones))    renderZones(data.zones);
+      if (Array.isArray(data.systemes)) renderSystems(data.systemes);
+      // Masquer le loader
+      loadingEl.classList.add('hidden');
+      setTimeout(() => { loadingEl.style.display = 'none'; }, 450);
+    })
+    .catch(err => {
+      console.error('[carte.json]', err);
+      loadingEl.style.display = 'none';
+      errorMsg.textContent = `Impossible de charger carte.json\u00a0: ${err.message}`;
+      errorEl.classList.add('visible');
+    });
 
 })();
 </script>
