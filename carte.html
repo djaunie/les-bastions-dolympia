@@ -107,13 +107,13 @@
       <text x="120" y="80" class="zone-label" fill="rgba(74,42,106,0.5)"
             font-style="italic">Quantum Obscurus</text>
 
-      <!-- ZONE ASSIÉGÉE : Baal -->
-      <rect x="460" y="14" width="200" height="130" rx="8"
+      <!-- SOUS ECTEUR OLYMPIA -->
+      <rect x="400" y="184" width="280" height="260" rx="8"
             fill="rgba(201,168,76,0.06)"
             stroke="rgba(201,168,76,0.5)" stroke-width="1.5"
             stroke-dasharray="6 4" class="besieged-zone"/>
-      <text x="560" y="10" class="zone-label" text-anchor="middle"
-            fill="rgba(201,168,76,0.7)" font-size="9" letter-spacing="0.2em">⚔ ASSIÉGÉ ⚔</text>
+      <text x="535" y="174" class="zone-label" text-anchor="middle"
+            fill="rgba(201,168,76,0.7)" font-size="9" letter-spacing="0.2em">⚔ Sous-secteur Olympia ⚔</text>
 
       <!-- NÉBULEUSE CENTRALE -->
       <ellipse cx="480" cy="406" rx="280" ry="154" fill="url(#nebula-grad)" class="nebula-core"/>
@@ -260,8 +260,7 @@
            aria-label="${sys.nom} — ${STATUS_FR[sys.statut] || sys.statut}"
            transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
           <circle class="node-glow" cx="0" cy="0" r="14"/>
-          <circle class="node-ring" cx="0" cy="0" r="6" fill="none"
-                  stroke="currentColor" stroke-width="1" opacity="0"/>
+          <circle class="node-ring" cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="1" opacity="0"/>
           <circle class="node-dot" cx="0" cy="0" r="4"/>
           <text class="node-icon" x="0" y="-8" font-size="7">${icon}</text>
           <text class="node-label" x="0" y="15" font-size="9">${sys.nom}</text>
@@ -357,47 +356,6 @@
       "description": "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch."
     }
   ],
-  "zones": [
-    {
-      "id": "dominion-of-storms",
-      "nom": "The Dominion of Storms",
-      "couleur": "#8b1a1a",
-      "opacite": 0.12,
-      "type": "sector",
-      "points": "82,2 100,2 100,95 82,95",
-      "description": "Région orientale du secteur, balayée par des tempêtes warp permanentes. Les communications y sont aléatoires et les voyages en vaisseaux particulièrement périlleux."
-    },
-    {
-      "id": "quantum-obscurus",
-      "nom": "Quantum Obscurus",
-      "couleur": "#4a2a6a",
-      "opacite": 0.12,
-      "type": "sector",
-      "points": "0,0 35,0 35,45 18,55 0,55",
-      "description": "Région nord-ouest enveloppée d'un voile psychique opaque. Les psykers y perdent leurs facultés et les augures impériaux y sont totalement aveugles."
-    },
-    {
-      "id": "baal-siege",
-      "nom": "Siège de Baal",
-      "couleur": "#c9a84c",
-      "opacite": 0.15,
-      "type": "besieged",
-      "points": "48,3 72,3 72,22 48,22",
-      "description": "Zone d'encerclement autour du système de Baal, verrouillée par les forces traîtresses."
-    },
-    {
-      "id": "galactic-core",
-      "nom": "The Galactic Core",
-      "couleur": "#2a1a0a",
-      "opacite": 0.6,
-      "type": "nebula",
-      "cx_pct": 48,
-      "cy_pct": 58,
-      "rx_pct": 28,
-      "ry_pct": 22,
-      "description": "Nébuleuse centrale du secteur, région de densité stellaire extrême où les lois de la physique se plient sous l'influence du Warp primordial."
-    }
-  ],
   "meta": {
     "titre": "Secteur Olympia",
     "sous_titre": "Carte du Sous-Secteur — Horus Heresy",
@@ -407,8 +365,6 @@
 };
   generateStars();
   renderSystems(CARTE_DATA.systemes);
-
-
 })();
 </script>
 </body>
