@@ -56,15 +56,24 @@
   }
 
   // ── RENDER LORE ───────────────────────────────────────────────────
+  function escapeHTML(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function renderLore(lore) {
     document.getElementById('lore-desc').textContent = lore.description;
     document.getElementById('lore-grid').innerHTML = lore.blocs.map((b, i) =>
       `<div class="lore-text reveal${i > 0 ? ' reveal-delay-2' : ''}">
-        <h3>${b.titre}</h3>
-        ${b.paragraphes.map(p => `<p>${p}</p>`).join('')}
+        <h3>${escapeHTML(b.titre)}</h3>
+        ${b.paragraphes.map(p => `<p>${escapeHTML(p)}</p>`).join('')}
         <div class="quote-block${b.citation.alerte ? ' quote-block--alert' : ''}">
-          <p class="quote-text">${b.citation.texte}</p>
-          <span class="quote-author">${b.citation.auteur}</span>
+          <p class="quote-text">${escapeHTML(b.citation.texte)}</p>
+          <span class="quote-author">${escapeHTML(b.citation.auteur)}</span>
         </div>
       </div>`
     ).join('');
