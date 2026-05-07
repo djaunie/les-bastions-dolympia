@@ -623,27 +623,20 @@
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
-<script>
-  // Thème toggle
-  (function(){
-    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
-    let d=r.getAttribute('data-theme')||'dark';
-    t&&t.addEventListener('click',()=>{
-      d=d==='dark'?'light':'dark';
-      r.setAttribute('data-theme',d);
-    });
-  })();
+<!-- ✅ Remplace l'intégralité du <script> inline -->
+<script src="assets/js/ui.js" defer></script>
 
-  // Back to top
-  const bt=document.getElementById('backTop');
-  window.addEventListener('scroll',()=>{
-    bt.classList.toggle('visible',window.scrollY>400);
-  });
-  bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-  // Reveal on scroll
-  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+<script defer>
+  // Back to top — logique propre à bataille-1-anvillus.html
+  const bt = document.getElementById('backTop');
+  if (bt) {
+    window.addEventListener('scroll', () => {
+      bt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    bt.addEventListener('click', () =>
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    );
+  }
 </script>
 </body>
 </html>
