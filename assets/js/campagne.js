@@ -1,12 +1,5 @@
-  // ── REVEAL ON SCROLL ──────────────────────────────────────────────
-  function initReveal() {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-  }
+(function () {
+  'use strict';
 
   // ── TABS ──────────────────────────────────────────────────────────
   function initTabs() {
@@ -24,7 +17,7 @@
     });
   }
 
-  // ── RENDER LORE ───────────────────────────────────────────────────
+  // ── ESCAPE HTML ───────────────────────────────────────────────────
   function escapeHTML(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -34,6 +27,7 @@
       .replace(/'/g, '&#39;');
   }
 
+  // ── RENDER LORE ───────────────────────────────────────────────────
   function renderLore(lore) {
     document.getElementById('lore-desc').textContent = lore.description;
     document.getElementById('lore-grid').innerHTML = lore.blocs.map((b, i) =>
@@ -51,34 +45,34 @@
   // ── RENDER FRONTS ─────────────────────────────────────────────────
   function renderFronts(fronts) {
     document.getElementById('fronts-tabs').innerHTML = fronts.map((f, i) =>
-      `<button class="front-tab${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" data-tab="${f.id}">${f.nom}</button>`
+      `<button class="front-tab${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" data-tab="${escapeHTML(f.id)}">${escapeHTML(f.nom)}</button>`
     ).join('');
 
     document.getElementById('fronts-panels').innerHTML = fronts.map((f, i) => {
       const stationsHTML = f.stations ? `
         <h4>Statut des ${f.stations.length} Agro-Stations</h4>
         <div class="stations-grid">${f.stations.map(s =>
-          `<div class="station-card"><div class="station-num">${s.num}</div><div class="station-label">Station</div><span class="station-owner ${s.classe}">${s.proprietaire}</span></div>`
+          `<div class="station-card"><div class="station-num">${escapeHTML(s.num)}</div><div class="station-label">Station</div><span class="station-owner ${escapeHTML(s.classe)}">${escapeHTML(s.proprietaire)}</span></div>`
         ).join('')}</div>` : '';
 
       const imageHTML = f.image ? (f.stations
-        ? `<img src="${f.image}" alt="${f.image_alt}" width="1200" height="400" loading="lazy">`
-        : `<div class="front-visual"><img src="${f.image}" alt="${f.image_alt}" width="1600" height="900" loading="lazy"></div>`
+        ? `<img src="${escapeHTML(f.image)}" alt="${escapeHTML(f.image_alt)}" width="1200" height="400" loading="lazy">`
+        : `<div class="front-visual"><img src="${escapeHTML(f.image)}" alt="${escapeHTML(f.image_alt)}" width="1600" height="900" loading="lazy"></div>`
       ) : '';
 
       const bataillesHTML = f.batailles.map(b =>
-        `<div class="battle-entry ${b.classe}">
-          <p class="battle-label">${b.label}</p>
-          <h4 class="battle-title">${b.titre}</h4>
-          <p class="battle-text">${b.texte}</p>
-          <div class="battle-factions">${b.factions.map(fc => `<span class="faction-tag ${fc.classe}">${fc.label}</span>`).join('')}</div>
+        `<div class="battle-entry ${escapeHTML(b.classe)}">
+          <p class="battle-label">${escapeHTML(b.label)}</p>
+          <h4 class="battle-title">${escapeHTML(b.titre)}</h4>
+          <p class="battle-text">${escapeHTML(b.texte)}</p>
+          <div class="battle-factions">${b.factions.map(fc => `<span class="faction-tag ${escapeHTML(fc.classe)}">${escapeHTML(fc.label)}</span>`).join('')}</div>
         </div>`
       ).join('');
 
-      return `<div class="front-panel${i === 0 ? ' active' : ''}" id="tab-${f.id}" role="tabpanel">
+      return `<div class="front-panel${i === 0 ? ' active' : ''}" id="tab-${escapeHTML(f.id)}" role="tabpanel">
         <div class="front-header">
-          <div><h3 class="front-title">${f.titre}</h3><p class="front-desc">${f.description}</p></div>
-          <span class="front-status ${f.statut_classe}">${f.statut}</span>
+          <div><h3 class="front-title">${escapeHTML(f.titre)}</h3><p class="front-desc">${escapeHTML(f.description)}</p></div>
+          <span class="front-status ${escapeHTML(f.statut_classe)}">${escapeHTML(f.statut)}</span>
         </div>
         ${imageHTML}${stationsHTML}
         ${f.stations ? '<div class="ornament section-ornament"><span>Chronique des Batailles</span></div>' : ''}
@@ -101,7 +95,19 @@
         '<div style="background:#8b1c1c;color:#fff;padding:1rem;text-align:center">Erreur : impossible de charger campagne.json</div>'
       );
     })
-    .finally(() => { initReveal(); });
+    .finally(() => {
+      // Relancer l'observer APRÈS injection du contenu dynamique
+      if (window.OlympiaUI && window.OlympiaUI.initReveal) {
+        window.OlympiaUI.initReveal();
+      } else {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+      }
+    });
 
   // ── CARROUSEL PRINCIPAL ───────────────────────────────────────────
   (function () {
