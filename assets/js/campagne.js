@@ -1,13 +1,3 @@
-(function () {
-  'use strict';
-
-  updateThemeBtn();
-  if (themeBtn) themeBtn.addEventListener('click', () => {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', theme);
-    updateThemeBtn();
-  });
-
   // ── REVEAL ON SCROLL ──────────────────────────────────────────────
   function initReveal() {
     const obs = new IntersectionObserver(entries => {
