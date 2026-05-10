@@ -78,7 +78,6 @@
 
         const bataillesHTML = f.batailles
           .map((b) => {
-            // Defensive coding : classe et titre optionnels
             const classeAttr = b.classe ? ` ${b.classe}` : '';
             const titreHTML = b.titre ? `<h4 class="battle-title">${escapeHTML(b.titre)}</h4>` : '';
             return `<div class="battle-entry${classeAttr}">
@@ -104,49 +103,76 @@
   }
 
   // ── FETCH & RENDER ────────────────────────────────────────────────
-  fetch('assets/data/campagne.json')
-    .then((r) => {
-      if (!r.ok)
-        throw new Error('Erreur HTTP ' + r.status + ' : ' + r.statusText);
-      return r.json();
-    })
-    .then((d) => {
-      renderLore(d.lore);
-      renderFronts(d.fronts);
-      initTabs();
+  // Vérifie la présence des éléments cibles avant de fetcher.
+  // campagne.js est chargé sur toutes les pages, mais #lore-desc et
+  // #fronts-tabs n'existent que sur index.html — évite un TypeError
+  // qui tombait dans .catch() et affichait la bannière rouge.
+  const hasLore   = document.getElementById('lore-desc') !== null;
+  const hasFronts = document.getElementById('fronts-tabs') !== null;
 
-      // ← AJOUT : diffuse les données personnages aux autres modules
-      document.dispatchEvent(
-        new CustomEvent('campagne:ready', {
-          detail: { personnages: d.personnages || [] },
-        }),
-      );
-    })
-    .catch((err) => {
-      console.error('Erreur chargement campagne.json :', err);
-      document.body.insertAdjacentHTML(
-        'afterbegin',
-        '<div style="background:#8b1c1c;color:#fff;padding:1rem;text-align:center">Erreur : impossible de charger campagne.json</div>',
-      );
-    })
-    .finally(() => {
-      if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.classList.add('visible');
-                obs.unobserve(e.target);
-              }
-            });
-          },
-          { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+  if (hasLore || hasFronts) {
+    fetch('assets/data/campagne.json')
+      .then((r) => {
+        if (!r.ok)
+          throw new Error('Erreur HTTP ' + r.status + ' : ' + r.statusText);
+        return r.json();
+      })
+      .then((d) => {
+        if (hasLore)   renderLore(d.lore);
+        if (hasFronts) renderFronts(d.fronts);
+        initTabs();
+
+        document.dispatchEvent(
+          new CustomEvent('campagne:ready', {
+            detail: { personnages: d.personnages || [] },
+          }),
         );
-        document
-          .querySelectorAll('.reveal:not(.visible)')
-          .forEach((el) => obs.observe(el));
-      }
-    });
+      })
+      .catch((err) => {
+        console.error('Erreur chargement campagne.json :', err);
+        document.body.insertAdjacentHTML(
+          'afterbegin',
+          '<div style="background:#8b1c1c;color:#fff;padding:1rem;text-align:center">Erreur : impossible de charger campagne.json</div>',
+        );
+      })
+      .finally(() => {
+        if ('IntersectionObserver' in window) {
+          const obs = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  e.target.classList.add('visible');
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+          );
+          document
+            .querySelectorAll('.reveal:not(.visible)')
+            .forEach((el) => obs.observe(el));
+        }
+      });
+  } else {
+    // Pas de conteneurs de campagne sur cette page :
+    // on lance quand même IntersectionObserver pour les animations .reveal
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              obs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+      );
+      document
+        .querySelectorAll('.reveal:not(.visible)')
+        .forEach((el) => obs.observe(el));
+    }
+  }
 
   // ── CARROUSEL PRINCIPAL ───────────────────────────────────────────
   (function () {
