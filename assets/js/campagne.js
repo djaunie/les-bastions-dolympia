@@ -112,6 +112,13 @@
       renderLore(d.lore);
       renderFronts(d.fronts);
       initTabs();
+
+      // ← AJOUT : diffuse les données personnages aux autres modules
+      document.dispatchEvent(
+        new CustomEvent('campagne:ready', {
+          detail: { personnages: d.personnages || [] },
+        }),
+      );
     })
     .catch((err) => {
       console.error('Erreur chargement campagne.json :', err);
