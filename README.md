@@ -10,17 +10,28 @@ Site web statique pour la campagne narrative Warhammer 40,000 — **Les Bastions
 
 ```
 les-bastions-dolympia/
-├── index.html                        # Page d'accueil — hub de navigation principal
-├── carte.html                        # Carte interactive du théâtre d'opérations
-├── blood-angels.html                 # Fiche armée — Blood Angels
-├── iron-warriors.html                # Fiche armée — Iron Warriors
-├── night-lords.html                  # Fiche armée — Night Lords
-├── README.md
+├── index.html                        # Page d'accueil, hub narratif de la campagne
+├── carte.html                        # Carte du théâtre d'opérations
+├── bataille-1-anvillus.html         # Présentation de la prochaine bataille / scénario
+├── iron-warriors.html               # Page lore dédiée à la IVe Légion
+├── blood-angels.html                # Page lore dédiée à la IXe Légion
+├── night-lords.html                 # Page lore dédiée à la VIIIe Légion
+├── README.md                        # Documentation du projet
+├── package.json                     # Scripts npm et dépendances de qualité de code
+├── eslint.config.mjs                # Configuration ESLint
+├── .prettierrc                      # Configuration Prettier
 └── assets/
-    ├── css/                          # Feuilles de style (thème Warhammer 40K sombre)
-    ├── js/                           # Scripts JavaScript (interactions, carte dynamique, scores)
-    ├── img/                          # Images, illustrations et bannières des factions
-    └── data/                         # Données JSON (scores, armées, résultats de batailles)
+    ├── css/
+    │   ├── style.css                # Feuille de style principale du site
+    │   └── personnages-carousel.css # Styles du carrousel de personnages
+    ├── js/
+    │   ├── utils.js                 # Fonctions utilitaires partagées (échappement, helpers)
+    │   ├── ui.js                    # Navigation injectée, thème, menu mobile, reveal, back-to-top
+    │   ├── campagne.js              # Chargement et rendu des données de campagne
+    │   └── personnages-carousel.js  # Composant carrousel des personnages
+    ├── data/
+    │   └── campagne.json            # Données centralisées : lore, fronts, personnages
+    └── img/                         # Favicons, visuels, illustrations, carrousel et assets sociaux
 ```
 
 ---
