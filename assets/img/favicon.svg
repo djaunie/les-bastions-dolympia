@@ -1,25 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Engrenage des Iron Warriors">
-  <rect width="64" height="64" rx="10" fill="#1a1610"/>
-  <!-- Engrenage central -->
-  <g fill="#c8a028">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Fond sombre -->
+  <rect width="64" height="64" rx="8" fill="#1a1a1a"/>
+
+  <!-- Engrenage Iron Warriors — or #c8a028 -->
+  <g fill="#c8a028" transform="translate(32,32)">
     <!-- Dents de l'engrenage (8 dents) -->
-    <rect x="28" y="2" width="8" height="12" rx="2"/>
-    <rect x="28" y="50" width="8" height="12" rx="2"/>
-    <rect x="2" y="28" width="12" height="8" rx="2"/>
-    <rect x="50" y="28" width="12" height="8" rx="2"/>
-    <!-- Dents diagonales -->
-    <rect x="10" y="10" width="8" height="12" rx="2" transform="rotate(45 14 16)"/>
-    <rect x="46" y="10" width="8" height="12" rx="2" transform="rotate(-45 50 16)"/>
-    <rect x="10" y="42" width="8" height="12" rx="2" transform="rotate(-45 14 48)"/>
-    <rect x="46" y="42" width="8" height="12" rx="2" transform="rotate(45 50 48)"/>
+    <path d="
+      M-5,-20 L5,-20 L7,-14 L-7,-14 Z
+      M-5, 20 L5, 20 L7, 14 L-7, 14 Z
+      M-20,-5 L-20,5 L-14,7 L-14,-7 Z
+      M 20,-5 L 20,5 L 14,7 L 14,-7 Z
+      M-16,-16 L-11,-11 L-15,-7 L-20,-12 Z
+      M 16,-16 L 11,-11 L 15,-7 L 20,-12 Z
+      M-16, 16 L-11, 11 L-15, 7 L-20, 12 Z
+      M 16, 16 L 11, 11 L 15, 7 L 20, 12 Z
+    "/>
     <!-- Corps principal de l'engrenage -->
-    <circle cx="32" cy="32" r="20"/>
+    <circle r="13" fill="#c8a028"/>
     <!-- Trou central -->
-    <circle cx="32" cy="32" r="8" fill="#1a1610"/>
-    <!-- Rayons internes -->
-    <rect x="30" y="14" width="4" height="36" rx="1" fill="#1a1610" opacity="0.5"/>
-    <rect x="14" y="30" width="36" height="4" rx="1" fill="#1a1610" opacity="0.5"/>
-    <rect x="30" y="14" width="4" height="36" rx="1" fill="#1a1610" opacity="0.5" transform="rotate(45 32 32)"/>
-    <rect x="30" y="14" width="4" height="36" rx="1" fill="#1a1610" opacity="0.5" transform="rotate(-45 32 32)"/>
+    <circle r="5" fill="#1a1a1a"/>
+    <!-- Détail : petits trous décoratifs style Iron Warriors -->
+    <circle cx="0" cy="0" r="1.5" fill="#c8a028"/>
   </g>
 </svg>
