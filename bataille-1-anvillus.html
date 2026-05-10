@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap"
       rel="stylesheet"
     />
 
@@ -277,7 +277,7 @@
         padding-bottom: 0;
         overflow: hidden;
       }
-      /* Chevrons IW en fond */
+      /* Chevrons IW en fond — couleurs via oklch() sur les variables existantes */
       .scenar-hero::before {
         content: '';
         position: absolute;
@@ -288,17 +288,17 @@
             -45deg,
             transparent 0px,
             transparent 18px,
-            rgba(200, 168, 120, 0.035) 18px,
-            rgba(200, 168, 120, 0.035) 22px
+            oklch(from var(--army-iw-fg) l c h / 0.035) 18px,
+            oklch(from var(--army-iw-fg) l c h / 0.035) 22px
           ),
           radial-gradient(
             ellipse at 50% 0%,
-            rgba(204, 68, 68, 0.06) 0%,
+            oklch(from var(--army-ba-fg) l c h / 0.06) 0%,
             transparent 60%
           ),
           radial-gradient(
             ellipse at 80% 100%,
-            rgba(200, 168, 120, 0.05) 0%,
+            oklch(from var(--army-iw-fg) l c h / 0.05) 0%,
             transparent 50%
           );
         pointer-events: none;
@@ -337,14 +337,6 @@
         height: 1px;
         background: var(--color-gold);
       }
-      .scenar-num {
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--color-text-faint);
-        margin-bottom: var(--space-2);
-      }
       .scenar-title {
         font-family: 'Cinzel Decorative', 'Cinzel', serif;
         font-size: clamp(1.8rem, 5vw, 3.8rem);
@@ -367,46 +359,6 @@
         color: var(--color-text-muted);
         max-width: 52ch;
         line-height: 1.6;
-      }
-      .hero-meta-bloc {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-        align-items: flex-end;
-        padding: var(--space-5);
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-lg);
-        min-width: 220px;
-      }
-      @media (max-width: 700px) {
-        .hero-meta-bloc {
-          align-items: flex-start;
-        }
-      }
-      .meta-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 2px;
-      }
-      @media (max-width: 700px) {
-        .meta-item {
-          align-items: flex-start;
-        }
-      }
-      .meta-label {
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        color: var(--color-text-faint);
-      }
-      .meta-value {
-        font-family: var(--font-display);
-        font-size: var(--text-sm);
-        color: var(--color-gold);
-        font-weight: 600;
       }
 
       /* BANDES IW bas du hero */
@@ -716,121 +668,6 @@
       }
 
       /* ============================================================
-       DÉPLOIEMENT - CARTE TACTIQUE ASCII-STYLE
-    ============================================================ */
-      .deploy-map {
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-lg);
-        padding: var(--space-6);
-        margin-bottom: var(--space-10);
-        position: relative;
-        overflow: hidden;
-      }
-      .deploy-map::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background:
-          repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 28px,
-            var(--color-divider) 28px,
-            var(--color-divider) 29px
-          ),
-          repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 28px,
-            var(--color-divider) 28px,
-            var(--color-divider) 29px
-          );
-        opacity: 0.25;
-      }
-      .deploy-inner {
-        position: relative;
-        z-index: 1;
-      }
-      .deploy-field {
-        display: grid;
-        grid-template-columns: 1fr 80px 1fr;
-        gap: 0;
-        background: var(--color-surface-offset);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        overflow: hidden;
-        margin-bottom: var(--space-4);
-      }
-      .deploy-zone {
-        padding: var(--space-5);
-        text-align: center;
-      }
-      .deploy-zone--iw {
-        background: var(--army-iw-bg);
-        border-right: 1px solid var(--color-border);
-      }
-      .deploy-zone--center {
-        background: rgba(200, 160, 40, 0.05);
-      }
-      .deploy-zone--ba {
-        background: var(--army-ba-bg);
-        border-left: 1px solid var(--color-border);
-      }
-      .deploy-zone-label {
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
-        margin-bottom: var(--space-2);
-      }
-      .deploy-zone--iw .deploy-zone-label {
-        color: var(--army-iw-fg);
-      }
-      .deploy-zone--ba .deploy-zone-label {
-        color: var(--army-ba-fg);
-      }
-      .deploy-zone--center .deploy-zone-label {
-        color: var(--color-gold);
-      }
-      .deploy-zone-dist {
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        color: var(--color-text-faint);
-        margin-top: var(--space-1);
-      }
-      /* Objectifs dans la carte */
-      .obj-marker {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        font-weight: 700;
-        margin: var(--space-2) auto;
-        border: 2px solid;
-      }
-      .obj-marker--iw {
-        background: var(--army-iw-bg);
-        color: var(--army-iw-fg);
-        border-color: var(--army-iw-fg);
-      }
-      .obj-marker--ba {
-        background: var(--army-ba-bg);
-        color: var(--army-ba-fg);
-        border-color: var(--army-ba-fg);
-      }
-      .obj-marker--c {
-        background: rgba(200, 160, 40, 0.12);
-        color: var(--color-gold);
-        border-color: var(--color-gold);
-      }
-
-      /* ============================================================
        CONSÉQUENCES NARRATIVES
     ============================================================ */
       .consequences-grid {
@@ -912,6 +749,7 @@
         font-size: var(--text-base);
         color: var(--color-text);
         letter-spacing: 0.03em;
+        margin-bottom: var(--space-3);
       }
       .conseq-text {
         font-size: var(--text-sm);
@@ -967,6 +805,49 @@
       .sidebar-card-body {
         padding: var(--space-4) var(--space-5);
       }
+      /* Description lore dans la sidebar */
+      .sidebar-lore {
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        line-height: 1.75;
+        font-style: italic;
+      }
+      /* Liens d'armée dans la sidebar */
+      .sidebar-army-links {
+        margin-top: var(--space-4);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .sidebar-army-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: var(--font-display);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: var(--space-2) var(--space-3);
+        border-radius: var(--radius-sm);
+        border: 1px solid;
+      }
+      .sidebar-army-link--iw {
+        color: var(--army-iw-fg);
+        border-color: var(--army-iw-border);
+        background: var(--army-iw-bg);
+      }
+      .sidebar-army-link--iw:hover {
+        background: var(--color-surface-offset);
+      }
+      .sidebar-army-link--ba {
+        color: var(--army-ba-fg);
+        border-color: var(--army-ba-border);
+        background: var(--army-ba-bg);
+      }
+      .sidebar-army-link--ba:hover {
+        background: var(--color-surface-offset);
+      }
       .info-row {
         display: flex;
         justify-content: space-between;
@@ -1002,38 +883,6 @@
         color: var(--army-ba-fg);
       }
       .info-val.gold {
-        color: var(--color-gold);
-      }
-
-      /* Conditions de victoire sidebar */
-      .vp-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: var(--text-xs);
-      }
-      .vp-table th {
-        font-family: var(--font-display);
-        font-size: var(--text-xs);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--color-text-faint);
-        padding: var(--space-2) var(--space-3);
-        text-align: left;
-        border-bottom: 1px solid var(--color-divider);
-      }
-      .vp-table td {
-        padding: var(--space-2) var(--space-3);
-        color: var(--color-text-muted);
-        border-bottom: 1px solid var(--color-divider);
-        font-family: var(--font-display);
-        letter-spacing: 0.03em;
-      }
-      .vp-table tr:last-child td {
-        border-bottom: none;
-      }
-      .vp-table td:last-child {
-        text-align: right;
-        font-weight: 600;
         color: var(--color-gold);
       }
 
@@ -1313,7 +1162,7 @@
         </section>
 
         <div class="ornament reveal">
-          <span>⚙ Dispositif de bataille ⚙</span>
+          <span><span aria-hidden="true">⚙</span> Dispositif de bataille <span aria-hidden="true">⚙</span></span>
         </div>
 
         <!-- OBJECTIFS -->
@@ -1325,7 +1174,7 @@
               <div class="obj-num">01</div>
               <div class="obj-name">Relais Vox Sector Nord</div>
               <div class="obj-owner obj-owner--iw">
-                ⚙ Zone de déploiement Iron Warriors
+                <span aria-hidden="true">⚙</span> Zone de déploiement Iron Warriors
               </div>
               <p class="obj-desc">
                 Tour d'émission industrielle reconvertie en nœud de commandement
@@ -1339,7 +1188,7 @@
               <div class="obj-num">02</div>
               <div class="obj-name">Terminal de Commandement</div>
               <div class="obj-owner obj-owner--center">
-                ✦ Centre — Objectif Primaire
+                <span aria-hidden="true">✦</span> Centre — Objectif Primaire
               </div>
               <p class="obj-desc">
                 Cœur administratif du complexe Karathos IV. Les terminaux actifs
@@ -1354,15 +1203,15 @@
               <div class="obj-num">03</div>
               <div class="obj-name">Docks de Chargement Sud</div>
               <div class="obj-owner obj-owner--ba">
-                ✦ Zone de déploiement Blood Angels
+                <span aria-hidden="true">✦</span> Zone de déploiement Blood Angels
               </div>
               <p class="obj-desc">
-                Plateforme logistique où s’entassent les convois civils,
+                Plateforme logistique où s'entassent les convois civils,
                 prisonniers des émeutes depuis leurs premiers soubresauts. Tenir
                 ce point permet aux Blood Angels de légitimer leur présence au
                 regard de Terra. Si, au terme de la bataille, seuls les fils de
                 la IX<sup>e</sup> Légion dominent encore la zone, la population
-                d’Anvillus pourra enfin être arrachée au brasier.
+                d'Anvillus pourra enfin être arrachée au brasier.
               </p>
             </div>
           </div>
@@ -1388,11 +1237,9 @@
           <div class="consequences-grid">
             <div class="conseq-card conseq-card--iw">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--iw"
-                  >⚙ Victoire Iron Warriors</span
-                >
+                <span class="conseq-badge conseq-badge--iw"><span aria-hidden="true">⚙</span> Victoire Iron Warriors</span>
               </div>
-              <div class="conseq-title" style="margin-bottom: var(--space-3)">
+              <div class="conseq-title">
                 Anvillus sous la Botte d'Acier
               </div>
               <div class="conseq-text">
@@ -1416,11 +1263,9 @@
 
             <div class="conseq-card conseq-card--ba">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--ba"
-                  >✦ Victoire Blood Angels</span
-                >
+                <span class="conseq-badge conseq-badge--ba"><span aria-hidden="true">✦</span> Victoire Blood Angels</span>
               </div>
-              <div class="conseq-title" style="margin-bottom: var(--space-3)">
+              <div class="conseq-title">
                 La Grâce dans les Ruines
               </div>
               <div class="conseq-text">
@@ -1444,11 +1289,9 @@
 
             <div class="conseq-card conseq-card--nul">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--nul"
-                  >⚖ Match Nul — L'Impasse des Forges</span
-                >
+                <span class="conseq-badge conseq-badge--nul"><span aria-hidden="true">⚖</span> Match Nul — L'Impasse des Forges</span>
               </div>
-              <div class="conseq-title" style="margin-bottom: var(--space-3)">
+              <div class="conseq-title">
                 Deux Prédateurs, une Proie Trop Lourde
               </div>
               <div class="conseq-text">
@@ -1477,69 +1320,25 @@
       <aside>
         <div class="sidebar-card reveal reveal-delay-1">
           <div class="sidebar-card-header">
-            <div class="sidebar-card-title">📖 À propos d'Anvillus</div>
+            <div class="sidebar-card-title">
+              <span aria-hidden="true">📖</span> À propos d'Anvillus
+            </div>
           </div>
           <div class="sidebar-card-body">
-            <p
-              style="
-                font-size: var(--text-sm);
-                color: var(--color-text-muted);
-                line-height: 1.75;
-                font-style: italic;
-              "
-            >
+            <p class="sidebar-lore">
               Monde-forge du sous-secteur Olympia. Ses complexes industriels ont
               approvisionné les légions depuis la Grande Croisade. Aujourd'hui,
               les émeutes des fondeurs menacent la chaîne logistique de tout le
               sous-secteur.
             </p>
-            <div
-              style="
-                margin-top: var(--space-4);
-                display: flex;
-                flex-direction: column;
-                gap: var(--space-2);
-              "
-            >
-              <a
-                href="iron-warriors.html"
-                style="
-                  display: inline-flex;
-                  align-items: center;
-                  gap: var(--space-2);
-                  font-family: var(--font-display);
-                  font-size: var(--text-xs);
-                  letter-spacing: 0.08em;
-                  text-transform: uppercase;
-                  text-decoration: none;
-                  color: var(--army-iw-fg);
-                  border: 1px solid var(--army-iw-border);
-                  background: var(--army-iw-bg);
-                  padding: var(--space-2) var(--space-3);
-                  border-radius: var(--radius-sm);
-                "
-                >⚙ Iron Warriors</a
-              >
-              <a
-                href="blood-angels.html"
-                style="
-                  display: inline-flex;
-                  align-items: center;
-                  gap: var(--space-2);
-                  font-family: var(--font-display);
-                  font-size: var(--text-xs);
-                  letter-spacing: 0.08em;
-                  text-transform: uppercase;
-                  text-decoration: none;
-                  color: var(--army-ba-fg);
-                  border: 1px solid var(--army-ba-border);
-                  background: var(--army-ba-bg);
-                  padding: var(--space-2) var(--space-3);
-                  border-radius: var(--radius-sm);
-                "
-                >✦ Blood Angels</a
-              >
-            </div>
+            <nav class="sidebar-army-links" aria-label="Légions concernées">
+              <a href="iron-warriors.html" class="sidebar-army-link sidebar-army-link--iw">
+                <span aria-hidden="true">⚙</span> Iron Warriors
+              </a>
+              <a href="blood-angels.html" class="sidebar-army-link sidebar-army-link--ba">
+                <span aria-hidden="true">✦</span> Blood Angels
+              </a>
+            </nav>
           </div>
         </div>
       </aside>
@@ -1582,8 +1381,11 @@
   });
   bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-  // Reveal on scroll
-  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+  // Reveal on scroll — rootMargin pour déclencher avant l'entrée dans le viewport
+  const obs=new IntersectionObserver(
+    es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),
+    {threshold:0.1, rootMargin:'0px 0px -40px 0px'}
+  );
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
