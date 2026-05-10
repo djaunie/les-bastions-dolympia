@@ -1,0 +1,29 @@
+{
+  "name": "les-bastions-dolympia",
+  "version": "1.0.0",
+  "description": "Site web statique pour la campagne narrative Warhammer 40,000 — **Les Bastions d'Olympia**.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djaunie/les-bastions-dolympia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/djaunie/les-bastions-dolympia/issues"
+  },
+  "homepage": "https://github.com/djaunie/les-bastions-dolympia#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.3"
+  }
+}

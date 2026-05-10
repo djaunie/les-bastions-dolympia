@@ -1,450 +1,828 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Warriors — Les Fils du Fer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-	
-<body>
-<!-- ═══════════════ NAVIGATION ═══════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Les Bastions d'Olympia — IV° Légion">
-      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <circle cx="18" cy="18" r="8" fill="none" stroke="#8a9bac" stroke-width="1.5"/>
-        <circle cx="18" cy="18" r="3.5" fill="none" stroke="#c8a028" stroke-width="1.2"/>
-        <rect x="16.5" y="7"  width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="16.5" y="26" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="7"  y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="26" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <line x1="14" y1="4" x2="10" y2="10" stroke="#c8a028" stroke-width="1.2"/>
-        <line x1="22" y1="4" x2="18" y2="10" stroke="#c8a028" stroke-width="1.2"/>
-      </svg>
-      <div>
-        <span class="nav-logo-text">Olympia</span>
-        <span class="nav-logo-sub">Horus Heresy</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iron Warriors — Les Fils du Fer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a
+          href="index.html"
+          class="nav-logo"
+          aria-label="Les Bastions d'Olympia — IV° Légion"
+        >
+          <svg
+            class="nav-logo-icon"
+            viewBox="0 0 36 36"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="18"
+              cy="18"
+              r="8"
+              fill="none"
+              stroke="#8a9bac"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="18"
+              cy="18"
+              r="3.5"
+              fill="none"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+            <rect x="16.5" y="7" width="3" height="3" rx="0.5" fill="#8a9bac" />
+            <rect
+              x="16.5"
+              y="26"
+              width="3"
+              height="3"
+              rx="0.5"
+              fill="#8a9bac"
+            />
+            <rect x="7" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac" />
+            <rect
+              x="26"
+              y="16.5"
+              width="3"
+              height="3"
+              rx="0.5"
+              fill="#8a9bac"
+            />
+            <line
+              x1="14"
+              y1="4"
+              x2="10"
+              y2="10"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+            <line
+              x1="22"
+              y1="4"
+              x2="18"
+              y2="10"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+          </svg>
+          <div>
+            <span class="nav-logo-text">Olympia</span>
+            <span class="nav-logo-sub">Horus Heresy</span>
+          </div>
+        </a>
+        <div class="nav-actions">
+          <div class="nav-page-links">
+            <a
+              href="carte.html"
+              class="btn-nav-page btn-nav-page--carte"
+              aria-label="Accéder à la carte"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Carte
+            </a>
+          </div>
+          <button
+            class="btn-theme"
+            data-theme-toggle
+            aria-label="Basculer le thème"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+          <button
+            class="nav-mobile-toggle"
+            id="nav-toggle"
+            aria-label="Menu"
+            aria-expanded="false"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
       </div>
-    </a>
-    <div class="nav-actions">
-      <div class="nav-page-links">
-        <a href="carte.html" class="btn-nav-page btn-nav-page--carte" aria-label="Accéder à la carte">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Carte
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <header class="page-hero" id="top">
+      <div class="container">
+        <div class="hero-iv-tag">
+          IV<sup>e</sup> Légion &#x2022; Monde-Forteresse d'Olympia
+        </div>
+        <h1>Iron Warriors</h1>
+        <p class="hero-desc">
+          Au seuil de la Grande Trahison, la IVe Légion se dresse sur les
+          remparts d'Olympia, froide et implacable comme les aciers qu'elle
+          forge. Ce qui suit n'est pas un rapport de bataille. C'est une
+          chronique de sang.
+        </p>
+        <a href="index.html" class="back-link">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Retour à l'accueil
         </a>
       </div>
-      <button class="btn-theme" data-theme-toggle aria-label="Basculer le thème">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
+    </header>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<header class="page-hero" id="top">
-  <div class="container">
-    <div class="hero-iv-tag">IV<sup>e</sup> Légion &#x2022; Monde-Forteresse d'Olympia</div>
-    <h1>Iron Warriors</h1>
-    <p class="hero-desc">
-      Au seuil de la Grande Trahison, la IVe Légion se dresse sur les remparts d'Olympia, froide et implacable
-      comme les aciers qu'elle forge. Ce qui suit n'est pas un rapport de bataille. C'est une chronique de sang.
-    </p>
-    <a href="index.html" class="back-link">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Retour à l'accueil
+    <!-- ═══════════════ CONTENU NARRATIF ═══════════════ -->
+    <main class="narrative-main">
+      <div class="container">
+        <div class="narrative-wrapper">
+          <!-- ═══════════ I. LES FILS DU FER ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">I</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">I</span>Les Fils du Fer
+          </h2>
+
+          <p class="prose drop-cap reveal">
+            On les appelle les <strong>Fils du Fer</strong>, et nul épithète ne
+            sied mieux à ces légionnaires façonnés dans la douleur et la
+            discipline. Là où d'autres légions se parent de titres glorieux —
+            Anges Sanguinaires, Space Wolfs, Emperor's Children —, les guerriers
+            de la <strong>IVe Légion</strong> portent leur nom comme un serment
+            grave, sans ornement, sans mensonge. Le fer ne se vante pas. Le fer
+            tranche.
+          </p>
+
+          <p class="prose reveal">
+            Nés des forges du monde-capitale qu'est <strong>Olympia</strong>,
+            dans les montagnes métal-grises de l'hémisphère Nord, ils furent
+            forgés avant même de naître. Chaque candidat qui survivait aux
+            Épreuves d'Acier sortait des cachots de sélection avec quelque chose
+            d'irrémédiablement brisé en lui — et quelque chose d'infiniment plus
+            dur à sa place. Leur <strong>Primarque, Perturabo</strong>, veillait
+            à ce que ses légionnaires ne connaissent ni la gloire des charges
+            héroïques, ni les couronnes de laurier que l'Imperium jetait
+            volontiers aux pieds des Blood Angels ou des Ultramarines. Les Iron
+            Warriors étaient envoyés sur les fronts les plus ingrats, les sièges
+            les plus longs, les murs les plus épais.
+          </p>
+
+          <div class="war-quote reveal">
+            <p>
+              « Chaque légion a ses poètes, ses héros de lumière qui chantent
+              leurs propres exploits. Mes guerriers n'ont pas le temps de
+              chanter. Ils ont des tranchées à creuser, des remparts à réduire,
+              des villes récalcitrantes à plier. Toute gloire qui ne s'achète
+              pas dans la boue et le sang n'est que peinture sur de la rouille.
+              »
+            </p>
+            <cite
+              >— Perturabo, Seigneur du Fer, d'après les Annales de la Campagne
+              de Thramas</cite
+            >
+          </div>
+
+          <p class="prose reveal">
+            Pendant les deux siècles de la Grande Croisade, la IVe Légion fut
+            déployée sur plus de
+            <strong>quatre cent soixante campagnes de siège</strong> recensées
+            par les chroniqueurs de Terra — davantage que toute autre légion. Si
+            les Imperial Fists rivalisaient parfois en matière de doctrine
+            défensive, aucune autre force astartes ne pouvait se targuer d'avoir
+            réduit autant de bastions, brisé autant de lignes ennemies, sans
+            jamais que l'Imperium daignât en remercier ceux qui avaient payé cet
+            effort en vies et en chairs. Siège après siège, monde après monde,
+            les Iron Warriors regardèrent leurs effectifs fondre pendant que
+            d'autres récoltaient les lauriers.
+          </p>
+
+          <!-- ═══════════ II. LA DOCTRINE DU SIÈGE ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">II</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">II</span>La Doctrine du Siège
+          </h2>
+
+          <p class="prose drop-cap reveal">
+            Là où les autres légions étudiaient l'art de la guerre dans ses
+            nuances les plus glorieuses — la charge de cavalerie, l'assaut
+            orbital, la reconnaissance —, les Iron Warriors perfectionnaient une
+            science que l'Imperium jugeait trop prosaïque : la
+            <strong>poliorcétique</strong>, l'art d'assiéger et d'être assiégé.
+          </p>
+
+          <div class="forge-panel reveal">
+            <div class="forge-panel-label">
+              Doctrine Légionnaire — Archives de la Forgemaîtrise
+            </div>
+            <p class="forge-panel-text">
+              Chaque Iron Warrior apprend dès son initiation à lire une
+              fortification comme un médecin lit un corps : identifier les
+              artères, les points faibles, les zones mortifiées. Un mur n'est
+              jamais qu'un mur — c'est une <strong>équation</strong>, et
+              l'équation a toujours une solution. La solution porte parfois un
+              nom : sape, mine, bombardement saturant. Parfois elle s'appelle
+              simplement <strong>patience</strong>. Les Iron Warriors ont
+              appris, à leurs dépens et à ceux de leurs ennemis, que la patience
+              est la plus redoutable des armes.
+            </p>
+          </div>
+
+          <p class="prose reveal">
+            Leur armement reflète cette philosophie. Là où d'autres légions
+            déploient des unités d'assault rapide et de frappe chirurgicale, les
+            Iron Warriors amènent des
+            <strong>plates-formes d'artillerie</strong>, des obusiers à
+            trajectoire courbe capables de saturer des kilomètres carrés de
+            terrain fortifié, des dreadnoughts lourds conçus pour avancer sous
+            des délugues de feu, des compagnies entières de sapeurs armés de
+            foreuses thermiques et de charges de brisement. La
+            <strong>Plateforme d'Accélérateur Quadritube Arakane</strong> qui
+            tonne sur les hauteurs d'Olympia n'est pas un outil de terreur —
+            c'est la signature d'une légion qui considère la guerre comme une
+            ingénierie, et l'ennemi comme un problème structurel à résoudre.
+          </p>
+
+          <div class="war-quote reveal">
+            <p>
+              « Ils ont des armes qui font des trous dans le sol, des armes qui
+              font des trous dans les murs, et des armes qui font des trous dans
+              les hommes. La différence entre les trois, pour eux, est purement
+              technique. »
+            </p>
+            <cite
+              >— Renseignement de campagne, Commandement du Sous-Secteur
+              Golgotha, classification Epsilon</cite
+            >
+          </div>
+
+          <!-- ═══════════ III. LE SEIGNEUR DU FER ET SES PROCHES ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">III</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">III</span>Le Seigneur du Fer et ses Proches
+          </h2>
+
+          <p class="prose reveal">
+            Au sommet de la hiérarchie des Iron Warriors sur Olympia se dresse
+            une figure que même les chroniqueurs impériaux les plus sobres
+            évoquent avec un mélange de respect et d'effroi. Le Seigneur du Fer
+            est présent. Sa présence sur le monde natal de la IVe Légion n'est
+            pas une retraite : c'est une préparation.
+          </p>
+
+          <!-- Perturabo -->
+          <div class="character-medallion character-medallion--primarch reveal">
+            <div class="medallion-sigil">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 80 80"
+                fill="none"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="40"
+                  cy="40"
+                  r="38"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  stroke-dasharray="3 2"
+                  opacity="0.4"
+                />
+                <circle
+                  cx="40"
+                  cy="40"
+                  r="28"
+                  stroke="currentColor"
+                  stroke-width="1.2"
+                  opacity="0.5"
+                />
+                <circle
+                  cx="40"
+                  cy="40"
+                  r="10"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <polyline
+                  points="22,34 30,40 22,46"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <polyline
+                  points="58,34 50,40 58,46"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <rect
+                  x="38"
+                  y="2"
+                  width="4"
+                  height="6"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.7"
+                />
+                <rect
+                  x="38"
+                  y="72"
+                  width="4"
+                  height="6"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.7"
+                />
+                <rect
+                  x="2"
+                  y="38"
+                  width="6"
+                  height="4"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.7"
+                />
+                <rect
+                  x="72"
+                  y="38"
+                  width="6"
+                  height="4"
+                  rx="1"
+                  fill="currentColor"
+                  opacity="0.7"
+                />
+                <circle
+                  cx="40"
+                  cy="40"
+                  r="4"
+                  fill="currentColor"
+                  opacity="0.6"
+                />
+              </svg>
+            </div>
+            <div class="medallion-body">
+              <div class="medallion-name">Perturabo — Le Seigneur du Fer</div>
+              <div class="medallion-title">
+                Primarque de la IVe Légion &#x2022; Maître du Siège
+              </div>
+              <p class="medallion-prose">
+                Nul chroniqueur n'a vu <strong>Perturabo</strong> sourire depuis
+                les jours de la Croisade. Ceux qui l'ont approché de près
+                décrivent un être consumé par une colère froide, méthodique, que
+                les décennies n'ont fait qu'aiguiser. Génie mathématique d'une
+                acuité terrifiante, il conçoit ses fortifications et ses plans
+                de siège avec la même précision qu'un horloger dispose ses
+                rouages — et avec la même
+                <strong>indifférence à la souffrance</strong> de ceux qui
+                meuvent dans ce mécanisme. Sur Olympia, il prépare quelque
+                chose. L'ombre de cette préparation s'étend sur tout le
+                sous-secteur comme un nuage d'acier.
+              </p>
+            </div>
+          </div>
+
+          <!-- Praetor en Armure Saturnine -->
+          <div class="character-medallion reveal">
+            <div class="medallion-sigil">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="medallion-body">
+              <div class="medallion-name">
+                Forrix "Le Briseur" (Praetor en Armure Saturnine)
+              </div>
+              <div class="medallion-title">
+                Triaque du Trident &#x2022; Pilier de la IVe Légion
+              </div>
+              <p class="medallion-prose">
+                Forgé dans d'innombrables campagnes de siège bien avant que
+                Perturabo ne prenne la tête de la Légion, Forrix est l'<strong
+                  >un des trois membres du Trident</strong
+                >
+                — les conseillers les plus proches du Seigneur du Fer. Là où
+                d'autres officiers réclament des lauriers, Forrix trace des
+                lignes de siège, calcule des angles de tir et signe des arrêts
+                de mort en chiffres et en tonnes d'acier. Il ne brise pas les
+                ennemis par haine — il les brise par méthode, avec la même
+                indifférence qu'un ingénieur démolissant un mur structurel. Ce
+                qui ronge Forrix de l'intérieur est l'amer constat que chaque
+                conquête est aussitôt suivie d'une autre, sans fin ni sens.
+              </p>
+            </div>
+          </div>
+
+          <!-- Centurion -->
+          <div class="character-medallion reveal">
+            <div class="medallion-sigil">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M6 20v-2a6 6 0 0 1 12 0v2" />
+              </svg>
+            </div>
+            <div class="medallion-body">
+              <div class="medallion-name">Harkor (Centurion)</div>
+              <div class="medallion-title">
+                Officier de tranchée &#x2022; Vétéran de Soixante-Dix Campagnes
+              </div>
+              <p class="medallion-prose">
+                Il y a des noms que l'on prononce à mi-voix dans les rangs des
+                Iron Warriors — non par respect, mais par peur. Harkor est de
+                ceux-là. <strong>Centurion du 45e Grand Bataillon</strong>, il a
+                survécu à des campagnes que d'autres n'auraient pas même tenté
+                de mener, et c'est précisément ce surplus de survie qui le rend
+                suspect aux yeux de ses pairs. Les recrues apprennent vite qu'il
+                n'élève jamais la voix et que c'est justement quand il se tait
+                que le danger est le plus grand.
+              </p>
+            </div>
+          </div>
+
+          <!-- Forgeguerre -->
+          <div class="character-medallion reveal">
+            <div class="medallion-sigil">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                aria-hidden="true"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                />
+              </svg>
+            </div>
+            <div class="medallion-body">
+              <div class="medallion-name">Vull Bronn (Forgeguerre)</div>
+              <div class="medallion-title">
+                Maître des travaux de guerre &#x2022; Conseiller du Seigneur de
+                Fer
+              </div>
+              <p class="medallion-prose">
+                Certains officiers comprennent la guerre. Vull Bronn, lui,
+                comprend la pierre. Lieutenant du 45e Grand Bataillon, on dit
+                que la pierre lui parle. Son outil de prédilection n'est pas un
+                bolter, mais est une pelle de tranchée, qu'il a nommée
+                Earthbreaker. Il n'y a dans ce choix aucune ironie : pour Vull
+                Bronn, creuser est aussi martial que tirer, et souvent plus
+                décisif. Là où d'autres commandants planifient un assaut, il
+                planifie un effondrement. Conseiller de Perturabo lui-même, il a
+                porté cette confiance jusque dans les ères les plus sombres de
+                la Légion.
+              </p>
+            </div>
+          </div>
+
+          <!-- ═══════════ IV. LE CERCLE DE FER ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">IV</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">IV</span>Le Cercle de Fer
+          </h2>
+
+          <p class="prose drop-cap reveal">
+            Il existe, au sein de la IVe Légion, une présence dont nos agents ne
+            savent encore s'il faut la qualifier de garde ou de machine —
+            peut-être les deux. On l'appelle le <strong>Cercle de Fer</strong> :
+            la garde personnelle de Perturabo, composée non pas de légionnaires,
+            mais d'<strong>automates de combat de classe Domitar-Ferrum</strong
+            >, répartis en trois manipules. Ces constructions de métal et de
+            mort ne sont pas des œuvres des forgetemples du Mechanicum — elles
+            sont le fruit du génie propre du Seigneur du Fer, conçues et bâties
+            de ses mains après la Bataille de Phall, quand ses fils de chair
+            l'avaient une première fois déçu. Elles ne portent pas de titre que
+            l'Imperium reconnaîtrait. Elles ne dorment pas, ne mangent pas, ne
+            doutent pas. On dit qu'elles demeurent dans les forges souterraines
+            d'Olympia, là où le bruit du marteau sur l'enclume couvre toute
+            conversation, là où même les mots deviennent du métal — et où seule
+            la volonté du Primarque, transmise par des canaux que personne
+            d'autre n'est censé comprendre, fait office de loi.
+          </p>
+
+          <div class="forge-panel reveal">
+            <div class="forge-panel-label">
+              Fragment intercepté — Authenticité non confirmée
+            </div>
+            <p class="forge-panel-text">
+              « Le Cercle est une volonté unique fragmentée en plusieurs corps.
+              Chacun d'eux est une extension de Perturabo — ses yeux dans les
+              tranchées, ses mains sur les leviers, sa colère sur le champ de
+              bataille. Ils ne parlent jamais entre eux. Ils n'en ont pas
+              besoin. Ils pensent <strong>déjà de la même façon</strong>. »
+            </p>
+          </div>
+
+          <div class="intel-note reveal">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              style="flex-shrink: 0; color: var(--iw-metal); margin-top: 0.1rem"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <div>
+              <div class="intel-note-label">
+                Renseignement Partiel — Commandement de Campagne
+              </div>
+              <p>
+                La composition exacte du Cercle de Fer et ses attributions
+                opérationnelles sur Olympia demeurent
+                <strong>inconnues</strong> de nos services. Toute tentative
+                d'infiltration de la forteresse-monde s'est soldée par la
+                disparition de nos agents. Nous savons qu'ils existent. Nous ne
+                savons pas ce qu'ils préparent. Ce silence est peut-être la pire
+                des informations.
+              </p>
+            </div>
+          </div>
+
+          <!-- ═══════════ V. LES HÉRITIERS DE L'ARMURE SATURNINE ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">V</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">V</span>Les Héritiers de l'Armure Saturnine
+          </h2>
+
+          <p class="prose drop-cap reveal">
+            Si les Iron Warriors dans leur ensemble inspirent un respect teinté
+            d'effroi, leurs unités d'élite en armure
+            <strong>Saturnine</strong> transcendent cette crainte pour atteindre
+            quelque chose de plus profond. L'Armure Saturnine est une relique
+            des guerres orbitales autour de Saturne, bien avant que l'Imperium
+            fût ce qu'il est devenu. Ces plastrons et épaulières forgés dans des
+            alliages disparus portent une histoire que les Iron Warriors n'ont
+            jamais voulu laisser mourir.
+          </p>
+
+          <p class="prose reveal">
+            Les <strong>Terminators en Armure Saturnine</strong> sont six. Six
+            silhouettes massives qui avancent là où les autres légionnaires
+            s'arrêtent, sous les tirs croisés, dans les couloirs effondrés, à
+            travers les brèches de murs dont personne ne ressort ordinairement
+            vivant. Ils n'ont pas les gestes héroïques des légionnaires de
+            première ligne — ils ont des gestes <strong>méthodiques</strong>,
+            comme des machines qui ont appris à marcher dans la peau d'hommes.
+            Et marchant à leur côté, aussi antique que leur armure, Kallistros «
+            le Martelé » le <strong>Dreadnought Saturnine</strong>.
+          </p>
+
+          <div class="war-quote reveal">
+            <p>
+              « Ils ne chargent pas. Ils avancent. La différence peut sembler
+              sémantique jusqu'à ce que vous les voyiez faire les deux choses en
+              même temps, sans courir, sans crier, sans vaciller. C'est ce
+              moment-là, quand vous réalisez qu'ils ne se pressent pas parce
+              qu'ils savent que vous n'irez nulle part, que la vraie terreur
+              commence. »
+            </p>
+            <cite
+              >— Déposition de Frère-Sergent Adaias Vel, IXe Légion, après
+              Olympia, M31</cite
+            >
+          </div>
+
+          <!-- ═══════════ VI. L'HEURE DE LA TRAHISON ═══════════ -->
+          <div class="ornament reveal">
+            <div class="ornament-center">
+              <span class="ornament-star">✦</span>
+              <span class="ornament-glyph">VI</span>
+              <span class="ornament-star">✦</span>
+            </div>
+          </div>
+          <h2 class="chapter-title reveal">
+            <span class="ct-number">VI</span>L'Heure de la Trahison
+          </h2>
+
+          <p class="prose drop-cap reveal">
+            Les chroniqueurs de la Grande Croisade qui avaient suivi les Iron
+            Warriors pendant des décennies auraient pu vous dire, si on les
+            avait interrogés avec assez d'insistance et assez de vin, qu'ils
+            avaient vu venir quelque chose. Non pas la forme précise de la
+            trahison — nul ne peut voir la forme exacte d'un événement avant
+            qu'il se produise —, mais la texture de ce qui couvait. Une légion
+            que l'on envoie sur les fronts les plus ingrats depuis deux siècles
+            sans jamais lui faire honneur.
+          </p>
+
+          <p class="prose reveal">
+            Quand <strong>Horus</strong> a tendu la main à Perturabo, l'histoire
+            veut que le Seigneur du Fer ait hésité exactement le temps
+            nécessaire pour que l'hésitation ressemblât à une décision mûrement
+            réfléchie. Peut-être était-ce précisément cela. Peut-être Perturabo
+            avait-il calculé, avec la précision mathématique qui lui est propre,
+            que l'Imperium lui devait plus que ce qu'il ne lui avait donné, et
+            que la balance penchait irrévocablement d'un côté. La
+            <strong>trahison d'Olympia</strong> — le massacre des cités rebelles
+            de son propre monde natal — fut l'acte qui scella son passage dans
+            le camp de l'Archenaître. Un acte dont les Iron Warriors portent
+            encore, dit-on, le poids dans leurs rêves de métal.
+          </p>
+
+          <div class="war-quote reveal">
+            <p>
+              « Je ne suis pas un traître. Les traîtres renient leurs serments.
+              Moi, je n'ai jamais obtenu ce que mes serments méritaient en
+              retour. Ce n'est pas de la trahison. C'est de la
+              <em>comptabilité</em>. »
+            </p>
+            <cite
+              >— Perturabo, attribué, lors du Conclave de Ullanor, source non
+              vérifiée</cite
+            >
+          </div>
+
+          <p class="prose reveal">
+            Aujourd'hui, sur Olympia, la IVe Légion prépare ce que ses
+            éclaireurs voient comme les prémices d'une campagne dont l'ampleur
+            reste inconnue. Les forges tournent sans interruption.
+            <strong
+              >Les murs d'Olympia ne sont pas des murs de défense — ce sont des
+              murs de lancement.</strong
+            >
+            Le siège n'est pas encore là. Mais le Seigneur du Fer l'a déjà
+            calculé.
+          </p>
+
+          <!-- Bandeau final -->
+          <div class="iron-banner reveal">
+            <span class="iron-banner-glyph">✦</span>
+            <span class="iron-banner-text"
+              >Per ferrum, per patientiam — Par le fer, par la patience</span
+            >
+            <span class="iron-banner-glyph">✦</span>
+          </div>
+
+          <!-- Note finale de commandement -->
+          <div class="intel-note reveal">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              style="flex-shrink: 0; color: var(--iw-gold); margin-top: 0.1rem"
+              aria-hidden="true"
+            >
+              <path
+                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+              />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <div>
+              <div class="intel-note-label" style="color: var(--iw-gold)">
+                Avertissement Stratégique — État-Major, Sous-Secteur Fyrentis
+              </div>
+              <p>
+                « Les effectifs complets de la IVe Légion sur Olympia demeurent
+                indéterminés. Ce récit ne reflète que ce que nos archives et nos
+                agents survivants ont pu confirmer. La réalité de leur force —
+                humaine, mécanique, doctrinale — est
+                <strong>vraisemblablement bien supérieure</strong> à ce qui est
+                consigné ici. Toute confrontation directe avec les Iron Warriors
+                doit être planifiée en tenant compte de cet angle mort majeur.
+                Leur patience est leur arme la plus létale. »
+              </p>
+              <p style="margin-top: 0.5rem">
+                —
+                <em
+                  >Commandement de campagne, classification Thêta, 31e
+                  millénaire</em
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+      <div class="container">
+        <div class="footer-logo">Sous-Secteur Fyrentis</div>
+        <p class="footer-line">
+          « Le siège est notre art. L'acier est notre foi. » — Perturabo,
+          Primarque des Iron Warriors
+        </p>
+        <p class="footer-line">
+          Warhammer 40 000 &#x2022; Campagne Narrative &#x2022; Horus Heresy
+          &#x2022; IV<sup>e</sup> Légion
+        </p>
+      </div>
+    </footer>
+
+    <a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
     </a>
-  </div>
-</header>
 
-<!-- ═══════════════ CONTENU NARRATIF ═══════════════ -->
-<main class="narrative-main">
-  <div class="container">
-    <div class="narrative-wrapper">
-
-
-      <!-- ═══════════ I. LES FILS DU FER ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">I</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">I</span>Les Fils du Fer</h2>
-
-      <p class="prose drop-cap reveal">
-        On les appelle les <strong>Fils du Fer</strong>, et nul épithète ne sied mieux à ces légionnaires façonnés dans
-        la douleur et la discipline. Là où d'autres légions se parent de titres glorieux — Anges Sanguinaires,
-        Space Wolfs, Emperor's Children —, les guerriers de la <strong>IVe Légion</strong> portent leur nom comme
-        un serment grave, sans ornement, sans mensonge. Le fer ne se vante pas. Le fer tranche.
-      </p>
-
-      <p class="prose reveal">
-        Nés des forges du monde-capitale qu'est <strong>Olympia</strong>, dans les montagnes métal-grises de l'hémisphère
-        Nord, ils furent forgés avant même de naître. Chaque candidat qui survivait aux Épreuves
-        d'Acier sortait des cachots de sélection avec quelque chose d'irrémédiablement brisé en lui — et quelque chose
-        d'infiniment plus dur à sa place. Leur <strong>Primarque, Perturabo</strong>, veillait à ce que ses légionnaires
-        ne connaissent ni la gloire des charges héroïques, ni les couronnes de laurier que l'Imperium jetait volontiers
-        aux pieds des Blood Angels ou des Ultramarines. Les Iron Warriors étaient envoyés sur les fronts les plus
-        ingrats, les sièges les plus longs, les murs les plus épais.
-      </p>
-
-      <div class="war-quote reveal">
-        <p>
-          « Chaque légion a ses poètes, ses héros de lumière qui chantent leurs propres exploits. Mes guerriers
-          n'ont pas le temps de chanter. Ils ont des tranchées à creuser, des remparts à réduire, des villes
-          récalcitrantes à plier. Toute gloire qui ne s'achète pas dans la boue et le sang n'est que peinture
-          sur de la rouille. »
-        </p>
-        <cite>— Perturabo, Seigneur du Fer, d'après les Annales de la Campagne de Thramas</cite>
-      </div>
-
-      <p class="prose reveal">
-        Pendant les deux siècles de la Grande Croisade, la IVe Légion fut déployée sur plus de <strong>quatre
-        cent soixante campagnes de siège</strong> recensées par les chroniqueurs de Terra — davantage que toute
-        autre légion. Si les Imperial Fists rivalisaient parfois en matière de doctrine défensive, aucune autre
-        force astartes ne pouvait se targuer d'avoir réduit autant de bastions, brisé autant de lignes ennemies,
-        sans jamais que l'Imperium daignât en remercier ceux qui avaient payé cet effort en vies et en chairs.
-        Siège après siège, monde après monde, les Iron Warriors regardèrent leurs effectifs fondre pendant que
-        d'autres récoltaient les lauriers.
-      </p>
-
-
-      <!-- ═══════════ II. LA DOCTRINE DU SIÈGE ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">II</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">II</span>La Doctrine du Siège</h2>
-
-      <p class="prose drop-cap reveal">
-        Là où les autres légions étudiaient l'art de la guerre dans ses nuances les plus glorieuses — la charge
-        de cavalerie, l'assaut orbital, la reconnaissance —, les Iron Warriors perfectionnaient
-        une science que l'Imperium jugeait trop prosaïque : la <strong>poliorcétique</strong>,
-        l'art d'assiéger et d'être assiégé.
-      </p>
-
-      <div class="forge-panel reveal">
-        <div class="forge-panel-label">Doctrine Légionnaire — Archives de la Forgemaîtrise</div>
-        <p class="forge-panel-text">
-          Chaque Iron Warrior apprend dès son initiation à lire une fortification comme un médecin lit un corps :
-          identifier les artères, les points faibles, les zones mortifiées. Un mur n'est jamais qu'un mur —
-          c'est une <strong>équation</strong>, et l'équation a toujours une solution. La solution porte parfois un
-          nom : sape, mine, bombardement saturant. Parfois elle s'appelle simplement <strong>patience</strong>.
-          Les Iron Warriors ont appris, à leurs dépens et à ceux de leurs ennemis, que la patience est la plus
-          redoutable des armes.
-        </p>
-      </div>
-
-      <p class="prose reveal">
-        Leur armement reflète cette philosophie. Là où d'autres légions déploient des unités d'assault rapide
-        et de frappe chirurgicale, les Iron Warriors amènent des <strong>plates-formes d'artillerie</strong>,
-        des obusiers à trajectoire courbe capables de saturer des kilomètres carrés de terrain fortifié,
-        des dreadnoughts lourds conçus pour avancer sous des délugues de feu, des compagnies entières
-        de sapeurs armés de foreuses thermiques et de charges de brisement. La <strong>Plateforme d'Accélérateur
-        Quadritube Arakane</strong> qui tonne sur les hauteurs d'Olympia n'est pas un outil de terreur —
-        c'est la signature d'une légion qui considère la guerre comme une ingénierie, et l'ennemi comme
-        un problème structurel à résoudre.
-      </p>
-
-      <div class="war-quote reveal">
-        <p>
-          « Ils ont des armes qui font des trous dans le sol, des armes qui font des trous dans les murs, et
-          des armes qui font des trous dans les hommes. La différence entre les trois, pour eux, est
-          purement technique. »
-        </p>
-        <cite>— Renseignement de campagne, Commandement du Sous-Secteur Golgotha, classification Epsilon</cite>
-      </div>
-
-
-      <!-- ═══════════ III. LE SEIGNEUR DU FER ET SES PROCHES ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">III</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">III</span>Le Seigneur du Fer et ses Proches</h2>
-
-      <p class="prose reveal">
-        Au sommet de la hiérarchie des Iron Warriors sur Olympia se dresse une figure que même les chroniqueurs
-        impériaux les plus sobres évoquent avec un mélange de respect et d'effroi. Le Seigneur du Fer est présent.
-        Sa présence sur le monde natal de la IVe Légion n'est pas une retraite : c'est une préparation.
-      </p>
-
-      <!-- Perturabo -->
-      <div class="character-medallion character-medallion--primarch reveal">
-        <div class="medallion-sigil">
-          <svg width="36" height="36" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-            <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1" stroke-dasharray="3 2" opacity="0.4"/>
-            <circle cx="40" cy="40" r="28" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
-            <circle cx="40" cy="40" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <polyline points="22,34 30,40 22,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
-            <polyline points="58,34 50,40 58,46" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
-            <rect x="38" y="2"  width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
-            <rect x="38" y="72" width="4" height="6" rx="1" fill="currentColor" opacity="0.7"/>
-            <rect x="2"  y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
-            <rect x="72" y="38" width="6" height="4" rx="1" fill="currentColor" opacity="0.7"/>
-            <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.6"/>
-          </svg>
-        </div>
-        <div class="medallion-body">
-          <div class="medallion-name">Perturabo — Le Seigneur du Fer</div>
-          <div class="medallion-title">Primarque de la IVe Légion &#x2022; Maître du Siège</div>
-          <p class="medallion-prose">
-            Nul chroniqueur n'a vu <strong>Perturabo</strong> sourire depuis les jours de la Croisade. Ceux qui
-            l'ont approché de près décrivent un être consumé par une colère froide, méthodique, que les décennies
-            n'ont fait qu'aiguiser. Génie mathématique d'une acuité terrifiante, il conçoit ses fortifications et
-            ses plans de siège avec la même précision qu'un horloger dispose ses rouages — et avec la même
-            <strong>indifférence à la souffrance</strong> de ceux qui meuvent dans ce mécanisme. Sur Olympia,
-            il prépare quelque chose. L'ombre de cette préparation s'étend sur tout le sous-secteur comme un
-            nuage d'acier.
-          </p>
-        </div>
-      </div>
-
-      <!-- Praetor en Armure Saturnine -->
-      <div class="character-medallion reveal">
-        <div class="medallion-sigil">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="medallion-body">
-          <div class="medallion-name">Forrix "Le Briseur" (Praetor en Armure Saturnine)</div>
-          <div class="medallion-title">Triaque du Trident &#x2022; Pilier de la IVe Légion</div>
-          <p class="medallion-prose">
-            Forgé dans d'innombrables campagnes de siège bien avant que Perturabo ne prenne la tête de la Légion, 
-			Forrix est l'<strong>un des trois membres du Trident</strong> — les conseillers les plus proches du Seigneur du Fer. 
-			Là où d'autres officiers réclament des lauriers, Forrix trace des lignes de siège, calcule des angles 
-			de tir et signe des arrêts de mort en chiffres et en tonnes d'acier. Il ne brise pas les ennemis par
-			haine — il les brise par méthode, avec la même indifférence qu'un ingénieur démolissant un mur 
-			structurel. Ce qui ronge Forrix de l'intérieur est l'amer constat que chaque conquête est aussitôt 
-			suivie d'une autre, sans fin ni sens.
-          </p>
-        </div>
-      </div>
-
-      <!-- Centurion -->
-      <div class="character-medallion reveal">
-        <div class="medallion-sigil">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
-        </div>
-        <div class="medallion-body">
-          <div class="medallion-name">Harkor (Centurion)</div>
-          <div class="medallion-title">Officier de tranchée &#x2022; Vétéran de Soixante-Dix Campagnes</div>
-          <p class="medallion-prose">
-            Il y a des noms que l'on prononce à mi-voix dans les rangs des Iron Warriors — non par respect, mais par 
-			peur. Harkor est de ceux-là. <strong>Centurion du 45e Grand Bataillon</strong>, il a survécu à des 
-			campagnes que d'autres n'auraient pas même tenté de mener, et c'est précisément ce surplus de survie 
-			qui le rend suspect aux yeux de ses pairs. Les recrues apprennent vite qu'il n'élève jamais la voix et 
-			que c'est justement quand il se tait que le danger est le plus grand.
-          </p>
-        </div>
-      </div>
-
-      <!-- Forgeguerre -->
-      <div class="character-medallion reveal">
-        <div class="medallion-sigil">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <div class="medallion-body">
-          <div class="medallion-name">Vull Bronn (Forgeguerre)</div>
-          <div class="medallion-title">Maître des travaux de guerre &#x2022; Conseiller du Seigneur de Fer</div>
-          <p class="medallion-prose">
-            Certains officiers comprennent la guerre. Vull Bronn, lui, comprend la pierre. Lieutenant du 45e Grand 
-			Bataillon, on dit que la pierre lui parle. Son outil de prédilection n'est pas un bolter, mais est une 
-			pelle de tranchée, qu'il a nommée Earthbreaker. Il n'y a dans ce choix aucune ironie : pour Vull Bronn, 
-			creuser est aussi martial que tirer, et souvent plus décisif. Là où d'autres commandants planifient un 
-			assaut, il planifie un effondrement. Conseiller de Perturabo lui-même, il a porté cette confiance jusque 
-			dans les ères les plus sombres de la Légion.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- ═══════════ IV. LE CERCLE DE FER ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">IV</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">IV</span>Le Cercle de Fer</h2>
-
-      <p class="prose drop-cap reveal">
-        Il existe, au sein de la IVe Légion, une présence dont nos agents ne savent encore s'il faut la qualifier
-        de garde ou de machine — peut-être les deux. On l'appelle le <strong>Cercle de Fer</strong> : la garde
-        personnelle de Perturabo, composée non pas de légionnaires, mais d'<strong>automates de combat de classe
-        Domitar-Ferrum</strong>, répartis en trois manipules. Ces constructions de métal et de mort ne sont pas
-        des œuvres des forgetemples du Mechanicum — elles sont le fruit du génie propre du Seigneur du Fer, conçues
-        et bâties de ses mains après la Bataille de Phall, quand ses fils de chair l'avaient une première fois déçu.
-        Elles ne portent pas de titre que l'Imperium reconnaîtrait. Elles ne dorment pas, ne mangent pas,
-        ne doutent pas. On dit qu'elles demeurent dans les forges souterraines d'Olympia, là où le bruit du
-        marteau sur l'enclume couvre toute conversation, là où même les mots deviennent du métal — et où seule
-        la volonté du Primarque, transmise par des canaux que personne d'autre n'est censé comprendre,
-        fait office de loi.
-      </p>
-
-      <div class="forge-panel reveal">
-        <div class="forge-panel-label">Fragment intercepté — Authenticité non confirmée</div>
-        <p class="forge-panel-text">
-          « Le Cercle est une volonté unique fragmentée en plusieurs corps. Chacun d'eux
-          est une extension de Perturabo — ses yeux dans les tranchées, ses mains sur les leviers, sa colère
-          sur le champ de bataille. Ils ne parlent jamais entre eux. Ils n'en ont pas besoin.
-          Ils pensent <strong>déjà de la même façon</strong>. »
-        </p>
-      </div>
-
-      <div class="intel-note reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--iw-metal);margin-top:0.1rem;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <div>
-          <div class="intel-note-label">Renseignement Partiel — Commandement de Campagne</div>
-          <p>
-            La composition exacte du Cercle de Fer et ses attributions opérationnelles sur Olympia demeurent
-            <strong>inconnues</strong> de nos services. Toute tentative d'infiltration de la forteresse-monde s'est
-            soldée par la disparition de nos agents. Nous savons qu'ils existent. Nous ne savons pas ce qu'ils
-            préparent. Ce silence est peut-être la pire des informations.
-          </p>
-        </div>
-      </div>
-
-
-      <!-- ═══════════ V. LES HÉRITIERS DE L'ARMURE SATURNINE ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">V</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">V</span>Les Héritiers de l'Armure Saturnine</h2>
-
-      <p class="prose drop-cap reveal">
-        Si les Iron Warriors dans leur ensemble inspirent un respect teinté d'effroi, leurs unités d'élite en
-        armure <strong>Saturnine</strong> transcendent cette crainte pour atteindre quelque chose de plus profond. 
-		L'Armure Saturnine est une relique des guerres orbitales
-        autour de Saturne, bien avant que l'Imperium fût ce qu'il est devenu. Ces plastrons et épaulières forgés
-        dans des alliages disparus portent une histoire que les Iron Warriors n'ont jamais voulu laisser mourir.
-      </p>
-
-      <p class="prose reveal">
-        Les <strong>Terminators en Armure Saturnine</strong> sont six. Six silhouettes massives qui avancent là
-        où les autres légionnaires s'arrêtent, sous les tirs croisés, dans les couloirs effondrés, à travers
-        les brèches de murs dont personne ne ressort ordinairement vivant. Ils n'ont pas les gestes héroïques
-        des légionnaires de première ligne — ils ont des gestes <strong>méthodiques</strong>, comme des machines
-        qui ont appris à marcher dans la peau d'hommes. Et marchant à leur côté, aussi antique que leur armure, 
-		Kallistros « le Martelé » le <strong>Dreadnought Saturnine</strong>.
-      </p>
-
-      <div class="war-quote reveal">
-        <p>
-          « Ils ne chargent pas. Ils avancent. La différence peut sembler sémantique jusqu'à ce que vous les
-          voyiez faire les deux choses en même temps, sans courir, sans crier, sans vaciller. C'est ce moment-là,
-          quand vous réalisez qu'ils ne se pressent pas parce qu'ils savent que vous n'irez nulle part,
-          que la vraie terreur commence. »
-        </p>
-        <cite>— Déposition de Frère-Sergent Adaias Vel, IXe Légion, après Olympia, M31</cite>
-      </div>
-
-
-      <!-- ═══════════ VI. L'HEURE DE LA TRAHISON ═══════════ -->
-      <div class="ornament reveal">
-        <div class="ornament-center">
-          <span class="ornament-star">✦</span>
-          <span class="ornament-glyph">VI</span>
-          <span class="ornament-star">✦</span>
-        </div>
-      </div>
-      <h2 class="chapter-title reveal"><span class="ct-number">VI</span>L'Heure de la Trahison</h2>
-
-      <p class="prose drop-cap reveal">
-        Les chroniqueurs de la Grande Croisade qui avaient suivi les Iron Warriors pendant des décennies auraient
-        pu vous dire, si on les avait interrogés avec assez d'insistance et assez de vin, qu'ils avaient vu venir
-        quelque chose. Non pas la forme précise de la trahison — nul ne peut voir la forme exacte d'un événement
-        avant qu'il se produise —, mais la texture de ce qui couvait. Une légion que l'on envoie sur les fronts
-        les plus ingrats depuis deux siècles sans jamais lui faire honneur.
-      </p>
-
-      <p class="prose reveal">
-        Quand <strong>Horus</strong> a tendu la main à Perturabo, l'histoire veut que le Seigneur du Fer ait
-        hésité exactement le temps nécessaire pour que l'hésitation ressemblât à une décision mûrement réfléchie.
-        Peut-être était-ce précisément cela. Peut-être Perturabo avait-il calculé, avec la précision mathématique
-        qui lui est propre, que l'Imperium lui devait plus que ce qu'il ne lui avait donné, et que la balance
-        penchait irrévocablement d'un côté. La <strong>trahison d'Olympia</strong> — le massacre des cités
-        rebelles de son propre monde natal — fut l'acte qui scella son passage dans le camp de l'Archenaître.
-        Un acte dont les Iron Warriors portent encore, dit-on, le poids dans leurs rêves de métal.
-      </p>
-
-      <div class="war-quote reveal">
-        <p>
-          « Je ne suis pas un traître. Les traîtres renient leurs serments. Moi, je n'ai jamais obtenu ce que
-          mes serments méritaient en retour. Ce n'est pas de la trahison. C'est de la <em>comptabilité</em>. »
-        </p>
-        <cite>— Perturabo, attribué, lors du Conclave de Ullanor, source non vérifiée</cite>
-      </div>
-
-      <p class="prose reveal">
-        Aujourd'hui, sur Olympia, la IVe Légion prépare ce que ses éclaireurs voient comme les prémices d'une
-        campagne dont l'ampleur reste inconnue. Les forges tournent sans interruption. <strong>Les murs
-        d'Olympia ne sont pas des murs de défense — ce sont des murs de lancement.</strong> Le siège n'est pas
-        encore là. Mais le Seigneur du Fer l'a déjà calculé.
-      </p>
-
-
-      <!-- Bandeau final -->
-      <div class="iron-banner reveal">
-        <span class="iron-banner-glyph">✦</span>
-        <span class="iron-banner-text">Per ferrum, per patientiam — Par le fer, par la patience</span>
-        <span class="iron-banner-glyph">✦</span>
-      </div>
-
-      <!-- Note finale de commandement -->
-      <div class="intel-note reveal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;color:var(--iw-gold);margin-top:0.1rem;" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div>
-          <div class="intel-note-label" style="color:var(--iw-gold)">Avertissement Stratégique — État-Major, Sous-Secteur Fyrentis</div>
-          <p>
-            « Les effectifs complets de la IVe Légion sur Olympia demeurent indéterminés. Ce récit ne reflète
-            que ce que nos archives et nos agents survivants ont pu confirmer. La réalité de leur force —
-            humaine, mécanique, doctrinale — est <strong>vraisemblablement bien supérieure</strong> à ce qui
-            est consigné ici. Toute confrontation directe avec les Iron Warriors doit être planifiée en tenant
-            compte de cet angle mort majeur. Leur patience est leur arme la plus létale. »
-          </p>
-          <p style="margin-top:0.5rem;">
-            — <em>Commandement de campagne, classification Thêta, 31e millénaire</em>
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</main>
-
-<!-- ═══════════════ FOOTER ═══════════════ -->
-<footer>
-  <div class="container">
-    <div class="footer-logo">Sous-Secteur Fyrentis</div>
-    <p class="footer-line">« Le siège est notre art. L'acier est notre foi. » — Perturabo, Primarque des Iron Warriors</p>
-    <p class="footer-line">Warhammer 40 000 &#x2022; Campagne Narrative &#x2022; Horus Heresy &#x2022; IV<sup>e</sup> Légion</p>
-  </div>
-</footer>
-
-<a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-</a>
-
-<script src="assets/js/ui.js" defer></script>
-
-</body>
+    <script src="assets/js/ui.js" defer></script>
+  </body>
 </html>

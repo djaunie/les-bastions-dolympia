@@ -1,259 +1,480 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte du Secteur — Horus Heresy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carte du Secteur — Horus Heresy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="map-nav" id="map-nav">
+      <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Olympia
+      </a>
+      <span class="map-nav-title">Secteur Galactique</span>
+      <span class="map-nav-sub"
+        >Horus Heresy &bull; 31<sup>e</sup> Millénaire</span
+      >
+      <button
+        class="btn-theme-map"
+        data-theme-toggle
+        aria-label="Basculer le thème"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
 
-<!-- NAV -->
-<nav class="map-nav" id="map-nav">
-  <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-    Olympia
-  </a>
-  <span class="map-nav-title">Secteur Galactique</span>
-  <span class="map-nav-sub">Horus Heresy &bull; 31<sup>e</sup> Millénaire</span>
-  <button class="btn-theme-map" data-theme-toggle aria-label="Basculer le thème">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-</nav>
+    <!-- LÉGENDE -->
+    <aside class="map-legend" aria-label="Légende de la carte">
+      <div class="map-legend-title">Légende</div>
+      <div class="legend-item">
+        <span class="legend-dot dot-loyalist"></span>Loyaliste
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-traitor"></span>Traître
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-civil_war"></span>Guerre Civile
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-besieged"></span>Assiégé
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-neutral"></span>Neutre
+      </div>
+    </aside>
 
-<!-- LÉGENDE -->
-<aside class="map-legend" aria-label="Légende de la carte">
-  <div class="map-legend-title">Légende</div>
-  <div class="legend-item"><span class="legend-dot dot-loyalist"></span>Loyaliste</div>
-  <div class="legend-item"><span class="legend-dot dot-traitor"></span>Traître</div>
-  <div class="legend-item"><span class="legend-dot dot-civil_war"></span>Guerre Civile</div>
-  <div class="legend-item"><span class="legend-dot dot-besieged"></span>Assiégé</div>
-  <div class="legend-item"><span class="legend-dot dot-neutral"></span>Neutre</div>
-</aside>
+    <!-- CARTE SVG -->
+    <main class="map-wrapper">
+      <div class="map-container">
+        <svg
+          id="map-svg"
+          class="map-svg"
+          viewBox="0 0 1000 700"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Carte interactive du secteur galactique Olympia"
+        >
+          <defs>
+            <!-- Filtre brûlure -->
+            <filter id="burn" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.04"
+                numOctaves="4"
+                seed="8"
+                result="noise"
+              />
+              <feDisplacementMap
+                in="SourceGraphic"
+                in2="noise"
+                scale="3"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+            <!-- Filtre lueur dorée -->
+            <filter id="glow-gold">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <!-- Filtre lueur rouge -->
+            <filter id="glow-red">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <!-- Gradient nébuleuse centrale -->
+            <radialGradient id="nebula-grad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#3a2010" stop-opacity="0.9" />
+              <stop offset="35%" stop-color="#1e1208" stop-opacity="0.7" />
+              <stop offset="70%" stop-color="#0a0806" stop-opacity="0.4" />
+              <stop offset="100%" stop-color="#0a0806" stop-opacity="0" />
+            </radialGradient>
+            <!-- Gradient fond étoilé -->
+            <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
+              <stop offset="0%" stop-color="#12100a" />
+              <stop offset="100%" stop-color="#050403" />
+            </radialGradient>
+            <!-- Gradient zone Dominion -->
+            <linearGradient
+              id="dominion-grad"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="#8b1a1a" stop-opacity="0" />
+              <stop offset="40%" stop-color="#8b1a1a" stop-opacity="0.12" />
+              <stop offset="100%" stop-color="#8b1a1a" stop-opacity="0.18" />
+            </linearGradient>
+            <!-- Gradient zone Quantum -->
+            <linearGradient
+              id="quantum-grad"
+              x1="100%"
+              y1="100%"
+              x2="0%"
+              y2="0%"
+            >
+              <stop offset="0%" stop-color="#4a2a6a" stop-opacity="0" />
+              <stop offset="50%" stop-color="#4a2a6a" stop-opacity="0.12" />
+              <stop offset="100%" stop-color="#4a2a6a" stop-opacity="0.2" />
+            </linearGradient>
+            <!-- Grille hexagonale subtile -->
+            <pattern
+              id="hex-grid"
+              x="0"
+              y="0"
+              width="40"
+              height="34.6"
+              patternUnits="userSpaceOnUse"
+            >
+              <polygon
+                points="20,0 40,10 40,24.6 20,34.6 0,24.6 0,10"
+                fill="none"
+                stroke="rgba(201,168,76,0.04)"
+                stroke-width="0.5"
+              />
+            </pattern>
+          </defs>
 
-<!-- CARTE SVG -->
-<main class="map-wrapper">
-  <div class="map-container">
-    <svg id="map-svg" class="map-svg" viewBox="0 0 1000 700"
-         xmlns="http://www.w3.org/2000/svg"
-         role="img" aria-label="Carte interactive du secteur galactique Olympia">
-      <defs>
-        <!-- Filtre brûlure -->
-        <filter id="burn" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" seed="8" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-        <!-- Filtre lueur dorée -->
-        <filter id="glow-gold">
-          <feGaussianBlur stdDeviation="3" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <!-- Filtre lueur rouge -->
-        <filter id="glow-red">
-          <feGaussianBlur stdDeviation="4" result="blur"/>
-          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <!-- Gradient nébuleuse centrale -->
-        <radialGradient id="nebula-grad" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"   stop-color="#3a2010" stop-opacity="0.9"/>
-          <stop offset="35%"  stop-color="#1e1208" stop-opacity="0.7"/>
-          <stop offset="70%"  stop-color="#0a0806" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#0a0806" stop-opacity="0"/>
-        </radialGradient>
-        <!-- Gradient fond étoilé -->
-        <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
-          <stop offset="0%" stop-color="#12100a"/>
-          <stop offset="100%" stop-color="#050403"/>
-        </radialGradient>
-        <!-- Gradient zone Dominion -->
-        <linearGradient id="dominion-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#8b1a1a" stop-opacity="0"/>
-          <stop offset="40%" stop-color="#8b1a1a" stop-opacity="0.12"/>
-          <stop offset="100%" stop-color="#8b1a1a" stop-opacity="0.18"/>
-        </linearGradient>
-        <!-- Gradient zone Quantum -->
-        <linearGradient id="quantum-grad" x1="100%" y1="100%" x2="0%" y2="0%">
-          <stop offset="0%" stop-color="#4a2a6a" stop-opacity="0"/>
-          <stop offset="50%" stop-color="#4a2a6a" stop-opacity="0.12"/>
-          <stop offset="100%" stop-color="#4a2a6a" stop-opacity="0.2"/>
-        </linearGradient>
-        <!-- Grille hexagonale subtile -->
-        <pattern id="hex-grid" x="0" y="0" width="40" height="34.6" patternUnits="userSpaceOnUse">
-          <polygon points="20,0 40,10 40,24.6 20,34.6 0,24.6 0,10"
-                   fill="none" stroke="rgba(201,168,76,0.04)" stroke-width="0.5"/>
-        </pattern>
-      </defs>
+          <!-- FOND -->
+          <rect width="1000" height="700" fill="url(#bg-grad)" />
+          <rect width="1000" height="700" fill="url(#hex-grid)" />
 
-      <!-- FOND -->
-      <rect width="1000" height="700" fill="url(#bg-grad)"/>
-      <rect width="1000" height="700" fill="url(#hex-grid)"/>
+          <!-- ÉTOILES (générées) -->
+          <g id="stars-layer"></g>
 
-      <!-- ÉTOILES (générées) -->
-      <g id="stars-layer"></g>
+          <!-- ZONE : The Dominion of Storms -->
+          <rect
+            x="820"
+            y="0"
+            width="180"
+            height="700"
+            fill="url(#dominion-grad)"
+            class="sector-zone"
+          />
+          <line
+            x1="820"
+            y1="0"
+            x2="820"
+            y2="700"
+            stroke="rgba(139,26,26,0.25)"
+            stroke-width="1"
+            stroke-dasharray="4 6"
+            class="sector-zone"
+          />
+          <text
+            x="970"
+            y="350"
+            class="zone-label"
+            transform="rotate(-90, 970, 350)"
+            text-anchor="middle"
+            fill="rgba(139,26,26,0.45)"
+          >
+            The Dominion of Storms
+          </text>
 
-      <!-- ZONE : The Dominion of Storms -->
-      <rect x="820" y="0" width="180" height="700" fill="url(#dominion-grad)" class="sector-zone"/>
-      <line x1="820" y1="0" x2="820" y2="700" stroke="rgba(139,26,26,0.25)" stroke-width="1" stroke-dasharray="4 6" class="sector-zone"/>
-      <text x="970" y="350" class="zone-label" transform="rotate(-90, 970, 350)" text-anchor="middle"
-            fill="rgba(139,26,26,0.45)">The Dominion of Storms</text>
+          <!-- ZONE : Quantum Obscurus -->
+          <polygon
+            points="0,0 350,0 350,315 180,385 0,385"
+            fill="url(#quantum-grad)"
+            class="sector-zone"
+          />
+          <polyline
+            points="350,0 350,315 180,385 0,385"
+            fill="none"
+            stroke="rgba(74,42,106,0.25)"
+            stroke-width="1"
+            stroke-dasharray="4 6"
+            class="sector-zone"
+          />
+          <text
+            x="120"
+            y="80"
+            class="zone-label"
+            fill="rgba(74,42,106,0.5)"
+            font-style="italic"
+          >
+            Quantum Obscurus
+          </text>
 
-      <!-- ZONE : Quantum Obscurus -->
-      <polygon points="0,0 350,0 350,315 180,385 0,385" fill="url(#quantum-grad)" class="sector-zone"/>
-      <polyline points="350,0 350,315 180,385 0,385" fill="none"
-                stroke="rgba(74,42,106,0.25)" stroke-width="1" stroke-dasharray="4 6" class="sector-zone"/>
-      <text x="120" y="80" class="zone-label" fill="rgba(74,42,106,0.5)"
-            font-style="italic">Quantum Obscurus</text>
-
-      <!-- SOUS ECTEUR OLYMPIA -->
-      <rect x="400" y="184" width="280" height="260" rx="8"
+          <!-- SOUS ECTEUR OLYMPIA -->
+          <rect
+            x="400"
+            y="184"
+            width="280"
+            height="260"
+            rx="8"
             fill="rgba(201,168,76,0.06)"
-            stroke="rgba(201,168,76,0.5)" stroke-width="1.5"
-            stroke-dasharray="6 4" class="besieged-zone"/>
-      <text x="535" y="174" class="zone-label" text-anchor="middle"
-            fill="rgba(201,168,76,0.7)" font-size="9" letter-spacing="0.2em">⚔ Sous-secteur Olympia ⚔</text>
+            stroke="rgba(201,168,76,0.5)"
+            stroke-width="1.5"
+            stroke-dasharray="6 4"
+            class="besieged-zone"
+          />
+          <text
+            x="535"
+            y="174"
+            class="zone-label"
+            text-anchor="middle"
+            fill="rgba(201,168,76,0.7)"
+            font-size="9"
+            letter-spacing="0.2em"
+          >
+            ⚔ Sous-secteur Olympia ⚔
+          </text>
 
-      <!-- NÉBULEUSE CENTRALE -->
-      <ellipse cx="480" cy="406" rx="280" ry="154" fill="url(#nebula-grad)" class="nebula-core"/>
-      <ellipse cx="480" cy="406" rx="200" ry="110" fill="rgba(20,12,4,0.5)" class="nebula-core"/>
-      <text x="480" y="650" class="zone-label" text-anchor="middle"
-            font-family="UnifrakturMaguntia, serif" font-size="22"
-            fill="rgba(201,168,76,0.35)" letter-spacing="0.1em">The Galactic Core</text>
+          <!-- NÉBULEUSE CENTRALE -->
+          <ellipse
+            cx="480"
+            cy="406"
+            rx="280"
+            ry="154"
+            fill="url(#nebula-grad)"
+            class="nebula-core"
+          />
+          <ellipse
+            cx="480"
+            cy="406"
+            rx="200"
+            ry="110"
+            fill="rgba(20,12,4,0.5)"
+            class="nebula-core"
+          />
+          <text
+            x="480"
+            y="650"
+            class="zone-label"
+            text-anchor="middle"
+            font-family="UnifrakturMaguntia, serif"
+            font-size="22"
+            fill="rgba(201,168,76,0.35)"
+            letter-spacing="0.1em"
+          >
+            The Galactic Core
+          </text>
 
-      <!-- LIGNE ORNEMENTALE BORDURE -->
-      <rect x="8" y="8" width="984" height="684" rx="2"
-            fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1.5" filter="url(#burn)"/>
-      <rect x="14" y="14" width="972" height="672" rx="1"
-            fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+          <!-- LIGNE ORNEMENTALE BORDURE -->
+          <rect
+            x="8"
+            y="8"
+            width="984"
+            height="684"
+            rx="2"
+            fill="none"
+            stroke="rgba(201,168,76,0.15)"
+            stroke-width="1.5"
+            filter="url(#burn)"
+          />
+          <rect
+            x="14"
+            y="14"
+            width="972"
+            height="672"
+            rx="1"
+            fill="none"
+            stroke="rgba(201,168,76,0.08)"
+            stroke-width="0.5"
+          />
 
-      <!-- SYSTÈMES STELLAIRES (injectés par JS) -->
-      <g id="systems-layer"></g>
-    </svg>
-  </div>
-</main>
+          <!-- SYSTÈMES STELLAIRES (injectés par JS) -->
+          <g id="systems-layer"></g>
+        </svg>
+      </div>
+    </main>
 
-<!-- OVERLAY MOBILE -->
-<div class="map-overlay" id="map-overlay" aria-hidden="true"></div>
+    <!-- OVERLAY MOBILE -->
+    <div class="map-overlay" id="map-overlay" aria-hidden="true"></div>
 
-<!-- PANEL LATÉRAL -->
-<aside class="side-panel" id="side-panel" role="complementary" aria-label="Détails du système stellaire">
-  <div class="panel-header">
-    <button class="panel-close" id="panel-close" aria-label="Fermer le panneau">✕</button>
-    <p class="panel-eyebrow" id="panel-eyebrow">Système Stellaire</p>
-    <h2 class="panel-title" id="panel-title">—</h2>
-    <span class="panel-status-badge" id="panel-badge">—</span>
-  </div>
-  <div class="panel-body">
-    <div class="panel-faction">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <span id="panel-faction">—</span>
-    </div>
-    <p class="panel-desc" id="panel-desc">—</p>
-    <hr class="panel-divider">
-    <p class="panel-coords" id="panel-coords">—</p>
-    <div class="panel-ornament">⚜ &nbsp; ✦ &nbsp; ⚜</div>
-  </div>
-</aside>
+    <!-- PANEL LATÉRAL -->
+    <aside
+      class="side-panel"
+      id="side-panel"
+      role="complementary"
+      aria-label="Détails du système stellaire"
+    >
+      <div class="panel-header">
+        <button
+          class="panel-close"
+          id="panel-close"
+          aria-label="Fermer le panneau"
+        >
+          ✕
+        </button>
+        <p class="panel-eyebrow" id="panel-eyebrow">Système Stellaire</p>
+        <h2 class="panel-title" id="panel-title">—</h2>
+        <span class="panel-status-badge" id="panel-badge">—</span>
+      </div>
+      <div class="panel-body">
+        <div class="panel-faction">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+            />
+          </svg>
+          <span id="panel-faction">—</span>
+        </div>
+        <p class="panel-desc" id="panel-desc">—</p>
+        <hr class="panel-divider" />
+        <p class="panel-coords" id="panel-coords">—</p>
+        <div class="panel-ornament">⚜ &nbsp; ✦ &nbsp; ⚜</div>
+      </div>
+    </aside>
 
-<script>
-(function () {
-  'use strict';
+    <script>
+      (function () {
+        'use strict';
 
-  // ── THEME TOGGLE ──────────────────────────────────────────────────
-  const root = document.documentElement;
-  let theme = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  root.setAttribute('data-theme', theme);
-  const themeBtn = document.querySelector('[data-theme-toggle]');
-  function updateThemeBtn() {
-    if (!themeBtn) return;
-    themeBtn.innerHTML = theme === 'dark'
-      ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  }
-  updateThemeBtn();
-  if (themeBtn) themeBtn.addEventListener('click', () => {
-    theme = theme === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', theme);
-    updateThemeBtn();
-  });
+        // ── THEME TOGGLE ──────────────────────────────────────────────────
+        const root = document.documentElement;
+        let theme =
+          root.getAttribute('data-theme') ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+        root.setAttribute('data-theme', theme);
+        const themeBtn = document.querySelector('[data-theme-toggle]');
+        function updateThemeBtn() {
+          if (!themeBtn) return;
+          themeBtn.innerHTML =
+            theme === 'dark'
+              ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+              : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        }
+        updateThemeBtn();
+        if (themeBtn)
+          themeBtn.addEventListener('click', () => {
+            theme = theme === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', theme);
+            updateThemeBtn();
+          });
 
-  // ── GÉNÉRER ÉTOILES ───────────────────────────────────────────────
-  function generateStars() {
-    const layer = document.getElementById('stars-layer');
-    const count = 280;
-    let svg = '';
-    for (let i = 0; i < count; i++) {
-      const x = Math.random() * 1000;
-      const y = Math.random() * 700;
-      const r = Math.random() < 0.85 ? (Math.random() * 0.8 + 0.3) : (Math.random() * 1.2 + 0.8);
-      const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
-      const dur = (Math.random() * 3 + 2).toFixed(1);
-      const delay = (Math.random() * 4).toFixed(1);
-      svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
+        // ── GÉNÉRER ÉTOILES ───────────────────────────────────────────────
+        function generateStars() {
+          const layer = document.getElementById('stars-layer');
+          const count = 280;
+          let svg = '';
+          for (let i = 0; i < count; i++) {
+            const x = Math.random() * 1000;
+            const y = Math.random() * 700;
+            const r =
+              Math.random() < 0.85
+                ? Math.random() * 0.8 + 0.3
+                : Math.random() * 1.2 + 0.8;
+            const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
+            const dur = (Math.random() * 3 + 2).toFixed(1);
+            const delay = (Math.random() * 4).toFixed(1);
+            svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
         style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
-    }
-    layer.innerHTML = svg;
-  }
+          }
+          layer.innerHTML = svg;
+        }
 
-  // ── ICÔNES STATUT ─────────────────────────────────────────────────
-  const ICONS = {
-    neutral:   '◎',
-    loyalist:  '✦',
-    traitor:   '✕',
-    civil_war: '⚔',
-    besieged:  '🔒'
-  };
-  const STATUS_FR = {
-    neutral:   'Neutre',
-    loyalist:  'Loyaliste',
-    traitor:   'Traître',
-    civil_war: 'Guerre Civile',
-    besieged:  'Assiégé'
-  };
+        // ── ICÔNES STATUT ─────────────────────────────────────────────────
+        const ICONS = {
+          neutral: '◎',
+          loyalist: '✦',
+          traitor: '✕',
+          civil_war: '⚔',
+          besieged: '🔒',
+        };
+        const STATUS_FR = {
+          neutral: 'Neutre',
+          loyalist: 'Loyaliste',
+          traitor: 'Traître',
+          civil_war: 'Guerre Civile',
+          besieged: 'Assiégé',
+        };
 
-  // ── PANEL ─────────────────────────────────────────────────────────
-  const panel   = document.getElementById('side-panel');
-  const overlay = document.getElementById('map-overlay');
+        // ── PANEL ─────────────────────────────────────────────────────────
+        const panel = document.getElementById('side-panel');
+        const overlay = document.getElementById('map-overlay');
 
-  function openPanel(sys) {
-    document.getElementById('panel-eyebrow').textContent = 'Système Stellaire';
-    document.getElementById('panel-title').textContent   = sys.nom;
-    document.getElementById('panel-faction').textContent = sys.faction;
-    document.getElementById('panel-desc').textContent    = sys.description;
-    document.getElementById('panel-coords').textContent  =
-      `Coordonnées : ${sys.x_pct.toFixed(1)}% × ${sys.y_pct.toFixed(1)}%`;
+        function openPanel(sys) {
+          document.getElementById('panel-eyebrow').textContent =
+            'Système Stellaire';
+          document.getElementById('panel-title').textContent = sys.nom;
+          document.getElementById('panel-faction').textContent = sys.faction;
+          document.getElementById('panel-desc').textContent = sys.description;
+          document.getElementById('panel-coords').textContent =
+            `Coordonnées : ${sys.x_pct.toFixed(1)}% × ${sys.y_pct.toFixed(1)}%`;
 
-    const badge = document.getElementById('panel-badge');
-    badge.textContent  = (ICONS[sys.statut] || '◎') + ' ' + (STATUS_FR[sys.statut] || sys.statut);
-    badge.className    = 'panel-status-badge badge-' + sys.statut;
+          const badge = document.getElementById('panel-badge');
+          badge.textContent =
+            (ICONS[sys.statut] || '◎') +
+            ' ' +
+            (STATUS_FR[sys.statut] || sys.statut);
+          badge.className = 'panel-status-badge badge-' + sys.statut;
 
-    panel.classList.add('open');
-    overlay.classList.add('active');
-    overlay.setAttribute('aria-hidden', 'false');
-  }
+          panel.classList.add('open');
+          overlay.classList.add('active');
+          overlay.setAttribute('aria-hidden', 'false');
+        }
 
-  function closePanel() {
-    panel.classList.remove('open');
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden', 'true');
-  }
+        function closePanel() {
+          panel.classList.remove('open');
+          overlay.classList.remove('active');
+          overlay.setAttribute('aria-hidden', 'true');
+        }
 
-  document.getElementById('panel-close').addEventListener('click', closePanel);
-  overlay.addEventListener('click', closePanel);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+        document
+          .getElementById('panel-close')
+          .addEventListener('click', closePanel);
+        overlay.addEventListener('click', closePanel);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closePanel();
+        });
 
-  // ── RENDER SYSTÈMES ───────────────────────────────────────────────
-  function renderSystems(systemes) {
-    const layer = document.getElementById('systems-layer');
-    let svg = '';
-    systemes.forEach(sys => {
-      const x = (sys.x_pct / 100) * 1000;
-      const y = (sys.y_pct / 100) * 700;
-      const icon = ICONS[sys.statut] || '◎';
-      const labelY = y + 16;
-      svg += `
+        // ── RENDER SYSTÈMES ───────────────────────────────────────────────
+        function renderSystems(systemes) {
+          const layer = document.getElementById('systems-layer');
+          let svg = '';
+          systemes.forEach((sys) => {
+            const x = (sys.x_pct / 100) * 1000;
+            const y = (sys.y_pct / 100) * 700;
+            const icon = ICONS[sys.statut] || '◎';
+            const labelY = y + 16;
+            svg += `
         <g class="system-node status-${sys.statut}"
            data-id="${sys.id}"
            role="button" tabindex="0"
@@ -265,107 +486,120 @@
           <text class="node-icon" x="0" y="-8" font-size="7">${icon}</text>
           <text class="node-label" x="0" y="15" font-size="9">${sys.nom}</text>
         </g>`;
-    });
-    layer.innerHTML = svg;
+          });
+          layer.innerHTML = svg;
 
-    // Events
-    layer.querySelectorAll('.system-node').forEach(node => {
-      const id = node.dataset.id;
-      const sys = systemes.find(s => s.id === id);
-      if (!sys) return;
-      node.addEventListener('click', () => openPanel(sys));
-      node.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPanel(sys); } });
-    });
-  }
+          // Events
+          layer.querySelectorAll('.system-node').forEach((node) => {
+            const id = node.dataset.id;
+            const sys = systemes.find((s) => s.id === id);
+            if (!sys) return;
+            node.addEventListener('click', () => openPanel(sys));
+            node.addEventListener('keydown', (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPanel(sys);
+              }
+            });
+          });
+        }
 
-  // ── FETCH & INIT ─────────────────────────────────────────────────
+        // ── FETCH & INIT ─────────────────────────────────────────────────
 
-  // Données inline (pas de fetch nécessaire)
-  const CARTE_DATA = {
-  "systemes": [
-    {
-      "id": "olympia",
-      "nom": "Olympia",
-      "x_pct": 63,
-      "y_pct": 52,
-      "statut": "traitor",
-      "faction": "Iron Warriors",
-      "description": "Monde natal de Perturabo et berceau des Iron Warriors. La planète est déchirée par une rébellion brutalement écrasée par la IVe Légion, laissant derrière elle des cicatrices indélébiles."
-    },
-	{
-      "id": "saiph",
-      "nom": "Saiph",
-      "x_pct": 51,
-      "y_pct": 30,
-      "statut": "loyalist",
-      "faction": "Armée Solaire",
-      "description": "Système défensif loyaliste tenant le couloir nord du secteur. Les garnisons de Saiph reçoivent des renforts impériaux et préparent une ligne de résistance contre l'avancée traîtresse."
-    },
-	{
-      "id": "incaladion",
-      "nom": "Incaladion",
-      "x_pct": 65,
-      "y_pct": 48,
-      "statut": "traitor",
-      "faction": "Iron Warriors",
-      "description": "Citadelle-monde proche d'Olympia, Incaladion est une immense forteresse, aussi imprenable qu'indispensable à la défense du sous-secteur Olympia. Elle ne doit pas tomber aux mains des loyalistes."
-    },
-    {
-      "id": "anvillus",
-      "nom": "Anvillus",
-      "x_pct": 43,
-      "y_pct": 47,
-      "statut": "civil_war",
-      "faction": "Iron Warriors",
-      "description": "Monde ruche industriel stratégique, Anvillus est un nœud de production militaire vital. L'insurection populaire rend instable le contrôle de ses immenses complexes de forge."
-    },
-    {
-      "id": "ultan-magna",
-      "nom": "Ultan Magna",
-      "x_pct": 47,
-      "y_pct": 58,
-      "statut": "neutral",
-      "faction": "Mechanicum",
-      "description": "Monde-forge du Mechanicum, Ultan Magna est silencieuse. Aucun message officiel du Mechanicum ne mentionne clairement l’autorité qui gouverne ce monde. Nul ne sait si Ultan Magna est encore loyale à l’Imperium… ou si elle attend simplement le moment opportun pour révéler sa véritable allégeance."
-    },
-	{
-	  "id": "baal",
-      "nom": "Baal",
-      "x_pct": 33,
-      "y_pct": 12,
-      "statut": "loyalist",
-      "faction": "Blood Angels",
-      "description": "Monde natal des Blood Angels, Baal est encerclé par les forces traîtresses. La IXe Légion défend farouchement son berceau ancestral contre l'assaut dévastateur des armées d'Horus."
-    },
-    {
-      "id": "davin",
-      "nom": "Davin",
-      "x_pct": 30,
-      "y_pct": 74,
-      "statut": "traitor",
-      "faction": "Cultes du Chaos",
-      "description": "Monde maudit où Horus lui-même reçut la blessure empoisonnée qui précipita sa chute. Davin est le berceau spirituel de la trahison, un monde de marécages corrompus par les pouvoirs du Warp."
-    },
-    {
-      "id": "prospero",
-      "nom": "Prospero",
-      "x_pct": 10,
-      "y_pct": 62,
-      "statut": "neutral",
-      "faction": "Thousand Sons",
-      "description": "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch."
-    }
-  ],
-  "meta": {
-    "titre": "Secteur Olympia",
-    "sous_titre": "Carte du Sous-Secteur — Horus Heresy",
-    "epoque": "31e Millénaire — L'Horus Heresy",
-    "version": "1.0"
-  }
-};
-  generateStars();
-  renderSystems(CARTE_DATA.systemes);
-})();
-</script>
-</body>
+        // Données inline (pas de fetch nécessaire)
+        const CARTE_DATA = {
+          systemes: [
+            {
+              id: 'olympia',
+              nom: 'Olympia',
+              x_pct: 63,
+              y_pct: 52,
+              statut: 'traitor',
+              faction: 'Iron Warriors',
+              description:
+                'Monde natal de Perturabo et berceau des Iron Warriors. La planète est déchirée par une rébellion brutalement écrasée par la IVe Légion, laissant derrière elle des cicatrices indélébiles.',
+            },
+            {
+              id: 'saiph',
+              nom: 'Saiph',
+              x_pct: 51,
+              y_pct: 30,
+              statut: 'loyalist',
+              faction: 'Armée Solaire',
+              description:
+                "Système défensif loyaliste tenant le couloir nord du secteur. Les garnisons de Saiph reçoivent des renforts impériaux et préparent une ligne de résistance contre l'avancée traîtresse.",
+            },
+            {
+              id: 'incaladion',
+              nom: 'Incaladion',
+              x_pct: 65,
+              y_pct: 48,
+              statut: 'traitor',
+              faction: 'Iron Warriors',
+              description:
+                "Citadelle-monde proche d'Olympia, Incaladion est une immense forteresse, aussi imprenable qu'indispensable à la défense du sous-secteur Olympia. Elle ne doit pas tomber aux mains des loyalistes.",
+            },
+            {
+              id: 'anvillus',
+              nom: 'Anvillus',
+              x_pct: 43,
+              y_pct: 47,
+              statut: 'civil_war',
+              faction: 'Iron Warriors',
+              description:
+                "Monde ruche industriel stratégique, Anvillus est un nœud de production militaire vital. L'insurection populaire rend instable le contrôle de ses immenses complexes de forge.",
+            },
+            {
+              id: 'ultan-magna',
+              nom: 'Ultan Magna',
+              x_pct: 47,
+              y_pct: 58,
+              statut: 'neutral',
+              faction: 'Mechanicum',
+              description:
+                'Monde-forge du Mechanicum, Ultan Magna est silencieuse. Aucun message officiel du Mechanicum ne mentionne clairement l’autorité qui gouverne ce monde. Nul ne sait si Ultan Magna est encore loyale à l’Imperium… ou si elle attend simplement le moment opportun pour révéler sa véritable allégeance.',
+            },
+            {
+              id: 'baal',
+              nom: 'Baal',
+              x_pct: 33,
+              y_pct: 12,
+              statut: 'loyalist',
+              faction: 'Blood Angels',
+              description:
+                "Monde natal des Blood Angels, Baal est encerclé par les forces traîtresses. La IXe Légion défend farouchement son berceau ancestral contre l'assaut dévastateur des armées d'Horus.",
+            },
+            {
+              id: 'davin',
+              nom: 'Davin',
+              x_pct: 30,
+              y_pct: 74,
+              statut: 'traitor',
+              faction: 'Cultes du Chaos',
+              description:
+                'Monde maudit où Horus lui-même reçut la blessure empoisonnée qui précipita sa chute. Davin est le berceau spirituel de la trahison, un monde de marécages corrompus par les pouvoirs du Warp.',
+            },
+            {
+              id: 'prospero',
+              nom: 'Prospero',
+              x_pct: 10,
+              y_pct: 62,
+              statut: 'neutral',
+              faction: 'Thousand Sons',
+              description:
+                "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch.",
+            },
+          ],
+          meta: {
+            titre: 'Secteur Olympia',
+            sous_titre: 'Carte du Sous-Secteur — Horus Heresy',
+            epoque: "31e Millénaire — L'Horus Heresy",
+            version: '1.0',
+          },
+        };
+        generateStars();
+        renderSystems(CARTE_DATA.systemes);
+      })();
+    </script>
+  </body>
 </html>

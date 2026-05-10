@@ -11,7 +11,14 @@
       "role": "Maître du jeu",
       "couleur": "gold",
       "delai": 2,
-      "armees": ["Black Templars", "Silver Templars", "Death Guard", "Nécrons", "Adeptus Mechanicus", "Votann"]
+      "armees": [
+        "Black Templars",
+        "Silver Templars",
+        "Death Guard",
+        "Nécrons",
+        "Adeptus Mechanicus",
+        "Votann"
+      ]
     },
     {
       "nom": "Alexis",
@@ -109,9 +116,7 @@
         {
           "titre": "",
           "texte": "À défaut de savoir vers qui va pencher le Mechanicum, les forces loyalistes comme les traîtres ont tout intérêt à prendre le contrôle de la planète.",
-          "factions": [
-            { "label": "Mechanicum", "classe": "faction-tag--ba" }
-          ]
+          "factions": [{ "label": "Mechanicum", "classe": "faction-tag--ba" }]
         }
       ]
     }

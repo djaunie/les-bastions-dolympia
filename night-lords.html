@@ -1,419 +1,757 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Night Lords — Les Bastions d'Olympia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-  
-<body>
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="Night Lords — Les Bastions d'Olympia">
-      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-        <circle cx="18" cy="18" r="8" fill="none" stroke="#8a9bac" stroke-width="1.5"/>
-        <circle cx="18" cy="18" r="3.5" fill="none" stroke="#c8a028" stroke-width="1.2"/>
-        <rect x="16.5" y="7"  width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="16.5" y="26" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="7"  y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <rect x="26" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac"/>
-        <line x1="14" y1="4" x2="10" y2="10" stroke="#c8a028" stroke-width="1.2"/>
-        <line x1="22" y1="4" x2="18" y2="10" stroke="#c8a028" stroke-width="1.2"/>
-      </svg>
-      <div>
-        <span class="nav-logo-text">Olympia</span>
-        <span class="nav-logo-sub">Horus Heresy</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Night Lords — Les Bastions d'Olympia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a
+          href="index.html"
+          class="nav-logo"
+          aria-label="Night Lords — Les Bastions d'Olympia"
+        >
+          <svg
+            class="nav-logo-icon"
+            viewBox="0 0 36 36"
+            fill="none"
+            aria-hidden="true"
+          >
+            <circle
+              cx="18"
+              cy="18"
+              r="8"
+              fill="none"
+              stroke="#8a9bac"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="18"
+              cy="18"
+              r="3.5"
+              fill="none"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+            <rect x="16.5" y="7" width="3" height="3" rx="0.5" fill="#8a9bac" />
+            <rect
+              x="16.5"
+              y="26"
+              width="3"
+              height="3"
+              rx="0.5"
+              fill="#8a9bac"
+            />
+            <rect x="7" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac" />
+            <rect
+              x="26"
+              y="16.5"
+              width="3"
+              height="3"
+              rx="0.5"
+              fill="#8a9bac"
+            />
+            <line
+              x1="14"
+              y1="4"
+              x2="10"
+              y2="10"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+            <line
+              x1="22"
+              y1="4"
+              x2="18"
+              y2="10"
+              stroke="#c8a028"
+              stroke-width="1.2"
+            />
+          </svg>
+          <div>
+            <span class="nav-logo-text">Olympia</span>
+            <span class="nav-logo-sub">Horus Heresy</span>
+          </div>
+        </a>
+        <div class="nav-actions">
+          <div class="nav-page-links">
+            <a
+              href="carte.html"
+              class="btn-nav-page btn-nav-page--carte"
+              aria-label="Accéder à la carte"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Carte
+            </a>
+          </div>
+          <button
+            class="btn-theme"
+            data-theme-toggle
+            aria-label="Basculer le thème"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+          <button
+            class="nav-mobile-toggle"
+            id="nav-toggle"
+            aria-label="Menu"
+            aria-expanded="false"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
       </div>
-    </a>
-    <div class="nav-actions">
-      <div class="nav-page-links">
-        <a href="carte.html" class="btn-nav-page btn-nav-page--carte" aria-label="Accéder à la carte">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Carte
+    </nav>
+
+    <!-- HERO -->
+    <header class="page-hero" id="top">
+      <div class="container">
+        <div class="hero-badge">
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          VIIIe Légion &mdash; Night Lords
+        </div>
+        <h1 class="section-title">NIGHT LORDS</h1>
+        <p class="section-desc">
+          Fils de Konrad Curze, Primarch de la VIIIe Légion. Seigneurs des
+          ténèbres et de la terreur, chasseurs dans l'obscurité.
+        </p>
+        <p class="hero-lore">
+          « Ils viennent dans la nuit, sans bruit, sans merci. Avant que vous
+          les voyiez, il est déjà trop tard — la peur est leur première arme, et
+          la mort n'est que la conclusion. »
+        </p>
+        <a href="index.html" class="back-link">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Retour à l'accueil
         </a>
       </div>
-      <button class="btn-theme" data-theme-toggle aria-label="Basculer le thème">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <button class="nav-mobile-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
+    </header>
 
-<!-- HERO -->
-<header class="page-hero" id="top">
-  <div class="container">
-    <div class="hero-badge">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-      VIIIe Légion &mdash; Night Lords
-    </div>
-    <h1 class="section-title">NIGHT LORDS</h1>
-    <p class="section-desc">Fils de Konrad Curze, Primarch de la VIIIe Légion. Seigneurs des ténèbres et de la terreur, chasseurs dans l'obscurité.</p>
-    <p class="hero-lore">« Ils viennent dans la nuit, sans bruit, sans merci. Avant que vous les voyiez, il est déjà trop tard — la peur est leur première arme, et la mort n'est que la conclusion. »</p>
-    <a href="index.html" class="back-link">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      Retour à l'accueil
-    </a>
-  </div>
-</header>
-
-<!-- ═══════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
      SECTION I — L'OMBRE QUI PRÉCÈDE LA MORT
 ═══════════════════════════════════════════════════ -->
-<section class="lore-section">
-  <div class="container">
-    <div class="lore-inner">
+    <section class="lore-section">
+      <div class="container">
+        <div class="lore-inner">
+          <!-- Bloc alerte intel -->
+          <div class="lore-intel reveal">
+            <p class="intel-label">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              Alerte — Menace en Approche
+            </p>
+            <div class="lore-prose">
+              <p>
+                Les transmissions interceptées sont fragmentées, brûlées aux
+                bords comme si leur émetteur avait péri avant d'achever le
+                message. Ce que les veilleurs des Bastions d'Olympia peuvent
+                affirmer tient en peu de mots : la
+                <strong>VIIIe Légion</strong> approche. Ses bannières, teintes
+                du bleu nuit des ruelles de Nostramo, ont été aperçues aux
+                confins du sous-secteur. Son chef marche à leur tête.
+              </p>
+              <p>
+                La composition exacte de leur force demeure
+                <strong>inconnue</strong>. Le nombre total, l'équipement,
+                l'itinéraire précis — tout cela appartient à l'ombre. Ce que
+                l'on sait suffit déjà à glacer le sang :
+                <strong>Konrad Curze</strong> lui-même est venu, et là où le
+                Prince de la Nuit pose ses griffes, la peur précède toujours la
+                mort.
+              </p>
+            </div>
+          </div>
 
-      <!-- Bloc alerte intel -->
-      <div class="lore-intel reveal">
-        <p class="intel-label">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Alerte — Menace en Approche
-        </p>
-        <div class="lore-prose">
-          <p>
-            Les transmissions interceptées sont fragmentées, brûlées aux bords comme si leur émetteur avait péri avant d'achever le message.
-            Ce que les veilleurs des Bastions d'Olympia peuvent affirmer tient en peu de mots :
-            la <strong>VIIIe Légion</strong> approche. Ses bannières, teintes du bleu nuit des ruelles de Nostramo,
-            ont été aperçues aux confins du sous-secteur. Son chef marche à leur tête.
-          </p>
-          <p>
-            La composition exacte de leur force demeure <strong>inconnue</strong>.
-            Le nombre total, l'équipement, l'itinéraire précis — tout cela appartient à l'ombre.
-            Ce que l'on sait suffit déjà à glacer le sang : <strong>Konrad Curze</strong> lui-même est venu,
-            et là où le Prince de la Nuit pose ses griffes, la peur précède toujours la mort.
-          </p>
+          <div class="lore-header reveal">
+            <p class="lore-eyebrow">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              Chapitre I
+            </p>
+            <h2 class="lore-title">L'Ombre Qui Précède la Mort</h2>
+          </div>
+
+          <div class="lore-prose reveal">
+            <p>
+              Avant que Horus ne lève l'étendard de la rébellion, la
+              <strong>VIIIe Légion </strong> était déjà une force qui faisait
+              frémir les mondes récalcitrants. Née dans les venelles crasseuses
+              et perpétuellement obscures de <strong>Nostramo Quintus</strong>,
+              planète souterraine où la lumière du soleil n'atteignait jamais
+              les bas quartiers, la Légion portait en elle l'empreinte
+              indélébile de son berceau. Ses guerriers avaient grandi parmi les
+              assassins, les extorqueurs et les meurtriers — les pires que
+              l'humanité fût capable de produire. L'Astartes les avait rendus
+              plus forts, plus rapides, plus terribles. Il n'avait pas effacé ce
+              qu'ils étaient.
+            </p>
+            <p>
+              Leur Primarch, <strong>Konrad Curze</strong>, avait régné sur
+              Nostramo par la terreur absolue. Il avait compris avant tout autre
+              chose que la peur est la chaîne la plus solide qui soit — plus
+              résistante que l'acier, plus tranchante que la lame de force. Un
+              homme qui croit que la nuit recèle des monstres ne s'aventure pas
+              dans la nuit. Et si les monstres portent les couleurs de
+              l'Empereur, alors peut-être que l'Empereur lui-même est le plus
+              grand monstre de tous.
+            </p>
+            <p>
+              Ce raisonnement, tordu et lucide à la fois, conduisit la VIIIe
+              Légion tout droit dans les bras de l'Hérésie. Quand Horus tomba à
+              Davin et que la galaxie commença de se déchirer, les
+              <strong>Night Lords</strong>
+              ne rejoignirent pas les rangs des Légions Traîtresses par
+              idéologie. Ils le firent parce que le chaos et la terreur sont
+              leur élément naturel, et que la Grande Croisade n'avait été, pour
+              eux, qu'un intermède trop ordonné.
+            </p>
+          </div>
+
+          <div class="lore-quote reveal">
+            <blockquote>
+              « Il ne fait pas régner la justice. Il fait régner la peur de la
+              justice. Ce n'est pas la même chose — et c'est précisément là que
+              réside toute la différence entre un pacificateur et un monstre. »
+            </blockquote>
+            <cite
+              >— Sevatar, Premier Capitaine de la VIIIe Légion, à ses officiers,
+              avant l'assaut de Nostramo</cite
+            >
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="lore-header reveal">
-        <p class="lore-eyebrow">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Chapitre I
-        </p>
-        <h2 class="lore-title">L'Ombre Qui Précède la Mort</h2>
-      </div>
-
-      <div class="lore-prose reveal">
-        <p>
-          Avant que Horus ne lève l'étendard de la rébellion, la <strong>VIIIe Légion </strong> était déjà
-          une force qui faisait frémir les mondes récalcitrants. Née dans les venelles crasseuses et perpétuellement obscures
-          de <strong>Nostramo Quintus</strong>, planète souterraine où la lumière du soleil n'atteignait jamais les bas quartiers,
-          la Légion portait en elle l'empreinte indélébile de son berceau. Ses guerriers avaient grandi parmi les assassins,
-          les extorqueurs et les meurtriers — les pires que l'humanité fût capable de produire.
-          L'Astartes les avait rendus plus forts, plus rapides, plus terribles. Il n'avait pas effacé ce qu'ils étaient.
-        </p>
-        <p>
-          Leur Primarch, <strong>Konrad Curze</strong>, avait régné sur Nostramo par la terreur absolue.
-          Il avait compris avant tout autre chose que la peur est la chaîne la plus solide qui soit —
-          plus résistante que l'acier, plus tranchante que la lame de force.
-          Un homme qui croit que la nuit recèle des monstres ne s'aventure pas dans la nuit.
-          Et si les monstres portent les couleurs de l'Empereur, alors peut-être que l'Empereur lui-même
-          est le plus grand monstre de tous.
-        </p>
-        <p>
-          Ce raisonnement, tordu et lucide à la fois, conduisit la VIIIe Légion tout droit dans les bras de l'Hérésie.
-          Quand Horus tomba à Davin et que la galaxie commença de se déchirer, les <strong>Night Lords</strong>
-          ne rejoignirent pas les rangs des Légions Traîtresses par idéologie.
-          Ils le firent parce que le chaos et la terreur sont leur élément naturel,
-          et que la Grande Croisade n'avait été, pour eux, qu'un intermède trop ordonné.
-        </p>
-      </div>
-
-      <div class="lore-quote reveal">
-        <blockquote>« Il ne fait pas régner la justice. Il fait régner la peur de la justice. Ce n'est pas la même chose — et c'est précisément là que réside toute la différence entre un pacificateur et un monstre. »</blockquote>
-        <cite>— Sevatar, Premier Capitaine de la VIIIe Légion, à ses officiers, avant l'assaut de Nostramo</cite>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
      SECTION II — LES FILS DE LA NUIT
 ═══════════════════════════════════════════════════ -->
-<section class="lore-section">
-  <div class="container">
-    <div class="lore-inner">
+    <section class="lore-section">
+      <div class="container">
+        <div class="lore-inner">
+          <div class="lore-header reveal">
+            <p class="lore-eyebrow">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              Chapitre II
+            </p>
+            <h2 class="lore-title">Les Fils de la Nuit</h2>
+          </div>
 
-      <div class="lore-header reveal">
-        <p class="lore-eyebrow">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Chapitre II
-        </p>
-        <h2 class="lore-title">Les Fils de la Nuit</h2>
-      </div>
+          <div class="lore-prose reveal">
+            <p>
+              Le groupe de combat qui approche du
+              <strong>Sous-Secteur Olympia</strong> est placé sous commandement
+              direct du Primarque en personne. Ce seul fait suffit à distinguer
+              cette opération d'une simple razzia de représailles. Konrad Curze
+              ne se déplace pas pour des batailles mineures. Quand le Prince de
+              la Nuit descend en personne sur un monde, c'est que ce monde doit
+              servir d'exemple — ou doit cesser d'exister.
+            </p>
+            <p>
+              À ses côtés marche celui que l'on surnomme le
+              <strong>Prince des Couards</strong> — non pas par mépris, mais
+              parce que ceux qui l'affrontent finissent toujours par fuir, et
+              que fuir face à Sevatar est un luxe que la mort ne permet pas. Son
+              Premier Capitaine est son bras droit autant que son instrument de
+              discipline, le gardien des <strong>Atramentar</strong>, l'élite
+              parmi l'élite de la Légion.
+            </p>
+          </div>
 
-      <div class="lore-prose reveal">
-        <p>
-          Le groupe de combat qui approche du <strong>Sous-Secteur Olympia</strong> est placé sous commandement
-          direct du Primarque en personne. Ce seul fait suffit à distinguer cette opération d'une simple razzia de représailles.
-          Konrad Curze ne se déplace pas pour des batailles mineures. Quand le Prince de la Nuit descend en personne
-          sur un monde, c'est que ce monde doit servir d'exemple — ou doit cesser d'exister.
-        </p>
-        <p>
-          À ses côtés marche celui que l'on surnomme le <strong>Prince des Couards</strong> — non pas par mépris,
-          mais parce que ceux qui l'affrontent finissent toujours par fuir, et que fuir face à Sevatar est un luxe
-          que la mort ne permet pas. Son Premier Capitaine est son bras droit autant que son instrument de discipline,
-          le gardien des <strong>Atramentar</strong>, l'élite parmi l'élite de la Légion.
-        </p>
-      </div>
+          <!-- Konrad Curze -->
+          <div class="lore-character reveal">
+            <div class="lore-character-bar lore-character-bar--primarch"></div>
+            <div class="lore-character-body">
+              <div class="lore-character-name lore-character-name--primarch">
+                KONRAD CURZE
+              </div>
+              <div class="lore-character-role">
+                Primarch de la VIIIe Légion — Le Seigneur de la Nuit, le Prince
+                des Ténèbres
+              </div>
+              <p class="lore-character-text">
+                Il vint au monde sur Nostramo sans mémoire de sa chute, sans
+                conscience de ce qu'il était. Il n'y avait pas d'Astartes pour
+                l'accueillir, pas de mentor pour lui enseigner la guerre —
+                seulement les ruelles obscures, les cris des victimes et les
+                silhouettes des criminels qui disparaissaient dès qu'il
+                s'approchait. Il apprit seul. Il régna seul. Puis l'Empereur
+                vint le chercher, et le Prince de la Nuit découvrit qu'il
+                n'était pas le seul monstre dans un univers plein de monstres.
+                Cette révélation ne l'apaise pas. Elle l'a consumé.
+              </p>
+              <p class="lore-character-text">
+                Ses visions prophétiques sont sa malédiction la plus intime : il
+                voit sa propre mort, inévitable, gravée dans les lignes du futur
+                comme une cicatrice dans de la pierre. Et sachant que tout finit
+                dans le sang, il a décidé que le sang coulerait d'abord.
+              </p>
+              <div class="lore-character-tags">
+                <span class="tag tag--blue">Primarque</span>
+                <span class="tag tag--blue">Seigneur de la Nuit</span>
+                <span class="tag tag--blue">La Nuit Hante</span>
+                <span class="tag tag--blue">Prince des Ténèbres</span>
+              </div>
+            </div>
+          </div>
 
-      <!-- Konrad Curze -->
-      <div class="lore-character reveal">
-        <div class="lore-character-bar lore-character-bar--primarch"></div>
-        <div class="lore-character-body">
-          <div class="lore-character-name lore-character-name--primarch">KONRAD CURZE</div>
-          <div class="lore-character-role">Primarch de la VIIIe Légion — Le Seigneur de la Nuit, le Prince des Ténèbres</div>
-          <p class="lore-character-text">
-            Il vint au monde sur Nostramo sans mémoire de sa chute, sans conscience de ce qu'il était.
-            Il n'y avait pas d'Astartes pour l'accueillir, pas de mentor pour lui enseigner la guerre —
-            seulement les ruelles obscures, les cris des victimes et les silhouettes des criminels
-            qui disparaissaient dès qu'il s'approchait. Il apprit seul. Il régna seul.
-            Puis l'Empereur vint le chercher, et le Prince de la Nuit découvrit qu'il n'était pas le seul monstre
-            dans un univers plein de monstres. Cette révélation ne l'apaise pas. Elle l'a consumé.
-          </p>
-          <p class="lore-character-text">
-            Ses visions prophétiques sont sa malédiction la plus intime : il voit sa propre mort, inévitable,
-            gravée dans les lignes du futur comme une cicatrice dans de la pierre. Et sachant que tout finit
-            dans le sang, il a décidé que le sang coulerait d'abord.
-          </p>
-          <div class="lore-character-tags">
-            <span class="tag tag--blue">Primarque</span>
-            <span class="tag tag--blue">Seigneur de la Nuit</span>
-            <span class="tag tag--blue">La Nuit Hante</span>
-            <span class="tag tag--blue">Prince des Ténèbres</span>
+          <!-- Sevatar -->
+          <div class="lore-character lore-character--silver reveal">
+            <div class="lore-character-bar lore-character-bar--silver"></div>
+            <div class="lore-character-body">
+              <div class="lore-character-name lore-character-name--silver">
+                SEVATAR
+              </div>
+              <div class="lore-character-role">
+                Premier Capitaine — Commandant des Atramentar, « le Prince des
+                Couards »
+              </div>
+              <p class="lore-character-text">
+                Il y a deux types d'hommes parmi les Night Lords : ceux qui font
+                régner la terreur parce qu'ils y trouvent du plaisir, et ceux
+                qui s'en servent comme d'un outil. Sevatar appartient à la
+                seconde catégorie, ce qui le rend infiniment plus dangereux que
+                les premiers. Il tue avec méthode, planifie avec précision, et
+                obéit à Curze non par peur mais par conviction sincère que la
+                légion ne peut fonctionner qu'avec une main de fer à sa tête.
+              </p>
+              <p class="lore-character-text">
+                Ses <strong>Atramentar</strong> — les Terminators d'élite de la
+                VIIIe Légion — ne quittent jamais son flanc en opération. Là où
+                Sevatar entre, ils entrent. Et là où les Atramentar entrent, les
+                portes ne s'ouvrent plus depuis l'intérieur.
+              </p>
+              <div class="lore-character-tags">
+                <span class="tag tag--silver">Premier Capitaine</span>
+                <span class="tag tag--silver">Atramentar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lore-quote reveal">
+            <blockquote>
+              « On me demande souvent si j'aime ce que je fais. La réponse
+              correcte serait : je n'aime rien ni personne. La réponse honnête
+              serait : je suis très bon dans ce que je fais, et c'est suffisant.
+              »
+            </blockquote>
+            <cite
+              >— Sevatar, Premier Capitaine, lors de la Croisade de
+              Thramas</cite
+            >
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Sevatar -->
-      <div class="lore-character lore-character--silver reveal">
-        <div class="lore-character-bar lore-character-bar--silver"></div>
-        <div class="lore-character-body">
-          <div class="lore-character-name lore-character-name--silver">SEVATAR</div>
-          <div class="lore-character-role">Premier Capitaine — Commandant des Atramentar, « le Prince des Couards »</div>
-          <p class="lore-character-text">
-            Il y a deux types d'hommes parmi les Night Lords : ceux qui font régner la terreur parce qu'ils y
-            trouvent du plaisir, et ceux qui s'en servent comme d'un outil. Sevatar appartient à la seconde catégorie,
-            ce qui le rend infiniment plus dangereux que les premiers. Il tue avec méthode, planifie avec précision,
-            et obéit à Curze non par peur mais par conviction sincère que la légion ne peut fonctionner
-            qu'avec une main de fer à sa tête.
-          </p>
-          <p class="lore-character-text">
-            Ses <strong>Atramentar</strong> — les Terminators d'élite de la VIIIe Légion — ne quittent jamais
-            son flanc en opération. Là où Sevatar entre, ils entrent. Et là où les Atramentar entrent,
-            les portes ne s'ouvrent plus depuis l'intérieur.
-          </p>
-          <div class="lore-character-tags">
-            <span class="tag tag--silver">Premier Capitaine</span>
-            <span class="tag tag--silver">Atramentar</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="lore-quote reveal">
-        <blockquote>« On me demande souvent si j'aime ce que je fais. La réponse correcte serait : je n'aime rien ni personne. La réponse honnête serait : je suis très bon dans ce que je fais, et c'est suffisant. »</blockquote>
-        <cite>— Sevatar, Premier Capitaine, lors de la Croisade de Thramas</cite>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
      SECTION III — LES ATRAMENTAR, GARDIENS DES TÉNÈBRES
 ═══════════════════════════════════════════════════ -->
-<section class="lore-section">
-  <div class="container">
-    <div class="lore-inner">
+    <section class="lore-section">
+      <div class="container">
+        <div class="lore-inner">
+          <div class="lore-header reveal">
+            <p class="lore-eyebrow">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              Chapitre III
+            </p>
+            <h2 class="lore-title">Les Atramentar, Gardiens des Ténèbres</h2>
+          </div>
 
-      <div class="lore-header reveal">
-        <p class="lore-eyebrow">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Chapitre III
-        </p>
-        <h2 class="lore-title">Les Atramentar, Gardiens des Ténèbres</h2>
-      </div>
+          <div class="lore-prose reveal">
+            <p>
+              Parmi toutes les formations d'élite de la VIIIe Légion, les
+              <strong>Atramentar</strong> occupent une place à part. Ce ne sont
+              pas simplement des guerriers revêtus d'armures Cataphractii — ce
+              sont des instruments de terreur institutionnalisée, des soldats
+              entraînés à faire de chaque entrée une scène de théâtre macabre.
+              Leurs armures portent des motifs d'os, de griffes, de membres
+              arrachés, peints ou gravés dans le métal noir. Leur seule présence
+              sur un champ de bataille suffit à faire vaciller des garnisons
+              entières.
+            </p>
+            <p>
+              L'escouade <strong>Contekar</strong> qui accompagne Sevatar est la
+              plus redoutée de toutes. Elle a traversé des dizaines de sièges,
+              de purges, de massacres — et jamais un membre n'est tombé au
+              combat. Cela tient peut-être à leur maîtrise tactique, peut-être à
+              la chance du diable, peut-être à quelque chose de plus sombre
+              encore. Personne ne leur pose la question.
+            </p>
+          </div>
 
-      <div class="lore-prose reveal">
-        <p>
-          Parmi toutes les formations d'élite de la VIIIe Légion, les <strong>Atramentar</strong> occupent
-          une place à part. Ce ne sont pas simplement des guerriers revêtus d'armures Cataphractii —
-          ce sont des instruments de terreur institutionnalisée, des soldats entraînés à faire de chaque
-          entrée une scène de théâtre macabre. Leurs armures portent des motifs d'os, de griffes, de membres
-          arrachés, peints ou gravés dans le métal noir. Leur seule présence sur un champ de bataille
-          suffit à faire vaciller des garnisons entières.
-        </p>
-        <p>
-          L'escouade <strong>Contekar</strong> qui accompagne Sevatar est la plus redoutée de toutes.
-          Elle a traversé des dizaines de sièges, de purges, de massacres — et jamais un membre n'est tombé
-          au combat. Cela tient peut-être à leur maîtrise tactique, peut-être à la chance du diable,
-          peut-être à quelque chose de plus sombre encore. Personne ne leur pose la question.
-        </p>
-      </div>
+          <div class="lore-unit reveal">
+            <div class="lore-unit-title lore-unit-title--blue">
+              Escouade Terminator — Contekar
+            </div>
+            <p class="lore-unit-text">
+              Revêtus d'armures Cataphractii aux ornements mortuaires
+              caractéristiques de la VIIIe Légion, les Contekar sont les ombres
+              de Sevatar. Ils ouvrent les portes que l'on a barricadées, ils
+              traversent les couloirs que l'on a minés, ils finissent les
+              engagements que leur seigneur a commencés. Leur nombre exact dans
+              ce groupe de combat demeure inconnu — les renseignements
+              disponibles confirment leur présence, mais pas leur effectif
+              précis.
+            </p>
+            <div class="lore-character-tags">
+              <span class="tag tag--blue">Terminator</span>
+              <span class="tag tag--blue">Atramentar</span>
+              <span class="tag tag--blue">Contekar</span>
+              <span class="tag tag--unknown">Effectif inconnu</span>
+            </div>
+          </div>
 
-      <div class="lore-unit reveal">
-        <div class="lore-unit-title lore-unit-title--blue">Escouade Terminator — Contekar</div>
-        <p class="lore-unit-text">
-          Revêtus d'armures Cataphractii aux ornements mortuaires caractéristiques de la VIIIe Légion,
-          les Contekar sont les ombres de Sevatar. Ils ouvrent les portes que l'on a barricadées,
-          ils traversent les couloirs que l'on a minés, ils finissent les engagements que leur seigneur
-          a commencés. Leur nombre exact dans ce groupe de combat demeure inconnu — les renseignements
-          disponibles confirment leur présence, mais pas leur effectif précis.
-        </p>
-        <div class="lore-character-tags">
-          <span class="tag tag--blue">Terminator</span>
-          <span class="tag tag--blue">Atramentar</span>
-          <span class="tag tag--blue">Contekar</span>
-          <span class="tag tag--unknown">Effectif inconnu</span>
+          <div class="lore-unit lore-unit--vehicle reveal">
+            <div class="lore-unit-title lore-unit-title--silver">
+              Le Témoin Immortel — Dreadnought de la VIIIe Légion
+            </div>
+            <p class="lore-unit-text">
+              Son nom de guerre est perdu dans les archives fragmentées. Ce que
+              l'on sait, c'est qu'il combat pour la VIIIe Légion depuis assez
+              longtemps pour que les jeunes Astartes de la légion le considèrent
+              comme une figure quasi-mythologique. Entomé dans son sarcophage de
+              Dreadnought après une blessure dont les détails restent
+              classifiés, il continue de marcher, de tuer, de se souvenir. Les
+              Night Lords prétendent qu'il rit dans l'obscurité de son armure.
+              Ils disent cela avec admiration.
+            </p>
+            <div class="lore-character-tags">
+              <span class="tag tag--silver">Dreadnought</span>
+            </div>
+          </div>
+
+          <div class="lore-quote reveal">
+            <blockquote>
+              « Ils ne combattent pas pour conquérir. Ils combattent pour que
+              vous vous souveniez d'avoir eu peur. La victoire n'est que la
+              signature au bas du message. »
+            </blockquote>
+            <cite
+              >— Extrait d'un rapport d'évaluation des Légions Traîtresses,
+              source inconnue, date inconnue</cite
+            >
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="lore-unit lore-unit--vehicle reveal">
-        <div class="lore-unit-title lore-unit-title--silver">Le Témoin Immortel — Dreadnought de la VIIIe Légion</div>
-        <p class="lore-unit-text">
-          Son nom de guerre est perdu dans les archives fragmentées. Ce que l'on sait, c'est qu'il combat
-          pour la VIIIe Légion depuis assez longtemps pour que les jeunes Astartes de la légion le considèrent
-          comme une figure quasi-mythologique. Entomé dans son sarcophage de Dreadnought après une blessure
-          dont les détails restent classifiés, il continue de marcher, de tuer, de se souvenir.
-          Les Night Lords prétendent qu'il rit dans l'obscurité de son armure. Ils disent cela avec admiration.
-        </p>
-        <div class="lore-character-tags">
-          <span class="tag tag--silver">Dreadnought</span>
-        </div>
-      </div>
-
-      <div class="lore-quote reveal">
-        <blockquote>« Ils ne combattent pas pour conquérir. Ils combattent pour que vous vous souveniez d'avoir eu peur. La victoire n'est que la signature au bas du message. »</blockquote>
-        <cite>— Extrait d'un rapport d'évaluation des Légions Traîtresses, source inconnue, date inconnue</cite>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════════
      SECTION IV — CE QUE L'OBSCURITÉ DISSIMULE
 ═══════════════════════════════════════════════════ -->
-<section class="lore-section">
-  <div class="container">
-    <div class="lore-inner">
+    <section class="lore-section">
+      <div class="container">
+        <div class="lore-inner">
+          <div class="lore-header reveal">
+            <p class="lore-eyebrow">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              Chapitre IV
+            </p>
+            <h2 class="lore-title">Ce Que l'Obscurité Dissimule</h2>
+          </div>
 
-      <div class="lore-header reveal">
-        <p class="lore-eyebrow">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Chapitre IV
-        </p>
-        <h2 class="lore-title">Ce Que l'Obscurité Dissimule</h2>
-      </div>
+          <div class="lore-prose reveal">
+            <p>
+              Au-delà des éléments confirmés, la force Night Lords qui converge
+              sur le sous-secteur demeure une équation à inconnues multiples.
+              Les guetteurs des Bastions d'Olympia ont tenté d'établir une
+              estimation d'effectif à partir des signatures de warp captées et
+              des débris laissés dans les systèmes traversés par la flotte
+              traîtresse. Les conclusions sont à la fois fragmentaires et
+              alarmantes.
+            </p>
+            <p>
+              Des escouades d'infanterie sont confirmées en nombre — mais lequel
+              ? Des signaux concordent avec la présence de véhicules de soutien
+              lourd, peut-être des chars, peut-être des Spartan ou des Rhino
+              adaptés aux opérations nocturnes de la VIIIe Légion. Rien ne peut
+              être établi avec certitude. L'ennemi marche dans une obscurité
+              qu'il façonne lui-même.
+            </p>
+          </div>
 
-      <div class="lore-prose reveal">
-        <p>
-          Au-delà des éléments confirmés, la force Night Lords qui converge sur le sous-secteur
-          demeure une équation à inconnues multiples. Les guetteurs des Bastions d'Olympia ont tenté
-          d'établir une estimation d'effectif à partir des signatures de warp captées et des débris
-          laissés dans les systèmes traversés par la flotte traîtresse. Les conclusions sont à la fois
-          fragmentaires et alarmantes.
-        </p>
-        <p>
-          Des escouades d'infanterie sont confirmées en nombre — mais lequel ? Des signaux concordent
-          avec la présence de véhicules de soutien lourd, peut-être des chars, peut-être des Spartan
-          ou des Rhino adaptés aux opérations nocturnes de la VIIIe Légion. Rien ne peut être établi
-          avec certitude. L'ennemi marche dans une obscurité qu'il façonne lui-même.
-        </p>
-      </div>
+          <div class="lore-unit lore-unit--unknown reveal">
+            <div class="lore-unit-title lore-unit-title--unknown">
+              Troupes d'infanterie — Composition inconnue
+            </div>
+            <p
+              class="lore-unit-text"
+              style="
+                color: var(--color-text-muted, #797876);
+                font-style: italic;
+              "
+            >
+              Escouades d'Astartes de la VIIIe Légion confirmées en approche.
+              Types tactiques, équipements, effectifs totaux — toutes données
+              indisponibles. Les Night Lords ne marchent pas en formation
+              visible. Ils se répandent comme une tache d'encre dans l'eau.
+            </p>
+            <div class="lore-character-tags">
+              <span class="tag tag--unknown">Non identifié</span>
+              <span class="tag tag--grey">Renseignement insuffisant</span>
+            </div>
+          </div>
 
-      <div class="lore-unit lore-unit--unknown reveal">
-        <div class="lore-unit-title lore-unit-title--unknown">Troupes d'infanterie — Composition inconnue</div>
-        <p class="lore-unit-text" style="color:var(--color-text-muted,#797876); font-style:italic;">
-          Escouades d'Astartes de la VIIIe Légion confirmées en approche. Types tactiques, équipements,
-          effectifs totaux — toutes données indisponibles. Les Night Lords ne marchent pas en formation visible.
-          Ils se répandent comme une tache d'encre dans l'eau.
-        </p>
-        <div class="lore-character-tags">
-          <span class="tag tag--unknown">Non identifié</span>
-          <span class="tag tag--grey">Renseignement insuffisant</span>
+          <div class="lore-unit lore-unit--unknown reveal">
+            <div class="lore-unit-title lore-unit-title--unknown">
+              Support lourd — Composition inconnue
+            </div>
+            <p
+              class="lore-unit-text"
+              style="
+                color: var(--color-text-muted, #797876);
+                font-style: italic;
+              "
+            >
+              Des signatures thermiques et des données séismiques interceptées
+              suggèrent la présence de véhicules blindés et d'artillerie. Leur
+              nombre, leur configuration et leur rôle tactique dans la force de
+              frappe restent à déterminer.
+            </p>
+            <div class="lore-character-tags">
+              <span class="tag tag--unknown">Non identifié</span>
+              <span class="tag tag--grey">Renseignement insuffisant</span>
+            </div>
+          </div>
+
+          <!-- Bloc inconnu -->
+          <div class="lore-unknown reveal">
+            <p class="unknown-label">
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                style="
+                  display: inline;
+                  vertical-align: middle;
+                  margin-right: 0.35rem;
+                "
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              Renseignement — Données manquantes
+            </p>
+            <div class="lore-prose">
+              <p
+                style="
+                  font-style: italic;
+                  color: var(--color-text-muted, #797876);
+                  font-size: 0.92rem;
+                  margin: 0;
+                "
+              >
+                Aucun renseignement fiable ne permet d'établir la composition
+                complète de la force Night Lords. Le groupe de combat fait route
+                vers le Sous-Secteur Olympia, quelque part dans les espaces
+                interstellaires. Toute estimation d'effectif total reste
+                spéculative. Les défenseurs du sous-secteur doivent se préparer
+                à affronter une force de taille et de nature indéterminées,
+                possiblement bien supérieure aux seuls éléments confirmés. Les
+                Night Lords ont toujours déployé plus de soldats qu'ils n'en
+                montrent. L'ombre est leur alliée la plus fidèle.
+              </p>
+            </div>
+          </div>
+
+          <!-- Barre de statut -->
+          <div class="lore-status reveal">
+            <span class="status-label">Statut de la Menace</span>
+            <span class="status-value"
+              >En approche — Localisation : Inconnue<br /><span
+                style="
+                  font-size: 0.72rem;
+                  letter-spacing: 0.08em;
+                  font-weight: 400;
+                "
+                >Destination confirmée : Sous-Secteur Olympia</span
+              ></span
+            >
+          </div>
+
+          <div class="lore-divider reveal">
+            <span class="lore-divider-symbol">⚡</span>
+          </div>
+
+          <!-- Note de campagne -->
+          <div class="lore-nota reveal">
+            <p class="nota-label">Note de Campagne</p>
+            <p>
+              Les
+              <strong
+                style="
+                  font-style: normal;
+                  font-family: 'Cinzel', serif;
+                  font-size: 0.85rem;
+                  color: var(--nl-blue-bright);
+                "
+                >Night Lords</strong
+              >
+              de la
+              <strong
+                style="
+                  font-style: normal;
+                  font-family: 'Cinzel', serif;
+                  font-size: 0.85rem;
+                  color: var(--nl-blue-bright);
+                "
+                >VIIIe Légion</strong
+              >
+              convergent vers le Sous-Secteur Olympia sous le commandement du
+              Primarch
+              <em>Konrad Curze</em> lui-même, accompagné de son Premier
+              Capitaine <em>Sevatar</em>, d'un Dreadnought vétéran et de
+              l'escouade Terminator Contekar. La composition totale de leur
+              force reste dans l'ombre. Nul ne sait quand — ni par où — ils
+              frapperont. Seule certitude : ils arrivent. Et ils n'ont pas
+              besoin que leurs ennemis les voient pour avoir déjà gagné.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="lore-unit lore-unit--unknown reveal">
-        <div class="lore-unit-title lore-unit-title--unknown">Support lourd — Composition inconnue</div>
-        <p class="lore-unit-text" style="color:var(--color-text-muted,#797876); font-style:italic;">
-          Des signatures thermiques et des données séismiques interceptées suggèrent la présence de
-          véhicules blindés et d'artillerie. Leur nombre, leur configuration et leur rôle tactique
-          dans la force de frappe restent à déterminer.
+    <footer>
+      <div class="container">
+        <div class="footer-logo">Les Bastions d'Olympia</div>
+        <p class="footer-line">
+          « Dans le futur sombre de l'humanité, il n'y a que la guerre. »
         </p>
-        <div class="lore-character-tags">
-          <span class="tag tag--unknown">Non identifié</span>
-          <span class="tag tag--grey">Renseignement insuffisant</span>
-        </div>
-      </div>
-
-      <!-- Bloc inconnu -->
-      <div class="lore-unknown reveal">
-        <p class="unknown-label">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:0.35rem;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Renseignement — Données manquantes
-        </p>
-        <div class="lore-prose">
-          <p style="font-style:italic; color:var(--color-text-muted,#797876); font-size:0.92rem; margin:0;">
-            Aucun renseignement fiable ne permet d'établir la composition complète de la force Night Lords.
-            Le groupe de combat fait route vers le Sous-Secteur Olympia, quelque part dans les espaces interstellaires.
-            Toute estimation d'effectif total reste spéculative. Les défenseurs du sous-secteur doivent se préparer
-            à affronter une force de taille et de nature indéterminées, possiblement bien supérieure aux seuls
-            éléments confirmés. Les Night Lords ont toujours déployé plus de soldats qu'ils n'en montrent.
-            L'ombre est leur alliée la plus fidèle.
-          </p>
-        </div>
-      </div>
-
-      <!-- Barre de statut -->
-      <div class="lore-status reveal">
-        <span class="status-label">Statut de la Menace</span>
-        <span class="status-value">En approche — Localisation : Inconnue<br><span style="font-size:0.72rem;letter-spacing:0.08em;font-weight:400;">Destination confirmée : Sous-Secteur Olympia</span></span>
-      </div>
-
-      <div class="lore-divider reveal"><span class="lore-divider-symbol">⚡</span></div>
-
-      <!-- Note de campagne -->
-      <div class="lore-nota reveal">
-        <p class="nota-label">Note de Campagne</p>
-        <p>
-          Les <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">Night Lords</strong>
-          de la <strong style="font-style:normal;font-family:'Cinzel',serif;font-size:0.85rem;color:var(--nl-blue-bright);">VIIIe Légion</strong>
-          convergent vers le Sous-Secteur Olympia sous le commandement du Primarch
-          <em>Konrad Curze</em> lui-même, accompagné de son Premier Capitaine <em>Sevatar</em>,
-          d'un Dreadnought vétéran et de l'escouade Terminator Contekar.
-          La composition totale de leur force reste dans l'ombre.
-          Nul ne sait quand — ni par où — ils frapperont. Seule certitude : ils arrivent.
-          Et ils n'ont pas besoin que leurs ennemis les voient pour avoir déjà gagné.
+        <p class="footer-line">
+          Horus Heresy &bull; Campagne Narrative &bull; 30ème Millénaire
         </p>
       </div>
+    </footer>
 
-    </div>
-  </div>
-</section>
+    <a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </a>
 
-<footer>
-  <div class="container">
-    <div class="footer-logo">Les Bastions d'Olympia</div>
-    <p class="footer-line">« Dans le futur sombre de l'humanité, il n'y a que la guerre. »</p>
-    <p class="footer-line">Horus Heresy &bull; Campagne Narrative &bull; 30ème Millénaire</p>
-  </div>
-</footer>
-
-<a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-</a>
-
-<script src="assets/js/ui.js" defer></script>
-
-</body>
+    <script src="assets/js/ui.js" defer></script>
+  </body>
 </html>
