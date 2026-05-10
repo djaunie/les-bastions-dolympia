@@ -1,55 +1,28 @@
 <!doctype html>
 <html lang="fr" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carte du Secteur — Horus Heresy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <!-- NAV -->
-    <nav class="map-nav" id="map-nav">
-      <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
-        <svg
-          width="12"
-          height="12"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-        Olympia
-      </a>
-      <span class="map-nav-title">Secteur Galactique</span>
-      <span class="map-nav-sub"
-        >Horus Heresy &bull; 31<sup>e</sup> Millénaire</span
-      >
-      <button
-        class="btn-theme-map"
-        data-theme-toggle
-        aria-label="Basculer le thème"
-      >
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      </button>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte du Secteur — Horus Heresy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<script src="assets/js/ui.js" defer></script>
+<!-- NAV -->
+<nav class="map-nav" id="map-nav">
+  <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+    Olympia
+  </a>
+  <span class="map-nav-title">Secteur Galactique</span>
+  <span class="map-nav-sub">Horus Heresy &bull; 31<sup>e</sup> Millénaire</span>
+  <button class="btn-theme-map" data-theme-toggle aria-label="Basculer le thème">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</nav>
 
     <!-- LÉGENDE -->
     <aside class="map-legend" aria-label="Légende de la carte">
@@ -361,50 +334,23 @@
       </div>
     </aside>
 
-    <script>
-      (function () {
-        'use strict';
-
-        // ── THEME TOGGLE ──────────────────────────────────────────────────
-        const root = document.documentElement;
-        let theme =
-          root.getAttribute('data-theme') ||
-          (matchMedia('(prefers-color-scheme: dark)').matches
-            ? 'dark'
-            : 'light');
-        root.setAttribute('data-theme', theme);
-        const themeBtn = document.querySelector('[data-theme-toggle]');
-        function updateThemeBtn() {
-          if (!themeBtn) return;
-          themeBtn.innerHTML =
-            theme === 'dark'
-              ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-              : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-        }
-        updateThemeBtn();
-        if (themeBtn)
-          themeBtn.addEventListener('click', () => {
-            theme = theme === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', theme);
-            updateThemeBtn();
-          });
-
-        // ── GÉNÉRER ÉTOILES ───────────────────────────────────────────────
-        function generateStars() {
-          const layer = document.getElementById('stars-layer');
-          const count = 280;
-          let svg = '';
-          for (let i = 0; i < count; i++) {
-            const x = Math.random() * 1000;
-            const y = Math.random() * 700;
-            const r =
-              Math.random() < 0.85
-                ? Math.random() * 0.8 + 0.3
-                : Math.random() * 1.2 + 0.8;
-            const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
-            const dur = (Math.random() * 3 + 2).toFixed(1);
-            const delay = (Math.random() * 4).toFixed(1);
-            svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
+<script>
+(function () {
+  'use strict';
+	
+  // ── GÉNÉRER ÉTOILES ───────────────────────────────────────────────
+  function generateStars() {
+    const layer = document.getElementById('stars-layer');
+    const count = 280;
+    let svg = '';
+    for (let i = 0; i < count; i++) {
+      const x = Math.random() * 1000;
+      const y = Math.random() * 700;
+      const r = Math.random() < 0.85 ? (Math.random() * 0.8 + 0.3) : (Math.random() * 1.2 + 0.8);
+      const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
+      const dur = (Math.random() * 3 + 2).toFixed(1);
+      const delay = (Math.random() * 4).toFixed(1);
+      svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
         style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
           }
           layer.innerHTML = svg;

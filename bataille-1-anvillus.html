@@ -1564,37 +1564,27 @@
       </svg>
     </button>
 
-    <script>
-      // Thème toggle
-      (function () {
-        const t = document.querySelector('[data-theme-toggle]'),
-          r = document.documentElement;
-        let d = r.getAttribute('data-theme') || 'dark';
-        t &&
-          t.addEventListener('click', () => {
-            d = d === 'dark' ? 'light' : 'dark';
-            r.setAttribute('data-theme', d);
-          });
-      })();
+<script>
+  // Thème toggle
+  (function(){
+    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+    let d=r.getAttribute('data-theme')||'dark';
+    t&&t.addEventListener('click',()=>{
+      d=d==='dark'?'light':'dark';
+      r.setAttribute('data-theme',d);
+    });
+  })();
 
-      // Back to top
-      const bt = document.getElementById('backTop');
-      window.addEventListener('scroll', () => {
-        bt.classList.toggle('visible', window.scrollY > 400);
-      });
-      bt.addEventListener('click', () =>
-        window.scrollTo({ top: 0, behavior: 'smooth' }),
-      );
+  // Back to top
+  const bt=document.getElementById('backTop');
+  window.addEventListener('scroll',()=>{
+    bt.classList.toggle('visible',window.scrollY>400);
+  });
+  bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
-      // Reveal on scroll
-      const obs = new IntersectionObserver(
-        (es) =>
-          es.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add('visible');
-          }),
-        { threshold: 0.1 },
-      );
-      document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
-    </script>
-  </body>
+  // Reveal on scroll
+  const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
 </html>

@@ -4,58 +4,39 @@
   // ── THEME TOGGLE ──────────────────────────────────────────────────
   const themeBtn = document.querySelector('[data-theme-toggle]');
   const root = document.documentElement;
-  let theme =
-    root.getAttribute('data-theme') ||
-    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  let theme = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   root.setAttribute('data-theme', theme);
 
   function updateThemeBtn() {
     if (!themeBtn) return;
-    themeBtn.innerHTML =
-      theme === 'dark'
-        ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-        : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    themeBtn.setAttribute(
-      'aria-label',
-      'Basculer vers le mode ' + (theme === 'dark' ? 'clair' : 'sombre'),
-    );
+    themeBtn.innerHTML = theme === 'dark'
+      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    themeBtn.setAttribute('aria-label', 'Basculer vers le mode ' + (theme === 'dark' ? 'clair' : 'sombre'));
   }
 
   updateThemeBtn();
-  if (themeBtn)
-    themeBtn.addEventListener('click', () => {
-      theme = theme === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', theme);
-      updateThemeBtn();
-    });
+  if (themeBtn) themeBtn.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', theme);
+    updateThemeBtn();
+  });
 
   // ── NAV SCROLL + BACK-TO-TOP ──────────────────────────────────────
   const nav = document.getElementById('nav');
-  window.addEventListener(
-    'scroll',
-    () => {
-      nav.classList.toggle('nav--scrolled', window.scrollY > 60);
-      document
-        .getElementById('back-top')
-        .classList.toggle('visible', window.scrollY > 300);
-    },
-    { passive: true },
-  );
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('nav--scrolled', window.scrollY > 60);
+    document.getElementById('back-top').classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
 
   // ── REVEAL ON SCROLL ──────────────────────────────────────────────
   function initReveal() {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
-    );
-    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
 
   // ── TABS ──────────────────────────────────────────────────────────
@@ -77,7 +58,7 @@
     });
   }
 
-  // ── RENDER LORE ───────────────────────────────────────────────────
+  // ── ESCAPE HTML ───────────────────────────────────────────────────
   function escapeHTML(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -87,6 +68,7 @@
       .replace(/'/g, '&#39;');
   }
 
+  // ── RENDER LORE ───────────────────────────────────────────────────
   function renderLore(lore) {
     document.getElementById('lore-desc').textContent = lore.description;
     document.getElementById('lore-grid').innerHTML = lore.blocs
@@ -106,48 +88,37 @@
 
   // ── RENDER FRONTS ─────────────────────────────────────────────────
   function renderFronts(fronts) {
-    document.getElementById('fronts-tabs').innerHTML = fronts
-      .map(
-        (f, i) =>
-          `<button class="front-tab${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" data-tab="${f.id}">${f.nom}</button>`,
-      )
-      .join('');
+    document.getElementById('fronts-tabs').innerHTML = fronts.map((f, i) =>
+      `<button class="front-tab${i === 0 ? ' active' : ''}" role="tab" aria-selected="${i === 0}" data-tab="${f.id}">${f.nom}</button>`
+    ).join('');
 
     document.getElementById('fronts-panels').innerHTML = fronts
       .map((f, i) => {
         const stationsHTML = f.stations
           ? `
         <h4>Statut des ${f.stations.length} Agro-Stations</h4>
-        <div class="stations-grid">${f.stations
-          .map(
-            (s) =>
-              `<div class="station-card"><div class="station-num">${s.num}</div><div class="station-label">Station</div><span class="station-owner ${s.classe}">${s.proprietaire}</span></div>`,
-          )
-          .join('')}</div>`
-          : '';
+        <div class="stations-grid">${f.stations.map(s =>
+          `<div class="station-card"><div class="station-num">${s.num}</div><div class="station-label">Station</div><span class="station-owner ${s.classe}">${s.proprietaire}</span></div>`
+        ).join('')}</div>` : '';
 
-        const imageHTML = f.image
-          ? f.stations
-            ? `<img src="${f.image}" alt="${f.image_alt}" width="1200" height="400" loading="lazy">`
-            : `<div class="front-visual"><img src="${f.image}" alt="${f.image_alt}" width="1600" height="900" loading="lazy"></div>`
-          : '';
+      const imageHTML = f.image ? (f.stations
+        ? `<img src="${f.image}" alt="${f.image_alt}" width="1200" height="400" loading="lazy">`
+        : `<div class="front-visual"><img src="${f.image}" alt="${f.image_alt}" width="1600" height="900" loading="lazy"></div>`
+      ) : '';
 
-        const bataillesHTML = f.batailles
-          .map(
-            (b) =>
-              `<div class="battle-entry ${b.classe}">
+      const bataillesHTML = f.batailles.map(b =>
+        `<div class="battle-entry ${b.classe}">
           <p class="battle-label">${b.label}</p>
           <h4 class="battle-title">${b.titre}</h4>
           <p class="battle-text">${b.texte}</p>
-          <div class="battle-factions">${b.factions.map((fc) => `<span class="faction-tag ${fc.classe}">${fc.label}</span>`).join('')}</div>
-        </div>`,
-          )
-          .join('');
+          <div class="battle-factions">${b.factions.map(fc => `<span class="faction-tag ${fc.classe}">${fc.label}</span>`).join('')}</div>
+        </div>`
+      ).join('');
 
-        return `<div class="front-panel${i === 0 ? ' active' : ''}" id="tab-${f.id}" role="tabpanel">
+      return `<div class="front-panel${i === 0 ? ' active' : ''}" id="tab-${f.id}" role="tabpanel">
         <div class="front-header">
-          <div><h3 class="front-title">${f.titre}</h3><p class="front-desc">${f.description}</p></div>
-          <span class="front-status ${f.statut_classe}">${f.statut}</span>
+          <div><h3 class="front-title">${escapeHTML(f.titre)}</h3><p class="front-desc">${escapeHTML(f.description)}</p></div>
+          <span class="front-status ${escapeHTML(f.statut_classe)}">${escapeHTML(f.statut)}</span>
         </div>
         ${imageHTML}${stationsHTML}
         ${f.stations ? '<div class="ornament section-ornament"><span>Chronique des Batailles</span></div>' : ''}
@@ -172,9 +143,7 @@
         '<div style="background:#8b1c1c;color:#fff;padding:1rem;text-align:center">Erreur : impossible de charger campagne.json</div>',
       );
     })
-    .finally(() => {
-      initReveal();
-    });
+    .finally(() => { initReveal(); });
 
   // ── CARROUSEL PRINCIPAL ───────────────────────────────────────────
   (function () {
