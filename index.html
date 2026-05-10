@@ -12,61 +12,6 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/personnages-carousel.css" />
-    <style>
-      /* ── Night Lords — variables exactes depuis night-lords.html ── */
-      :root {
-        --nl-blue: #1a3a6e;
-        --nl-blue-light: #2a5aaa;
-        --nl-blue-bright: #4a7fd4;
-        --nl-blue-dim: rgba(26, 58, 110, 0.55);
-        --nl-blue-bg: rgba(26, 58, 110, 0.09);
-        --nl-blue-hover-bg: rgba(26, 58, 110, 0.2);
-        --nl-blue-glow: rgba(74, 127, 212, 0.4);
-        --nl-lightning: #88bfff;
-      }
-      [data-theme='light'] {
-        --nl-blue: #1a3a6e;
-        --nl-blue-light: #1a2e5c;
-        --nl-blue-bright: #2a5aaa;
-        --nl-blue-dim: rgba(26, 58, 110, 0.45);
-        --nl-blue-bg: rgba(26, 58, 110, 0.07);
-        --nl-blue-hover-bg: rgba(26, 58, 110, 0.16);
-        --nl-blue-glow: rgba(26, 58, 110, 0.22);
-        --nl-lightning: #2a5aaa;
-      }
-
-      .btn-armee--nl {
-        color: var(--nl-blue-bright) !important;
-        border-color: var(--nl-blue-dim) !important;
-        background: var(--nl-blue-bg) !important;
-      }
-      .btn-armee--nl:hover {
-        background: var(--nl-blue-hover-bg) !important;
-        border-color: var(--nl-blue-bright) !important;
-        box-shadow: 0 0 14px var(--nl-blue-glow) !important;
-        color: var(--nl-lightning) !important;
-      }
-      [data-theme='light'] .btn-armee--nl {
-        color: var(--nl-blue-bright) !important;
-        border-color: var(--nl-blue-dim) !important;
-        background: var(--nl-blue-bg) !important;
-      }
-      [data-theme='light'] .btn-armee--nl:hover {
-        background: var(--nl-blue-hover-bg) !important;
-        border-color: var(--nl-blue-bright) !important;
-        box-shadow: 0 0 12px var(--nl-blue-glow) !important;
-        color: var(--nl-lightning) !important;
-      }
-
-      /* ── Icône SVG Night Lords dans le bouton ── */
-      .btn-armee--nl .nl-btn-icon {
-        width: 14px;
-        height: 14px;
-        flex-shrink: 0;
-        color: currentColor;
-        filter: drop-shadow(0 0 4px var(--nl-blue-glow));
-      }
-    </style>
   </head>
 
   <body>
@@ -500,12 +445,21 @@
       </div>
     </footer>
 
-<a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
-</a>
+    <a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </a>
 
-<script src="assets/js/ui.js" defer></script>
-<script src="assets/js/campagne.js" defer></script>
-<script src="assets/js/personnages-carousel.js" defer></script>
-</body>
+    <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/campagne.js" defer></script>
+    <script src="assets/js/personnages-carousel.js" defer></script>
+  </body>
 </html>

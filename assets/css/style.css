@@ -117,6 +117,14 @@
   --army-ba-border: rgba(204, 68, 68, 0.45);
   --army-ba-bg: rgba(204, 68, 68, 0.1);
   --army-ba-bar: #cc4444;
+
+  /* Night Lords — bleu abyssal électrique */
+  --army-nl-fg: #4a7fd4;
+  --army-nl-border: rgba(26, 58, 110, 0.55);
+  --army-nl-bg: rgba(26, 58, 110, 0.09);
+  --army-nl-hover-bg: rgba(26, 58, 110, 0.2);
+  --army-nl-glow: rgba(74, 127, 212, 0.4);
+  --army-nl-lightning: #88bfff;
 }
 
 [data-theme='light'] {
@@ -150,6 +158,14 @@
   --army-ba-border: rgba(138, 26, 26, 0.4);
   --army-ba-bg: rgba(138, 26, 26, 0.08);
   --army-ba-bar: #8a1a1a;
+
+  /* Night Lords — mode clair */
+  --army-nl-fg: #2a5aaa;
+  --army-nl-border: rgba(26, 58, 110, 0.45);
+  --army-nl-bg: rgba(26, 58, 110, 0.07);
+  --army-nl-hover-bg: rgba(26, 58, 110, 0.16);
+  --army-nl-glow: rgba(26, 58, 110, 0.22);
+  --army-nl-lightning: #2a5aaa;
 }
 
 /* BASE */
@@ -425,6 +441,37 @@ section {
   background: rgba(122, 12, 12, 0.14);
   border-color: #7a0c0c;
   color: #4a0404;
+}
+
+/* Night Lords */
+.btn-armee--nl {
+  color: var(--army-nl-fg);
+  border-color: var(--army-nl-border);
+  background: var(--army-nl-bg);
+}
+.btn-armee--nl:hover {
+  background: var(--army-nl-hover-bg);
+  border-color: var(--army-nl-fg);
+  box-shadow: 0 0 14px var(--army-nl-glow);
+  color: var(--army-nl-lightning);
+}
+.btn-armee--nl .nl-btn-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: currentColor;
+  filter: drop-shadow(0 0 4px var(--army-nl-glow));
+}
+[data-theme='light'] .btn-armee--nl {
+  color: var(--army-nl-fg);
+  border-color: var(--army-nl-border);
+  background: var(--army-nl-bg);
+}
+[data-theme='light'] .btn-armee--nl:hover {
+  background: var(--army-nl-hover-bg);
+  border-color: var(--army-nl-fg);
+  box-shadow: 0 0 12px var(--army-nl-glow);
+  color: var(--army-nl-lightning);
 }
 
 /* ============================================================
