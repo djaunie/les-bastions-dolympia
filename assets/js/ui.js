@@ -17,10 +17,12 @@
 
 /**
  * Injecte la barre de navigation dans #nav-root.
+ * Utilisée dans les fichiers HTML via <script inline> : injectNav({...})
  * @param {Object}  config
  * @param {string}  config.page         - 'index'|'carte'|'bataille'|'iron-warriors'|'blood-angels'|'night-lords'
  * @param {boolean} config.showNextGame - affiche "Prochaine partie" (index.html uniquement)
  */
+// eslint-disable-next-line no-unused-vars
 function injectNav(config) {
   const root = document.getElementById('nav-root');
   if (!root) return;

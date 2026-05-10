@@ -7,6 +7,8 @@
  * Responsive • Accessible (clavier + ARIA) • Touch/swipe
  * Données chargées depuis campagne.json via CustomEvent 'campagne:ready'
  * → zéro double fetch, zéro couplage fort avec campagne.js
+ *
+ * Dépendances : utils.js (escapeHTML, escapeAttr) — doit être chargé avant ce script
  */
 (function () {
   'use strict';
@@ -14,19 +16,14 @@
   const PLACEHOLDER_SVG =
     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="52" height="52" rx="2"/><path d="M4 40 l14-14 10 10 12-16 16 20"/><circle cx="42" cy="18" r="5"/></svg>';
 
-  // ── Helpers ──────────────────────────────────────────────────────
-  function escapeHTML(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-  function escapeAttr(str) {
-    return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-  }
-
   // ── Build slide ──────────────────────────────────────────────────
+  /**
+   * Construit le HTML d'une diapositive du carrousel personnages.
+   * @param {Object} perso - Données du personnage (image, nom, titre, faction, lore)
+   * @param {number} index - Index du personnage dans le tableau
+   * @param {number} total - Nombre total de personnages
+   * @returns {string} Le HTML d'une diapositive <article>
+   */
   function buildSlide(perso, index, total) {
     const imgHTML = [
       '<div class="perso-carousel__img-wrap">',
@@ -80,6 +77,11 @@
   }
 
   // ── Inject HTML ──────────────────────────────────────────────────
+  /**
+   * Injecte le carrousel complète de personnages dans un conteneur DOM.
+   * @param {HTMLElement} section - Élément cible où injecter le carrousel
+   * @param {Array<Object>} personnages - Tableau des données des personnages
+   */
   function injectCarousel(section, personnages) {
     const total = personnages.length;
 
@@ -127,6 +129,11 @@
   }
 
   // ── Logic ────────────────────────────────────────────────────────
+  /**
+   * Initialise tous les comportements interactifs du carrousel.
+   * Gère la navigation clavier (↑↓←→, Home, End), le tactile (swipe),
+   * le drag à la souris, et les mises à jour visuelles des contrôles.
+   */
   function initLogic() {
     const carousel = document.getElementById('perso-carousel');
     const viewport = document.getElementById('perso-carousel-viewport');
@@ -273,6 +280,11 @@
   }
 
   // ── Point d'entrée : écoute l'événement émis par campagne.js ────
+  /**
+   * Point d'entrée principal — initialise le carrousel personnages.
+   * Inject HTML et logique interactif.
+   * @param {Array<Object>} personnages - Tableau des données de personnages
+   */
   function init(personnages) {
     const target = document.getElementById('perso-carousel-container');
     if (!target || !personnages.length) return;

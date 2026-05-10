@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-  // ── TABS ──────────────────────────────────────────────────────────
+  /**
+   * Initialise le système d'onglets pour les fronts de bataille.
+   * Gère les interactions tab (click, aria-selected) et l'affichage des panneaux.
+   */
   function initTabs() {
     const tabs = document.querySelectorAll('.front-tab');
     const panels = document.querySelectorAll('.front-panel');
@@ -20,17 +23,12 @@
     });
   }
 
-  // ── ESCAPE HTML ───────────────────────────────────────────────────
-  function escapeHTML(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
   // ── RENDER LORE ───────────────────────────────────────────────────
+  /**
+   * Remplit les sections #lore-desc et #lore-grid avec les données narratives.
+   * Échappe les caractères HTML, applique les classes CSS de délai d'animation.
+   * @param {Object} lore - Données du lore ({ description, blocs: [{titre, paragraphes, citation}] })
+   */
   function renderLore(lore) {
     document.getElementById('lore-desc').textContent = lore.description;
     document.getElementById('lore-grid').innerHTML = lore.blocs
@@ -49,6 +47,11 @@
   }
 
   // ── RENDER FRONTS ─────────────────────────────────────────────────
+  /**
+   * Peuple les onglets #fronts-tabs et les panneaux #fronts-panels avec les données de front de bataille.
+   * Gère les statuts des stations, images et fiches de bataille avec état ARIA complet.
+   * @param {Array<Object>} fronts - Tableau des fronts ({ id, nom, titre, description, statut, statut_classe, batailles, stations, image, image_alt })
+   */
   function renderFronts(fronts) {
     document.getElementById('fronts-tabs').innerHTML = fronts
       .map(

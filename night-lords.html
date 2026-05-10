@@ -628,10 +628,12 @@
     <!-- ═══════════════ SCRIPTS ═══════════════ -->
     <!--
       ORDRE IMPORTANT :
-      1. campagne.js  — données et fonctions métier (dont injectNav)
-      2. ui.js        — sans defer, pour que injectNav soit dispo immédiatement
-      3. Appel injectNav() — après ui.js, avant la fermeture du body
+      1. utils.js     — fonctions utilitaires communes (escapeHTML, escapeAttr)
+      2. campagne.js  — données et fonctions métier
+      3. ui.js        — sans defer, pour que injectNav soit dispo immédiatement
+      4. Appel injectNav() — après ui.js, avant la fermeture du body
     -->
+    <script src="assets/js/utils.js"></script>
     <script src="assets/js/campagne.js"></script>
     <script src="assets/js/ui.js"></script>
     <script>
