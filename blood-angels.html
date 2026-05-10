@@ -7,151 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;1,400&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
   <body>
-    <!-- ════════════════════════════════ NAV ════════════════════════════════ -->
-    <nav class="nav" id="nav">
-      <div class="nav-inner">
-        <a
-          href="index.html"
-          class="nav-logo"
-          aria-label="Blood Angels — Les Bastions d'Olympia"
-        >
-          <svg
-            class="nav-logo-icon"
-            viewBox="0 0 36 36"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle
-              cx="18"
-              cy="18"
-              r="8"
-              fill="none"
-              stroke="#8a9bac"
-              stroke-width="1.5"
-            />
-            <circle
-              cx="18"
-              cy="18"
-              r="3.5"
-              fill="none"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-            <rect x="16.5" y="7" width="3" height="3" rx="0.5" fill="#8a9bac" />
-            <rect
-              x="16.5"
-              y="26"
-              width="3"
-              height="3"
-              rx="0.5"
-              fill="#8a9bac"
-            />
-            <rect x="7" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac" />
-            <rect
-              x="26"
-              y="16.5"
-              width="3"
-              height="3"
-              rx="0.5"
-              fill="#8a9bac"
-            />
-            <line
-              x1="14"
-              y1="4"
-              x2="10"
-              y2="10"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-            <line
-              x1="22"
-              y1="4"
-              x2="18"
-              y2="10"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-          </svg>
-          <div>
-            <span class="nav-logo-text">Olympia</span>
-            <span class="nav-logo-sub">Horus Heresy</span>
-          </div>
-        </a>
-        <div class="nav-actions">
-          <div class="nav-page-links">
-            <a
-              href="carte.html"
-              class="btn-nav-page btn-nav-page--carte"
-              aria-label="Accéder à la carte"
-            >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              Carte
-            </a>
-          </div>
-          <button
-            class="btn-theme"
-            data-theme-toggle
-            aria-label="Basculer le thème"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-          <button
-            class="nav-mobile-toggle"
-            id="nav-toggle"
-            aria-label="Menu"
-            aria-expanded="false"
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
+    <!-- ═══════════════ NAVIGATION (injectée par injectNav()) ═══════════════ -->
 
     <!-- ════════════════════════════════ HERO ════════════════════════════════ -->
     <header class="page-hero" id="top">
       <div class="container">
-        <div
-          class="hero-badge"
-          role="img"
-          aria-label="IXe Légion — Anges Sanglants"
-        >
+        <div class="hero-badge">
           <svg
             width="11"
             height="11"
@@ -349,7 +217,7 @@
                 </p>
                 <div class="portrait-tags">
                   <span class="tag tag--red">Premier Capitaine</span>
-                  <span class="tag tag--red">L'ARCHEIN DE SAGESSE</span>
+                  <span class="tag tag--red">L'Archein de Sagesse</span>
                 </div>
               </div>
             </div>
@@ -372,7 +240,7 @@
                 </p>
                 <div class="portrait-tags">
                   <span class="tag tag--red">Le porteur de tourments</span>
-                  <span class="tag tag--red">Le deux fois née</span>
+                  <span class="tag tag--red">La deux fois née</span>
                 </div>
               </div>
             </div>
@@ -391,8 +259,8 @@
                   Vétéran de la IXe légion, Aster Crohne fut recruté sur les
                   champs meurtriers de Saiph. Sanglant et pragmatique, son
                   véritable talent est sa témérité sanguinaire et un instinct de
-                  survie qui défi l'entendement. De tout les officier de la 94e
-                  compagnie, seul Aster réchappa au brasier de Signus.
+                  survie qui défie l'entendement. De tous les officiers de la
+                  94e compagnie, seul Aster réchappa au brasier de Signus.
                 </p>
                 <div class="portrait-tags">
                   <span class="tag tag--red">Le tisseur de suaire</span>
@@ -443,7 +311,7 @@
               </div>
               <p class="unit-desc">
                 Ils n'ont pas de noms dans les registres de campagne — ils sont
-                simplement "la Garde". Chacun a regardé l'abîsse en face et en
+                simplement « la Garde ». Chacun a regardé l'abîme en face et en
                 est revenu avec quelque chose en moins et quelque chose en plus.
                 Ils portent les armures les plus ornées de la légion et des
                 armes qui ont goûté au sang de démons.
@@ -565,7 +433,7 @@
               <p class="unit-desc">
                 Ils tombent là où les cartes disent que personne ne peut tomber.
                 Ils s'enfoncent à l'intérieur des formations ennemies,
-                directement vers les officiers et cibles d'importances majeurs.
+                directement vers les officiers et cibles d'importance majeure.
               </p>
               <div class="portrait-tags">
                 <span class="tag tag--gold">Assaut aérien</span>
@@ -583,9 +451,9 @@
                 >
               </div>
               <p class="unit-desc">
-                Une module de largage conçue pour une seule chose : livrer des
+                Un module de largage conçu pour une seule chose : livrer des
                 guerriers au cœur de la bataille en ignorant toute notion de
-                "sécurité". Il entre en atmosp​hère comme un météore, touche le
+                « sécurité ». Il entre en atmosphère comme un météore, touche le
                 sol comme un marteau, et ses occupants en sortent déjà en train
                 de charger.
               </p>
@@ -678,21 +546,15 @@
             <div class="nota-bene reveal">
               <p class="nota-bene-label">Note de Campagne Narrative</p>
               <p>
-                La force des
-                <strong
-                  style="
-                    font-style: normal;
-                    font-family: 'Cinzel', serif;
-                    font-size: 0.85rem;
-                    color: var(--ba-red);
-                  "
-                  >Blood Angels</strong
-                >
-                est déployée en réponse à la présence des
-                <em>Iron Warriors</em> dans le sous-secteur Olympia. La campagne
-                narrative est en cours — les informations sur les combats, les
-                pertes et les développements tactiques seront enrichies au fil
-                des batailles.
+                Les <strong>Blood Angels</strong> de la
+                <strong>IXe Légion</strong> convergent sur
+                <em>Saiph</em> sous le commandement du Primarque
+                <em>Sanguinius</em> en personne, accompagné de son Premier
+                Capitaine <em>Raldoron</em>, de <em>Dominion Zephon</em>,
+                d'<em>Aster Crohne</em>, de la Garde Sanguinienne, des Paladins
+                Écarlates de Bel Sepatus, du Dreadnought Valandris, des Larmes
+                de l'Ange, d'une Capsule Orbitale et d'un Spartan. Chaque fils
+                de Sanguinius sait ce qui l'attend. Aucun ne recule.
               </p>
             </div>
           </div>
@@ -705,8 +567,7 @@
       <div class="container">
         <div class="footer-logo">Les Bastions d'Olympia</div>
         <p class="footer-line">
-          « Sanguinius portait la beauté et la terreur de l'ange. » — Annales de
-          la Guerre d'Hérésie
+          « Dans le futur sombre de l'humanité, il n'y a que la guerre. »
         </p>
         <p class="footer-line">
           Horus Heresy &bull; Campagne Narrative &bull; 30ème Millénaire
@@ -714,7 +575,8 @@
       </div>
     </footer>
 
-    <a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+    <!-- ════════════════════════════════ BOUTON RETOUR EN HAUT ════════════════════════════════ -->
+    <button id="back-top" class="back-top" aria-label="Retour en haut de page">
       <svg
         width="16"
         height="16"
@@ -722,11 +584,23 @@
         fill="none"
         stroke="currentColor"
         stroke-width="2"
+        aria-hidden="true"
       >
         <polyline points="18 15 12 9 6 15" />
       </svg>
-    </a>
+    </button>
 
-    <script src="assets/js/ui.js" defer></script>
+    <!-- ════════════════════════════════ SCRIPTS ════════════════════════════════ -->
+    <!--
+      ORDRE IMPORTANT :
+      1. campagne.js  — données et fonctions métier (dont injectNav)
+      2. ui.js        — sans defer, pour que injectNav soit dispo immédiatement
+      3. Appel injectNav() — après ui.js, avant la fermeture du body
+    -->
+    <script src="assets/js/campagne.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script>
+      injectNav({ page: 'blood-angels', showNextGame: false });
+    </script>
   </body>
 </html>
