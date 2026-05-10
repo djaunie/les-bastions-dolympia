@@ -10,7 +10,7 @@
 (function () {
   'use strict';
 
-  var PERSONNAGES = [
+  const PERSONNAGES = [
     {
       nom: 'Perturabo',
       titre: 'Primarque des Iron Warriors',
@@ -34,11 +34,11 @@
     },
   ];
 
-  var PLACEHOLDER_SVG =
+  const PLACEHOLDER_SVG =
     '<svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="52" height="52" rx="2"/><path d="M4 40 l14-14 10 10 12-16 16 20"/><circle cx="42" cy="18" r="5"/></svg>';
 
   function buildSlide(perso, index, total) {
-    var imgHTML = [
+    const imgHTML = [
       '<div class="perso-carousel__img-wrap">',
       '<img',
       '  class="perso-carousel__img"',
@@ -56,7 +56,7 @@
       '</div>',
     ].join('');
 
-    var bodyHTML = [
+    const bodyHTML = [
       '<div class="perso-carousel__body">',
       '<span class="perso-carousel__faction">' +
         escapeHTML(perso.faction) +
@@ -99,13 +99,13 @@
   }
 
   function injectCarousel(section) {
-    var total = PERSONNAGES.length;
+    const total = PERSONNAGES.length;
 
-    var slidesHTML = PERSONNAGES.map(function (p, i) {
+    const slidesHTML = PERSONNAGES.map(function (p, i) {
       return buildSlide(p, i, total);
     }).join('');
 
-    var dotsHTML = PERSONNAGES.map(function (p, i) {
+    const dotsHTML = PERSONNAGES.map(function (p, i) {
       return [
         '<button',
         '  class="perso-carousel__dot' + (i === 0 ? ' is-active' : '') + '"',
@@ -147,22 +147,29 @@
   }
 
   function initLogic() {
-    var carousel = document.getElementById('perso-carousel');
-    var viewport = document.getElementById('perso-carousel-viewport');
-    var track = document.getElementById('perso-carousel-track');
-    var btnPrev = document.getElementById('perso-btn-prev');
-    var btnNext = document.getElementById('perso-btn-next');
-    var counter = document.getElementById('perso-counter');
-    var dots = Array.from(document.querySelectorAll('[data-perso-dot]'));
-    var slides = Array.from(track.querySelectorAll('.perso-carousel__slide'));
-    var total = slides.length;
+    const carousel = document.getElementById('perso-carousel');
+    const viewport = document.getElementById('perso-carousel-viewport');
+    const track = document.getElementById('perso-carousel-track');
+    const btnPrev = document.getElementById('perso-btn-prev');
+    const btnNext = document.getElementById('perso-btn-next');
+    const counter = document.getElementById('perso-counter');
+    const dots = Array.from(document.querySelectorAll('[data-perso-dot]'));
+    const slides = Array.from(track.querySelectorAll('.perso-carousel__slide'));
+    const total = slides.length;
     if (!total) return;
 
-    var current = 0;
+    let current = 0;
+    let touchStartX = null;
+    let touchStartY = null;
+    const SWIPE_THRESH = 50;
+    let mouseStartX = null;
+    let isDragging = false;
 
     slides.forEach(function (slide) {
-      var img = slide.querySelector('.perso-carousel__img');
-      var placeholder = slide.querySelector('.perso-carousel__img-placeholder');
+      const img = slide.querySelector('.perso-carousel__img');
+      const placeholder = slide.querySelector(
+        '.perso-carousel__img-placeholder',
+      );
       if (!img) return;
       img.addEventListener('error', function () {
         img.style.display = 'none';
@@ -179,7 +186,7 @@
       track.style.transform = 'translateX(-' + current * 100 + '%)';
 
       dots.forEach(function (dot, i) {
-        var active = i === current;
+        const active = i === current;
         dot.classList.toggle('is-active', active);
         dot.setAttribute('aria-selected', active ? 'true' : 'false');
       });
@@ -230,10 +237,6 @@
     if (!carousel.hasAttribute('tabindex'))
       carousel.setAttribute('tabindex', '0');
 
-    var touchStartX = null;
-    var touchStartY = null;
-    var SWIPE_THRESH = 50;
-
     viewport.addEventListener(
       'touchstart',
       function (e) {
@@ -247,8 +250,8 @@
       'touchend',
       function (e) {
         if (touchStartX === null) return;
-        var dx = e.changedTouches[0].clientX - touchStartX;
-        var dy = e.changedTouches[0].clientY - touchStartY;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
         if (Math.abs(dy) > Math.abs(dx)) {
           touchStartX = null;
           return;
@@ -259,9 +262,6 @@
       },
       { passive: true },
     );
-
-    var mouseStartX = null;
-    var isDragging = false;
 
     viewport.addEventListener('mousedown', function (e) {
       mouseStartX = e.clientX;
@@ -276,7 +276,7 @@
 
     window.addEventListener('mouseup', function (e) {
       if (mouseStartX === null) return;
-      var dx = e.clientX - mouseStartX;
+      const dx = e.clientX - mouseStartX;
       if (isDragging) {
         if (dx < -SWIPE_THRESH) goTo(current + 1);
         else if (dx > SWIPE_THRESH) goTo(current - 1);
@@ -294,7 +294,7 @@
   }
 
   function init() {
-    var target = document.getElementById('perso-carousel-container');
+    const target = document.getElementById('perso-carousel-container');
     if (!target) return;
 
     injectCarousel(target);
