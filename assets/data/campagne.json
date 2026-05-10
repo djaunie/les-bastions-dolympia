@@ -42,7 +42,7 @@
         "titre": "Le Chant Funèbre des Mondes d'Acier",
         "paragraphes": [
           "Au crépuscule de la Grande Croisade, le sous-secteur Olympia se dressait comme un rempart d'acier au cœur du Segmentum Solar, un bastion que nul ennemi n'osait défier. En son centre brûlait Olympia, monde natal de Perturabo, dont la volonté inflexible façonnait la destinée de toute la région. Ses cités-forteresses portaient les cicatrices d'âges de guerre oubliés — et même le Mechanicum y voyaient l'écho d'un génie brutal et implacable. Autour d'elle gravitaient des mondes voués à la guerre : Anvillus, ruche suffocante dont les forges ne s'éteignaient jamais ; Utan Magna, monde-forge où naissaient les armes des croisades ; Incaladion, forteresse silencieuse défiant le vide ; et non loin Saiph, où le sang des aspirants coulait en offrande aux Blood Angels. Ensemble, ils formaient une symphonie d'acier et de feu, accordée à la volonté de Terra.",
-          "Et pourtant… sous cette façade d'ordre absolu, la fracture grandissait. Les massacres de Pertubaro hantait chaque victoire, chaque mur élevé, chaque monde conquis. Derrière la logique froide du stratège, la colère et le mépris s'accumulaient, silencieux, implacables. Alors, lorsque Horus tendit la main, ce ne fut pas une tentation… mais une délivrance. Et en un instant, ce qui avait été forgé pour durer mille ans se brisa. Le sous-secteur Olympia, jadis parangon de loyauté, sombra dans la division et le feu. Car même les empires d'acier finissent par céder… lorsque le cœur qui les soutient choisit de se briser."
+          "Et pourtant… sous cette façade d'ordre absolu, la fracture grandissait. Les massacres de Perturabo hantaient chaque victoire, chaque mur élevé, chaque monde conquis. Derrière la logique froide du stratège, la colère et le mépris s'accumulaient, silencieux, implacables. Alors, lorsque Horus tendit la main, ce ne fut pas une tentation… mais une délivrance. Et en un instant, ce qui avait été forgé pour durer mille ans se brisa. Le sous-secteur Olympia, jadis parangon de loyauté, sombra dans la division et le feu. Car même les empires d'acier finissent par céder… lorsque le cœur qui les soutient choisit de se briser."
         ],
         "citation": {
           "texte": "« Olympia fut la première et la plus douloureuse des trahisons. Non pas parce que Perturabo choisit Horus — mais parce qu'il nous avait laissé croire, jusqu'à la fin, qu'il choisirait l'Empereur. ",
@@ -57,7 +57,7 @@
           "L'issue du conflit dans le sous-secteur Olympia demeure indéterminée. Incaladion, reconnu comme bastion défensif majeur, conserve une posture opérationnelle stable. Ses fortifications continuent de remplir leur fonction stratégique, bien que des tentatives de subversion interne aient été signalées. Les projections stratégiques convergent vers une conclusion unique : la résolution dépendra non seulement de la supériorité militaire des forces engagées, mais également de la résilience des chaînes de commandement encore loyales à Terra."
         ],
         "citation": {
-          "texte": " Transmission astropathique chiffée, priorité Absolon — \"Les forges d'Utan Magna sont muettes depuis soixante-douze heures. Les signaux des balises de navigation d'Anvillus sont brouillés. Incaladion demande des renforts. Répète : Incaladion demande des renforts. Que l'Omnissiah nous garde.\" »",
+          "texte": " Transmission astropathique chiffrée, priorité Absolon — \"Les forges d'Utan Magna sont muettes depuis soixante-douze heures. Les signaux des balises de navigation d'Anvillus sont brouillés. Incaladion demande des renforts. Répète : Incaladion demande des renforts. Que l'Omnissiah nous garde.\" »",
           "auteur": "— Rapport de transit, Cohorte Astrotélépathe Γ-7, Transmis depuis le Croiseur Implacable Volonté — 014.M31",
           "alerte": true
         }
@@ -77,7 +77,7 @@
       "batailles": [
         {
           "titre": "",
-          "texte": "Est-ce que les agents de l'impérium infiltrés dans la population ont assez affaiblit les forces de défense local via la révolte populaire pour coordonner une attaque d'une légion loyaliste?",
+          "texte": "Est-ce que les agents de l'impérium infiltrés dans la population ont assez affaibli les forces de défense local via la révolte populaire pour coordonner une attaque d'une légion loyaliste?",
           "factions": [
             { "label": "Iron Warriors", "classe": "faction-tag--iw" }
           ]

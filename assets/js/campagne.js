@@ -77,15 +77,17 @@
           : '';
 
         const bataillesHTML = f.batailles
-          .map(
-            (b) =>
-              `<div class="battle-entry ${b.classe}">
-          <p class="battle-label">${b.label}</p>
-          <h4 class="battle-title">${b.titre}</h4>
-          <p class="battle-text">${b.texte}</p>
+          .map((b) => {
+            // Defensive coding : classe et titre optionnels
+            const classeAttr = b.classe ? ` ${b.classe}` : '';
+            const titreHTML = b.titre ? `<h4 class="battle-title">${escapeHTML(b.titre)}</h4>` : '';
+            return `<div class="battle-entry${classeAttr}">
+          <p class="battle-label">${escapeHTML(b.label || '')}</p>
+          ${titreHTML}
+          <p class="battle-text">${escapeHTML(b.texte)}</p>
           <div class="battle-factions">${b.factions.map((fc) => `<span class="faction-tag ${fc.classe}">${fc.label}</span>`).join('')}</div>
-        </div>`,
-          )
+        </div>`;
+          })
           .join('');
 
         return `<div class="front-panel${i === 0 ? ' active' : ''}" id="tab-${f.id}" role="tabpanel">
