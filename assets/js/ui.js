@@ -34,7 +34,7 @@
     );
   }
 
-  updateThemeBtn();
+  _updateThemeBtn();
 
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
