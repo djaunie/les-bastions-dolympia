@@ -103,7 +103,11 @@
 
   // ── FETCH & RENDER ────────────────────────────────────────────────
   fetch('assets/data/campagne.json')
-    .then((r) => r.json())
+    .then((r) => {
+      if (!r.ok)
+        throw new Error('Erreur HTTP ' + r.status + ' : ' + r.statusText);
+      return r.json();
+    })
     .then((d) => {
       renderLore(d.lore);
       renderFronts(d.fronts);
@@ -117,7 +121,6 @@
       );
     })
     .finally(() => {
-      // Réobserver les .reveal injectés dynamiquement par renderLore/renderFronts
       if ('IntersectionObserver' in window) {
         const obs = new IntersectionObserver(
           (entries) => {
