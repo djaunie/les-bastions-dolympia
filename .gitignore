@@ -88,3 +88,11 @@ config.local.js
 dist/
 build/
 .cache/
+# Dependencies
+node_modules/
+
+# Visual Studio
+.vs/
+
+# Lockfile
+package-lock.json
