@@ -1,28 +1,57 @@
 <!doctype html>
 <html lang="fr" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carte du Secteur — Horus Heresy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<script src="assets/js/ui.js" defer></script>
-<!-- NAV -->
-<nav class="map-nav" id="map-nav">
-  <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-    Olympia
-  </a>
-  <span class="map-nav-title">Secteur Galactique</span>
-  <span class="map-nav-sub">Horus Heresy &bull; 31<sup>e</sup> Millénaire</span>
-  <button class="btn-theme-map" data-theme-toggle aria-label="Basculer le thème">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-</nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carte du Secteur — Horus Heresy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <script src="assets/js/ui.js"></script>
+
+    <!-- NAV SPÉCIFIQUE CARTE — conservée telle quelle -->
+    <nav class="map-nav" id="map-nav">
+      <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Olympia
+      </a>
+      <span class="map-nav-title">Secteur Galactique</span>
+      <span class="map-nav-sub"
+        >Horus Heresy &bull; 31<sup>e</sup> Millénaire</span
+      >
+      <button
+        class="btn-theme-map"
+        data-theme-toggle
+        aria-label="Basculer le thème"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
 
     <!-- LÉGENDE -->
     <aside class="map-legend" aria-label="Légende de la carte">
@@ -56,7 +85,6 @@
           aria-label="Carte interactive du secteur galactique Olympia"
         >
           <defs>
-            <!-- Filtre brûlure -->
             <filter id="burn" x="-20%" y="-20%" width="140%" height="140%">
               <feTurbulence
                 type="fractalNoise"
@@ -73,7 +101,6 @@
                 yChannelSelector="G"
               />
             </filter>
-            <!-- Filtre lueur dorée -->
             <filter id="glow-gold">
               <feGaussianBlur stdDeviation="3" result="blur" />
               <feMerge>
@@ -81,7 +108,6 @@
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <!-- Filtre lueur rouge -->
             <filter id="glow-red">
               <feGaussianBlur stdDeviation="4" result="blur" />
               <feMerge>
@@ -89,19 +115,16 @@
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <!-- Gradient nébuleuse centrale -->
             <radialGradient id="nebula-grad" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#3a2010" stop-opacity="0.9" />
               <stop offset="35%" stop-color="#1e1208" stop-opacity="0.7" />
               <stop offset="70%" stop-color="#0a0806" stop-opacity="0.4" />
               <stop offset="100%" stop-color="#0a0806" stop-opacity="0" />
             </radialGradient>
-            <!-- Gradient fond étoilé -->
             <radialGradient id="bg-grad" cx="50%" cy="50%" r="70%">
               <stop offset="0%" stop-color="#12100a" />
               <stop offset="100%" stop-color="#050403" />
             </radialGradient>
-            <!-- Gradient zone Dominion -->
             <linearGradient
               id="dominion-grad"
               x1="0%"
@@ -113,7 +136,6 @@
               <stop offset="40%" stop-color="#8b1a1a" stop-opacity="0.12" />
               <stop offset="100%" stop-color="#8b1a1a" stop-opacity="0.18" />
             </linearGradient>
-            <!-- Gradient zone Quantum -->
             <linearGradient
               id="quantum-grad"
               x1="100%"
@@ -125,7 +147,6 @@
               <stop offset="50%" stop-color="#4a2a6a" stop-opacity="0.12" />
               <stop offset="100%" stop-color="#4a2a6a" stop-opacity="0.2" />
             </linearGradient>
-            <!-- Grille hexagonale subtile -->
             <pattern
               id="hex-grid"
               x="0"
@@ -143,14 +164,10 @@
             </pattern>
           </defs>
 
-          <!-- FOND -->
           <rect width="1000" height="700" fill="url(#bg-grad)" />
           <rect width="1000" height="700" fill="url(#hex-grid)" />
-
-          <!-- ÉTOILES (générées) -->
           <g id="stars-layer"></g>
 
-          <!-- ZONE : The Dominion of Storms -->
           <rect
             x="820"
             y="0"
@@ -180,7 +197,6 @@
             The Dominion of Storms
           </text>
 
-          <!-- ZONE : Quantum Obscurus -->
           <polygon
             points="0,0 350,0 350,315 180,385 0,385"
             fill="url(#quantum-grad)"
@@ -204,7 +220,6 @@
             Quantum Obscurus
           </text>
 
-          <!-- SOUS ECTEUR OLYMPIA -->
           <rect
             x="400"
             y="184"
@@ -229,7 +244,6 @@
             ⚔ Sous-secteur Olympia ⚔
           </text>
 
-          <!-- NÉBULEUSE CENTRALE -->
           <ellipse
             cx="480"
             cy="406"
@@ -259,7 +273,6 @@
             The Galactic Core
           </text>
 
-          <!-- LIGNE ORNEMENTALE BORDURE -->
           <rect
             x="8"
             y="8"
@@ -282,16 +295,13 @@
             stroke-width="0.5"
           />
 
-          <!-- SYSTÈMES STELLAIRES (injectés par JS) -->
           <g id="systems-layer"></g>
         </svg>
       </div>
     </main>
 
-    <!-- OVERLAY MOBILE -->
     <div class="map-overlay" id="map-overlay" aria-hidden="true"></div>
 
-    <!-- PANEL LATÉRAL -->
     <aside
       class="side-panel"
       id="side-panel"
@@ -334,29 +344,29 @@
       </div>
     </aside>
 
-<script>
-(function () {
-  'use strict';
-	
-  // ── GÉNÉRER ÉTOILES ───────────────────────────────────────────────
-  function generateStars() {
-    const layer = document.getElementById('stars-layer');
-    const count = 280;
-    let svg = '';
-    for (let i = 0; i < count; i++) {
-      const x = Math.random() * 1000;
-      const y = Math.random() * 700;
-      const r = Math.random() < 0.85 ? (Math.random() * 0.8 + 0.3) : (Math.random() * 1.2 + 0.8);
-      const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
-      const dur = (Math.random() * 3 + 2).toFixed(1);
-      const delay = (Math.random() * 4).toFixed(1);
-      svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}"
-        style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
+    <script>
+      (function () {
+        'use strict';
+
+        function generateStars() {
+          const layer = document.getElementById('stars-layer');
+          const count = 280;
+          let svg = '';
+          for (let i = 0; i < count; i++) {
+            const x = Math.random() * 1000;
+            const y = Math.random() * 700;
+            const r =
+              Math.random() < 0.85
+                ? Math.random() * 0.8 + 0.3
+                : Math.random() * 1.2 + 0.8;
+            const maxOp = (Math.random() * 0.5 + 0.2).toFixed(2);
+            const dur = (Math.random() * 3 + 2).toFixed(1);
+            const delay = (Math.random() * 4).toFixed(1);
+            svg += `<circle class="star" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" style="--d:${dur}s;--delay:${delay}s;--max-op:${maxOp}"/>`;
           }
           layer.innerHTML = svg;
         }
 
-        // ── ICÔNES STATUT ─────────────────────────────────────────────────
         const ICONS = {
           neutral: '◎',
           loyalist: '✦',
@@ -372,7 +382,6 @@
           besieged: 'Assiégé',
         };
 
-        // ── PANEL ─────────────────────────────────────────────────────────
         const panel = document.getElementById('side-panel');
         const overlay = document.getElementById('map-overlay');
 
@@ -384,14 +393,12 @@
           document.getElementById('panel-desc').textContent = sys.description;
           document.getElementById('panel-coords').textContent =
             `Coordonnées : ${sys.x_pct.toFixed(1)}% × ${sys.y_pct.toFixed(1)}%`;
-
           const badge = document.getElementById('panel-badge');
           badge.textContent =
             (ICONS[sys.statut] || '◎') +
             ' ' +
             (STATUS_FR[sys.statut] || sys.statut);
           badge.className = 'panel-status-badge badge-' + sys.statut;
-
           panel.classList.add('open');
           overlay.classList.add('active');
           overlay.setAttribute('aria-hidden', 'false');
@@ -411,7 +418,6 @@
           if (e.key === 'Escape') closePanel();
         });
 
-        // ── RENDER SYSTÈMES ───────────────────────────────────────────────
         function renderSystems(systemes) {
           const layer = document.getElementById('systems-layer');
           let svg = '';
@@ -419,26 +425,21 @@
             const x = (sys.x_pct / 100) * 1000;
             const y = (sys.y_pct / 100) * 700;
             const icon = ICONS[sys.statut] || '◎';
-            const labelY = y + 16;
             svg += `
-        <g class="system-node status-${sys.statut}"
-           data-id="${sys.id}"
-           role="button" tabindex="0"
-           aria-label="${sys.nom} — ${STATUS_FR[sys.statut] || sys.statut}"
-           transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
-          <circle class="node-glow" cx="0" cy="0" r="14"/>
-          <circle class="node-ring" cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="1" opacity="0"/>
-          <circle class="node-dot" cx="0" cy="0" r="4"/>
-          <text class="node-icon" x="0" y="-8" font-size="7">${icon}</text>
-          <text class="node-label" x="0" y="15" font-size="9">${sys.nom}</text>
-        </g>`;
+      <g class="system-node status-${sys.statut}" data-id="${sys.id}"
+         role="button" tabindex="0"
+         aria-label="${sys.nom} — ${STATUS_FR[sys.statut] || sys.statut}"
+         transform="translate(${x.toFixed(1)},${y.toFixed(1)})">
+        <circle class="node-glow" cx="0" cy="0" r="14"/>
+        <circle class="node-ring" cx="0" cy="0" r="6" fill="none" stroke="currentColor" stroke-width="1" opacity="0"/>
+        <circle class="node-dot" cx="0" cy="0" r="4"/>
+        <text class="node-icon" x="0" y="-8" font-size="7">${icon}</text>
+        <text class="node-label" x="0" y="15" font-size="9">${sys.nom}</text>
+      </g>`;
           });
           layer.innerHTML = svg;
-
-          // Events
           layer.querySelectorAll('.system-node').forEach((node) => {
-            const id = node.dataset.id;
-            const sys = systemes.find((s) => s.id === id);
+            const sys = systemes.find((s) => s.id === node.dataset.id);
             if (!sys) return;
             node.addEventListener('click', () => openPanel(sys));
             node.addEventListener('keydown', (e) => {
@@ -450,9 +451,6 @@
           });
         }
 
-        // ── FETCH & INIT ─────────────────────────────────────────────────
-
-        // Données inline (pas de fetch nécessaire)
         const CARTE_DATA = {
           systemes: [
             {
@@ -503,7 +501,7 @@
               statut: 'neutral',
               faction: 'Mechanicum',
               description:
-                'Monde-forge du Mechanicum, Ultan Magna est silencieuse. Aucun message officiel du Mechanicum ne mentionne clairement l’autorité qui gouverne ce monde. Nul ne sait si Ultan Magna est encore loyale à l’Imperium… ou si elle attend simplement le moment opportun pour révéler sa véritable allégeance.',
+                "Monde-forge du Mechanicum, Ultan Magna est silencieuse. Aucun message officiel du Mechanicum ne mentionne clairement l'autorité qui gouverne ce monde. Nul ne sait si Ultan Magna est encore loyale à l'Imperium… ou si elle attend simplement le moment opportun pour révéler sa véritable allégeance.",
             },
             {
               id: 'baal',
@@ -536,13 +534,8 @@
                 "Monde natal des Thousand Sons, Prospero est une planète d'érudits et de sorciers. Sa bibliothèque cosmique renferme des savoirs interdits, et son destin est intimement lié aux machinations de Tzeentch.",
             },
           ],
-          meta: {
-            titre: 'Secteur Olympia',
-            sous_titre: 'Carte du Sous-Secteur — Horus Heresy',
-            epoque: "31e Millénaire — L'Horus Heresy",
-            version: '1.0',
-          },
         };
+
         generateStars();
         renderSystems(CARTE_DATA.systemes);
       })();

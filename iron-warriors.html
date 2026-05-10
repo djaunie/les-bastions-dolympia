@@ -14,135 +14,8 @@
   </head>
 
   <body>
-    <!-- ═══════════════ NAVIGATION ═══════════════ -->
-    <nav class="nav" id="nav">
-      <div class="nav-inner">
-        <a
-          href="index.html"
-          class="nav-logo"
-          aria-label="Les Bastions d'Olympia — IV° Légion"
-        >
-          <svg
-            class="nav-logo-icon"
-            viewBox="0 0 36 36"
-            fill="none"
-            aria-hidden="true"
-          >
-            <circle
-              cx="18"
-              cy="18"
-              r="8"
-              fill="none"
-              stroke="#8a9bac"
-              stroke-width="1.5"
-            />
-            <circle
-              cx="18"
-              cy="18"
-              r="3.5"
-              fill="none"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-            <rect x="16.5" y="7" width="3" height="3" rx="0.5" fill="#8a9bac" />
-            <rect
-              x="16.5"
-              y="26"
-              width="3"
-              height="3"
-              rx="0.5"
-              fill="#8a9bac"
-            />
-            <rect x="7" y="16.5" width="3" height="3" rx="0.5" fill="#8a9bac" />
-            <rect
-              x="26"
-              y="16.5"
-              width="3"
-              height="3"
-              rx="0.5"
-              fill="#8a9bac"
-            />
-            <line
-              x1="14"
-              y1="4"
-              x2="10"
-              y2="10"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-            <line
-              x1="22"
-              y1="4"
-              x2="18"
-              y2="10"
-              stroke="#c8a028"
-              stroke-width="1.2"
-            />
-          </svg>
-          <div>
-            <span class="nav-logo-text">Olympia</span>
-            <span class="nav-logo-sub">Horus Heresy</span>
-          </div>
-        </a>
-        <div class="nav-actions">
-          <div class="nav-page-links">
-            <a
-              href="carte.html"
-              class="btn-nav-page btn-nav-page--carte"
-              aria-label="Accéder à la carte"
-            >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-              Carte
-            </a>
-          </div>
-          <button
-            class="btn-theme"
-            data-theme-toggle
-            aria-label="Basculer le thème"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-          </button>
-          <button
-            class="nav-mobile-toggle"
-            id="nav-toggle"
-            aria-label="Menu"
-            aria-expanded="false"
-          >
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
+    <!-- ═══════════════ NAVIGATION (injectée par injectNav()) ═══════════════ -->
+    <!-- La nav sera injectée dynamiquement par ui.js + injectNav() -->
 
     <!-- ═══════════════ HERO ═══════════════ -->
     <header class="page-hero" id="top">
@@ -443,7 +316,7 @@
             </div>
           </div>
 
-          <!-- Praetor en Armure Saturnine -->
+          <!-- Forrix -->
           <div class="character-medallion reveal">
             <div class="medallion-sigil">
               <svg
@@ -482,7 +355,7 @@
             </div>
           </div>
 
-          <!-- Centurion -->
+          <!-- Harkor -->
           <div class="character-medallion reveal">
             <div class="medallion-sigil">
               <svg
@@ -516,7 +389,7 @@
             </div>
           </div>
 
-          <!-- Forgeguerre -->
+          <!-- Vull Bronn -->
           <div class="character-medallion reveal">
             <div class="medallion-sigil">
               <svg
@@ -597,232 +470,45 @@
               besoin. Ils pensent <strong>déjà de la même façon</strong>. »
             </p>
           </div>
-
-          <div class="intel-note reveal">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              style="flex-shrink: 0; color: var(--iw-metal); margin-top: 0.1rem"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-            <div>
-              <div class="intel-note-label">
-                Renseignement Partiel — Commandement de Campagne
-              </div>
-              <p>
-                La composition exacte du Cercle de Fer et ses attributions
-                opérationnelles sur Olympia demeurent
-                <strong>inconnues</strong> de nos services. Toute tentative
-                d'infiltration de la forteresse-monde s'est soldée par la
-                disparition de nos agents. Nous savons qu'ils existent. Nous ne
-                savons pas ce qu'ils préparent. Ce silence est peut-être la pire
-                des informations.
-              </p>
-            </div>
-          </div>
-
-          <!-- ═══════════ V. LES HÉRITIERS DE L'ARMURE SATURNINE ═══════════ -->
-          <div class="ornament reveal">
-            <div class="ornament-center">
-              <span class="ornament-star">✦</span>
-              <span class="ornament-glyph">V</span>
-              <span class="ornament-star">✦</span>
-            </div>
-          </div>
-          <h2 class="chapter-title reveal">
-            <span class="ct-number">V</span>Les Héritiers de l'Armure Saturnine
-          </h2>
-
-          <p class="prose drop-cap reveal">
-            Si les Iron Warriors dans leur ensemble inspirent un respect teinté
-            d'effroi, leurs unités d'élite en armure
-            <strong>Saturnine</strong> transcendent cette crainte pour atteindre
-            quelque chose de plus profond. L'Armure Saturnine est une relique
-            des guerres orbitales autour de Saturne, bien avant que l'Imperium
-            fût ce qu'il est devenu. Ces plastrons et épaulières forgés dans des
-            alliages disparus portent une histoire que les Iron Warriors n'ont
-            jamais voulu laisser mourir.
-          </p>
-
-          <p class="prose reveal">
-            Les <strong>Terminators en Armure Saturnine</strong> sont six. Six
-            silhouettes massives qui avancent là où les autres légionnaires
-            s'arrêtent, sous les tirs croisés, dans les couloirs effondrés, à
-            travers les brèches de murs dont personne ne ressort ordinairement
-            vivant. Ils n'ont pas les gestes héroïques des légionnaires de
-            première ligne — ils ont des gestes <strong>méthodiques</strong>,
-            comme des machines qui ont appris à marcher dans la peau d'hommes.
-            Et marchant à leur côté, aussi antique que leur armure, Kallistros «
-            le Martelé » le <strong>Dreadnought Saturnine</strong>.
-          </p>
-
-          <div class="war-quote reveal">
-            <p>
-              « Ils ne chargent pas. Ils avancent. La différence peut sembler
-              sémantique jusqu'à ce que vous les voyiez faire les deux choses en
-              même temps, sans courir, sans crier, sans vaciller. C'est ce
-              moment-là, quand vous réalisez qu'ils ne se pressent pas parce
-              qu'ils savent que vous n'irez nulle part, que la vraie terreur
-              commence. »
-            </p>
-            <cite
-              >— Déposition de Frère-Sergent Adaias Vel, IXe Légion, après
-              Olympia, M31</cite
-            >
-          </div>
-
-          <!-- ═══════════ VI. L'HEURE DE LA TRAHISON ═══════════ -->
-          <div class="ornament reveal">
-            <div class="ornament-center">
-              <span class="ornament-star">✦</span>
-              <span class="ornament-glyph">VI</span>
-              <span class="ornament-star">✦</span>
-            </div>
-          </div>
-          <h2 class="chapter-title reveal">
-            <span class="ct-number">VI</span>L'Heure de la Trahison
-          </h2>
-
-          <p class="prose drop-cap reveal">
-            Les chroniqueurs de la Grande Croisade qui avaient suivi les Iron
-            Warriors pendant des décennies auraient pu vous dire, si on les
-            avait interrogés avec assez d'insistance et assez de vin, qu'ils
-            avaient vu venir quelque chose. Non pas la forme précise de la
-            trahison — nul ne peut voir la forme exacte d'un événement avant
-            qu'il se produise —, mais la texture de ce qui couvait. Une légion
-            que l'on envoie sur les fronts les plus ingrats depuis deux siècles
-            sans jamais lui faire honneur.
-          </p>
-
-          <p class="prose reveal">
-            Quand <strong>Horus</strong> a tendu la main à Perturabo, l'histoire
-            veut que le Seigneur du Fer ait hésité exactement le temps
-            nécessaire pour que l'hésitation ressemblât à une décision mûrement
-            réfléchie. Peut-être était-ce précisément cela. Peut-être Perturabo
-            avait-il calculé, avec la précision mathématique qui lui est propre,
-            que l'Imperium lui devait plus que ce qu'il ne lui avait donné, et
-            que la balance penchait irrévocablement d'un côté. La
-            <strong>trahison d'Olympia</strong> — le massacre des cités rebelles
-            de son propre monde natal — fut l'acte qui scella son passage dans
-            le camp de l'Archenaître. Un acte dont les Iron Warriors portent
-            encore, dit-on, le poids dans leurs rêves de métal.
-          </p>
-
-          <div class="war-quote reveal">
-            <p>
-              « Je ne suis pas un traître. Les traîtres renient leurs serments.
-              Moi, je n'ai jamais obtenu ce que mes serments méritaient en
-              retour. Ce n'est pas de la trahison. C'est de la
-              <em>comptabilité</em>. »
-            </p>
-            <cite
-              >— Perturabo, attribué, lors du Conclave de Ullanor, source non
-              vérifiée</cite
-            >
-          </div>
-
-          <p class="prose reveal">
-            Aujourd'hui, sur Olympia, la IVe Légion prépare ce que ses
-            éclaireurs voient comme les prémices d'une campagne dont l'ampleur
-            reste inconnue. Les forges tournent sans interruption.
-            <strong
-              >Les murs d'Olympia ne sont pas des murs de défense — ce sont des
-              murs de lancement.</strong
-            >
-            Le siège n'est pas encore là. Mais le Seigneur du Fer l'a déjà
-            calculé.
-          </p>
-
-          <!-- Bandeau final -->
-          <div class="iron-banner reveal">
-            <span class="iron-banner-glyph">✦</span>
-            <span class="iron-banner-text"
-              >Per ferrum, per patientiam — Par le fer, par la patience</span
-            >
-            <span class="iron-banner-glyph">✦</span>
-          </div>
-
-          <!-- Note finale de commandement -->
-          <div class="intel-note reveal">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              style="flex-shrink: 0; color: var(--iw-gold); margin-top: 0.1rem"
-              aria-hidden="true"
-            >
-              <path
-                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-              />
-              <line x1="12" y1="9" x2="12" y2="13" />
-              <line x1="12" y1="17" x2="12.01" y2="17" />
-            </svg>
-            <div>
-              <div class="intel-note-label" style="color: var(--iw-gold)">
-                Avertissement Stratégique — État-Major, Sous-Secteur Fyrentis
-              </div>
-              <p>
-                « Les effectifs complets de la IVe Légion sur Olympia demeurent
-                indéterminés. Ce récit ne reflète que ce que nos archives et nos
-                agents survivants ont pu confirmer. La réalité de leur force —
-                humaine, mécanique, doctrinale — est
-                <strong>vraisemblablement bien supérieure</strong> à ce qui est
-                consigné ici. Toute confrontation directe avec les Iron Warriors
-                doit être planifiée en tenant compte de cet angle mort majeur.
-                Leur patience est leur arme la plus létale. »
-              </p>
-              <p style="margin-top: 0.5rem">
-                —
-                <em
-                  >Commandement de campagne, classification Thêta, 31e
-                  millénaire</em
-                >
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </main>
 
     <!-- ═══════════════ FOOTER ═══════════════ -->
-    <footer>
+    <footer class="site-footer">
       <div class="container">
-        <div class="footer-logo">Sous-Secteur Fyrentis</div>
-        <p class="footer-line">
-          « Le siège est notre art. L'acier est notre foi. » — Perturabo,
-          Primarque des Iron Warriors
-        </p>
-        <p class="footer-line">
-          Warhammer 40 000 &#x2022; Campagne Narrative &#x2022; Horus Heresy
-          &#x2022; IV<sup>e</sup> Légion
+        <p class="footer-text">
+          Les Bastions d'Olympia &mdash; Campagne Horus Heresy
         </p>
       </div>
     </footer>
 
-    <a href="#top" class="back-top" id="back-top" aria-label="Retour en haut">
+    <!-- ═══════════════ BOUTON RETOUR EN HAUT ═══════════════ -->
+    <button id="back-top" class="back-top" aria-label="Retour en haut de page">
       <svg
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         stroke-width="2"
+        aria-hidden="true"
       >
         <polyline points="18 15 12 9 6 15" />
       </svg>
-    </a>
+    </button>
 
-    <script src="assets/js/ui.js" defer></script>
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <!--
+      ORDRE IMPORTANT :
+      1. campagne.js  — données et fonctions métier (dont injectNav)
+      2. ui.js        — sans defer, pour que injectNav soit dispo immédiatement
+      3. Appel injectNav() — après ui.js, avant la fermeture du body
+    -->
+    <script src="assets/js/campagne.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script>
+      injectNav({ page: 'iron-warriors', showNextGame: false });
+    </script>
   </body>
 </html>
