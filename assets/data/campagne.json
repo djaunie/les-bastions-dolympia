@@ -151,33 +151,6 @@
       "couleur": "red",
       "stats": [],
       "delai": 2
-    },
-    {
-      "nom": "Angron",
-      "titre": "Le Seigneur Rouge de Nuceria",
-      "faction": "World Eaters · Primarch Démon",
-      "image": "",
-      "lore": "« Angron naquit dans la boue rouge de Nuceria et ne connut jamais que la chaîne, le fouet et le cri des arènes. Les Clous du Boucher martelèrent son crâne jusqu'à ce que toute pensée devienne douleur, et que seule la guerre apaise le tumulte. »",
-      "couleur": "red",
-      "stats": [],
-      "delai": 0
-    },
-    {
-      "nom": "Khârn le Félon",
-      "titre": "Le Traître de Skalathrax",
-      "faction": "World Eaters · Champion de Khorne",
-      "image": "",
-      "lore": "« Khârn le Sanglant avance au cœur du fracas, là où les vox sont saturés de hurlements. On dit que son compteur de morts s'est arrêté depuis longtemps, incapable de suivre ses massacres, mais qu'il continue de cliquer dans le noir. »",
-      "couleur": "red",
-      "stats": [],
-      "delai": 1
     }
-  ],
-  "mecaniques": {
-    "vaisseau": {
-      "nom": "Le Conqueror",
-      "image": "assets/img/vaisseau_le_conqueror.png",
-      "image_alt": "Le Conqueror, vaisseau Gloriana corrompu par Khorne avec Lotara Sarrin"
-    }
-  }
+  ]
 }
