@@ -15,9 +15,17 @@
   <body>
     <script src="assets/js/ui.js"></script>
 
-    <!-- NAV SPÉCIFIQUE CARTE — conservée telle quelle -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         NAVIGATION SPÉCIFIQUE À LA CARTE
+         - Cette page utilise sa propre navigation, distincte de certaines autres vues du site
+         - Le choix peut être lié à des besoins d’ergonomie propres à la consultation cartographique
+         - Cette barre sert à garder l’utilisateur orienté tout en laissant la carte au centre de l’expérience
+    ═══════════════════════════════════════════════════════════════════════ -->
     <nav class="map-nav" id="map-nav">
       <a href="index.html" class="map-nav-back" aria-label="Retour à l'accueil">
+        <!-- Début du document SVG
+             - Le format vectoriel permet un tracé précis des zones, routes, bastions et fronts
+             - Chaque groupe ou forme peut être stylé, annoté ou rendu interactif en JavaScript -->
         <svg
           width="12"
           height="12"
@@ -53,7 +61,12 @@
       </button>
     </nav>
 
-    <!-- LÉGENDE -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         LÉGENDE DE LA CARTE
+         - Explique le sens des couleurs, symboles, statuts ou marquages présents sur la carte
+         - Sert de clé de lecture indispensable avant l’exploration du théâtre d’opérations
+         - Cette zone réduit la charge cognitive en explicitant les conventions visuelles utilisées
+    ═══════════════════════════════════════════════════════════════════════ -->
     <aside class="map-legend" aria-label="Légende de la carte">
       <div class="map-legend-title">Légende</div>
       <div class="legend-item">
@@ -73,7 +86,12 @@
       </div>
     </aside>
 
-    <!-- CARTE SVG -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         CARTE SVG PRINCIPALE
+         - Cœur visuel et fonctionnel de la page
+         - Représente le théâtre d’opérations sous forme vectorielle pour conserver précision et netteté
+         - Le SVG permet une mise en forme fine, une bonne réactivité et des interactions ciblées zone par zone
+    ═══════════════════════════════════════════════════════════════════════ -->
     <main class="map-wrapper">
       <div class="map-container">
         <svg

@@ -14,9 +14,19 @@
   </head>
 
   <body>
-    <!-- ═══════════════ NAVIGATION (injectée par injectNav()) ═══════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         NAVIGATION PRINCIPALE
+         - Le menu commun du site n’est pas écrit directement dans cette page
+         - Il est injecté dynamiquement par ui.js via la fonction injectNav()
+         - Cette approche centralise la navigation et évite les duplications HTML
+    ═══════════════════════════════════════════════════════════════════════ -->
 
-    <!-- HERO -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HERO DE PAGE
+         - Ouvre la page avec une présentation forte de la VIIIe Légion
+         - Pose immédiatement l’identité visuelle, la menace et le ton crépusculaire des Night Lords
+         - Regroupe badge, titre, accroche, citation et lien de retour vers l’accueil
+    ═══════════════════════════════════════════════════════════════════════ -->
     <header class="page-hero" id="top">
       <div class="container">
         <div class="hero-badge">
@@ -60,13 +70,19 @@
       </div>
     </header>
 
-    <!-- ═══════════════════════════════════════════════════
-     SECTION I — L'OMBRE QUI PRÉCÈDE LA MORT
-═══════════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION I — L’OMBRE QUI PRÉCÈDE LA MORT
+         - Première grande séquence narrative de la page
+         - Introduit la menace Night Lords sous la forme d’une peur qui arrive avant l’assaut
+         - Le texte met l’accent sur l’inconnu, l’angoisse et la guerre psychologique
+    ═══════════════════════════════════════════════════════════════════════ -->
     <section class="lore-section">
       <div class="container">
         <div class="lore-inner">
-          <!-- Bloc alerte intel -->
+          <!-- Bloc d’alerte de renseignement
+               - Simule un rapport d’observation ou d’interception militaire
+               - Sert d’entrée immersive pour installer la peur et l’incertitude
+               - Introduit la venue de la VIIIe Légion sous un angle quasi tactique -->
           <div class="lore-intel reveal">
             <p class="intel-label">
               <svg
@@ -220,7 +236,10 @@
             </p>
           </div>
 
-          <!-- Konrad Curze -->
+          <!-- Portrait de Konrad Curze
+               - Présente le primarque des Night Lords comme centre moral et narratif de la page
+               - Mélange description psychologique, aura mythique et menace stratégique
+               - Sert de point de fixation pour comprendre la nature entière de la légion -->
           <div class="lore-character reveal">
             <div class="lore-character-bar lore-character-bar--primarch"></div>
             <div class="lore-character-body">
@@ -257,7 +276,10 @@
             </div>
           </div>
 
-          <!-- Sevatar -->
+          <!-- Portrait de Sevatar
+               - Met en lumière le premier capitaine et son importance dans la culture de la légion
+               - Sert de contrepoint à Curze, avec une approche plus militaire et incisive
+               - Renforce l’épaisseur du commandement Night Lords -->
           <div class="lore-character lore-character--silver reveal">
             <div class="lore-character-bar lore-character-bar--silver"></div>
             <div class="lore-character-body">
@@ -498,7 +520,10 @@
             </div>
           </div>
 
-          <!-- Bloc inconnu -->
+          <!-- Bloc “inconnu”
+               - Choix narratif volontaire pour conserver une part d’ombre sur les effectifs ou identités
+               - Traduit visuellement l’idée de peur, d’opacité et d’information incomplète
+               - Très cohérent avec l’esthétique et la doctrine de la VIIIe Légion -->
           <div class="lore-unknown reveal">
             <p class="unknown-label">
               <svg
@@ -543,7 +568,10 @@
             </div>
           </div>
 
-          <!-- Barre de statut -->
+          <!-- Barre de statut
+               - Résume rapidement un niveau de menace, de présence ou d’activité
+               - Sert d’élément de lecture synthétique au milieu d’un contenu très narratif
+               - Fait le lien entre habillage d’interface et information diégétique -->
           <div class="lore-status reveal">
             <span class="status-label">Statut de la Menace</span>
             <span class="status-value"
@@ -562,7 +590,10 @@
             <span class="lore-divider-symbol">⚡</span>
           </div>
 
-          <!-- Note de campagne -->
+          <!-- Note de campagne
+               - Replace les Night Lords dans le contexte précis de la campagne en cours
+               - Permet de relier le lore général à l’histoire locale des Bastions d’Olympia
+               - Sert de passerelle entre ambiance, narration et enjeux de jeu -->
           <div class="lore-nota reveal">
             <p class="nota-label">Note de Campagne</p>
             <p>
@@ -625,18 +656,26 @@
       </svg>
     </a>
 
-    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SCRIPTS DE PAGE
+         - Charge les utilitaires, les comportements liés aux données et l’interface commune
+         - Le script inline final initialise la navigation avec le contexte Night Lords
+    ═══════════════════════════════════════════════════════════════════════ -->
     <!--
-      ORDRE IMPORTANT :
-      1. utils.js     — fonctions utilitaires communes (escapeHTML, escapeAttr)
-      2. campagne.js  — données et fonctions métier
-      3. ui.js        — sans defer, pour que injectNav soit dispo immédiatement
-      4. Appel injectNav() — après ui.js, avant la fermeture du body
+      ORDRE D’INITIALISATION DES SCRIPTS :
+      1. utils.js     — expose les helpers partagés du projet, notamment les utilitaires de base
+      2. campagne.js  — installe les comportements communs liés aux données et aux animations
+      3. ui.js        — gère la navigation injectée, le thème, le menu mobile et les interactions globales
+      4. script inline final — appelle injectNav() avec le contexte de la page Night Lords
+
+      Remarque de maintenance : injectNav() est défini dans ui.js.
+      Ce commentaire sert à documenter l’ordre réel des dépendances pour la maintenance future.
     -->
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/campagne.js"></script>
     <script src="assets/js/ui.js"></script>
     <script>
+      // Initialise la navigation commune avec le contexte de la page Night Lords
       injectNav({ page: 'night-lords', showNextGame: false });
     </script>
   </body>

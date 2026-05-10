@@ -978,7 +978,12 @@
   </head>
 
   <body>
-    <!-- NAV -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         NAVIGATION PRINCIPALE
+         - Barre de navigation commune au site, affichée en haut de la page
+         - Permet l’accès rapide aux sections majeures du projet et au retour vers l’accueil
+         - Sert aussi de repère de contexte pour rappeler que cette page appartient à la campagne globale
+    ═══════════════════════════════════════════════════════════════════════ -->
     <nav class="nav" id="nav">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
@@ -1059,7 +1064,12 @@
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         HERO DE LA BATAILLE
+         - Bloc d’ouverture dédié au scénario “Bataille 1 : Anvillus”
+         - Introduit l’affrontement, son atmosphère, ses protagonistes et sa portée narrative
+         - Fonctionne comme un écran de briefing avant l’entrée dans les règles et objectifs
+    ═══════════════════════════════════════════════════════════════════════ -->
     <header class="scenar-hero">
       <div class="hero-band">
         <div>
@@ -1075,11 +1085,22 @@
       <div class="hero-stripes"></div>
     </header>
 
-    <!-- CORPS -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         CORPS DE PAGE
+         - Conteneur principal de lecture après le hero
+         - Organise la page en une zone centrale de contenu et une zone latérale d’appui
+         - Cette structure permet de séparer le récit, les objectifs et les informations pratiques
+    ═══════════════════════════════════════════════════════════════════════ -->
     <div class="page-body">
-      <!-- COLONNE PRINCIPALE -->
+      <!-- COLONNE PRINCIPALE
+           - Partie centrale de la page, dédiée au cœur du scénario
+           - Rassemble le contexte narratif, les objectifs et les conséquences prévues
+           - Doit être lue comme la piste principale de briefing avant la bataille -->
       <main>
-        <!-- CONTEXTE NARRATIF -->
+        <!-- CONTEXTE NARRATIF
+             - Présente la situation au moment où commence l’affrontement
+             - Pose les enjeux, les forces en présence et la logique dramatique du scénario
+             - Sert à ancrer la bataille dans la chronologie de la campagne Olympia -->
         <section class="lore-block reveal">
           <div class="section-eyebrow">Contexte narratif</div>
           <h2 class="section-h2">Le Crépuscule de la Forge</h2>
@@ -1162,10 +1183,16 @@
         </section>
 
         <div class="ornament reveal">
-          <span><span aria-hidden="true">⚙</span> Dispositif de bataille <span aria-hidden="true">⚙</span></span>
+          <span
+            ><span aria-hidden="true">⚙</span> Dispositif de bataille
+            <span aria-hidden="true">⚙</span></span
+          >
         </div>
 
-        <!-- OBJECTIFS -->
+        <!-- OBJECTIFS DE MISSION
+             - Détaille les conditions de victoire, les priorités tactiques et les éléments à surveiller
+             - Transforme le récit en cadre jouable et exploitable sur table
+             - Cette section sert de référence rapide pendant la partie -->
         <section class="reveal">
           <div class="section-eyebrow">Objectifs</div>
           <h2 class="section-h2">Points de Contrôle — Karathos IV</h2>
@@ -1174,7 +1201,8 @@
               <div class="obj-num">01</div>
               <div class="obj-name">Relais Vox Sector Nord</div>
               <div class="obj-owner obj-owner--iw">
-                <span aria-hidden="true">⚙</span> Zone de déploiement Iron Warriors
+                <span aria-hidden="true">⚙</span> Zone de déploiement Iron
+                Warriors
               </div>
               <p class="obj-desc">
                 Tour d'émission industrielle reconvertie en nœud de commandement
@@ -1203,7 +1231,8 @@
               <div class="obj-num">03</div>
               <div class="obj-name">Docks de Chargement Sud</div>
               <div class="obj-owner obj-owner--ba">
-                <span aria-hidden="true">✦</span> Zone de déploiement Blood Angels
+                <span aria-hidden="true">✦</span> Zone de déploiement Blood
+                Angels
               </div>
               <p class="obj-desc">
                 Plateforme logistique où s'entassent les convois civils,
@@ -1217,7 +1246,10 @@
           </div>
         </section>
 
-        <!-- CONSÉQUENCES NARRATIVES -->
+        <!-- CONSÉQUENCES NARRATIVES
+             - Explique les effets scénaristiques attendus selon l’issue de la bataille
+             - Sert de pont entre résultat de jeu et évolution de la campagne narrative
+             - Donne du poids aux choix tactiques en les reliant à la suite de l’histoire -->
         <section class="reveal">
           <div class="section-eyebrow">Conséquences narratives</div>
           <h2 class="section-h2">Le Lendemain des Cendres</h2>
@@ -1237,11 +1269,12 @@
           <div class="consequences-grid">
             <div class="conseq-card conseq-card--iw">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--iw"><span aria-hidden="true">⚙</span> Victoire Iron Warriors</span>
+                <span class="conseq-badge conseq-badge--iw"
+                  ><span aria-hidden="true">⚙</span> Victoire Iron
+                  Warriors</span
+                >
               </div>
-              <div class="conseq-title">
-                Anvillus sous la Botte d'Acier
-              </div>
+              <div class="conseq-title">Anvillus sous la Botte d'Acier</div>
               <div class="conseq-text">
                 <p>
                   La IV<sup>e</sup> a démontrée son autorité sur le
@@ -1263,11 +1296,11 @@
 
             <div class="conseq-card conseq-card--ba">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--ba"><span aria-hidden="true">✦</span> Victoire Blood Angels</span>
+                <span class="conseq-badge conseq-badge--ba"
+                  ><span aria-hidden="true">✦</span> Victoire Blood Angels</span
+                >
               </div>
-              <div class="conseq-title">
-                La Grâce dans les Ruines
-              </div>
+              <div class="conseq-title">La Grâce dans les Ruines</div>
               <div class="conseq-text">
                 <p>
                   La IX<sup>e</sup> a maintenu les civils hors du conflit. Leur
@@ -1289,7 +1322,10 @@
 
             <div class="conseq-card conseq-card--nul">
               <div class="conseq-header">
-                <span class="conseq-badge conseq-badge--nul"><span aria-hidden="true">⚖</span> Match Nul — L'Impasse des Forges</span>
+                <span class="conseq-badge conseq-badge--nul"
+                  ><span aria-hidden="true">⚖</span> Match Nul — L'Impasse des
+                  Forges</span
+                >
               </div>
               <div class="conseq-title">
                 Deux Prédateurs, une Proie Trop Lourde
@@ -1316,7 +1352,9 @@
           </div>
         </section>
       </main>
-      <!-- /main -->
+      <!-- Fin de la colonne principale
+           - Marque la fermeture du flux éditorial principal de la bataille
+           - Tout ce qui suit relève davantage du support, de l’aide de jeu ou de l’information complémentaire -->
       <aside>
         <div class="sidebar-card reveal reveal-delay-1">
           <div class="sidebar-card-header">
@@ -1332,19 +1370,27 @@
               sous-secteur.
             </p>
             <nav class="sidebar-army-links" aria-label="Légions concernées">
-              <a href="iron-warriors.html" class="sidebar-army-link sidebar-army-link--iw">
+              <a
+                href="iron-warriors.html"
+                class="sidebar-army-link sidebar-army-link--iw"
+              >
                 <span aria-hidden="true">⚙</span> Iron Warriors
               </a>
-              <a href="blood-angels.html" class="sidebar-army-link sidebar-army-link--ba">
+              <a
+                href="blood-angels.html"
+                class="sidebar-army-link sidebar-army-link--ba"
+              >
                 <span aria-hidden="true">✦</span> Blood Angels
               </a>
             </nav>
           </div>
         </div>
       </aside>
-      <!-- /sidebar -->
+      <!-- Fin de la colonne latérale
+           - Clôt la zone des informations annexes, résumés, rappels ou encadrés utilitaires -->
     </div>
-    <!-- /page-body -->
+    <!-- Fin du corps de page
+         - Ferme la structure à deux colonnes qui organise l’ensemble du briefing de bataille -->
 
     <footer>
       <span class="footer-logo">Les Bastions d'Olympia</span>
@@ -1363,30 +1409,37 @@
       </svg>
     </button>
 
-<script>
-  // Thème toggle
-  (function(){
-    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
-    let d=r.getAttribute('data-theme')||'dark';
-    t&&t.addEventListener('click',()=>{
-      d=d==='dark'?'light':'dark';
-      r.setAttribute('data-theme',d);
-    });
-  })();
+    <script>
+      // Thème toggle
+      (function () {
+        const t = document.querySelector('[data-theme-toggle]'),
+          r = document.documentElement;
+        let d = r.getAttribute('data-theme') || 'dark';
+        t &&
+          t.addEventListener('click', () => {
+            d = d === 'dark' ? 'light' : 'dark';
+            r.setAttribute('data-theme', d);
+          });
+      })();
 
-  // Back to top
-  const bt=document.getElementById('backTop');
-  window.addEventListener('scroll',()=>{
-    bt.classList.toggle('visible',window.scrollY>400);
-  });
-  bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+      // Back to top
+      const bt = document.getElementById('backTop');
+      window.addEventListener('scroll', () => {
+        bt.classList.toggle('visible', window.scrollY > 400);
+      });
+      bt.addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' }),
+      );
 
-  // Reveal on scroll — rootMargin pour déclencher avant l'entrée dans le viewport
-  const obs=new IntersectionObserver(
-    es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),
-    {threshold:0.1, rootMargin:'0px 0px -40px 0px'}
-  );
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-</body>
+      // Reveal on scroll — rootMargin pour déclencher avant l'entrée dans le viewport
+      const obs = new IntersectionObserver(
+        (es) =>
+          es.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+          }),
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+      );
+      document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    </script>
+  </body>
 </html>

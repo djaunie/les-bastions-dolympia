@@ -65,16 +65,22 @@
     <!-- ═══════════════════════════════════════════
        FAVICON
   ═══════════════════════════════════════════ -->
-    <!-- Favicon SVG (moderne — Chrome 80+, Firefox, Safari 17+) -->
+    <!-- FAVICON SVG
+         - Version principale de l’icône du site pour les navigateurs modernes
+         - Léger, net à toutes les résolutions et cohérent avec l’identité visuelle du projet -->
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <!-- Fallback PNG 32×32 pour anciens navigateurs (généré depuis le SVG) -->
+    <!-- FAVICON PNG DE SECOURS
+         - Utilisé comme solution de compatibilité pour les navigateurs plus anciens
+         - Reprend visuellement l’icône principale dans un format raster classique -->
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="assets/img/favicon-32.png"
     />
-    <!-- Apple Touch Icon (iOS, macOS Safari favoris) -->
+    <!-- APPLE TOUCH ICON
+         - Icône spécifique aux appareils Apple pour l’ajout à l’écran d’accueil
+         - Améliore l’intégration du site dans l’écosystème iOS / iPadOS / Safari -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -91,6 +97,13 @@
   </head>
 
   <body>
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SCRIPTS DE LA PAGE D’ACCUEIL
+         - utils.js : fonctions utilitaires communes
+         - ui.js : navigation, thème, interactions globales
+         - campagne.js : chargement des données narratives affichées sur la home
+         - personnages-carousel.js : comportement du carrousel de personnages
+    ═══════════════════════════════════════════════════════════════════════ -->
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/ui.js"></script>
     <div id="nav-root"></div>
@@ -185,7 +198,12 @@
       <span class="hero-scroll" aria-hidden="true">D&#xe9;filer</span>
     </header>
 
-    <!-- CARROUSEL -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         CARROUSEL DES LÉGIONS / FACTIONS
+         - Zone visuelle principale de la page d’accueil
+         - Présente les camps, pages de légion ou blocs d’entrée majeurs de la campagne
+         - Sert à orienter rapidement l’utilisateur vers les contenus centraux du site
+    ═══════════════════════════════════════════════════════════════════════ -->
     <section
       class="carousel-section"
       aria-label="Galerie de la campagne Olympia"
@@ -326,7 +344,12 @@
       </div>
     </section>
 
-    <!-- CONTEXTE -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION CONTEXTE
+         - Introduit le cadre narratif général de la campagne des Bastions d’Olympia
+         - Donne au visiteur les clés de compréhension avant d’explorer les pages détaillées
+         - Fait le lien entre l’univers Horus Heresy et les enjeux propres au projet
+    ═══════════════════════════════════════════════════════════════════════ -->
     <section id="contexte" class="bg-surface">
       <div class="container">
         <div class="section-header reveal">
@@ -338,7 +361,12 @@
       </div>
     </section>
 
-    <!-- FRONTS -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION FRONTS / THÉÂTRES D’OPÉRATIONS
+         - Résume les zones de conflit ou les axes principaux de la campagne
+         - Sert de passerelle entre le récit global, la carte et les batailles à venir
+         - Oriente la lecture vers une compréhension stratégique du sous-secteur
+    ═══════════════════════════════════════════════════════════════════════ -->
     <section id="fronts">
       <div class="container">
         <div class="section-header reveal">
@@ -350,7 +378,12 @@
       </div>
     </section>
 
-    <!-- PERSONNAGES -->
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION PERSONNAGES
+         - Met en avant les figures majeures de la campagne narrative
+         - Donne une incarnation humaine ou légendaire aux conflits décrits sur le site
+         - Prépare la navigation vers les pages de légion et les récits de bataille
+    ═══════════════════════════════════════════════════════════════════════ -->
     <section id="personnages" class="bg-surface perso-carousel-section">
       <div class="container">
         <div class="section-header reveal">
