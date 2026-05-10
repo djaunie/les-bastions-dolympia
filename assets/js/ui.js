@@ -3,24 +3,35 @@
  * Les Bastions d'Olympia — Horus Heresy Campaign
  *
  * Fonctions incluses :
- *   1. injectNav(config)           injection dynamique de la nav
- *   2. Bascule thème clair/sombre  [data-theme-toggle]
- *   3. Menu mobile                 #nav-toggle
- *   4. Effet navbar scrollée       #nav
- *   5. Bouton retour en haut       #back-top
- *   6. Reveal on scroll            .reveal  (IntersectionObserver)
+ *   1. injectNav(config)           — injection dynamique de la barre de navigation commune
+ *   2. Bascule thème clair/sombre  — gestion via [data-theme-toggle] et l’attribut data-theme sur <html>
+ *   3. Menu mobile                 — contrôle de #nav-toggle et de aria-expanded
+ *   4. Effet navbar scrollée       — ajout/retrait de .nav--scrolled en fonction du scroll
+ *   5. Bouton retour en haut       — affichage du bouton #back-top après un certain défilement
+ *   6. Reveal on scroll            — animation d’apparition des blocs .reveal (IntersectionObserver)
  *
- * Usage : <script src="assets/js/ui.js"></script>  ← PAS defer (injectNav doit tourner avant le rendu)
+ * Usage recommandé :
+ *   <script src="assets/js/ui.js"></script>  ← actuellement sans defer car injectNav()
+ *   est appelé dans un script inline à la fin du <body>. Si tu passes à defer,
+ *   il faudra ajuster le bootstrap de la nav.
  */
 
 // ── 1. INJECT NAV ─────────────────────────────────────────────────────────────
 
 /**
  * Injecte la barre de navigation dans #nav-root.
- * Utilisée dans les fichiers HTML via <script inline> : injectNav({...})
- * @param {Object}  config
- * @param {string}  config.page         - 'index'|'carte'|'bataille'|'iron-warriors'|'blood-angels'|'night-lords'
- * @param {boolean} config.showNextGame - affiche "Prochaine partie" (index.html uniquement)
+ * - Remplace le nœud #nav-root par un <nav> complet construit en template string.
+ * - Met en avant la page courante via classes CSS et aria-current.
+ * - Peut afficher ou non le lien « Prochaine partie » selon la configuration.
+ *
+ * Utilisation côté HTML :
+ *   <script>
+ *     injectNav({ page: 'iron-warriors', showNextGame: false });
+ *   </script>
+ *
+ * @param {Object}  config                - Paramètres de rendu de la nav.
+ * @param {string}  config.page           - 'index'|'carte'|'bataille'|'iron-warriors'|'blood-angels'|'night-lords'.
+ * @param {boolean} config.showNextGame   - Affiche le bouton « Prochaine partie » sur certaines pages.
  */
 // eslint-disable-next-line no-unused-vars
 function injectNav(config) {
@@ -38,6 +49,7 @@ function injectNav(config) {
           ${isBataille ? 'aria-current="page"' : ''}>Prochaine partie</a>`
     : '';
 
+  // Injection complète de la nav commune
   root.outerHTML = `
 <nav class="nav" id="nav">
   <div class="nav-inner">
@@ -82,22 +94,32 @@ function injectNav(config) {
 </nav>`;
 
   // Réinitialiser les comportements UI qui dépendent du DOM injecté
+  // (le bouton de thème et le toggle mobile viennent d’être recréés)
   _initTheme();
   _initMobileMenu();
 }
 
-// ── INTERNALS ─────────────────────────────────────────────────────────────────
+// ── INTERNALS ───────────────────────────────────────────────────────────────
+// Les fonctions internes ci-dessous sont encapsulées dans un IIFE.
+// Elles ne sont pas exposées directement, sauf _initTheme et _initMobileMenu
+// qui sont ré-exportées sur window pour être rappelées par injectNav().
 
 (function () {
-  // ── 2. THEME TOGGLE ──────────────────────────────────────────────────────────
+  // ── 2. THEME TOGGLE ──────────────────────────────────────────────────────
 
-  // Appliquer le thème immédiatement (avant rendu, évite le flash)
+  // Appliquer le thème immédiatement (avant rendu, évite le flash de thème).
+  // On lit d’abord un éventuel data-theme existant, sinon on se base sur le media query système.
   const htmlEl = document.documentElement;
   let theme =
     htmlEl.getAttribute('data-theme') ||
     (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   htmlEl.setAttribute('data-theme', theme);
 
+  /**
+   * Met à jour l’icône et l’aria-label du bouton de thème.
+   * - Choisit un pictogramme soleil/lune en fonction du thème courant.
+   * - Met à jour le libellé ARIA pour annoncer le mode cible.
+   */
   function _updateThemeBtn() {
     const btn = document.querySelector('[data-theme-toggle]');
     if (!btn) return;
@@ -111,13 +133,22 @@ function injectNav(config) {
     );
   }
 
+  /**
+   * Initialise la gestion du thème.
+   * - Met à jour le bouton existant (icône + aria-label).
+   * - Remplace le bouton par un clone pour nettoyer d’éventuels anciens listeners.
+   * - Ajoute un listener click pour basculer dark <-> light.
+   */
   function _initTheme() {
     _updateThemeBtn();
     const btn = document.querySelector('[data-theme-toggle]');
     if (!btn) return;
-    // Cloner pour supprimer les anciens listeners si reinjectée
+
+    // Cloner le bouton pour supprimer proprement les anciens listeners,
+    // ce qui est nécessaire si la nav a été réinjectée.
     const freshBtn = btn.cloneNode(true);
     btn.parentNode.replaceChild(freshBtn, btn);
+
     freshBtn.addEventListener('click', () => {
       theme = theme === 'dark' ? 'light' : 'dark';
       htmlEl.setAttribute('data-theme', theme);
@@ -125,21 +156,32 @@ function injectNav(config) {
     });
   }
 
-  // ── 3. MENU MOBILE ───────────────────────────────────────────────────────────
+  // ── 3. MENU MOBILE ────────────────────────────────────────────────────────
 
+  /**
+   * Initialise le menu mobile.
+   * - Cible le bouton #nav-toggle injecté dans la nav.
+   * - Remplace le bouton par un clone pour nettoyer les vieux listeners.
+   * - Bascule aria-expanded entre true/false à chaque clic.
+   */
   function _initMobileMenu() {
     const toggle = document.getElementById('nav-toggle');
     if (!toggle) return;
+
     const freshToggle = toggle.cloneNode(true);
     toggle.parentNode.replaceChild(freshToggle, toggle);
+
     freshToggle.addEventListener('click', () => {
       const expanded = freshToggle.getAttribute('aria-expanded') === 'true';
       freshToggle.setAttribute('aria-expanded', String(!expanded));
     });
   }
 
-  // ── 4. NAVBAR SCROLLÉE + 5. BOUTON RETOUR EN HAUT ───────────────────────────
+  // ── 4. NAVBAR SCROLLÉE + 5. BOUTON RETOUR EN HAUT ────────────────────────
 
+  // Un seul listener scroll gère à la fois :
+  // - l’état "scrolled" de la nav (fond, ombre, etc.)
+  // - la visibilité du bouton retour en haut (#back-top).
   window.addEventListener(
     'scroll',
     () => {
@@ -151,11 +193,18 @@ function injectNav(config) {
     { passive: true },
   );
 
-  // ── 6. REVEAL ON SCROLL (IntersectionObserver) ───────────────────────────────
+  // ── 6. REVEAL ON SCROLL (IntersectionObserver) ────────────────────────────
 
+  /**
+   * Initialise l’animation d’apparition progressive des éléments .reveal.
+   * - Utilise IntersectionObserver si disponible.
+   * - Ajoute la classe .visible lorsqu’un élément entre dans le viewport.
+   * - Désabonne chaque élément une fois révélé pour éviter le surcoût.
+   */
   function _initReveal() {
     const els = document.querySelectorAll('.reveal');
     if (!els.length || !('IntersectionObserver' in window)) return;
+
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -167,20 +216,22 @@ function injectNav(config) {
       },
       { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
     );
+
     els.forEach((el) => obs.observe(el));
   }
 
   // Init au chargement du DOM
-  // (thème appliqué en haut du script, avant DOMContentLoaded)
+  // (le thème est appliqué le plus tôt possible en haut du script pour éviter les flashs).
   document.addEventListener('DOMContentLoaded', () => {
-    // Si injectNav() n'a pas encore été appelé, on init quand même au cas où
-    // la nav était déjà en dur dans le HTML (rétrocompatibilité)
+    // Si injectNav() n'a pas encore été appelé (ou si la nav est hardcodée),
+    // on initialise tout de même thème, menu mobile et reveal.
     _initTheme();
     _initMobileMenu();
     _initReveal();
   });
 
-  // Exposer les inits pour qu'injectNav() puisse les rappeler
+  // Exposer certaines fonctions pour qu'injectNav() puisse les rappeler
+  // après avoir réinjecté la nav dans le DOM.
   window._initTheme = _initTheme;
   window._initMobileMenu = _initMobileMenu;
 })();

@@ -1,11 +1,16 @@
 /* ==========================================================================
    personnages-carousel.css
-   Carrousel de présentation des personnages — Campagne Fyrentis
-   Univers World Eaters / Warhammer 40K
-   100 % CSS vanilla — aucune dépendance externe
+   Carrousel de présentation des personnages
+   - Conçu pour la campagne Les Bastions d’Olympia
+   - 100 % CSS vanilla — aucune dépendance externe, intégrable dans n’importe quel layout
    ========================================================================== */
 
-/* ── Variables locales (héritent du thème global si disponible) ─────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Variables locales du carrousel
+   - Définissent la palette, les typographies et les dimensions propres au composant
+   - Héritent du thème global (dark/light) lorsqu’un attribut [data-theme] est présent
+   - Permettent de personnaliser facilement l’aspect du carrousel sans toucher au CSS global
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel-section {
   --pc-bg: #0a0607;
   --pc-surface: #110c0d;
@@ -25,7 +30,12 @@
   --pc-transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Light mode overrides */
+/* ───────────────────────────────────────────────────────────────────────────
+   Variante light mode
+   - Adapte la palette de couleurs pour les contextes de thème clair
+   - Conserve les mêmes contrastes et code couleur tout en éclaircissant les fonds
+   - S’active automatiquement lorsque [data-theme="light"] est appliqué sur <html>
+   ─────────────────────────────────────────────────────────────────────────── */
 [data-theme='light'] .perso-carousel-section {
   --pc-bg: #f5ede8;
   --pc-surface: #fffaf7;
@@ -37,7 +47,12 @@
   --pc-red-dim: rgba(139, 28, 28, 0.45);
 }
 
-/* ── Wrapper de section ─────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Wrapper de section
+   - Encapsule tout le carrousel dans un bloc homogène
+   - Pose le fond dédié, le padding inférieur et la gestion du débordement
+   - Peut être intégré dans n’importe quelle section de page sans conflit
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel-section {
   position: relative;
   width: 100%;
@@ -46,7 +61,11 @@
   overflow: hidden;
 }
 
-/* Ligne décorative supérieure */
+/* Ligne décorative supérieure
+   - Fin liseré dégradé qui matérialise visuellement le début du composant
+   - Utilise les variables rouges pour rappeler l’identité sanguine / agressive du thème
+   - Élément purement décoratif, sans impact structurel sur la mise en page
+   */
 .perso-carousel-section::before {
   content: '';
   display: block;
@@ -63,7 +82,11 @@
   margin-bottom: 0;
 }
 
-/* ── Conteneur principal du carrousel ─────────────────────────────────────*/
+/* ───────────────────────────────────────────────────────────────────────────
+   Conteneur principal du carrousel
+   - Centre le bloc et limite sa largeur maximale via --pc-slide-max
+   - Sert aussi de référence pour la gestion du focus et des interactions clavier si besoin
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel {
   position: relative;
   width: 100%;
@@ -72,7 +95,11 @@
   outline: none;
 }
 
-/* ── Zone de glissement (viewport) ─────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Zone de glissement (viewport)
+   - Masque les slides qui sortent du cadre visible grâce à overflow: hidden
+   - Applique un border-radius cohérent avec les cartes et panneaux du site
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__viewport {
   position: relative;
   width: 100%;
@@ -80,7 +107,11 @@
   border-radius: var(--pc-radius);
 }
 
-/* ── Piste de slides ────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Piste de slides
+   - Ensemble des slides disposés en ligne, déplacés via transform: translateX
+   - La transition est pilotée par CSS, la position par le JavaScript du carrousel
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__track {
   display: flex;
   width: 100%;
@@ -88,14 +119,22 @@
   transition: transform var(--pc-transition);
 }
 
-/* Respecte la préférence de réduction de mouvement */
+/* Respect de prefers-reduced-motion
+   - Désactive la transition pour les utilisateurs ayant réduit les animations
+   - Améliore le confort visuel et répond aux bonnes pratiques d’accessibilité
+   */
 @media (prefers-reduced-motion: reduce) {
   .perso-carousel__track {
     transition: none;
   }
 }
 
-/* ── Slide individuel ────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Slide individuel
+   - Chaque slide occupe 100 % de la largeur du viewport
+   - Mise en page en grille : bloc image en haut, bloc texte en bas
+   - Fond, bordure et arrondis alignés sur l’esthétique générale du projet
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__slide {
   flex: 0 0 100%;
   min-width: 0;
@@ -107,7 +146,12 @@
   overflow: hidden;
 }
 
-/* ── Bloc image ─────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Bloc image
+   - Zone dédiée à l’illustration du personnage mis en avant
+   - Hauteur fixe configurable via --pc-img-h pour garder des proportions stables
+   - Fond sombre pour masquer les bandes éventuelles sur les images au ratio atypique
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__img-wrap {
   position: relative;
   width: 100%;
@@ -143,7 +187,10 @@
   opacity: 1;
 }
 
-/* Placeholder quand l'image est absente ou en erreur */
+/* Placeholder quand l’image est absente ou en erreur
+   - Style alternatif pour signaler un visuel manquant ou non chargé
+   - Utilise un filtre colorimétrique pour rester dans l’ambiance du site
+   */
 .perso-carousel__img--missing {
   object-fit: contain;
   opacity: 0.3;
@@ -172,7 +219,12 @@
   stroke: var(--pc-red);
 }
 
-/* ── Corps texte ────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Corps texte
+   - Conteneur vertical pour toutes les informations textuelles du slide
+   - Regroupe faction, nom, titre, ornement et texte de lore
+   - Espacement géré par flexbox pour garder une hiérarchie lisible
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__body {
   padding: 1.5rem 2rem 2rem;
   display: flex;
@@ -180,7 +232,10 @@
   gap: 0.75rem;
 }
 
-/* Étiquette faction */
+/* Étiquette faction
+   - Badge compact indiquant la faction/legion du personnage
+   - Style en petites capitales très espacé pour rappeler le code graphique Warhammer
+   */
 .perso-carousel__faction {
   display: inline-block;
   font-family: var(--pc-font-title);
@@ -196,7 +251,10 @@
   background: rgba(200, 160, 40, 0.06);
 }
 
-/* Nom du personnage */
+/* Nom du personnage
+   - Élément le plus saillant du bloc texte
+   - Utilise clamp() pour rester impactant sur mobile comme sur desktop
+   */
 .perso-carousel__name {
   font-family: var(--pc-font-title);
   font-size: clamp(1.4rem, 4vw, 2rem);
@@ -207,7 +265,10 @@
   margin: 0;
 }
 
-/* Titre / rôle */
+/* Titre / rôle
+   - Ligne secondaire précisant la fonction du personnage dans la légion ou la campagne
+   - Toujours en capitales, couleur rouge pour la dimension martiale
+   */
 .perso-carousel__title {
   font-family: var(--pc-font-title);
   font-size: 0.75rem;
@@ -217,7 +278,10 @@
   margin: 0;
 }
 
-/* Séparateur ornemental */
+/* Séparateur ornemental
+   - Petite ligne décorative avec texte central, sert de respiration visuelle
+   - Renforce le côté relique / sceau propre à l’esthétique Horus Heresy
+   */
 .perso-carousel__ornament {
   display: flex;
   align-items: center;
@@ -246,7 +310,10 @@
   white-space: nowrap;
 }
 
-/* Description / lore */
+/* Description / lore
+   - Paragraphe narratif à la première ou troisième personne
+   - Bordure latérale rouge pour rappeler une note de dossier militaire ou un extrait d’archives
+   */
 .perso-carousel__lore {
   font-family: var(--pc-font-body);
   font-size: 1.05rem;
@@ -257,7 +324,12 @@
   padding-left: 1rem;
 }
 
-/* ── Boutons Précédent / Suivant ─────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Boutons Précédent / Suivant
+   - Positionnés au milieu vertical de l’image pour une navigation intuitive
+   - Effets de survol et d’appui pour indiquer clairement l’interaction
+   - Prévus pour être utilisables à la souris comme au clavier (focus-visible)
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__btn {
   position: absolute;
   top: calc(var(--pc-img-h) / 2);
@@ -316,7 +388,11 @@
   pointer-events: none;
 }
 
-/* ── Pagination (indicateurs numériques) ─────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Pagination (indicateurs)
+   - Petits points cliquables représentant chaque slide disponible
+   - L’état .is-active marque le slide courant par couleur et légère mise en avant
+   ─────────────────────────────────────────────────────────────────────────── */
 .perso-carousel__pagination {
   display: flex;
   align-items: center;
@@ -358,7 +434,10 @@
   outline-offset: 3px;
 }
 
-/* Compteur texte (ex : "2 / 5") */
+/* Compteur texte (ex : "2 / 5")
+   - Fournit une indication textuelle complémentaire au système de points
+   - Utile pour l’accessibilité et pour les joueurs qui préfèrent une information explicite
+   */
 .perso-carousel__counter {
   font-family: var(--pc-font-title);
   font-size: 0.68rem;
@@ -368,7 +447,11 @@
   text-align: center;
 }
 
-/* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
+/* ───────────────────────────────────────────────────────────────────────────
+   Adaptation responsive
+   - Ajuste la hauteur d’image, les paddings et la taille des contrôles sur petits écrans
+   - Maintient l’équilibre entre lisibilité du lore et présence du visuel
+   ─────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .perso-carousel {
     max-width: 100%;
@@ -404,7 +487,10 @@
   }
 }
 
-/* ── Swipe touch (feedback visuel) ─────────────────────────────────────── */
+/* Swipe touch (feedback visuel)
+   - Supprime la transition pendant le glisser pour un ressenti plus direct
+   - Change le curseur pour indiquer la possibilité de drag sur dispositifs pointeurs
+   */
 .perso-carousel__viewport--dragging .perso-carousel__track {
   transition: none;
   cursor: grabbing;
