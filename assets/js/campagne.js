@@ -32,7 +32,7 @@
         tab.setAttribute('aria-selected', 'true');
 
         // Affiche le panneau correspondant à data-tab (id construit côté rendu)
-        const p = document.getElementById('tab-' + tab.dataset.tab);
+        const p = document.getElementById(`tab-${  tab.dataset.tab}`);
         if (p) p.classList.add('active');
       });
     });
@@ -163,7 +163,7 @@
       .then((r) => {
         if (!r.ok) {
           // Gestion d’erreur réseau / HTTP avec message explicite en console
-          throw new Error('Erreur HTTP ' + r.status + ' : ' + r.statusText);
+          throw new Error(`Erreur HTTP ${  r.status  } : ${  r.statusText}`);
         }
         return r.json();
       })

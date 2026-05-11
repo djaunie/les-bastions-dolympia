@@ -35,16 +35,16 @@
       '<div class="perso-carousel__img-wrap">',
       '<img',
       '  class="perso-carousel__img"',
-      '  src="' + (perso.image || '') + '"',
-      '  alt="' + escapeAttr(perso.nom) + '"',
-      '  loading="' + (index === 0 ? 'eager' : 'lazy') + '"',
+      `  src="${  perso.image || ''  }"`,
+      `  alt="${  escapeAttr(perso.nom)  }"`,
+      `  loading="${  index === 0 ? 'eager' : 'lazy'  }"`,
       '  width="860"',
       '  height="420"',
-      '  data-perso-index="' + index + '"',
+      `  data-perso-index="${  index  }"`,
       '>',
-      '<div class="perso-carousel__img-placeholder" aria-hidden="true" style="display:' +
-        (perso.image ? 'none' : 'flex') +
-        '">',
+      `<div class="perso-carousel__img-placeholder" aria-hidden="true" style="display:${ 
+        perso.image ? 'none' : 'flex' 
+        }">`,
       PLACEHOLDER_SVG,
       '<span>Image non disponible</span>',
       '</div>',
@@ -54,13 +54,13 @@
     // Bloc texte (faction, nom, titre, lore)
     const bodyHTML = [
       '<div class="perso-carousel__body">',
-      '<span class="perso-carousel__faction">' +
-        escapeHTML(perso.faction) +
-        '</span>',
-      '<h3 class="perso-carousel__name">' + escapeHTML(perso.nom) + '</h3>',
-      '<p class="perso-carousel__title">' + escapeHTML(perso.titre) + '</p>',
+      `<span class="perso-carousel__faction">${ 
+        escapeHTML(perso.faction) 
+        }</span>`,
+      `<h3 class="perso-carousel__name">${  escapeHTML(perso.nom)  }</h3>`,
+      `<p class="perso-carousel__title">${  escapeHTML(perso.titre)  }</p>`,
       '<div class="perso-carousel__ornament" aria-hidden="true"><span>&#9778; Dossier Inquisitorial &#9778;</span></div>',
-      '<p class="perso-carousel__lore">' + escapeHTML(perso.lore) + '</p>',
+      `<p class="perso-carousel__lore">${  escapeHTML(perso.lore)  }</p>`,
       '</div>',
     ].join('');
 
@@ -70,13 +70,13 @@
       '  class="perso-carousel__slide"',
       '  role="group"',
       '  aria-roledescription="slide"',
-      '  aria-label="' +
-        escapeAttr(perso.nom) +
-        ', ' +
-        (index + 1) +
-        ' sur ' +
-        total +
-        '"',
+      `  aria-label="${ 
+        escapeAttr(perso.nom) 
+        }, ${ 
+        index + 1 
+        } sur ${ 
+        total 
+        }"`,
       '>',
       imgHTML,
       bodyHTML,
@@ -108,11 +108,11 @@
       .map(function (p, i) {
         return [
           '<button',
-          '  class="perso-carousel__dot' + (i === 0 ? ' is-active' : '') + '"',
+          `  class="perso-carousel__dot${  i === 0 ? ' is-active' : ''  }"`,
           '  role="tab"',
-          '  aria-label="' + escapeAttr(p.nom) + '"',
-          '  aria-selected="' + (i === 0 ? 'true' : 'false') + '"',
-          '  data-perso-dot="' + i + '"',
+          `  aria-label="${  escapeAttr(p.nom)  }"`,
+          `  aria-selected="${  i === 0 ? 'true' : 'false'  }"`,
+          `  data-perso-dot="${  i  }"`,
           '></button>',
         ].join('');
       })
@@ -135,9 +135,9 @@
       '<div class="perso-carousel__pagination" role="tablist" aria-label="Navigation des personnages">',
       dotsHTML,
       '</div>',
-      '<p class="perso-carousel__counter" aria-live="polite" aria-atomic="true" id="perso-counter">1 / ' +
-        total +
-        '</p>',
+      `<p class="perso-carousel__counter" aria-live="polite" aria-atomic="true" id="perso-counter">1 / ${ 
+        total 
+        }</p>`,
       '</div>',
     ].join('');
   }
@@ -199,7 +199,7 @@
       current = index;
 
       // Déplacement de la piste
-      track.style.transform = 'translateX(-' + current * 100 + '%)';
+      track.style.transform = `translateX(-${  current * 100  }%)`;
 
       // Mise à jour des points de pagination
       dots.forEach(function (dot, i) {
@@ -209,7 +209,7 @@
       });
 
       // Mise à jour du compteur textuel
-      if (counter) counter.textContent = current + 1 + ' / ' + total;
+      if (counter) counter.textContent = `${current + 1  } / ${  total}`;
 
       // Mise à jour ARIA des slides (aria-hidden)
       slides.forEach(function (slide, i) {
